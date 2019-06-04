@@ -16,7 +16,7 @@ namespace SDP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_menu());
+            Application.Run(new FormMenu());
         }
     }
 }

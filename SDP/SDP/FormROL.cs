@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace SDP
 {
-    public partial class Form_menu : Form
+    public partial class FormROL : Form
     {
-        public Form_menu()
+        public FormROL()
         {
             InitializeComponent();
         }
-
     }
 }

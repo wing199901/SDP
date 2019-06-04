@@ -1,6 +1,6 @@
 ﻿namespace SDP
 {
-    partial class Form_menu
+    partial class FormMenu
     {
         /// <summary>
         /// Required designer variable.

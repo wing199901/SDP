@@ -46,25 +46,79 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormDefective.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDefective.Designer.cs">
+      <DependentUpon>FormDefective.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGenerate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGenerate.Designer.cs">
+      <DependentUpon>FormGenerate.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNewOrder.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormNewOrder.Designer.cs">
       <DependentUpon>FormNewOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_menu.cs">
+    <Compile Include="FormReceive.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_menu.Designer.cs">
-      <DependentUpon>Form_menu.cs</DependentUpon>
+    <Compile Include="FormReceive.Designer.cs">
+      <DependentUpon>FormReceive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormROL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormROL.Designer.cs">
+      <DependentUpon>FormROL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSearchOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearchOrder.Designer.cs">
+      <DependentUpon>FormSearchOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMenu.Designer.cs">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSearchStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearchStock.Designer.cs">
+      <DependentUpon>FormSearchStock.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormDefective.resx">
+      <DependentUpon>FormDefective.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGenerate.resx">
+      <DependentUpon>FormGenerate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewOrder.resx">
       <DependentUpon>FormNewOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_menu.resx">
-      <DependentUpon>Form_menu.cs</DependentUpon>
+    <EmbeddedResource Include="FormMenu.resx">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReceive.resx">
+      <DependentUpon>FormReceive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormROL.resx">
+      <DependentUpon>FormROL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSearchOrder.resx">
+      <DependentUpon>FormSearchOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSearchStock.resx">
+      <DependentUpon>FormSearchStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
