@@ -1,6 +1,6 @@
 ﻿namespace SDP
 {
-    partial class Form_menu
+    partial class FormNewOrder
     {
         /// <summary>
         /// Required designer variable.
@@ -131,7 +131,7 @@
             this.lblCompany.TabIndex = 144;
             this.lblCompany.Text = "Smart && Luxury Motor Company (Spares)";
             // 
-            // Form_menu
+            // FormNewOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -146,8 +146,8 @@
             this.Controls.Add(this.btnNewOrder);
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.lblCompany);
-            this.Name = "Form_menu";
-            this.Text = "Meun";
+            this.Name = "FormNewOrder";
+            this.Text = "New order";
             this.ResumeLayout(false);
             this.PerformLayout();
 
