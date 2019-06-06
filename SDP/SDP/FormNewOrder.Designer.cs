@@ -51,7 +51,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.tpDelivery = new System.Windows.Forms.DateTimePicker();
+            this.dtpDelivery = new System.Windows.Forms.DateTimePicker();
             this.txtKeyword = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -268,12 +268,12 @@
             this.label14.TabIndex = 167;
             this.label14.Text = "Delivery day:";
             // 
-            // tpDelivery
+            // dtpDelivery
             // 
-            this.tpDelivery.Location = new System.Drawing.Point(626, 69);
-            this.tpDelivery.Name = "tpDelivery";
-            this.tpDelivery.Size = new System.Drawing.Size(200, 22);
-            this.tpDelivery.TabIndex = 166;
+            this.dtpDelivery.Location = new System.Drawing.Point(626, 69);
+            this.dtpDelivery.Name = "dtpDelivery";
+            this.dtpDelivery.Size = new System.Drawing.Size(200, 22);
+            this.dtpDelivery.TabIndex = 166;
             // 
             // txtKeyword
             // 
@@ -437,7 +437,7 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.tpDelivery);
+            this.Controls.Add(this.dtpDelivery);
             this.Controls.Add(this.txtDate);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.label16);
@@ -493,7 +493,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.DateTimePicker tpDelivery;
+        private System.Windows.Forms.DateTimePicker dtpDelivery;
         private System.Windows.Forms.TextBox txtKeyword;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;

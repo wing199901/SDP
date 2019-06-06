@@ -33,7 +33,11 @@ namespace SDP
 
         private void FormNewOrder_Load(object sender, EventArgs e)
         {
-            
+            txtDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
+
+            dtpDelivery.Format = DateTimePickerFormat.Custom;
+            dtpDelivery.CustomFormat = "dd/MM/yyyy";
+            dtpDelivery.MinDate = DateTime.Today.AddDays(1);
         }
 
         private void TxtRemark_Enter(object sender, EventArgs e)
