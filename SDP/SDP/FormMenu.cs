@@ -40,5 +40,23 @@ namespace SDP
             Form stock = new FormSearchStock();
             stock.ShowDialog();
         }
+
+        private void BtnGoods_Click(object sender, EventArgs e)
+        {
+            Form good = new FormReceive();
+            good.ShowDialog();
+        }
+
+        private void BtnGenReport_Click(object sender, EventArgs e)
+        {
+            Form report = new FormGenerate();
+            report.ShowDialog();
+        }
+
+        private void BtnROL_Click(object sender, EventArgs e)
+        {
+            Form rol = new FormROL();
+            rol.ShowDialog();
+        }
     }
 }

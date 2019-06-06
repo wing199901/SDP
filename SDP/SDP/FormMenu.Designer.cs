@@ -47,6 +47,7 @@
             this.btnROL.TabIndex = 153;
             this.btnROL.Text = "Correct ROL";
             this.btnROL.UseVisualStyleBackColor = true;
+            this.btnROL.Click += new System.EventHandler(this.BtnROL_Click);
             // 
             // btnGoods
             // 
@@ -56,6 +57,7 @@
             this.btnGoods.TabIndex = 152;
             this.btnGoods.Text = "Receive Goods";
             this.btnGoods.UseVisualStyleBackColor = true;
+            this.btnGoods.Click += new System.EventHandler(this.BtnGoods_Click);
             // 
             // btnGenReport
             // 
@@ -65,6 +67,7 @@
             this.btnGenReport.TabIndex = 151;
             this.btnGenReport.Text = "Generate Report";
             this.btnGenReport.UseVisualStyleBackColor = true;
+            this.btnGenReport.Click += new System.EventHandler(this.BtnGenReport_Click);
             // 
             // btnDefective
             // 
