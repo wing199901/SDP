@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +16,42 @@ namespace SDP
         public FormNewOrder()
         {
             InitializeComponent();
+        }
+
+        private void ChoShipAddr_Click(object sender, EventArgs e)
+        {
+            switch (choShipAddr.CheckState)
+            {
+                case CheckState.Checked:
+                    txtShipAddr.Text = txtAddr.Text;
+                    break;
+                case CheckState.Unchecked:
+                    txtShipAddr.Text = "";
+                    break;
+            }
+        }
+
+        private void FormNewOrder_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void TxtRemark_Enter(object sender, EventArgs e)
+        {
+            if (txtRemark.Text == "Remark")
+            {
+                txtRemark.Text = "";
+                txtRemark.ForeColor = Color.Black;
+            }
+        }
+
+        private void TxtRemark_Leave(object sender, EventArgs e)
+        {
+            if (txtRemark.Text == "")
+            {
+                txtRemark.Text = "Remark";
+                txtRemark.ForeColor = Color.Silver;
+            }
         }
     }
 }
