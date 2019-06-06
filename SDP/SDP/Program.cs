@@ -16,7 +16,7 @@ namespace SDP
         [STAThread]
         static void Main()
         {
-            string dbHost = "192.168.64.2";
+            string dbHost = "192.168.65.2";
             string dbUser = "user";
             string dbPass = "user";
             string dbName = "dbOPSRS";
@@ -27,6 +27,8 @@ namespace SDP
             try
             {
                 conn.Open();
+                String sql = "select * from staff";
+                MySqlCommand c = new MySqlCommand(sql, conn);
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
@@ -40,9 +42,6 @@ namespace SDP
                         break;
                 }
             }
-
-
-
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
