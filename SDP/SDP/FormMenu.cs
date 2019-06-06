@@ -17,5 +17,10 @@ namespace SDP
             InitializeComponent();
         }
 
+        private void BtnNewOrder_Click(object sender, EventArgs e)
+        {
+            Form newOrder = new FormNewOrder();
+            newOrder.ShowDialog();
+        }
     }
 }

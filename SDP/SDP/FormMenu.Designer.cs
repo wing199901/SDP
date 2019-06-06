@@ -36,13 +36,12 @@
             this.btnStock = new System.Windows.Forms.Button();
             this.btnSearchOrder = new System.Windows.Forms.Button();
             this.btnNewOrder = new System.Windows.Forms.Button();
-            this.btnMenu = new System.Windows.Forms.Button();
             this.lblCompany = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnROL
             // 
-            this.btnROL.Location = new System.Drawing.Point(26, 343);
+            this.btnROL.Location = new System.Drawing.Point(26, 324);
             this.btnROL.Name = "btnROL";
             this.btnROL.Size = new System.Drawing.Size(93, 23);
             this.btnROL.TabIndex = 153;
@@ -51,7 +50,7 @@
             // 
             // btnGoods
             // 
-            this.btnGoods.Location = new System.Drawing.Point(26, 251);
+            this.btnGoods.Location = new System.Drawing.Point(26, 232);
             this.btnGoods.Name = "btnGoods";
             this.btnGoods.Size = new System.Drawing.Size(93, 23);
             this.btnGoods.TabIndex = 152;
@@ -60,7 +59,7 @@
             // 
             // btnGenReport
             // 
-            this.btnGenReport.Location = new System.Drawing.Point(26, 297);
+            this.btnGenReport.Location = new System.Drawing.Point(26, 278);
             this.btnGenReport.Name = "btnGenReport";
             this.btnGenReport.Size = new System.Drawing.Size(93, 23);
             this.btnGenReport.TabIndex = 151;
@@ -69,7 +68,7 @@
             // 
             // btnDefective
             // 
-            this.btnDefective.Location = new System.Drawing.Point(26, 159);
+            this.btnDefective.Location = new System.Drawing.Point(26, 140);
             this.btnDefective.Name = "btnDefective";
             this.btnDefective.Size = new System.Drawing.Size(93, 23);
             this.btnDefective.TabIndex = 150;
@@ -78,7 +77,7 @@
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(26, 389);
+            this.btnLogout.Location = new System.Drawing.Point(26, 370);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(93, 23);
             this.btnLogout.TabIndex = 149;
@@ -87,7 +86,7 @@
             // 
             // btnStock
             // 
-            this.btnStock.Location = new System.Drawing.Point(26, 205);
+            this.btnStock.Location = new System.Drawing.Point(26, 186);
             this.btnStock.Name = "btnStock";
             this.btnStock.Size = new System.Drawing.Size(93, 23);
             this.btnStock.TabIndex = 148;
@@ -96,7 +95,7 @@
             // 
             // btnSearchOrder
             // 
-            this.btnSearchOrder.Location = new System.Drawing.Point(26, 113);
+            this.btnSearchOrder.Location = new System.Drawing.Point(26, 94);
             this.btnSearchOrder.Name = "btnSearchOrder";
             this.btnSearchOrder.Size = new System.Drawing.Size(93, 23);
             this.btnSearchOrder.TabIndex = 147;
@@ -105,21 +104,13 @@
             // 
             // btnNewOrder
             // 
-            this.btnNewOrder.Location = new System.Drawing.Point(26, 67);
+            this.btnNewOrder.Location = new System.Drawing.Point(26, 48);
             this.btnNewOrder.Name = "btnNewOrder";
             this.btnNewOrder.Size = new System.Drawing.Size(93, 23);
             this.btnNewOrder.TabIndex = 146;
             this.btnNewOrder.Text = "New Order";
             this.btnNewOrder.UseVisualStyleBackColor = true;
-            // 
-            // btnMenu
-            // 
-            this.btnMenu.Location = new System.Drawing.Point(26, 21);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(93, 23);
-            this.btnMenu.TabIndex = 145;
-            this.btnMenu.Text = "Main Menu";
-            this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnNewOrder.Click += new System.EventHandler(this.BtnNewOrder_Click);
             // 
             // lblCompany
             // 
@@ -131,7 +122,7 @@
             this.lblCompany.TabIndex = 144;
             this.lblCompany.Text = "Smart && Luxury Motor Company (Spares)";
             // 
-            // Form_menu
+            // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -144,9 +135,8 @@
             this.Controls.Add(this.btnStock);
             this.Controls.Add(this.btnSearchOrder);
             this.Controls.Add(this.btnNewOrder);
-            this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.lblCompany);
-            this.Name = "Form_menu";
+            this.Name = "FormMenu";
             this.Text = "Meun";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -163,7 +153,6 @@
         private System.Windows.Forms.Button btnStock;
         private System.Windows.Forms.Button btnSearchOrder;
         private System.Windows.Forms.Button btnNewOrder;
-        private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.Label lblCompany;
     }
 }
