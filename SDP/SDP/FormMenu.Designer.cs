@@ -74,6 +74,7 @@
             this.btnDefective.TabIndex = 150;
             this.btnDefective.Text = "Report Defective";
             this.btnDefective.UseVisualStyleBackColor = true;
+            this.btnDefective.Click += new System.EventHandler(this.BtnDefective_Click);
             // 
             // btnLogout
             // 
@@ -92,6 +93,7 @@
             this.btnStock.TabIndex = 148;
             this.btnStock.Text = "Search Stock";
             this.btnStock.UseVisualStyleBackColor = true;
+            this.btnStock.Click += new System.EventHandler(this.BtnStock_Click);
             // 
             // btnSearchOrder
             // 
@@ -101,6 +103,7 @@
             this.btnSearchOrder.TabIndex = 147;
             this.btnSearchOrder.Text = "Search Order";
             this.btnSearchOrder.UseVisualStyleBackColor = true;
+            this.btnSearchOrder.Click += new System.EventHandler(this.BtnSearchOrder_Click);
             // 
             // btnNewOrder
             // 
