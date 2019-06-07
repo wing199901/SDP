@@ -13,8 +13,8 @@ namespace SDP
 {
     public partial class FormLogin : Form
     {
-        public String userName = "";
-        public String password = "";
+        private static String userName = "";
+        private static String password = "";
 
         public FormLogin()
         {
@@ -47,14 +47,14 @@ namespace SDP
 
                 if (txtUserName.Text.ToString() == userName)
                 {
-                    sql = String.Format("select staffpwd from staff where staffpwd ={0}", txtPassword.Text);
+                    sql = String.Format("select staffpwd from staff where staffpwd ='{0}'", txtPassword.Text);
                     cmd = Program.Logindb(sql);
                     data = cmd.ExecuteReader();
 
                     while (data.Read())
                     {
                         password = data[0].ToString();
-                        Console.WriteLine(password);
+                        //Console.WriteLine(password);
                     }
 
                     if (txtPassword.Text.ToString() == password)
@@ -75,6 +75,11 @@ namespace SDP
                                     MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 }
             }
+        }
+
+        public static String getUserName()
+        {
+            return userName;
         }
     }
 }

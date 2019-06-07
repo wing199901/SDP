@@ -41,7 +41,7 @@ namespace SDP
             dtpDelivery.CustomFormat = "dd/MM/yyyy";
             dtpDelivery.MinDate = DateTime.Today.AddDays(1);
 
-            MySqlCommand cmd = Program.Logindb("select * from staff");
+            /*MySqlCommand cmd = Program.Logindb("select * from staff");
             MySqlDataReader data = cmd.ExecuteReader();
             Console.WriteLine("是否查到資料:{0}", data.HasRows);
             Console.WriteLine("欄位數:{0}", data.FieldCount);
@@ -55,7 +55,9 @@ namespace SDP
                 //以欄位名稱取得資料並列出
                 Console.WriteLine("Staff id={0} , Staff name={1}, Staff position={2},Staff password={3}", data[0], data[1],data[2],data[3]);
             }
-            data.Close();
+            data.Close();*/
+
+            txtId.Text = FormLogin.getUserName();
         }
 
         private void TxtRemark_Enter(object sender, EventArgs e)
