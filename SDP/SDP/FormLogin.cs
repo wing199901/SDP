@@ -54,7 +54,7 @@ namespace SDP
                     while (data.Read())
                     {
                         password = data[0].ToString();
-                        Console.WriteLine(password);
+                        //Console.WriteLine(password);
                     }
 
                     if (txtPassword.Text.ToString() == password)

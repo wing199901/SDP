@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -57,6 +58,21 @@ namespace SDP
         {
             Form rol = new FormROL();
             rol.ShowDialog();
+        }
+
+        private void FormMenu_Load(object sender, EventArgs e)
+        {
+            String sql = String.Format("select staffName from staff where staffId ={0}", FormLogin.getUserName());
+            MySqlCommand cmd = Program.Logindb(sql);
+            MySqlDataReader data = cmd.ExecuteReader();
+            String name = "";
+
+            while (data.Read())
+            {
+                name = data[0].ToString();
+            }
+
+            lblWelcome.Text += name;
         }
     }
 }
