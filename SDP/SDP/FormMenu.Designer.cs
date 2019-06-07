@@ -88,6 +88,7 @@
             this.btnLogout.TabIndex = 149;
             this.btnLogout.Text = "Log Out";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.BtnLogout_Click);
             // 
             // btnStock
             // 
@@ -155,6 +156,7 @@
             this.Controls.Add(this.lblCompany);
             this.Name = "FormMenu";
             this.Text = "Menu";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMenu_FormClosing);
             this.Load += new System.EventHandler(this.FormMenu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
