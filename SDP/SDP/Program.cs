@@ -16,6 +16,13 @@ namespace SDP
         [STAThread]
         static void Main()
         {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new FormMenu());
+        }
+
+        public static MySqlCommand Logindb(String sql)
+        {
             string dbHost = "192.168.65.2";
             string dbUser = "user";
             string dbPass = "user";
@@ -23,12 +30,11 @@ namespace SDP
 
             string connStr = "server=" + dbHost + ";uid=" + dbUser + ";pwd=" + dbPass + ";database=" + dbName;
             MySqlConnection conn = new MySqlConnection(connStr);
-
+            MySqlCommand cmd = null;
             try
             {
                 conn.Open();
-                String sql = "select * from staff";
-                MySqlCommand c = new MySqlCommand(sql, conn);
+                cmd = new MySqlCommand(sql, conn);
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
@@ -42,10 +48,7 @@ namespace SDP
                         break;
                 }
             }
-
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMenu());
+            return cmd;
         }
     }
 }
