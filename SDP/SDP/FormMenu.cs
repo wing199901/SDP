@@ -13,14 +13,22 @@ namespace SDP
 {
     public partial class FormMenu : Form
     {
-        public FormMenu()
+        private String userName = "";
+        public String UserName
+        {
+            get { return userName; }
+            set { userName = value; }
+        }
+
+        public FormMenu(String username)
         {
             InitializeComponent();
+            UserName = username;
         }
 
         private void BtnNewOrder_Click(object sender, EventArgs e)
         {
-            Form newOrder = new FormNewOrder();
+            Form newOrder = new FormNewOrder(UserName);
             newOrder.ShowDialog();
         }
 
@@ -62,7 +70,8 @@ namespace SDP
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
-            String sql = String.Format("select staffName from staff where staffId ={0}", FormLogin.getUserName());
+
+            String sql = String.Format("select staffName from staff where staffId ={0}", UserName);
             MySqlCommand cmd = Program.Logindb(sql);
             MySqlDataReader data = cmd.ExecuteReader();
             String name = "";
@@ -73,6 +82,26 @@ namespace SDP
             }
 
             lblWelcome.Text += name;
+        }
+
+
+
+        private void FormMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you want to exit?", "Waiting", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+
+            e.Cancel = (result == DialogResult.No);
+
+        }
+
+        private void BtnLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you want to log out?", "Waiting", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

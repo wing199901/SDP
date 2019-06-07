@@ -13,8 +13,23 @@ namespace SDP
 {
     public partial class FormLogin : Form
     {
-        private static String userName = "";
-        private static String password = "";
+        private String userName = "";
+        public String UserName
+        {
+            get { return userName; }
+            set { userName = value; }
+        }
+        private String password = "";
+        public String Password
+        {
+            get { return password; }
+            set { password = value; }
+        }
+        private FormMenu menu
+        {
+            get;
+            set;
+        }
 
         public FormLogin()
         {
@@ -24,7 +39,7 @@ namespace SDP
 
             this.CancelButton = this.btnCancel;
 
-
+            
         }
 
         private void BtnOK_Click(object sender, EventArgs e)
@@ -42,10 +57,10 @@ namespace SDP
 
                 while (data.Read())
                 {
-                    userName = data[0].ToString();
+                    UserName = data[0].ToString();
                 }
 
-                if (txtUserName.Text.ToString() == userName)
+                if (txtUserName.Text.ToString() == UserName)
                 {
                     sql = String.Format("select staffpwd from staff where staffpwd ='{0}'", txtPassword.Text);
                     cmd = Program.Logindb(sql);
@@ -53,15 +68,16 @@ namespace SDP
 
                     while (data.Read())
                     {
-                        password = data[0].ToString();
+                        Password = data[0].ToString();
                         //Console.WriteLine(password);
                     }
 
-                    if (txtPassword.Text.ToString() == password)
+                    if (txtPassword.Text.ToString() == Password)
                     {
-                        Form menu = new FormMenu();
-                        menu.Show();
                         this.Hide();
+                        Form menu = new FormMenu(UserName);
+                        menu.ShowDialog();
+                        this.Show();
                     }
                     else
                     {
@@ -77,9 +93,11 @@ namespace SDP
             }
         }
 
-        public static String getUserName()
+        private void BtnCancel_Click(object sender, EventArgs e)
         {
-            return userName;
+            this.Close();
         }
+
+        
     }
 }
