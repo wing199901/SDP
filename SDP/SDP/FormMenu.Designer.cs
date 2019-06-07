@@ -121,7 +121,7 @@
             // lblCompany
             // 
             this.lblCompany.AutoSize = true;
-            this.lblCompany.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblCompany.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblCompany.Location = new System.Drawing.Point(414, 396);
             this.lblCompany.Name = "lblCompany";
             this.lblCompany.Size = new System.Drawing.Size(399, 24);
@@ -143,7 +143,7 @@
             this.Controls.Add(this.btnNewOrder);
             this.Controls.Add(this.lblCompany);
             this.Name = "FormMenu";
-            this.Text = "Meun";
+            this.Text = "Menu";
             this.ResumeLayout(false);
             this.PerformLayout();
 
