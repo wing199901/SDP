@@ -56,6 +56,8 @@ namespace SDP
                 Console.WriteLine("Staff id={0} , Staff name={1}, Staff position={2},Staff password={3}", data[0], data[1],data[2],data[3]);
             }
             data.Close();
+
+            txtId.Text = FormLogin.getUserName();
         }
 
         private void TxtRemark_Enter(object sender, EventArgs e)
