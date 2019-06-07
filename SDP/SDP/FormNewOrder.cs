@@ -49,6 +49,13 @@ namespace SDP
             {
                 Console.WriteLine("欄位 {0} 的名稱為 {1} ; 資料型態為 {2}", i, data.GetName(i), data.GetDataTypeName(i));
             }
+            while (data.Read())
+            {
+
+                //以欄位名稱取得資料並列出
+                Console.WriteLine("Staff id={0} , Staff name={1}, Staff position={2},Staff password={3}", data[0], data[1],data[2],data[3]);
+            }
+            data.Close();
         }
 
         private void TxtRemark_Enter(object sender, EventArgs e)
