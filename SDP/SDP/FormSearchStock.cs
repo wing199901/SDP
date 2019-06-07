@@ -20,23 +20,10 @@ namespace SDP
 
         private void FormSearchStock_Load(object sender, EventArgs e)
         {
-            ConnectData();
+            MySqlCommand cmd = Program.Logindb("select * from ?");
+            MySqlDataReader data = cmd.ExecuteReader();
         }
 
-        private void ConnectData()
-        {
-            DataTable dt = new DataTable();
-            {
-                String sql = String.Format("select * from product", dgvProduct.DataSource);
-                MySqlCommand cmd = Program.Logindb(sql);
-                MySqlDataReader data = cmd.ExecuteReader();
-                dt.Load(data);
-
-                if (dt.Rows.Count > 0)
-                {
-                    dgvProduct.DataSource = dt;
-                }
-            }
-        }
+       
     }
 }

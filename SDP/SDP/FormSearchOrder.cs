@@ -16,5 +16,10 @@ namespace SDP
         {
             InitializeComponent();
         }
+
+        private void FormSearchOrder_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

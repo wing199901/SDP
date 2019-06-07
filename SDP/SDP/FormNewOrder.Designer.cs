@@ -64,7 +64,7 @@
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.txtRemark = new System.Windows.Forms.TextBox();
             this.txtResult = new System.Windows.Forms.TextBox();
@@ -375,14 +375,15 @@
             this.label17.TabIndex = 181;
             this.label17.Text = "Remark:";
             // 
-            // button8
+            // btnCancel
             // 
-            this.button8.Location = new System.Drawing.Point(101, 475);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 183;
-            this.button8.Text = "Cancel";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnCancel.Location = new System.Drawing.Point(101, 475);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 183;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // button7
             // 
@@ -421,7 +422,7 @@
             this.ClientSize = new System.Drawing.Size(838, 541);
             this.Controls.Add(this.txtResult);
             this.Controls.Add(this.txtRemark);
-            this.Controls.Add(this.button8);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.txtAmount);
@@ -504,7 +505,7 @@
         private System.Windows.Forms.TextBox txtAmount;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.TextBox txtRemark;
         private System.Windows.Forms.TextBox txtResult;

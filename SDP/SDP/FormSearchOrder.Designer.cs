@@ -49,6 +49,7 @@
             this.Controls.Add(this.lblCompany);
             this.Name = "FormSearchOrder";
             this.Text = "Search order";
+            this.Load += new System.EventHandler(this.FormSearchOrder_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

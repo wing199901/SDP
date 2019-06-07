@@ -25,11 +25,7 @@ namespace SDP
             get { return password; }
             set { password = value; }
         }
-        private FormMenu menu
-        {
-            get;
-            set;
-        }
+
 
         public FormLogin()
         {
@@ -39,7 +35,7 @@ namespace SDP
 
             this.CancelButton = this.btnCancel;
 
-            
+
         }
 
         private void BtnOK_Click(object sender, EventArgs e)
@@ -52,19 +48,33 @@ namespace SDP
             else
             {
                 String sql = String.Format("select staffId from staff where staffId ={0}", txtUserName.Text);
-                MySqlCommand cmd = Program.Logindb(sql);
-                MySqlDataReader data = cmd.ExecuteReader();
-
-                while (data.Read())
+                MySqlCommand cmd;
+                MySqlDataReader data = null;
+                try
                 {
-                    UserName = data[0].ToString();
+                    cmd = Program.Logindb(sql);
+                    data = cmd.ExecuteReader();
+                    while (data.Read())
+                    {
+                        UserName = data[0].ToString();
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("No server connected! Try again later.", "Error", MessageBoxButtons.OKCancel,
+                                    MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                    System.Windows.Forms.Application.Exit();
                 }
 
                 if (txtUserName.Text.ToString() == UserName)
                 {
                     sql = String.Format("select staffpwd from staff where staffpwd ='{0}'", txtPassword.Text);
+
                     cmd = Program.Logindb(sql);
                     data = cmd.ExecuteReader();
+
+
+
 
                     while (data.Read())
                     {
@@ -77,6 +87,8 @@ namespace SDP
                         this.Hide();
                         Form menu = new FormMenu(UserName);
                         menu.ShowDialog();
+                        //After Form Menu Closed.
+                        clear();
                         this.Show();
                     }
                     else
@@ -98,6 +110,12 @@ namespace SDP
             this.Close();
         }
 
-        
+        public void clear()
+        {
+            UserName = "";
+            Password = "";
+            txtUserName.Text = "";
+            txtPassword.Text = "";
+        }
     }
 }

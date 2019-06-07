@@ -15,9 +15,16 @@ namespace SDP
 {
     public partial class FormNewOrder : Form
     {
-        public FormNewOrder()
+        private String userName = "";
+        public String UserName
+        {
+            get { return userName; }
+            set { userName = value; }
+        }
+        public FormNewOrder(String username)
         {
             InitializeComponent();
+            UserName = username;
         }
 
         private void ChoShipAddr_Click(object sender, EventArgs e)
@@ -57,7 +64,7 @@ namespace SDP
             }
             data.Close();*/
 
-            txtId.Text = FormLogin.getUserName();
+            txtId.Text = UserName;
         }
 
         private void TxtRemark_Enter(object sender, EventArgs e)
@@ -76,6 +83,11 @@ namespace SDP
                 txtRemark.Text = "Remark";
                 txtRemark.ForeColor = Color.Silver;
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
