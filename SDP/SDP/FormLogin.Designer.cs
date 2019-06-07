@@ -33,7 +33,7 @@
             this.lblPassword = new System.Windows.Forms.Label();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.btnOk = new System.Windows.Forms.Button();
+            this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -79,14 +79,15 @@
             this.txtPassword.Size = new System.Drawing.Size(250, 22);
             this.txtPassword.TabIndex = 149;
             // 
-            // btnOk
+            // btnOK
             // 
-            this.btnOk.Location = new System.Drawing.Point(86, 198);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(75, 23);
-            this.btnOk.TabIndex = 150;
-            this.btnOk.Text = "OK";
-            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOK.Location = new System.Drawing.Point(86, 198);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.TabIndex = 150;
+            this.btnOK.Text = "OK";
+            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.BtnOK_Click);
             // 
             // btnCancel
             // 
@@ -103,7 +104,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(404, 233);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnOk);
+            this.Controls.Add(this.btnOK);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.lblPassword);
@@ -123,7 +124,7 @@
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
     }
 }
