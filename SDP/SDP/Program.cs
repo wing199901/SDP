@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 
 namespace SDP
 {
@@ -17,6 +19,36 @@ namespace SDP
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormMenu());
+        }
+
+        public static MySqlCommand Logindb(String sql)
+        {
+            string dbHost = "192.168.65.2";
+            string dbUser = "user";
+            string dbPass = "user";
+            string dbName = "dbOPSRS";
+
+            string connStr = "server=" + dbHost + ";uid=" + dbUser + ";pwd=" + dbPass + ";database=" + dbName;
+            MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlCommand cmd = null;
+            try
+            {
+                conn.Open();
+                cmd = new MySqlCommand(sql, conn);
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                switch (ex.Number)
+                {
+                    case 0:
+                        Console.WriteLine("無法連線到資料庫.");
+                        break;
+                    case 1045:
+                        Console.WriteLine("使用者帳號或密碼錯誤,請再試一次.");
+                        break;
+                }
+            }
+            return cmd;
         }
     }
 }

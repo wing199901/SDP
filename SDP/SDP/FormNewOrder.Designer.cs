@@ -51,7 +51,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.tpDelivery = new System.Windows.Forms.DateTimePicker();
+            this.dtpDelivery = new System.Windows.Forms.DateTimePicker();
             this.txtKeyword = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -61,14 +61,13 @@
             this.txtSku = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.txtRemark = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.txtResult = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblCompany
@@ -268,12 +267,12 @@
             this.label14.TabIndex = 167;
             this.label14.Text = "Delivery day:";
             // 
-            // tpDelivery
+            // dtpDelivery
             // 
-            this.tpDelivery.Location = new System.Drawing.Point(626, 69);
-            this.tpDelivery.Name = "tpDelivery";
-            this.tpDelivery.Size = new System.Drawing.Size(200, 22);
-            this.tpDelivery.TabIndex = 166;
+            this.dtpDelivery.Location = new System.Drawing.Point(626, 69);
+            this.dtpDelivery.Name = "dtpDelivery";
+            this.dtpDelivery.Size = new System.Drawing.Size(200, 22);
+            this.dtpDelivery.TabIndex = 166;
             // 
             // txtKeyword
             // 
@@ -350,15 +349,6 @@
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 239);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(806, 132);
-            this.dataGridView1.TabIndex = 177;
-            // 
             // txtAmount
             // 
             this.txtAmount.Location = new System.Drawing.Point(626, 377);
@@ -415,18 +405,27 @@
             this.txtRemark.Enter += new System.EventHandler(this.TxtRemark_Enter);
             this.txtRemark.Leave += new System.EventHandler(this.TxtRemark_Leave);
             // 
+            // txtResult
+            // 
+            this.txtResult.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtResult.Location = new System.Drawing.Point(20, 239);
+            this.txtResult.Multiline = true;
+            this.txtResult.Name = "txtResult";
+            this.txtResult.Size = new System.Drawing.Size(806, 132);
+            this.txtResult.TabIndex = 185;
+            // 
             // FormNewOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 541);
+            this.Controls.Add(this.txtResult);
             this.Controls.Add(this.txtRemark);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.txtAmount);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtKeyword);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -437,7 +436,7 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.tpDelivery);
+            this.Controls.Add(this.dtpDelivery);
             this.Controls.Add(this.txtDate);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.label16);
@@ -463,7 +462,6 @@
             this.Name = "FormNewOrder";
             this.Text = "New order";
             this.Load += new System.EventHandler(this.FormNewOrder_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -493,7 +491,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.DateTimePicker tpDelivery;
+        private System.Windows.Forms.DateTimePicker dtpDelivery;
         private System.Windows.Forms.TextBox txtKeyword;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
@@ -503,12 +501,12 @@
         private System.Windows.Forms.TextBox txtSku;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox txtAmount;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.TextBox txtRemark;
+        private System.Windows.Forms.TextBox txtResult;
     }
 }
