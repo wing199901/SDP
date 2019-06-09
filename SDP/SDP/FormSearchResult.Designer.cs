@@ -67,6 +67,7 @@
             this.btnSearch.TabIndex = 187;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // FormSearchResult
             // 
