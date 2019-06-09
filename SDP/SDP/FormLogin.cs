@@ -68,7 +68,7 @@ namespace SDP
 
                 if (txtUserName.Text.ToString() == UserName)
                 {
-                    sql = String.Format("select staffpwd from staff where staffpwd ='{0}'", txtPassword.Text);
+                    sql = String.Format("select staffpwd from staff where pwd ='{0}'", txtPassword.Text);
 
                     cmd = Program.Logindb(sql);
                     data = cmd.ExecuteReader();
