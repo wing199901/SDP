@@ -91,7 +91,7 @@ namespace SDP
             DialogResult result = MessageBox.Show("Are you want to exit?", "Waiting", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
 
             e.Cancel = (result == DialogResult.No);
-            System.Windows.Forms.Application.Exit();
+
         }
 
         private void BtnLogout_Click(object sender, EventArgs e)
