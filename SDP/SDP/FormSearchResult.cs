@@ -12,7 +12,7 @@ namespace SDP
 {
     public partial class FormSearchResult : Form
     {
-        public FormSearchResult()
+        public FormSearchResult(String keyword)
         {
             InitializeComponent();
         }

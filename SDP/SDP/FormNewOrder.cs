@@ -89,5 +89,12 @@ namespace SDP
         {
             this.Close();
         }
+
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            String keyword = txtKeyword.Text;
+            Form searchResult = new FormSearchResult(keyword);
+            searchResult.Show();
+        }
     }
 }

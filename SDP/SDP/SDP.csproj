@@ -137,6 +137,9 @@
     <EmbeddedResource Include="FormSearchOrder.resx">
       <DependentUpon>FormSearchOrder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSearchResult.resx">
+      <DependentUpon>FormSearchResult.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSearchStock.resx">
       <DependentUpon>FormSearchStock.cs</DependentUpon>
     </EmbeddedResource>

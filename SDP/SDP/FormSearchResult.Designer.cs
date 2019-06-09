@@ -28,12 +28,67 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.txtResult = new System.Windows.Forms.TextBox();
+            this.txtKeyword = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // txtResult
+            // 
+            this.txtResult.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtResult.Location = new System.Drawing.Point(16, 154);
+            this.txtResult.Multiline = true;
+            this.txtResult.Name = "txtResult";
+            this.txtResult.Size = new System.Drawing.Size(806, 132);
+            this.txtResult.TabIndex = 186;
+            // 
+            // txtKeyword
+            // 
+            this.txtKeyword.Location = new System.Drawing.Point(120, 292);
+            this.txtKeyword.Name = "txtKeyword";
+            this.txtKeyword.Size = new System.Drawing.Size(200, 22);
+            this.txtKeyword.TabIndex = 189;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(17, 295);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(51, 12);
+            this.label10.TabIndex = 188;
+            this.label10.Text = "Keyword:";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(120, 320);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 187;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
+            // FormSearchResult
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(838, 441);
+            this.Controls.Add(this.txtKeyword);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.txtResult);
+            this.Name = "FormSearchResult";
             this.Text = "FormSearchResult";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox txtResult;
+        private System.Windows.Forms.TextBox txtKeyword;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button btnSearch;
     }
 }
