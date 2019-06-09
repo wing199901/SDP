@@ -99,6 +99,12 @@
     <Compile Include="FormMenu.Designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSearchResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearchResult.Designer.cs">
+      <DependentUpon>FormSearchResult.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSearchStock.cs">
       <SubType>Form</SubType>
     </Compile>

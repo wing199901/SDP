@@ -110,7 +110,7 @@
             this.cboStatus.FormattingEnabled = true;
             this.cboStatus.Items.AddRange(new object[] {
             "Creation",
-            "Hold"});
+            "Reservation"});
             this.cboStatus.Location = new System.Drawing.Point(121, 40);
             this.cboStatus.Name = "cboStatus";
             this.cboStatus.Size = new System.Drawing.Size(200, 20);
