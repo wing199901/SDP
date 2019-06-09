@@ -29,23 +29,33 @@
         private void InitializeComponent()
         {
             this.lblCompany = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblCompany
             // 
             this.lblCompany.AutoSize = true;
-            this.lblCompany.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblCompany.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblCompany.Location = new System.Drawing.Point(414, 396);
             this.lblCompany.Name = "lblCompany";
             this.lblCompany.Size = new System.Drawing.Size(399, 24);
             this.lblCompany.TabIndex = 144;
             this.lblCompany.Text = "Smart && Luxury Motor Company (Spares)";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(7, 89);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(806, 132);
+            this.textBox1.TabIndex = 145;
+            // 
             // FormDefective
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblCompany);
             this.Name = "FormDefective";
             this.Text = "Report defective";
@@ -56,5 +66,6 @@
 
         #endregion
         private System.Windows.Forms.Label lblCompany;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

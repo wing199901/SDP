@@ -119,6 +119,7 @@
             // 
             // txtData
             // 
+            this.txtData.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.txtData.Location = new System.Drawing.Point(7, 70);
             this.txtData.Multiline = true;
             this.txtData.Name = "txtData";
