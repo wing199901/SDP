@@ -20,6 +20,7 @@ namespace SDP
             set { userName = value; }
         }
 
+        private Boolean btnLogoutWasClicked = false;
         public FormMenu(String username)
         {
             InitializeComponent();
@@ -88,20 +89,25 @@ namespace SDP
 
         private void FormMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you want to exit?", "Waiting", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+            if (btnLogoutWasClicked = true)
+            {
+                DialogResult result = MessageBox.Show("Are you want to log out?", "Waiting", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
 
-            e.Cancel = (result == DialogResult.No);
-            System.Windows.Forms.Application.Exit();
+                e.Cancel = (result == DialogResult.No);
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Are you want to exit?", "Waiting", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+
+                e.Cancel = (result == DialogResult.No);
+                System.Windows.Forms.Application.Exit();
+            }
         }
 
         private void BtnLogout_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you want to log out?", "Waiting", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-
-            if (result == DialogResult.Yes)
-            {
-                this.Close();
-            }
+            btnLogoutWasClicked = true;
+            this.Close();
         }
     }
 }

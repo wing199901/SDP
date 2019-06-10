@@ -92,14 +92,12 @@ namespace SDP
                     }
                     else
                     {
-                        MessageBox.Show("The user name or password is incorrect! Try again.", "Error", MessageBoxButtons.OKCancel,
-                                        MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                        MessageBox.Show("The user name or password is incorrect! Try again.", "Error");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("The user name or password is incorrect! Try again.", "Error", MessageBoxButtons.OKCancel,
-                                    MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("The user name or password is incorrect! Try again.", "Error");
                 }
             }
         }
