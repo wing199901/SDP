@@ -26,6 +26,10 @@ namespace SDP
             Keyword = keyword;
             txtKeyword.Text = Keyword;
             BtnSearch_Click(new object(), new EventArgs());
+
+            //ListView Header
+            lvResult.GridLines 
+
         }
 
         private void BtnSearch_Click(object sender, EventArgs e)

@@ -32,6 +32,7 @@
             this.txtKeyword = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.lvResult = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // txtResult
@@ -69,17 +70,26 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
+            // lvResult
+            // 
+            this.lvResult.Location = new System.Drawing.Point(16, 12);
+            this.lvResult.Name = "lvResult";
+            this.lvResult.Size = new System.Drawing.Size(806, 132);
+            this.lvResult.TabIndex = 190;
+            this.lvResult.UseCompatibleStateImageBehavior = false;
+            // 
             // FormSearchResult
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
+            this.Controls.Add(this.lvResult);
             this.Controls.Add(this.txtKeyword);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtResult);
             this.Name = "FormSearchResult";
-            this.Text = "FormSearchResult";
+            this.Text = "Search result";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -91,5 +101,6 @@
         private System.Windows.Forms.TextBox txtKeyword;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.ListView lvResult;
     }
 }
