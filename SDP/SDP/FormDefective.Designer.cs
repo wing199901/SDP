@@ -34,7 +34,7 @@
             this.txtDate = new System.Windows.Forms.TextBox();
             this.lblSid = new System.Windows.Forms.Label();
             this.txtSid = new System.Windows.Forms.TextBox();
-            this.lblSKU = new System.Windows.Forms.Label();
+            this.lblPID = new System.Windows.Forms.Label();
             this.txtSKU = new System.Windows.Forms.TextBox();
             this.lblQTY = new System.Windows.Forms.Label();
             this.txtQTY = new System.Windows.Forms.TextBox();
@@ -94,14 +94,14 @@
             this.txtSid.Size = new System.Drawing.Size(200, 22);
             this.txtSid.TabIndex = 5;
             // 
-            // lblSKU
+            // lblPID
             // 
-            this.lblSKU.AutoSize = true;
-            this.lblSKU.Location = new System.Drawing.Point(114, 166);
-            this.lblSKU.Name = "lblSKU";
-            this.lblSKU.Size = new System.Drawing.Size(30, 12);
-            this.lblSKU.TabIndex = 6;
-            this.lblSKU.Text = "SKU:";
+            this.lblPID.AutoSize = true;
+            this.lblPID.Location = new System.Drawing.Point(114, 166);
+            this.lblPID.Name = "lblPID";
+            this.lblPID.Size = new System.Drawing.Size(59, 12);
+            this.lblPID.TabIndex = 6;
+            this.lblPID.Text = "Product ID:";
             // 
             // txtSKU
             // 
@@ -192,7 +192,7 @@
             this.Controls.Add(this.txtQTY);
             this.Controls.Add(this.lblQTY);
             this.Controls.Add(this.txtSKU);
-            this.Controls.Add(this.lblSKU);
+            this.Controls.Add(this.lblPID);
             this.Controls.Add(this.txtSid);
             this.Controls.Add(this.lblSid);
             this.Controls.Add(this.txtDate);
@@ -214,7 +214,7 @@
         private System.Windows.Forms.TextBox txtDate;
         private System.Windows.Forms.Label lblSid;
         private System.Windows.Forms.TextBox txtSid;
-        private System.Windows.Forms.Label lblSKU;
+        private System.Windows.Forms.Label lblPID;
         private System.Windows.Forms.TextBox txtSKU;
         private System.Windows.Forms.Label lblQTY;
         private System.Windows.Forms.TextBox txtQTY;

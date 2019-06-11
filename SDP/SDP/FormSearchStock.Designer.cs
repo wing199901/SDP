@@ -31,7 +31,7 @@
             this.lblCompany = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.lblSKU = new System.Windows.Forms.Label();
+            this.lblPID = new System.Windows.Forms.Label();
             this.lblCategories = new System.Windows.Forms.Label();
             this.lblKeyword = new System.Windows.Forms.Label();
             this.txtCategory = new System.Windows.Forms.TextBox();
@@ -68,14 +68,14 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // lblSKU
+            // lblPID
             // 
-            this.lblSKU.AutoSize = true;
-            this.lblSKU.Location = new System.Drawing.Point(95, 252);
-            this.lblSKU.Name = "lblSKU";
-            this.lblSKU.Size = new System.Drawing.Size(30, 12);
-            this.lblSKU.TabIndex = 147;
-            this.lblSKU.Text = "SKU:";
+            this.lblPID.AutoSize = true;
+            this.lblPID.Location = new System.Drawing.Point(95, 252);
+            this.lblPID.Name = "lblPID";
+            this.lblPID.Size = new System.Drawing.Size(59, 12);
+            this.lblPID.TabIndex = 147;
+            this.lblPID.Text = "Product ID:";
             // 
             // lblCategories
             // 
@@ -136,7 +136,7 @@
             this.Controls.Add(this.txtCategory);
             this.Controls.Add(this.lblKeyword);
             this.Controls.Add(this.lblCategories);
-            this.Controls.Add(this.lblSKU);
+            this.Controls.Add(this.lblPID);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.lblCompany);
@@ -152,7 +152,7 @@
         private System.Windows.Forms.Label lblCompany;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Label lblSKU;
+        private System.Windows.Forms.Label lblPID;
         private System.Windows.Forms.Label lblCategories;
         private System.Windows.Forms.Label lblKeyword;
         private System.Windows.Forms.TextBox txtCategory;
