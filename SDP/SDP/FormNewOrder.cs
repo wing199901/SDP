@@ -96,5 +96,16 @@ namespace SDP
             Form searchResult = new FormSearchProduct(keyword);
             searchResult.Show();
         }
+
+        private void TxtKeyword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSearch.Focus();
+
+                BtnSearch_Click(sender, e);
+
+            }
+        }
     }
 }

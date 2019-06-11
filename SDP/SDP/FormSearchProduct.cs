@@ -73,5 +73,17 @@ namespace SDP
 
             }
         }
+
+        private void TxtKeyword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSearch.Focus();
+
+                BtnSearch_Click(sender, e);
+
+                txtKeyword.Focus();
+            }
+        }
     }
 }

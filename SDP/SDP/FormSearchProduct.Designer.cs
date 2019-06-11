@@ -28,21 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtResult = new System.Windows.Forms.TextBox();
             this.txtKeyword = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lvResult = new System.Windows.Forms.ListView();
             this.SuspendLayout();
-            // 
-            // txtResult
-            // 
-            this.txtResult.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtResult.Location = new System.Drawing.Point(16, 154);
-            this.txtResult.Multiline = true;
-            this.txtResult.Name = "txtResult";
-            this.txtResult.Size = new System.Drawing.Size(806, 132);
-            this.txtResult.TabIndex = 186;
             // 
             // txtKeyword
             // 
@@ -50,6 +40,7 @@
             this.txtKeyword.Name = "txtKeyword";
             this.txtKeyword.Size = new System.Drawing.Size(200, 22);
             this.txtKeyword.TabIndex = 189;
+            this.txtKeyword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtKeyword_KeyDown);
             // 
             // label10
             // 
@@ -72,13 +63,13 @@
             // 
             // lvResult
             // 
-            this.lvResult.Location = new System.Drawing.Point(16, 12);
+            this.lvResult.Location = new System.Drawing.Point(12, 154);
             this.lvResult.Name = "lvResult";
             this.lvResult.Size = new System.Drawing.Size(806, 132);
             this.lvResult.TabIndex = 190;
             this.lvResult.UseCompatibleStateImageBehavior = false;
             // 
-            // FormSearchResult
+            // FormSearchProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -87,8 +78,7 @@
             this.Controls.Add(this.txtKeyword);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.txtResult);
-            this.Name = "FormSearchResult";
+            this.Name = "FormSearchProduct";
             this.Text = "Search result";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -96,8 +86,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtResult;
         private System.Windows.Forms.TextBox txtKeyword;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnSearch;

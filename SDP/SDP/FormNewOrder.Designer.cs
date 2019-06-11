@@ -67,7 +67,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.txtRemark = new System.Windows.Forms.TextBox();
-            this.txtResult = new System.Windows.Forms.TextBox();
+            this.lvResult = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // lblCompany
@@ -280,6 +280,7 @@
             this.txtKeyword.Name = "txtKeyword";
             this.txtKeyword.Size = new System.Drawing.Size(200, 22);
             this.txtKeyword.TabIndex = 176;
+            this.txtKeyword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtKeyword_KeyDown);
             // 
             // label10
             // 
@@ -407,21 +408,20 @@
             this.txtRemark.Enter += new System.EventHandler(this.TxtRemark_Enter);
             this.txtRemark.Leave += new System.EventHandler(this.TxtRemark_Leave);
             // 
-            // txtResult
+            // lvResult
             // 
-            this.txtResult.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtResult.Location = new System.Drawing.Point(20, 239);
-            this.txtResult.Multiline = true;
-            this.txtResult.Name = "txtResult";
-            this.txtResult.Size = new System.Drawing.Size(806, 132);
-            this.txtResult.TabIndex = 185;
+            this.lvResult.Location = new System.Drawing.Point(20, 239);
+            this.lvResult.Name = "lvResult";
+            this.lvResult.Size = new System.Drawing.Size(806, 132);
+            this.lvResult.TabIndex = 191;
+            this.lvResult.UseCompatibleStateImageBehavior = false;
             // 
             // FormNewOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 541);
-            this.Controls.Add(this.txtResult);
+            this.Controls.Add(this.lvResult);
             this.Controls.Add(this.txtRemark);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.button7);
@@ -509,6 +509,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.TextBox txtRemark;
-        private System.Windows.Forms.TextBox txtResult;
+        private System.Windows.Forms.ListView lvResult;
     }
 }
