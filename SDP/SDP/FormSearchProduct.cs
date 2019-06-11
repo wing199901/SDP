@@ -30,8 +30,15 @@ namespace SDP
             //ListView Header
             lvResult.GridLines = true;
             lvResult.View = View.Details;
-
-
+            lvResult.Columns.Add("productId", 150);
+            lvResult.Columns.Add("type", 150);
+            lvResult.Columns.Add("brand", 150);
+            lvResult.Columns.Add("productName", 150);
+            lvResult.Columns.Add("Description", 150);
+            lvResult.Columns.Add("atHand", 150);
+            lvResult.Columns.Add("onHand", 150);
+            lvResult.Columns.Add("inHand", 150);
+            lvResult.Columns.Add("price", 150);
         }
 
         private void BtnSearch_Click(object sender, EventArgs e)
