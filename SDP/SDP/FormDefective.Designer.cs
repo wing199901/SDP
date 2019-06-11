@@ -72,7 +72,7 @@
             this.txtSKU.Location = new System.Drawing.Point(130, 76);
             this.txtSKU.Multiline = true;
             this.txtSKU.Name = "txtSKU";
-            this.txtSKU.Size = new System.Drawing.Size(100, 22);
+            this.txtSKU.Size = new System.Drawing.Size(200, 22);
             this.txtSKU.TabIndex = 147;
             // 
             // lblCat
@@ -89,14 +89,14 @@
             this.txtCat.Location = new System.Drawing.Point(130, 125);
             this.txtCat.Multiline = true;
             this.txtCat.Name = "txtCat";
-            this.txtCat.Size = new System.Drawing.Size(100, 22);
+            this.txtCat.Size = new System.Drawing.Size(200, 22);
             this.txtCat.TabIndex = 149;
             // 
             // txtQTY
             // 
             this.txtQTY.Location = new System.Drawing.Point(130, 172);
             this.txtQTY.Name = "txtQTY";
-            this.txtQTY.Size = new System.Drawing.Size(100, 22);
+            this.txtQTY.Size = new System.Drawing.Size(200, 22);
             this.txtQTY.TabIndex = 150;
             // 
             // lblQTY
@@ -121,7 +121,7 @@
             // 
             this.txtDate.Location = new System.Drawing.Point(130, 38);
             this.txtDate.Name = "txtDate";
-            this.txtDate.Size = new System.Drawing.Size(100, 22);
+            this.txtDate.Size = new System.Drawing.Size(200, 22);
             this.txtDate.TabIndex = 153;
             // 
             // FormDefective
