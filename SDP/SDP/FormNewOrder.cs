@@ -48,7 +48,7 @@ namespace SDP
             dtpDelivery.CustomFormat = "dd/MM/yyyy";
             dtpDelivery.MinDate = DateTime.Today.AddDays(1);
 
-            /*MySqlCommand cmd = Program.Logindb("select * from staff");
+            /*MySqlCommand cmd = Program.ExecSQL("select * from staff");
             MySqlDataReader data = cmd.ExecuteReader();
             Console.WriteLine("是否查到資料:{0}", data.HasRows);
             Console.WriteLine("欄位數:{0}", data.FieldCount);

@@ -51,7 +51,7 @@
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox1.Location = new System.Drawing.Point(12, 71);
+            this.textBox1.Location = new System.Drawing.Point(12, 80);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(806, 132);
