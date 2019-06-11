@@ -31,7 +31,8 @@ CREATE TABLE `customer` (
   `companyName` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `email` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `phone` varchar(8) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`custId`)
+  PRIMARY KEY (`custId`),
+  UNIQUE KEY `custId_UNIQUE` (`custId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=100002 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -57,16 +58,17 @@ CREATE TABLE `order` (
   `staffId` int(6) NOT NULL,
   `custId` int(6) NOT NULL,
   `status` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `date` date NOT NULL,
+  `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `deliveryDate` date NOT NULL,
   `shippingAddress` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `remark` text CHARACTER SET utf8 COLLATE utf8_bin,
   PRIMARY KEY (`orderId`),
+  UNIQUE KEY `orderId_UNIQUE` (`orderId`),
   KEY `staffId_fk_idx` (`staffId`),
   KEY `custId_fk_idx` (`custId`),
   CONSTRAINT `custId_fk` FOREIGN KEY (`custId`) REFERENCES `customer` (`custId`),
   CONSTRAINT `staffId_fk` FOREIGN KEY (`staffId`) REFERENCES `staff` (`staffId`)
-) ENGINE=InnoDB AUTO_INCREMENT=100002 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=100003 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -75,7 +77,7 @@ CREATE TABLE `order` (
 
 LOCK TABLES `order` WRITE;
 /*!40000 ALTER TABLE `order` DISABLE KEYS */;
-INSERT INTO `order` VALUES (100001,100001,100001,'creation','2019-05-06','2019-06-03','LWL',NULL);
+INSERT INTO `order` VALUES (100001,100001,100001,'creation','2019-06-11 09:09:11','2019-06-23','LWL',NULL),(100002,100001,100001,'creation','2019-06-11 09:13:31','2019-06-03','LWL',NULL);
 /*!40000 ALTER TABLE `order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -91,6 +93,8 @@ CREATE TABLE `orderProduct` (
   `productId` int(6) NOT NULL,
   `qty` int(11) NOT NULL,
   PRIMARY KEY (`orderid`,`productId`),
+  UNIQUE KEY `orderid_UNIQUE` (`orderid`),
+  UNIQUE KEY `productId_UNIQUE` (`productId`),
   KEY `productId_fk_idx` (`productId`),
   CONSTRAINT `orderId_fk` FOREIGN KEY (`orderid`) REFERENCES `order` (`orderId`),
   CONSTRAINT `productId_fk` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`)
@@ -115,8 +119,8 @@ DROP TABLE IF EXISTS `product`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `product` (
-  `type` char(1) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `productId` int(6) NOT NULL AUTO_INCREMENT,
+  `type` char(1) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `brand` varchar(45) COLLATE utf8_bin NOT NULL,
   `productName` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `Description` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
@@ -124,7 +128,10 @@ CREATE TABLE `product` (
   `onHand` int(11) NOT NULL,
   `inHand` int(11) NOT NULL,
   `price` double NOT NULL,
-  PRIMARY KEY (`productId`)
+  PRIMARY KEY (`productId`),
+  UNIQUE KEY `productId_UNIQUE` (`productId`),
+  UNIQUE KEY `productName_UNIQUE` (`productName`),
+  CONSTRAINT `product_type_cc` CHECK ((`type` in (_utf8mb3'A',_utf8mb3'B',_utf8mb3'C',_utf8mb3'D')))
 ) ENGINE=InnoDB AUTO_INCREMENT=100007 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -134,7 +141,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES ('A',100001,'','Metal03','The metal 03',0,1000,1000,40),('A',100002,'','Metal01','The first metal',0,1000,1000,50),('B',100003,'','Engine01','The major engine',0,1000,1000,5000),('C',100004,'','Bulb01','The smail bulb',0,1000,1000,30),('D',100005,'','Metal Button 01','The smaill metal button',0,1000,1000,5),('A',100006,'','Metal02','The metal 02',0,1000,1000,30);
+INSERT INTO `product` VALUES (100001,'A','Self','Metal03','The metal 03',0,1000,1000,40),(100002,'A','Self','Metal01','The first metal',0,1000,1000,50),(100003,'B','Self','Engine01','The major engine',0,1000,1000,5000),(100004,'C','Self','Bulb01','The smail bulb',0,1000,1000,30),(100005,'D','Self','Metal Button 01','The smaill metal button',0,1000,1000,5),(100006,'A','Self','Metal02','The metal 02',0,1000,1000,30);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -151,7 +158,8 @@ CREATE TABLE `staff` (
   `position` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `pwd` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `available` tinyint(4) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`staffId`)
+  PRIMARY KEY (`staffId`),
+  UNIQUE KEY `staffId_UNIQUE` (`staffId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=100008 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -174,4 +182,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-07 20:40:13
+-- Dump completed on 2019-06-11 17:21:07
