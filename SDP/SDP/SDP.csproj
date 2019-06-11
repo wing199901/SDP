@@ -58,6 +58,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormDefective.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDefective.Designer.cs">
+      <DependentUpon>FormDefective.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormGenerate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormDefective.resx">
+      <DependentUpon>FormDefective.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormGenerate.resx">
       <DependentUpon>FormGenerate.cs</DependentUpon>
     </EmbeddedResource>
