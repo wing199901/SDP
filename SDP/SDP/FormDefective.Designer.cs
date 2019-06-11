@@ -29,15 +29,6 @@
         private void InitializeComponent()
         {
             this.lblCompany = new System.Windows.Forms.Label();
-            this.txtDescription = new System.Windows.Forms.TextBox();
-            this.lblSKU = new System.Windows.Forms.Label();
-            this.txtSKU = new System.Windows.Forms.TextBox();
-            this.lblCat = new System.Windows.Forms.Label();
-            this.txtCat = new System.Windows.Forms.TextBox();
-            this.txtQTY = new System.Windows.Forms.TextBox();
-            this.lblQTY = new System.Windows.Forms.Label();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.txtDate = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblCompany
@@ -129,15 +120,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
-            this.Controls.Add(this.txtDate);
-            this.Controls.Add(this.lblDate);
-            this.Controls.Add(this.lblQTY);
-            this.Controls.Add(this.txtQTY);
-            this.Controls.Add(this.txtCat);
-            this.Controls.Add(this.lblCat);
-            this.Controls.Add(this.txtSKU);
-            this.Controls.Add(this.lblSKU);
-            this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.lblCompany);
             this.Name = "FormDefective";
             this.Text = "Report defective";
@@ -148,14 +130,5 @@
 
         #endregion
         private System.Windows.Forms.Label lblCompany;
-        private System.Windows.Forms.TextBox txtDescription;
-        private System.Windows.Forms.Label lblSKU;
-        private System.Windows.Forms.TextBox txtSKU;
-        private System.Windows.Forms.Label lblCat;
-        private System.Windows.Forms.TextBox txtCat;
-        private System.Windows.Forms.TextBox txtQTY;
-        private System.Windows.Forms.Label lblQTY;
-        private System.Windows.Forms.Label lblDate;
-        private System.Windows.Forms.TextBox txtDate;
     }
 }
