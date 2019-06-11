@@ -32,12 +32,12 @@
             this.lblSKU = new System.Windows.Forms.Label();
             this.txtSKU = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblReOrderAmount = new System.Windows.Forms.Label();
             this.txtReOrderQTY = new System.Windows.Forms.TextBox();
             this.btnApply = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // lblCompany
@@ -75,15 +75,6 @@
             this.btnSearch.TabIndex = 147;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox1.Location = new System.Drawing.Point(20, 93);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(806, 132);
-            this.textBox1.TabIndex = 148;
             // 
             // lblReOrderAmount
             // 
@@ -129,17 +120,25 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(20, 103);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(806, 132);
+            this.listView1.TabIndex = 154;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
             // FormROL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.btnApply);
             this.Controls.Add(this.txtReOrderQTY);
             this.Controls.Add(this.lblReOrderAmount);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSKU);
             this.Controls.Add(this.lblSKU);
@@ -156,11 +155,11 @@
         private System.Windows.Forms.Label lblSKU;
         private System.Windows.Forms.TextBox txtSKU;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblReOrderAmount;
         private System.Windows.Forms.TextBox txtReOrderQTY;
         private System.Windows.Forms.Button btnApply;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.ListView listView1;
     }
 }

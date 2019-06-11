@@ -36,7 +36,7 @@
             this.lblTo = new System.Windows.Forms.Label();
             this.lblEnd = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // lblCompany
@@ -107,20 +107,20 @@
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
             this.dateTimePicker2.TabIndex = 151;
             // 
-            // textBox1
+            // listView1
             // 
-            this.textBox1.Location = new System.Drawing.Point(20, 155);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(806, 200);
-            this.textBox1.TabIndex = 152;
+            this.listView1.Location = new System.Drawing.Point(20, 190);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(806, 132);
+            this.listView1.TabIndex = 152;
+            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // FormGenerate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.lblEnd);
             this.Controls.Add(this.lblTo);
@@ -145,6 +145,6 @@
         private System.Windows.Forms.Label lblTo;
         private System.Windows.Forms.Label lblEnd;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ListView listView1;
     }
 }
