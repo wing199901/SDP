@@ -20,7 +20,7 @@ namespace SDP
             set { userName = value; }
         }
 
-        private Boolean btnLogoutWasClicked = false;
+        private Boolean btnLogoutWasClicked;
         public FormMenu(String username)
         {
             InitializeComponent();
@@ -83,31 +83,37 @@ namespace SDP
             }
 
             lblWelcome.Text += name;
+
+            btnLogoutWasClicked = false;
         }
 
 
 
         private void FormMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (btnLogoutWasClicked = true)
+            if (btnLogoutWasClicked == false)
             {
-                DialogResult result = MessageBox.Show("Are you want to log out?", "Waiting", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                DialogResult result = MessageBox.Show("Are you want to exit?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
 
                 e.Cancel = (result == DialogResult.No);
-            }
-            else
-            {
-                DialogResult result = MessageBox.Show("Are you want to exit?", "Waiting", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-
-                e.Cancel = (result == DialogResult.No);
-                System.Windows.Forms.Application.Exit();
+                Environment.Exit(0);
             }
         }
 
         private void BtnLogout_Click(object sender, EventArgs e)
         {
             btnLogoutWasClicked = true;
-            this.Close();
+
+            DialogResult result = MessageBox.Show("Are you want to log out?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+            else if (result == DialogResult.No)
+            {
+                btnLogoutWasClicked = false;
+            }
         }
     }
 }
