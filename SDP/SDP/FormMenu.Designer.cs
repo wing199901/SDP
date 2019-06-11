@@ -42,7 +42,7 @@
             // 
             // btnROL
             // 
-            this.btnROL.Location = new System.Drawing.Point(26, 324);
+            this.btnROL.Location = new System.Drawing.Point(46, 321);
             this.btnROL.Name = "btnROL";
             this.btnROL.Size = new System.Drawing.Size(93, 23);
             this.btnROL.TabIndex = 153;
@@ -52,7 +52,7 @@
             // 
             // btnGoods
             // 
-            this.btnGoods.Location = new System.Drawing.Point(26, 232);
+            this.btnGoods.Location = new System.Drawing.Point(46, 229);
             this.btnGoods.Name = "btnGoods";
             this.btnGoods.Size = new System.Drawing.Size(93, 23);
             this.btnGoods.TabIndex = 152;
@@ -62,7 +62,7 @@
             // 
             // btnGenReport
             // 
-            this.btnGenReport.Location = new System.Drawing.Point(26, 278);
+            this.btnGenReport.Location = new System.Drawing.Point(46, 275);
             this.btnGenReport.Name = "btnGenReport";
             this.btnGenReport.Size = new System.Drawing.Size(93, 23);
             this.btnGenReport.TabIndex = 151;
@@ -72,7 +72,7 @@
             // 
             // btnDefective
             // 
-            this.btnDefective.Location = new System.Drawing.Point(26, 140);
+            this.btnDefective.Location = new System.Drawing.Point(46, 133);
             this.btnDefective.Name = "btnDefective";
             this.btnDefective.Size = new System.Drawing.Size(93, 23);
             this.btnDefective.TabIndex = 150;
@@ -82,7 +82,7 @@
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(26, 370);
+            this.btnLogout.Location = new System.Drawing.Point(46, 367);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(93, 23);
             this.btnLogout.TabIndex = 149;
@@ -92,7 +92,7 @@
             // 
             // btnStock
             // 
-            this.btnStock.Location = new System.Drawing.Point(26, 186);
+            this.btnStock.Location = new System.Drawing.Point(46, 179);
             this.btnStock.Name = "btnStock";
             this.btnStock.Size = new System.Drawing.Size(93, 23);
             this.btnStock.TabIndex = 148;
@@ -102,7 +102,7 @@
             // 
             // btnSearchOrder
             // 
-            this.btnSearchOrder.Location = new System.Drawing.Point(26, 94);
+            this.btnSearchOrder.Location = new System.Drawing.Point(46, 87);
             this.btnSearchOrder.Name = "btnSearchOrder";
             this.btnSearchOrder.Size = new System.Drawing.Size(93, 23);
             this.btnSearchOrder.TabIndex = 147;
@@ -112,7 +112,7 @@
             // 
             // btnNewOrder
             // 
-            this.btnNewOrder.Location = new System.Drawing.Point(26, 48);
+            this.btnNewOrder.Location = new System.Drawing.Point(46, 41);
             this.btnNewOrder.Name = "btnNewOrder";
             this.btnNewOrder.Size = new System.Drawing.Size(93, 23);
             this.btnNewOrder.TabIndex = 146;
@@ -123,7 +123,7 @@
             // lblCompany
             // 
             this.lblCompany.AutoSize = true;
-            this.lblCompany.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblCompany.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblCompany.Location = new System.Drawing.Point(414, 396);
             this.lblCompany.Name = "lblCompany";
             this.lblCompany.Size = new System.Drawing.Size(399, 24);
@@ -132,7 +132,7 @@
             // 
             // lblWelcome
             // 
-            this.lblWelcome.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblWelcome.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblWelcome.Location = new System.Drawing.Point(416, 53);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Size = new System.Drawing.Size(399, 24);

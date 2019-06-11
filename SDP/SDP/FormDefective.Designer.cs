@@ -34,7 +34,7 @@
             this.txtDate = new System.Windows.Forms.TextBox();
             this.lblSid = new System.Windows.Forms.Label();
             this.txtSid = new System.Windows.Forms.TextBox();
-            this.lblSKU = new System.Windows.Forms.Label();
+            this.lblPID = new System.Windows.Forms.Label();
             this.txtSKU = new System.Windows.Forms.TextBox();
             this.lblQTY = new System.Windows.Forms.Label();
             this.txtQTY = new System.Windows.Forms.TextBox();
@@ -42,7 +42,7 @@
             this.txtReason = new System.Windows.Forms.TextBox();
             this.lblRemark = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnSubmit = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -94,14 +94,14 @@
             this.txtSid.Size = new System.Drawing.Size(200, 22);
             this.txtSid.TabIndex = 5;
             // 
-            // lblSKU
+            // lblPID
             // 
-            this.lblSKU.AutoSize = true;
-            this.lblSKU.Location = new System.Drawing.Point(114, 166);
-            this.lblSKU.Name = "lblSKU";
-            this.lblSKU.Size = new System.Drawing.Size(30, 12);
-            this.lblSKU.TabIndex = 6;
-            this.lblSKU.Text = "SKU:";
+            this.lblPID.AutoSize = true;
+            this.lblPID.Location = new System.Drawing.Point(114, 166);
+            this.lblPID.Name = "lblPID";
+            this.lblPID.Size = new System.Drawing.Size(59, 12);
+            this.lblPID.TabIndex = 6;
+            this.lblPID.Text = "Product ID:";
             // 
             // txtSKU
             // 
@@ -160,14 +160,14 @@
             this.textBox1.Size = new System.Drawing.Size(200, 67);
             this.textBox1.TabIndex = 13;
             // 
-            // btnSearch
+            // btnSubmit
             // 
-            this.btnSearch.Location = new System.Drawing.Point(116, 388);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 14;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSubmit.Location = new System.Drawing.Point(116, 388);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmit.TabIndex = 14;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = true;
             // 
             // btnCancel
             // 
@@ -184,7 +184,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblRemark);
             this.Controls.Add(this.txtReason);
@@ -192,7 +192,7 @@
             this.Controls.Add(this.txtQTY);
             this.Controls.Add(this.lblQTY);
             this.Controls.Add(this.txtSKU);
-            this.Controls.Add(this.lblSKU);
+            this.Controls.Add(this.lblPID);
             this.Controls.Add(this.txtSid);
             this.Controls.Add(this.lblSid);
             this.Controls.Add(this.txtDate);
@@ -214,7 +214,7 @@
         private System.Windows.Forms.TextBox txtDate;
         private System.Windows.Forms.Label lblSid;
         private System.Windows.Forms.TextBox txtSid;
-        private System.Windows.Forms.Label lblSKU;
+        private System.Windows.Forms.Label lblPID;
         private System.Windows.Forms.TextBox txtSKU;
         private System.Windows.Forms.Label lblQTY;
         private System.Windows.Forms.TextBox txtQTY;
@@ -222,7 +222,7 @@
         private System.Windows.Forms.TextBox txtReason;
         private System.Windows.Forms.Label lblRemark;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnCancel;
     }
 }
