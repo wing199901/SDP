@@ -18,12 +18,12 @@ namespace SDP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormSearchStock());
+            Application.Run(new FormLogin());
         }
 
         public static MySqlCommand ExecSQL(String sql)
         {
-            string dbHost = "127.0.0.1";
+            string dbHost = "192.168.65.2";
             string dbUser = "user";
             string dbPass = "user";
             string dbName = "dbOPSRS";

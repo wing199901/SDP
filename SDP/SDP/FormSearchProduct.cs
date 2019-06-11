@@ -30,33 +30,47 @@ namespace SDP
             //ListView Header
             lvResult.GridLines = true;
             lvResult.View = View.Details;
-            lvResult.Columns.Add("productId", 150);
-            lvResult.Columns.Add("type", 150);
-            lvResult.Columns.Add("brand", 150);
-            lvResult.Columns.Add("productName", 150);
+            lvResult.Columns.Add("productId", 100);
+            lvResult.Columns.Add("type", 100);
+            lvResult.Columns.Add("brand", 100);
+            lvResult.Columns.Add("productName", 100);
             lvResult.Columns.Add("Description", 150);
-            lvResult.Columns.Add("atHand", 150);
-            lvResult.Columns.Add("onHand", 150);
-            lvResult.Columns.Add("inHand", 150);
-            lvResult.Columns.Add("price", 150);
+            lvResult.Columns.Add("atHand", 50);
+            lvResult.Columns.Add("onHand", 50);
+            lvResult.Columns.Add("inHand", 50);
+            lvResult.Columns.Add("price", 50);
         }
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
+            Keyword=txtKeyword.Text  ;
             if (txtKeyword.Text != "")
             {
-                String sql = String.Format("select * from product where '%{0}%' in (productId, type, brand, productName, Description, atHand, onHand, inHand, price)", Keyword);
+                String sql = String.Format("select * from product where productId like '%{0}%' or type like '%{0}%' or brand like '%{0}%' or productName like '%{0}%' or Description like '%{0}%' or atHand like '%{0}%' or onHand like '%{0}%' or inHand like '%{0}%' or price like '%{0}%'", Keyword);
                 MySqlCommand cmd = Program.ExecSQL(sql);
                 MySqlDataReader data = cmd.ExecuteReader();
 
-                String result = "";
+                lvResult.Items.Clear();
 
                 while (data.Read())
                 {
-                    result = data[0].ToString();
+                    //result = data[0].ToString();
+
+                    ListViewItem lv = new ListViewItem(data.GetString(0).ToString());
+                    lv.SubItems.Add(data.GetString(1).ToString());
+                    lv.SubItems.Add(data.GetString(2).ToString());
+                    lv.SubItems.Add(data.GetString(3).ToString());
+                    lv.SubItems.Add(data.GetString(4).ToString());
+                    lv.SubItems.Add(data.GetInt32(5).ToString());
+                    lv.SubItems.Add(data.GetInt32(6).ToString());
+                    lv.SubItems.Add(data.GetInt32(7).ToString());
+                    lv.SubItems.Add(data.GetDouble(8).ToString());
+                    lvResult.Items.Add(lv);
                 }
 
-                txtResult.Text += result;
+                data.Close();
+                cmd.Dispose();
+
             }
         }
     }

@@ -20,9 +20,9 @@ namespace SDP
 
         private void FormSearchStock_Load(object sender, EventArgs e)
         {
-            String sql = String.Format("select * from product where sku = {0}", txtData.Text);
+            /*String sql = String.Format("select * from product where sku = {0}", txtData.Text);
             MySqlCommand cmd = Program.ExecSQL(sql);
-            MySqlDataReader data = cmd.ExecuteReader();
+            MySqlDataReader data = cmd.ExecuteReader();*/
         }
 
        

@@ -41,8 +41,8 @@ namespace SDP
 
         private void BtnDefective_Click(object sender, EventArgs e)
         {
-            Form defective = new FormDefective();
-            defective.ShowDialog();
+            //Form defective = new FormDefective();
+            //defective.ShowDialog();
         }
 
         private void BtnStock_Click(object sender, EventArgs e)
