@@ -33,7 +33,7 @@
             this.txtSKU = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lblReOrderQTY = new System.Windows.Forms.Label();
+            this.lblReOrderAmount = new System.Windows.Forms.Label();
             this.txtReOrderQTY = new System.Windows.Forms.TextBox();
             this.btnApply = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
@@ -85,14 +85,14 @@
             this.textBox1.Size = new System.Drawing.Size(806, 132);
             this.textBox1.TabIndex = 148;
             // 
-            // lblReOrderQTY
+            // lblReOrderAmount
             // 
-            this.lblReOrderQTY.AutoSize = true;
-            this.lblReOrderQTY.Location = new System.Drawing.Point(135, 275);
-            this.lblReOrderQTY.Name = "lblReOrderQTY";
-            this.lblReOrderQTY.Size = new System.Drawing.Size(74, 12);
-            this.lblReOrderQTY.TabIndex = 149;
-            this.lblReOrderQTY.Text = "ReOrder QTY:";
+            this.lblReOrderAmount.AutoSize = true;
+            this.lblReOrderAmount.Location = new System.Drawing.Point(135, 275);
+            this.lblReOrderAmount.Name = "lblReOrderAmount";
+            this.lblReOrderAmount.Size = new System.Drawing.Size(89, 12);
+            this.lblReOrderAmount.TabIndex = 149;
+            this.lblReOrderAmount.Text = "ReOrder Amount:";
             // 
             // txtReOrderQTY
             // 
@@ -138,7 +138,7 @@
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.btnApply);
             this.Controls.Add(this.txtReOrderQTY);
-            this.Controls.Add(this.lblReOrderQTY);
+            this.Controls.Add(this.lblReOrderAmount);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSKU);
@@ -157,7 +157,7 @@
         private System.Windows.Forms.TextBox txtSKU;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label lblReOrderQTY;
+        private System.Windows.Forms.Label lblReOrderAmount;
         private System.Windows.Forms.TextBox txtReOrderQTY;
         private System.Windows.Forms.Button btnApply;
         private System.Windows.Forms.Button btnSubmit;

@@ -58,7 +58,7 @@ CREATE TABLE `order` (
   `staffId` int(6) NOT NULL,
   `custId` int(6) NOT NULL,
   `status` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `date` date NOT NULL,
   `deliveryDate` date NOT NULL,
   `shippingAddress` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `remark` text CHARACTER SET utf8 COLLATE utf8_bin,
@@ -67,7 +67,8 @@ CREATE TABLE `order` (
   KEY `staffId_fk_idx` (`staffId`),
   KEY `custId_fk_idx` (`custId`),
   CONSTRAINT `custId_fk` FOREIGN KEY (`custId`) REFERENCES `customer` (`custId`),
-  CONSTRAINT `staffId_fk` FOREIGN KEY (`staffId`) REFERENCES `staff` (`staffId`)
+  CONSTRAINT `staffId_fk` FOREIGN KEY (`staffId`) REFERENCES `staff` (`staffId`),
+  CONSTRAINT `order_status_cc` CHECK ((`status` in (_utf8mb3'Creation',_utf8mb3'Reservation',_utf8mb3'Deletion')))
 ) ENGINE=InnoDB AUTO_INCREMENT=100003 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -77,7 +78,7 @@ CREATE TABLE `order` (
 
 LOCK TABLES `order` WRITE;
 /*!40000 ALTER TABLE `order` DISABLE KEYS */;
-INSERT INTO `order` VALUES (100001,100001,100001,'creation','2019-06-11 09:09:11','2019-06-23','LWL',NULL),(100002,100001,100001,'creation','2019-06-11 09:13:31','2019-06-03','LWL',NULL);
+INSERT INTO `order` VALUES (100001,100001,100001,'Creation','2019-06-11','2019-06-23','LWL',NULL),(100002,100001,100001,'Creation','2019-06-11','2019-06-03','LWL',NULL);
 /*!40000 ALTER TABLE `order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -155,12 +156,12 @@ DROP TABLE IF EXISTS `staff`;
 CREATE TABLE `staff` (
   `staffId` int(6) NOT NULL AUTO_INCREMENT,
   `staffName` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `position` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `position` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `pwd` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `available` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`staffId`),
   UNIQUE KEY `staffId_UNIQUE` (`staffId`)
-) ENGINE=InnoDB AUTO_INCREMENT=100008 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=1000013 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -169,7 +170,7 @@ CREATE TABLE `staff` (
 
 LOCK TABLES `staff` WRITE;
 /*!40000 ALTER TABLE `staff` DISABLE KEYS */;
-INSERT INTO `staff` VALUES (100001,'John','Goods Inwards Clerk','12345',1),(100002,'Andy','Sales Office Manager','abcde',1),(100004,'May','Sales Office Manager','123',1),(100005,'Joey','Sales Office Manager','123',1),(100006,'Peter','Sales Office Manager','123',1),(100007,'Juno','Goods Inwards Clerk','24124',1);
+INSERT INTO `staff` VALUES (100001,'John','Goods Inwards Clerk','123456',1),(100002,'Andy','Spares Buyer','abcdef',1),(100003,'May','Purchasing Manager','123456',1),(100004,'Joey','Sales Manager','123456',1),(100005,'Peter','Sales Office Manager','412431',1),(100006,'Juno','Salesman','232142',1),(100007,'Ian','Despatch Clerk','adfsnal',1),(100008,'Ivan','Spare Parts Controller','weqweq',1),(100009,'Ada','Storemen','abcdefg',1),(100010,'Alva','Financial Accountant','12dsasw',1),(100011,'Ava','Storemen','314124',1),(100012,'Bonnie','Salesmen','123456',1);
 /*!40000 ALTER TABLE `staff` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -182,4 +183,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-11 17:21:07
+-- Dump completed on 2019-06-11 18:55:08
