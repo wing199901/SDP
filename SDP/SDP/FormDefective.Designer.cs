@@ -42,7 +42,7 @@
             this.txtReason = new System.Windows.Forms.TextBox();
             this.lblRemark = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnSubmit = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -160,14 +160,14 @@
             this.textBox1.Size = new System.Drawing.Size(200, 67);
             this.textBox1.TabIndex = 13;
             // 
-            // btnSearch
+            // btnSubmit
             // 
-            this.btnSearch.Location = new System.Drawing.Point(116, 388);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 14;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSubmit.Location = new System.Drawing.Point(116, 388);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmit.TabIndex = 14;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = true;
             // 
             // btnCancel
             // 
@@ -184,7 +184,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblRemark);
             this.Controls.Add(this.txtReason);
@@ -222,7 +222,7 @@
         private System.Windows.Forms.TextBox txtReason;
         private System.Windows.Forms.Label lblRemark;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnCancel;
     }
 }
