@@ -31,11 +31,11 @@
             this.lblCompany = new System.Windows.Forms.Label();
             this.lblPurchase = new System.Windows.Forms.Label();
             this.txtOrderID = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.lblDate = new System.Windows.Forms.Label();
             this.txtDate = new System.Windows.Forms.TextBox();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // lblCompany
@@ -63,15 +63,6 @@
             this.txtOrderID.Name = "txtOrderID";
             this.txtOrderID.Size = new System.Drawing.Size(200, 22);
             this.txtOrderID.TabIndex = 146;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox1.Location = new System.Drawing.Point(20, 177);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(806, 132);
-            this.textBox1.TabIndex = 147;
             // 
             // btnSearch
             // 
@@ -107,16 +98,24 @@
             this.txtDate.Size = new System.Drawing.Size(200, 22);
             this.txtDate.TabIndex = 151;
             // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(20, 196);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(806, 132);
+            this.listView1.TabIndex = 152;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
             // FormReceive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.txtDate);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txtOrderID);
             this.Controls.Add(this.lblPurchase);
             this.Controls.Add(this.lblCompany);
@@ -131,10 +130,10 @@
         private System.Windows.Forms.Label lblCompany;
         private System.Windows.Forms.Label lblPurchase;
         private System.Windows.Forms.TextBox txtOrderID;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.TextBox txtDate;
+        private System.Windows.Forms.ListView listView1;
     }
 }

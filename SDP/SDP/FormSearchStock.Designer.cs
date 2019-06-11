@@ -37,7 +37,7 @@
             this.txtCategory = new System.Windows.Forms.TextBox();
             this.txtKeyword = new System.Windows.Forms.TextBox();
             this.txtSKU = new System.Windows.Forms.TextBox();
-            this.txtData = new System.Windows.Forms.TextBox();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // lblCompany
@@ -117,21 +117,20 @@
             this.txtSKU.Size = new System.Drawing.Size(200, 22);
             this.txtSKU.TabIndex = 153;
             // 
-            // txtData
+            // listView1
             // 
-            this.txtData.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtData.Location = new System.Drawing.Point(7, 70);
-            this.txtData.Multiline = true;
-            this.txtData.Name = "txtData";
-            this.txtData.Size = new System.Drawing.Size(806, 132);
-            this.txtData.TabIndex = 155;
+            this.listView1.Location = new System.Drawing.Point(12, 74);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(806, 132);
+            this.listView1.TabIndex = 154;
+            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // FormSearchStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
-            this.Controls.Add(this.txtData);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.txtSKU);
             this.Controls.Add(this.txtKeyword);
             this.Controls.Add(this.txtCategory);
@@ -159,6 +158,6 @@
         private System.Windows.Forms.TextBox txtCategory;
         private System.Windows.Forms.TextBox txtKeyword;
         private System.Windows.Forms.TextBox txtSKU;
-        private System.Windows.Forms.TextBox txtData;
+        private System.Windows.Forms.ListView listView1;
     }
 }

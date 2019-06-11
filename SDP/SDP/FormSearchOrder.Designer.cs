@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.lblCompany = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblKeyword = new System.Windows.Forms.Label();
             this.txtKey = new System.Windows.Forms.TextBox();
             this.lblOrderDate = new System.Windows.Forms.Label();
             this.txtOrderDate = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // lblCompany
@@ -47,15 +47,6 @@
             this.lblCompany.Size = new System.Drawing.Size(399, 24);
             this.lblCompany.TabIndex = 144;
             this.lblCompany.Text = "Smart && Luxury Motor Company (Spares)";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox1.Location = new System.Drawing.Point(12, 80);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(806, 132);
-            this.textBox1.TabIndex = 145;
             // 
             // lblKeyword
             // 
@@ -108,18 +99,26 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(20, 72);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(806, 132);
+            this.listView1.TabIndex = 156;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
             // FormSearchOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtOrderDate);
             this.Controls.Add(this.lblOrderDate);
             this.Controls.Add(this.txtKey);
             this.Controls.Add(this.lblKeyword);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblCompany);
             this.Name = "FormSearchOrder";
             this.Text = "Search order";
@@ -131,12 +130,12 @@
 
         #endregion
         private System.Windows.Forms.Label lblCompany;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblKeyword;
         private System.Windows.Forms.TextBox txtKey;
         private System.Windows.Forms.Label lblOrderDate;
         private System.Windows.Forms.TextBox txtOrderDate;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.ListView listView1;
     }
 }
