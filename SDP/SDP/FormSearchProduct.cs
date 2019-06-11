@@ -20,6 +20,14 @@ namespace SDP
             get { return keyword; }
             set { keyword = value; }
         }
+
+        private String productId="";
+
+        public String ProductId
+        {
+            get { return productId; }
+            set { productId = value; }
+        }
         public FormSearchProduct(String keyword)
         {
             InitializeComponent();
@@ -54,8 +62,6 @@ namespace SDP
 
                 while (data.Read())
                 {
-                    //result = data[0].ToString();
-
                     ListViewItem lv = new ListViewItem(data.GetString(0).ToString());
                     lv.SubItems.Add(data.GetString(1).ToString());
                     lv.SubItems.Add(data.GetString(2).ToString());
@@ -84,6 +90,16 @@ namespace SDP
 
                 txtKeyword.Focus();
             }
+        }
+
+        private void LvResult_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+            ListViewHitTestInfo info = lvResult.HitTest(e.X, e.Y);
+            
+            ProductId= info.Item.ToString();
+            MessageBox.Show(ProductId);
+            //this.Close();
         }
     }
 }

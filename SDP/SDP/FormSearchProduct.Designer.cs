@@ -68,6 +68,7 @@
             this.lvResult.Size = new System.Drawing.Size(806, 132);
             this.lvResult.TabIndex = 190;
             this.lvResult.UseCompatibleStateImageBehavior = false;
+            this.lvResult.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LvResult_MouseDoubleClick);
             // 
             // FormSearchProduct
             // 

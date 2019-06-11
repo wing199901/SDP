@@ -21,6 +21,9 @@ namespace SDP
             get { return userName; }
             set { userName = value; }
         }
+
+        //private static String productID = "";
+        
         public FormNewOrder(String username)
         {
             InitializeComponent();
@@ -65,6 +68,7 @@ namespace SDP
             data.Close();*/
 
             txtId.Text = UserName;
+            
         }
 
         private void TxtRemark_Enter(object sender, EventArgs e)
@@ -93,8 +97,12 @@ namespace SDP
         private void BtnSearch_Click(object sender, EventArgs e)
         {
             String keyword = txtKeyword.Text;
-            Form searchResult = new FormSearchProduct(keyword);
-            searchResult.Show();
+            FormSearchProduct searchResult = new FormSearchProduct(keyword);
+            
+            if (searchResult.ShowDialog() == DialogResult.OK)
+            {
+                txtProductID.Text = searchResult.ProductId;
+            }
         }
 
         private void TxtKeyword_KeyDown(object sender, KeyEventArgs e)
