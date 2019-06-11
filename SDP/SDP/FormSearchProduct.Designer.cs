@@ -1,6 +1,6 @@
 ﻿namespace SDP
 {
-    partial class FormSearchResult
+    partial class FormSearchProduct
     {
         /// <summary>
         /// Required designer variable.

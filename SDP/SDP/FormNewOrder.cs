@@ -93,7 +93,7 @@ namespace SDP
         private void BtnSearch_Click(object sender, EventArgs e)
         {
             String keyword = txtKeyword.Text;
-            Form searchResult = new FormSearchResult(keyword);
+            Form searchResult = new FormSearchProduct(keyword);
             searchResult.Show();
         }
     }

@@ -99,11 +99,11 @@
     <Compile Include="FormMenu.Designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSearchResult.cs">
+    <Compile Include="FormSearchProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSearchResult.Designer.cs">
-      <DependentUpon>FormSearchResult.cs</DependentUpon>
+    <Compile Include="FormSearchProduct.Designer.cs">
+      <DependentUpon>FormSearchProduct.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSearchStock.cs">
       <SubType>Form</SubType>
@@ -137,8 +137,8 @@
     <EmbeddedResource Include="FormSearchOrder.resx">
       <DependentUpon>FormSearchOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSearchResult.resx">
-      <DependentUpon>FormSearchResult.cs</DependentUpon>
+    <EmbeddedResource Include="FormSearchProduct.resx">
+      <DependentUpon>FormSearchProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSearchStock.resx">
       <DependentUpon>FormSearchStock.cs</DependentUpon>

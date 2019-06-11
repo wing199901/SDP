@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace SDP
 {
-    public partial class FormSearchResult : Form
+    public partial class FormSearchProduct : Form
     {
         private String keyword;
 
@@ -20,7 +20,7 @@ namespace SDP
             get { return keyword; }
             set { keyword = value; }
         }
-        public FormSearchResult(String keyword)
+        public FormSearchProduct(String keyword)
         {
             InitializeComponent();
             Keyword = keyword;
@@ -28,7 +28,9 @@ namespace SDP
             BtnSearch_Click(new object(), new EventArgs());
 
             //ListView Header
-            lvResult.GridLines 
+            lvResult.GridLines = true;
+            lvResult.View = View.Details;
+
 
         }
 
