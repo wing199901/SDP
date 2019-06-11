@@ -29,23 +29,97 @@
         private void InitializeComponent()
         {
             this.lblCompany = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblKeyword = new System.Windows.Forms.Label();
+            this.txtKey = new System.Windows.Forms.TextBox();
+            this.lblOrderDate = new System.Windows.Forms.Label();
+            this.txtOrderDate = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblCompany
             // 
             this.lblCompany.AutoSize = true;
-            this.lblCompany.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblCompany.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblCompany.Location = new System.Drawing.Point(414, 396);
             this.lblCompany.Name = "lblCompany";
             this.lblCompany.Size = new System.Drawing.Size(399, 24);
             this.lblCompany.TabIndex = 144;
             this.lblCompany.Text = "Smart && Luxury Motor Company (Spares)";
             // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBox1.Location = new System.Drawing.Point(12, 71);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(806, 132);
+            this.textBox1.TabIndex = 145;
+            // 
+            // lblKeyword
+            // 
+            this.lblKeyword.AutoSize = true;
+            this.lblKeyword.Location = new System.Drawing.Point(109, 282);
+            this.lblKeyword.Name = "lblKeyword";
+            this.lblKeyword.Size = new System.Drawing.Size(51, 12);
+            this.lblKeyword.TabIndex = 148;
+            this.lblKeyword.Text = "Keyword:";
+            // 
+            // txtKey
+            // 
+            this.txtKey.Location = new System.Drawing.Point(182, 279);
+            this.txtKey.Multiline = true;
+            this.txtKey.Name = "txtKey";
+            this.txtKey.Size = new System.Drawing.Size(200, 22);
+            this.txtKey.TabIndex = 151;
+            // 
+            // lblOrderDate
+            // 
+            this.lblOrderDate.AutoSize = true;
+            this.lblOrderDate.Location = new System.Drawing.Point(109, 320);
+            this.lblOrderDate.Name = "lblOrderDate";
+            this.lblOrderDate.Size = new System.Drawing.Size(59, 12);
+            this.lblOrderDate.TabIndex = 152;
+            this.lblOrderDate.Text = "Order Date:";
+            // 
+            // txtOrderDate
+            // 
+            this.txtOrderDate.Location = new System.Drawing.Point(182, 317);
+            this.txtOrderDate.Name = "txtOrderDate";
+            this.txtOrderDate.Size = new System.Drawing.Size(200, 22);
+            this.txtOrderDate.TabIndex = 153;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(131, 357);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 154;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(242, 357);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 155;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
             // FormSearchOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.txtOrderDate);
+            this.Controls.Add(this.lblOrderDate);
+            this.Controls.Add(this.txtKey);
+            this.Controls.Add(this.lblKeyword);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblCompany);
             this.Name = "FormSearchOrder";
             this.Text = "Search order";
@@ -57,5 +131,12 @@
 
         #endregion
         private System.Windows.Forms.Label lblCompany;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lblKeyword;
+        private System.Windows.Forms.TextBox txtKey;
+        private System.Windows.Forms.Label lblOrderDate;
+        private System.Windows.Forms.TextBox txtOrderDate;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

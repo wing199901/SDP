@@ -21,9 +21,9 @@ namespace SDP
             Application.Run(new FormSearchStock());
         }
 
-        public static MySqlCommand Logindb(String sql)
+        public static MySqlCommand ExecSQL(String sql)
         {
-            string dbHost = "192.168.64.2";
+            string dbHost = "127.0.0.1";
             string dbUser = "user";
             string dbPass = "user";
             string dbName = "dbOPSRS";

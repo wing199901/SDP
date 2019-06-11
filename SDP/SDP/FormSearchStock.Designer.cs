@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.lblCompany = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -38,9 +37,7 @@
             this.txtCategory = new System.Windows.Forms.TextBox();
             this.txtKeyword = new System.Windows.Forms.TextBox();
             this.txtSKU = new System.Windows.Forms.TextBox();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.txtData = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCompany
@@ -122,6 +119,7 @@
             // 
             // txtData
             // 
+            this.txtData.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.txtData.Location = new System.Drawing.Point(7, 70);
             this.txtData.Multiline = true;
             this.txtData.Name = "txtData";
@@ -146,7 +144,6 @@
             this.Name = "FormSearchStock";
             this.Text = "Search stock";
             this.Load += new System.EventHandler(this.FormSearchStock_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,7 +159,6 @@
         private System.Windows.Forms.TextBox txtCategory;
         private System.Windows.Forms.TextBox txtKeyword;
         private System.Windows.Forms.TextBox txtSKU;
-        private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.TextBox txtData;
     }
 }
