@@ -73,7 +73,7 @@ namespace SDP
         {
 
             String sql = String.Format("select staffName from staff where staffId ={0}", UserName);
-            MySqlCommand cmd = Program.Logindb(sql);
+            MySqlCommand cmd = Program.ExecSQL(sql);
             MySqlDataReader data = cmd.ExecuteReader();
             String name = "";
 

@@ -52,7 +52,7 @@ namespace SDP
                 MySqlDataReader data = null;
                 try
                 {
-                    cmd = Program.Logindb(sql);
+                    cmd = Program.ExecSQL(sql);
                     data = cmd.ExecuteReader();
                     while (data.Read())
                     {
@@ -69,7 +69,7 @@ namespace SDP
                 if (txtUserName.Text.ToString() == UserName)
                 {
                     sql = String.Format("select pwd from staff where pwd ='{0}'", txtPassword.Text);
-                    cmd = Program.Logindb(sql);
+                    cmd = Program.ExecSQL(sql);
                     data = cmd.ExecuteReader();
 
 

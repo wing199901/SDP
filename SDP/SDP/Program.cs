@@ -21,7 +21,7 @@ namespace SDP
             Application.Run(new FormLogin());
         }
 
-        public static MySqlCommand Logindb(String sql)
+        public static MySqlCommand ExecSQL(String sql)
         {
             string dbHost = "127.0.0.1";
             string dbUser = "user";

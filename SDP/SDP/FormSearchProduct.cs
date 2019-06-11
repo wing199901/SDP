@@ -38,8 +38,8 @@ namespace SDP
         {
             if (txtKeyword.Text != "")
             {
-                String sql = String.Format("select * from product where '%{0}%' in (type, productId, brand, productName, Description, atHand, onHand, inHand, price)", Keyword);
-                MySqlCommand cmd = Program.Logindb(sql);
+                String sql = String.Format("select * from product where '%{0}%' in (productId, type, brand, productName, Description, atHand, onHand, inHand, price)", Keyword);
+                MySqlCommand cmd = Program.ExecSQL(sql);
                 MySqlDataReader data = cmd.ExecuteReader();
 
                 String result = "";
