@@ -115,5 +115,16 @@ namespace SDP
                 btnLogoutWasClicked = false;
             }
         }
+        private String Keyword = "";
+        public String keyword
+        {
+            get { return keyword; }
+            set { keyword = value; }
+        }
+        private void BtnProduct_Click(object sender, EventArgs e)
+        {
+            Form product = new FormSearchProduct(Keyword);
+            product.ShowDialog();
+        }
     }
 }
