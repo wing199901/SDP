@@ -38,15 +38,16 @@ namespace SDP
             //ListView Header
             lvResult.GridLines = true;
             lvResult.View = View.Details;
-            lvResult.Columns.Add("productId", 100);
-            lvResult.Columns.Add("type", 100);
-            lvResult.Columns.Add("brand", 100);
-            lvResult.Columns.Add("productName", 100);
+            lvResult.FullRowSelect = true;
+            lvResult.Columns.Add("Product ID", 100);
+            lvResult.Columns.Add("Type", 100);
+            lvResult.Columns.Add("Brand", 100);
+            lvResult.Columns.Add("Product name", 100);
             lvResult.Columns.Add("Description", 150);
-            lvResult.Columns.Add("atHand", 50);
-            lvResult.Columns.Add("onHand", 50);
-            lvResult.Columns.Add("inHand", 50);
-            lvResult.Columns.Add("price", 50);
+            lvResult.Columns.Add("At hand", 50);
+            lvResult.Columns.Add("On hand", 50);
+            lvResult.Columns.Add("In hand", 50);
+            lvResult.Columns.Add("Price", 50);
         }
 
         private void BtnSearch_Click(object sender, EventArgs e)
@@ -95,11 +96,8 @@ namespace SDP
         private void LvResult_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             this.DialogResult = DialogResult.OK;
-            ListViewHitTestInfo info = lvResult.HitTest(e.X, e.Y);
-            
-            ProductId= info.Item.ToString();
-            MessageBox.Show(ProductId);
-            //this.Close();
+            ProductId = lvResult.SelectedItems[0].ToString();
+            ProductId = System.Text.RegularExpressions.Regex.Replace(ProductId, "[a-zA-Z{}: ]", "");
         }
     }
 }

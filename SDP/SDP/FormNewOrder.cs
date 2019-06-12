@@ -21,13 +21,23 @@ namespace SDP
             get { return userName; }
             set { userName = value; }
         }
-
-        //private static String productID = "";
         
         public FormNewOrder(String username)
         {
             InitializeComponent();
             UserName = username;
+
+            //ListView Header
+            lvResult.GridLines = true;
+            lvResult.View = View.Details;
+            lvResult.FullRowSelect = true;
+            lvResult.Columns.Add("Product ID", 100);
+            lvResult.Columns.Add("Type", 100);
+            lvResult.Columns.Add("Brand", 100);
+            lvResult.Columns.Add("Product name", 100);
+            lvResult.Columns.Add("Description", 150);
+            lvResult.Columns.Add("Price", 50);
+            lvResult.Columns.Add("Quantity", 50);
         }
 
         private void ChoShipAddr_Click(object sender, EventArgs e)
@@ -113,6 +123,39 @@ namespace SDP
 
                 BtnSearch_Click(sender, e);
 
+            }
+        }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            if (txtAmount.Text != "")
+            {
+                if (txtProductID.Text != "")
+                {
+                    String sql = String.Format("select productId, type, brand, productName, Description, price from product where productId like '%{0}%'", txtProductID.Text);
+                    MySqlCommand cmd = Program.ExecSQL(sql);
+                    MySqlDataReader data = cmd.ExecuteReader();
+
+                    while (data.Read())
+                    {
+                        ListViewItem lv = new ListViewItem(data.GetString(0).ToString());
+                        lv.SubItems.Add(data.GetString(1).ToString());
+                        lv.SubItems.Add(data.GetString(2).ToString());
+                        lv.SubItems.Add(data.GetString(3).ToString());
+                        lv.SubItems.Add(data.GetString(4).ToString());
+                        lv.SubItems.Add(data.GetDouble(5).ToString());
+                        lv.SubItems.Add(txtQty.Text);
+                        lvResult.Items.Add(lv);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Product ID can not be empty!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Qantity can not be empty!");
             }
         }
     }
