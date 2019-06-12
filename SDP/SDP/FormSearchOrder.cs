@@ -19,7 +19,10 @@ namespace SDP
 
         private void FormSearchOrder_Load(object sender, EventArgs e)
         {
-
+            dtpStartDate.Format = DateTimePickerFormat.Custom;
+            dtpStartDate.CustomFormat = "dd/MM/yyyy";
+            dtpEndDate.Format = DateTimePickerFormat.Custom;
+            dtpEndDate.CustomFormat = "dd/MM/yyyy";
         }
     }
 }
