@@ -306,6 +306,7 @@
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(200, 22);
             this.txtQty.TabIndex = 173;
+            this.txtQty.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtQty_KeyDown);
             // 
             // btnSearch
             // 
@@ -356,6 +357,7 @@
             // 
             this.txtAmount.Location = new System.Drawing.Point(626, 377);
             this.txtAmount.Name = "txtAmount";
+            this.txtAmount.ReadOnly = true;
             this.txtAmount.Size = new System.Drawing.Size(200, 22);
             this.txtAmount.TabIndex = 179;
             this.txtAmount.Text = "$";
