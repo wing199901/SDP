@@ -21,7 +21,8 @@ namespace SDP
             get { return userName; }
             set { userName = value; }
         }
-        
+
+        private String price = "";
         public FormNewOrder(String username)
         {
             InitializeComponent();
@@ -143,7 +144,8 @@ namespace SDP
                         lv.SubItems.Add(data.GetString(2).ToString());
                         lv.SubItems.Add(data.GetString(3).ToString());
                         lv.SubItems.Add(data.GetString(4).ToString());
-                        lv.SubItems.Add(data.GetDouble(5).ToString());
+                        price = data.GetDouble(5).ToString();
+                        lv.SubItems.Add("$"+price);
                         lv.SubItems.Add(txtQty.Text);
                         lvResult.Items.Add(lv);
                     }
