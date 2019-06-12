@@ -22,7 +22,9 @@ namespace SDP
             set { userName = value; }
         }
 
-        private String price = "";
+        private String priceTxt = "";
+        private double quantity =0;
+        private double total = 0;
         public FormNewOrder(String username)
         {
             InitializeComponent();
@@ -38,7 +40,7 @@ namespace SDP
             lvResult.Columns.Add("Product name", 100);
             lvResult.Columns.Add("Description", 150);
             lvResult.Columns.Add("Price", 50);
-            lvResult.Columns.Add("Quantity", 50);
+            lvResult.Columns.Add("Quantity", 100);
         }
 
         private void ChoShipAddr_Click(object sender, EventArgs e)
@@ -62,22 +64,13 @@ namespace SDP
             dtpDelivery.CustomFormat = "dd/MM/yyyy";
             dtpDelivery.MinDate = DateTime.Today.AddDays(1);
 
-            /*MySqlCommand cmd = Program.ExecSQL("select * from staff");
+            MySqlCommand cmd = Program.ExecSQL("select max(orderId) from dbOPSRS.order");
             MySqlDataReader data = cmd.ExecuteReader();
-            Console.WriteLine("是否查到資料:{0}", data.HasRows);
-            Console.WriteLine("欄位數:{0}", data.FieldCount);
-            for (int i = 0; i < data.FieldCount; i++)
-            {
-                Console.WriteLine("欄位 {0} 的名稱為 {1} ; 資料型態為 {2}", i, data.GetName(i), data.GetDataTypeName(i));
-            }
+            
             while (data.Read())
             {
-
-                //以欄位名稱取得資料並列出
-                Console.WriteLine("Staff id={0} , Staff name={1}, Staff position={2},Staff password={3}", data[0], data[1],data[2],data[3]);
+                txtNumber.Text = (data.GetInt32(0)+1).ToString();
             }
-            data.Close();*/
-
             txtId.Text = UserName;
             
         }
@@ -114,6 +107,7 @@ namespace SDP
             {
                 txtProductID.Text = searchResult.ProductId;
             }
+            txtKeyword.Text = "";
         }
 
         private void TxtKeyword_KeyDown(object sender, KeyEventArgs e)
@@ -144,20 +138,40 @@ namespace SDP
                         lv.SubItems.Add(data.GetString(2).ToString());
                         lv.SubItems.Add(data.GetString(3).ToString());
                         lv.SubItems.Add(data.GetString(4).ToString());
-                        price = data.GetDouble(5).ToString();
-                        lv.SubItems.Add("$"+price);
+                        priceTxt = data.GetDouble(5).ToString();
+                        lv.SubItems.Add("$"+priceTxt);
                         lv.SubItems.Add(txtQty.Text);
                         lvResult.Items.Add(lv);
+                        double price = Convert.ToDouble(priceTxt);
+                        quantity = Convert.ToDouble(txtQty.Text);
+                        price *= quantity;
+                        total += price;
+                        txtAmount.Text = "$"+total.ToString();
                     }
                 }
                 else
                 {
                     MessageBox.Show("Product ID can not be empty!");
+                    txtProductID.Focus();
                 }
             }
             else
             {
                 MessageBox.Show("Qantity can not be empty!");
+            }
+            txtProductID.Text = "";
+            txtQty.Text = "";
+        }
+
+        private void TxtQty_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnAdd.Focus();
+
+                BtnAdd_Click(sender, e);
+
+                txtQty.Focus();
             }
         }
     }

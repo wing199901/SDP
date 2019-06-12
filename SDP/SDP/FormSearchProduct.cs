@@ -48,6 +48,8 @@ namespace SDP
             lvResult.Columns.Add("On hand", 50);
             lvResult.Columns.Add("In hand", 50);
             lvResult.Columns.Add("Price", 50);
+
+            txtKeyword.Focus();
         }
 
         private void BtnSearch_Click(object sender, EventArgs e)
