@@ -71,6 +71,9 @@ namespace SDP
             {
                 txtNumber.Text = (data.GetInt32(0)+1).ToString();
             }
+            data.Close();
+            cmd.Dispose();
+
             txtId.Text = UserName;
             
         }
