@@ -48,145 +48,140 @@
             // lblCompany
             // 
             this.lblCompany.AutoSize = true;
-            this.lblCompany.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblCompany.Location = new System.Drawing.Point(828, 825);
-            this.lblCompany.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblCompany.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblCompany.Location = new System.Drawing.Point(414, 396);
             this.lblCompany.Name = "lblCompany";
-            this.lblCompany.Size = new System.Drawing.Size(800, 48);
+            this.lblCompany.Size = new System.Drawing.Size(399, 24);
             this.lblCompany.TabIndex = 144;
             this.lblCompany.Text = "Smart && Luxury Motor Company (Spares)";
             // 
             // lblOrderId
             // 
             this.lblOrderId.AutoSize = true;
-            this.lblOrderId.Location = new System.Drawing.Point(227, 493);
-            this.lblOrderId.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblOrderId.Location = new System.Drawing.Point(114, 237);
             this.lblOrderId.Name = "lblOrderId";
-            this.lblOrderId.Size = new System.Drawing.Size(98, 25);
+            this.lblOrderId.Size = new System.Drawing.Size(50, 12);
             this.lblOrderId.TabIndex = 148;
             this.lblOrderId.Text = "Order ID:";
             // 
             // txtOrderId
             // 
-            this.txtOrderId.Location = new System.Drawing.Point(394, 490);
-            this.txtOrderId.Margin = new System.Windows.Forms.Padding(6);
+            this.txtOrderId.Location = new System.Drawing.Point(197, 235);
             this.txtOrderId.Multiline = true;
             this.txtOrderId.Name = "txtOrderId";
-            this.txtOrderId.Size = new System.Drawing.Size(396, 31);
+            this.txtOrderId.Size = new System.Drawing.Size(200, 17);
             this.txtOrderId.TabIndex = 151;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(394, 684);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(6);
+            this.btnSearch.Location = new System.Drawing.Point(197, 328);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(150, 48);
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 154;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(574, 684);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(6);
+            this.btnCancel.Location = new System.Drawing.Point(287, 328);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(150, 48);
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 155;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // listView1
             // 
-            this.listView1.Location = new System.Drawing.Point(40, 150);
-            this.listView1.Margin = new System.Windows.Forms.Padding(6);
+            this.listView1.Location = new System.Drawing.Point(20, 72);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1608, 271);
+            this.listView1.Size = new System.Drawing.Size(806, 132);
             this.listView1.TabIndex = 156;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(892, 604);
+            this.label1.Location = new System.Drawing.Point(446, 290);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 25);
+            this.label1.Size = new System.Drawing.Size(0, 12);
             this.label1.TabIndex = 157;
             // 
             // lblOrderDate
             // 
             this.lblOrderDate.AutoSize = true;
-            this.lblOrderDate.Location = new System.Drawing.Point(227, 633);
-            this.lblOrderDate.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblOrderDate.Location = new System.Drawing.Point(114, 304);
             this.lblOrderDate.Name = "lblOrderDate";
-            this.lblOrderDate.Size = new System.Drawing.Size(123, 25);
+            this.lblOrderDate.Size = new System.Drawing.Size(59, 12);
             this.lblOrderDate.TabIndex = 158;
             this.lblOrderDate.Text = "Order Date:";
             // 
             // lblOrderStatus
             // 
             this.lblOrderStatus.AutoSize = true;
-            this.lblOrderStatus.Location = new System.Drawing.Point(227, 585);
-            this.lblOrderStatus.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblOrderStatus.Location = new System.Drawing.Point(114, 281);
             this.lblOrderStatus.Name = "lblOrderStatus";
-            this.lblOrderStatus.Size = new System.Drawing.Size(139, 25);
+            this.lblOrderStatus.Size = new System.Drawing.Size(65, 12);
             this.lblOrderStatus.TabIndex = 160;
             this.lblOrderStatus.Text = "Order Status:";
             // 
             // txtStaffId
             // 
-            this.txtStaffId.Location = new System.Drawing.Point(394, 536);
-            this.txtStaffId.Margin = new System.Windows.Forms.Padding(6);
+            this.txtStaffId.Location = new System.Drawing.Point(197, 257);
             this.txtStaffId.Multiline = true;
             this.txtStaffId.Name = "txtStaffId";
-            this.txtStaffId.Size = new System.Drawing.Size(396, 31);
+            this.txtStaffId.Size = new System.Drawing.Size(200, 17);
             this.txtStaffId.TabIndex = 163;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(227, 539);
-            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label4.Location = new System.Drawing.Point(114, 259);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 25);
+            this.label4.Size = new System.Drawing.Size(45, 12);
             this.label4.TabIndex = 162;
             this.label4.Text = "Staff ID:";
             // 
             // dtpStartDate
             // 
-            this.dtpStartDate.Location = new System.Drawing.Point(394, 628);
+            this.dtpStartDate.Location = new System.Drawing.Point(197, 301);
+            this.dtpStartDate.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(396, 31);
+            this.dtpStartDate.Size = new System.Drawing.Size(200, 22);
             this.dtpStartDate.TabIndex = 165;
             // 
             // dtpEndDate
             // 
-            this.dtpEndDate.Location = new System.Drawing.Point(832, 628);
+            this.dtpEndDate.Location = new System.Drawing.Point(419, 301);
+            this.dtpEndDate.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(396, 31);
+            this.dtpEndDate.Size = new System.Drawing.Size(200, 22);
             this.dtpEndDate.TabIndex = 166;
             // 
             // cboOrderStatus
             // 
             this.cboOrderStatus.FormattingEnabled = true;
-            this.cboOrderStatus.Location = new System.Drawing.Point(394, 582);
+            this.cboOrderStatus.Location = new System.Drawing.Point(197, 279);
+            this.cboOrderStatus.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.cboOrderStatus.Name = "cboOrderStatus";
-            this.cboOrderStatus.Size = new System.Drawing.Size(396, 33);
+            this.cboOrderStatus.Size = new System.Drawing.Size(200, 20);
             this.cboOrderStatus.TabIndex = 167;
             // 
             // lblTo
             // 
             this.lblTo.AutoSize = true;
-            this.lblTo.Location = new System.Drawing.Point(796, 633);
+            this.lblTo.Location = new System.Drawing.Point(401, 308);
+            this.lblTo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTo.Name = "lblTo";
-            this.lblTo.Size = new System.Drawing.Size(30, 25);
+            this.lblTo.Size = new System.Drawing.Size(14, 12);
             this.lblTo.TabIndex = 168;
             this.lblTo.Text = "to";
             // 
             // FormSearchOrder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1676, 919);
+            this.ClientSize = new System.Drawing.Size(838, 441);
             this.Controls.Add(this.lblTo);
             this.Controls.Add(this.cboOrderStatus);
             this.Controls.Add(this.dtpEndDate);
@@ -202,7 +197,6 @@
             this.Controls.Add(this.txtOrderId);
             this.Controls.Add(this.lblOrderId);
             this.Controls.Add(this.lblCompany);
-            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormSearchOrder";
             this.Text = "Search order";
             this.Load += new System.EventHandler(this.FormSearchOrder_Load);
