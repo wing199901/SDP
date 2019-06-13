@@ -33,7 +33,7 @@ CREATE TABLE `customer` (
   `phone` varchar(8) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`custId`),
   UNIQUE KEY `custId_UNIQUE` (`custId`)
-) ENGINE=InnoDB AUTO_INCREMENT=100003 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=100002 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES (100001,'Ken','LWL','IVE','lwl@ive.com','88888888'),(100002,'Peter','DI','IVE','di@ive.com','77777777');
+INSERT INTO `customer` VALUES (100001,'Ken','LWL','IVE','lwl@ive.com','88888888');
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -61,7 +61,6 @@ CREATE TABLE `order` (
   `date` date NOT NULL,
   `deliveryDate` date NOT NULL,
   `shippingAddress` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `totalAmount` varchar(45) COLLATE utf8_bin NOT NULL,
   `remark` text CHARACTER SET utf8 COLLATE utf8_bin,
   PRIMARY KEY (`orderId`),
   UNIQUE KEY `orderId_UNIQUE` (`orderId`),
@@ -69,8 +68,8 @@ CREATE TABLE `order` (
   KEY `custId_fk_idx` (`custId`),
   CONSTRAINT `custId_fk` FOREIGN KEY (`custId`) REFERENCES `customer` (`custId`),
   CONSTRAINT `staffId_fk` FOREIGN KEY (`staffId`) REFERENCES `staff` (`staffId`),
-  CONSTRAINT `order_status_cc` CHECK ((`status` in (_utf8mb3'Creation',_utf8mb3'Reservation',_utf8mb3'Shipping',_utf8mb3'Deletion',_utf8mb3'Finish')))
-) ENGINE=InnoDB AUTO_INCREMENT=100004 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  CONSTRAINT `order_status_cc` CHECK ((`status` in (_utf8mb3'Creation',_utf8mb3'Reservation',_utf8mb3'Deletion')))
+) ENGINE=InnoDB AUTO_INCREMENT=100003 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -79,7 +78,7 @@ CREATE TABLE `order` (
 
 LOCK TABLES `order` WRITE;
 /*!40000 ALTER TABLE `order` DISABLE KEYS */;
-INSERT INTO `order` VALUES (100001,100001,100001,'Finish','2019-06-01','2019-06-05','LWL','2000',NULL),(100002,100001,100001,'Creation','2019-06-11','2019-07-05','LWL','50400',NULL),(100003,100002,100002,'Creation','2019-06-12','2019-06-27','LWL','3000','Please quickly ');
+INSERT INTO `order` VALUES (100001,100001,100001,'Creation','2019-06-11','2019-06-23','LWL',NULL),(100002,100001,100001,'Creation','2019-06-11','2019-06-03','LWL',NULL);
 /*!40000 ALTER TABLE `order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -95,6 +94,8 @@ CREATE TABLE `orderProduct` (
   `productId` int(6) NOT NULL,
   `qty` int(11) NOT NULL,
   PRIMARY KEY (`orderid`,`productId`),
+  UNIQUE KEY `orderid_UNIQUE` (`orderid`),
+  UNIQUE KEY `productId_UNIQUE` (`productId`),
   KEY `productId_fk_idx` (`productId`),
   CONSTRAINT `orderId_fk` FOREIGN KEY (`orderid`) REFERENCES `order` (`orderId`),
   CONSTRAINT `productId_fk` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`)
@@ -107,7 +108,7 @@ CREATE TABLE `orderProduct` (
 
 LOCK TABLES `orderProduct` WRITE;
 /*!40000 ALTER TABLE `orderProduct` DISABLE KEYS */;
-INSERT INTO `orderProduct` VALUES (100001,100001,50),(100002,100001,10),(100002,100003,10),(100003,100004,100);
+INSERT INTO `orderProduct` VALUES (100001,100001,50);
 /*!40000 ALTER TABLE `orderProduct` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -121,7 +122,7 @@ DROP TABLE IF EXISTS `product`;
 CREATE TABLE `product` (
   `productId` int(6) NOT NULL AUTO_INCREMENT,
   `type` char(1) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `brand` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `brand` varchar(45) COLLATE utf8_bin NOT NULL,
   `productName` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `Description` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `atHand` int(11) NOT NULL,
@@ -182,4 +183,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-13 22:13:04
+-- Dump completed on 2019-06-11 18:55:08

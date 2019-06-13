@@ -65,7 +65,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnSubmit = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.txtRemark = new System.Windows.Forms.TextBox();
             this.lvResult = new System.Windows.Forms.ListView();
             this.txtHide = new System.Windows.Forms.TextBox();
@@ -392,15 +392,14 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
-            // btnSubmit
+            // button7
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(20, 475);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnSubmit.TabIndex = 182;
-            this.btnSubmit.Text = "Submit";
-            this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Click += new System.EventHandler(this.BtnSubmit_Click);
+            this.button7.Location = new System.Drawing.Point(20, 475);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 182;
+            this.button7.Text = "Submit";
+            this.button7.UseVisualStyleBackColor = true;
             // 
             // txtRemark
             // 
@@ -441,7 +440,7 @@
             this.Controls.Add(this.lvResult);
             this.Controls.Add(this.txtRemark);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnSubmit);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.txtAmount);
             this.Controls.Add(this.label13);
@@ -524,7 +523,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.TextBox txtRemark;
         private System.Windows.Forms.ListView lvResult;
         private System.Windows.Forms.TextBox txtHide;
