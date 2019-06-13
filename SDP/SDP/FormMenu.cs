@@ -82,6 +82,9 @@ namespace SDP
                 name = data[0].ToString();
             }
 
+            data.Close();
+            cmd.Dispose();
+
             lblWelcome.Text += name;
 
             btnLogoutWasClicked = false;
