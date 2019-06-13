@@ -267,20 +267,19 @@ namespace SDP
             {
                 MessageBox.Show("Please fill in the customer infomation!");
             }
-            else if (txtAmount.Text == "$")     //Empty Total Amount
+            else if (txtAmount.Text == "$")     //If Total Amount Is Empty
             {
                 MessageBox.Show("There is no product in cart!");
             }
             else
             {
-                String sql = String.Format("insert into customer (custName, address, companyName, email, phone) " +
-                    "select '{0}', '{1}', '{2}', '{3}', '{4}' from dual " +
-                    "where not exists (select phone from customer where phone='{4}')",
+                MessageBox.Show("gg");
+                String sql = String.Format("insert into dbOPSRS.customer (custName, address, companyName, email, phone) select '{0}', '{1}', '{2}', '{3}', '{4}' from dual where not exists (select phone from customer where phone='{4}')",
                     txtName.Text, txtAddr.Text, txtCompany.Text, txtEmail.Text, txtPhone.Text);
                 MySqlCommand cmd = Program.ExecSQL(sql);
-                cmd.Dispose();
+                //cmd.Dispose();
 
-                sql = String.Format("select custId from customer where phone='{0}'", txtPhone.Text);
+                /*sql = String.Format("select custId from customer where phone='{0}'", txtPhone.Text);
                 cmd = Program.ExecSQL(sql);
                 MySqlDataReader data = cmd.ExecuteReader();
 
@@ -308,6 +307,25 @@ namespace SDP
                 {
                     orderId = data.GetString(0).ToString();
                 }
+
+                data.Close();
+                cmd.Dispose();
+
+                for (int i =0; i< lvResult.Items.Count; i++)
+                {
+                    String productId=lvResult.Items[i].Text;
+                    int qty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
+                    sql = String.Format("insert into orderProduct (orderId, productId, qty) " +
+                        "values ('{0}', '{1}', {2})", orderId, productId, qty);
+                    cmd = Program.ExecSQL(sql);
+
+                    data.Close();
+                    cmd.Dispose();
+                }
+
+                MessageBox.Show("Submit Sussesed!");
+                //this.Close();
+                */
             }
 
         }
