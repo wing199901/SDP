@@ -47,7 +47,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDate = new System.Windows.Forms.TextBox();
-            this.txtId = new System.Windows.Forms.TextBox();
+            this.txtStaffId = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -233,13 +233,13 @@
             this.txtDate.Size = new System.Drawing.Size(200, 22);
             this.txtDate.TabIndex = 165;
             // 
-            // txtId
+            // txtStaffId
             // 
-            this.txtId.Location = new System.Drawing.Point(626, 40);
-            this.txtId.Name = "txtId";
-            this.txtId.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(200, 22);
-            this.txtId.TabIndex = 164;
+            this.txtStaffId.Location = new System.Drawing.Point(626, 40);
+            this.txtStaffId.Name = "txtStaffId";
+            this.txtStaffId.ReadOnly = true;
+            this.txtStaffId.Size = new System.Drawing.Size(200, 22);
+            this.txtStaffId.TabIndex = 164;
             // 
             // label16
             // 
@@ -457,7 +457,7 @@
             this.Controls.Add(this.label14);
             this.Controls.Add(this.dtpDelivery);
             this.Controls.Add(this.txtDate);
-            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.txtStaffId);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtNumber);
@@ -506,7 +506,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtDate;
-        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.TextBox txtStaffId;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label14;

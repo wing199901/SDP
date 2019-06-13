@@ -58,17 +58,13 @@ CREATE TABLE `order` (
   `staffId` int(6) NOT NULL,
   `custId` int(6) NOT NULL,
   `status` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `date` date NOT NULL,
+  `date` datetime NOT NULL,
   `deliveryDate` date NOT NULL,
   `shippingAddress` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `totalAmount` varchar(45) COLLATE utf8_bin NOT NULL,
   `remark` text CHARACTER SET utf8 COLLATE utf8_bin,
   PRIMARY KEY (`orderId`),
   UNIQUE KEY `orderId_UNIQUE` (`orderId`),
-  KEY `staffId_fk_idx` (`staffId`),
-  KEY `custId_fk_idx` (`custId`),
-  CONSTRAINT `custId_fk` FOREIGN KEY (`custId`) REFERENCES `customer` (`custId`),
-  CONSTRAINT `staffId_fk` FOREIGN KEY (`staffId`) REFERENCES `staff` (`staffId`),
   CONSTRAINT `order_status_cc` CHECK ((`status` in (_utf8mb3'Creation',_utf8mb3'Reservation',_utf8mb3'Shipping',_utf8mb3'Deletion',_utf8mb3'Finish')))
 ) ENGINE=InnoDB AUTO_INCREMENT=100004 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -79,7 +75,7 @@ CREATE TABLE `order` (
 
 LOCK TABLES `order` WRITE;
 /*!40000 ALTER TABLE `order` DISABLE KEYS */;
-INSERT INTO `order` VALUES (100001,100001,100001,'Finish','2019-06-01','2019-06-05','LWL','2000',NULL),(100002,100001,100001,'Creation','2019-06-11','2019-07-05','LWL','50400',NULL),(100003,100002,100002,'Creation','2019-06-12','2019-06-27','LWL','3000','Please quickly ');
+INSERT INTO `order` VALUES (100001,100001,100001,'Finish','2019-06-05 12:12:12','2019-06-09','LWL','2000',NULL),(100002,100001,100001,'Creation','2019-06-06 12:45:32','2019-07-12','LWL','50400',NULL),(100003,100002,100002,'Creation','2019-06-11 12:43:23','2019-06-15','LWL','3000','Please quickly');
 /*!40000 ALTER TABLE `order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -94,10 +90,7 @@ CREATE TABLE `orderProduct` (
   `orderid` int(6) NOT NULL,
   `productId` int(6) NOT NULL,
   `qty` int(11) NOT NULL,
-  PRIMARY KEY (`orderid`,`productId`),
-  KEY `productId_fk_idx` (`productId`),
-  CONSTRAINT `orderId_fk` FOREIGN KEY (`orderid`) REFERENCES `order` (`orderId`),
-  CONSTRAINT `productId_fk` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`)
+  PRIMARY KEY (`orderid`,`productId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -182,4 +175,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-13 23:14:20
+-- Dump completed on 2019-06-14  1:05:06
