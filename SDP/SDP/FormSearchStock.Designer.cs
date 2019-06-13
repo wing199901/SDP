@@ -37,7 +37,7 @@
             this.txtCategory = new System.Windows.Forms.TextBox();
             this.txtKeyword = new System.Windows.Forms.TextBox();
             this.txtPID = new System.Windows.Forms.TextBox();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lviSearch = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // lblCompany
@@ -58,6 +58,7 @@
             this.btnSearch.TabIndex = 145;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // btnCancel
             // 
@@ -117,20 +118,20 @@
             this.txtPID.Size = new System.Drawing.Size(200, 22);
             this.txtPID.TabIndex = 153;
             // 
-            // listView1
+            // lviSearch
             // 
-            this.listView1.Location = new System.Drawing.Point(12, 74);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(806, 132);
-            this.listView1.TabIndex = 154;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.lviSearch.Location = new System.Drawing.Point(12, 74);
+            this.lviSearch.Name = "lviSearch";
+            this.lviSearch.Size = new System.Drawing.Size(806, 132);
+            this.lviSearch.TabIndex = 154;
+            this.lviSearch.UseCompatibleStateImageBehavior = false;
             // 
             // FormSearchStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.lviSearch);
             this.Controls.Add(this.txtPID);
             this.Controls.Add(this.txtKeyword);
             this.Controls.Add(this.txtCategory);
@@ -158,6 +159,6 @@
         private System.Windows.Forms.TextBox txtCategory;
         private System.Windows.Forms.TextBox txtKeyword;
         private System.Windows.Forms.TextBox txtPID;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lviSearch;
     }
 }
