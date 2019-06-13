@@ -28,6 +28,7 @@ namespace SDP
         private double total = 0;
 
         private String custId = "";
+        private String orderId = "";
 
         ListViewItem currentItem;
         private ListViewItem.ListViewSubItem currentItemSub;
@@ -305,7 +306,7 @@ namespace SDP
 
                 while (data.Read())
                 {
-                    custId = data.GetString(0).ToString();
+                    orderId = data.GetString(0).ToString();
                 }
             }
 
