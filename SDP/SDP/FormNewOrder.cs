@@ -48,6 +48,8 @@ namespace SDP
             lvResult.Columns.Add("Description", 150);
             lvResult.Columns.Add("Price", 50);
             lvResult.Columns.Add("Quantity", 100);
+
+
         }
 
         private void ChoShipAddr_Click(object sender, EventArgs e)
@@ -161,6 +163,9 @@ namespace SDP
                         total += price;
                         txtAmount.Text = "$" + total.ToString();
                     }
+
+                    data.Close();
+                    cmd.Dispose();
                 }
                 else
                 {
@@ -267,17 +272,17 @@ namespace SDP
             {
                 MessageBox.Show("Please fill in the customer infomation!");
             }
-            else if (txtAmount.Text == "$")     //Empty Total Amount
+            else if (txtAmount.Text == "$")     //If Total Amount Is Empty
             {
                 MessageBox.Show("There is no product in cart!");
             }
             else
             {
-                String sql = String.Format("insert into customer (custName, address, companyName, email, phone) " +
-                    "select '{0}', '{1}', '{2}', '{3}', '{4}' from dual " +
-                    "where not exists (select phone from customer where phone='{4}')",
-                    txtName.Text, txtAddr.Text, txtCompany.Text, txtEmail.Text, txtPhone.Text);
+
+                String sql = String.Format("insert into customer (custName, address, companyName, email, phone) select '{0}', '{1}', '{2}', '{3}', '{4}' from dual where not exists (select phone from customer where phone='{4}')",
+                txtName.Text, txtAddr.Text, txtCompany.Text, txtEmail.Text, txtPhone.Text);
                 MySqlCommand cmd = Program.ExecSQL(sql);
+                cmd.ExecuteNonQuery();
                 cmd.Dispose();
 
                 sql = String.Format("select custId from customer where phone='{0}'", txtPhone.Text);
@@ -293,11 +298,11 @@ namespace SDP
                 cmd.Dispose();
 
                 sql = String.Format("insert into dbOPSRS.order (staffId, custId, status, date, deliveryDate, shippingAddress, totalAmount, remark) " +
-                    "values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', {6}, '{7}'",
-                    txtStaffId.Text, custId, cboStatus.Text, submitTime, dtpDelivery.ToString(), txtShipAddr.Text, total, txtRemark.Text);
+                    "values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', {6}, '{7}')",
+                    txtStaffId.Text, custId, cboStatus.Text, submitTime, dtpDelivery.Value.ToString("yyyy-MM-dd"), txtShipAddr.Text, total, txtRemark.Text);
                 cmd = Program.ExecSQL(sql);
+                cmd.ExecuteNonQuery();
 
-                data.Close();
                 cmd.Dispose();
 
                 sql = String.Format("select orderId from dbOPSRS.order where custId = '{0}' and date = '{1}'", custId, submitTime);
@@ -308,8 +313,28 @@ namespace SDP
                 {
                     orderId = data.GetString(0).ToString();
                 }
-            }
 
+                data.Close();
+                cmd.Dispose();
+
+                for (int i = 0; i < lvResult.Items.Count; i++)
+                {
+                    String productId = lvResult.Items[i].Text;
+                    int qty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
+                    sql = String.Format("insert into orderProduct (orderId, productId, qty) " +
+                        "values ('{0}', '{1}', {2})", orderId, productId, qty);
+                    cmd = Program.ExecSQL(sql);
+                    cmd.ExecuteNonQuery();
+
+                    cmd.Dispose();
+                }
+
+                MessageBox.Show("Submit Sussesed!");
+
+
+            }
         }
+
+
     }
 }
