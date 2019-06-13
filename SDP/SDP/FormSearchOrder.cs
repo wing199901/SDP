@@ -23,9 +23,11 @@ namespace SDP
         {
             dtpStartDate.Format = DateTimePickerFormat.Custom;
             dtpStartDate.CustomFormat = "dd/MM/yyyy";
+            dtpStartDate.MaxDate = dtpEndDate.Value;
             dtpEndDate.Format = DateTimePickerFormat.Custom;
             dtpEndDate.CustomFormat = "dd/MM/yyyy";
             dtpEndDate.MaxDate = DateTime.Today;
+
 
             //ListView Header
             lvResult_order.GridLines = true;
@@ -56,7 +58,7 @@ namespace SDP
             String custPhone = "";
             if (txtOrderId.Text != "")
             {
-                reference += " orderId='" + Convert.ToInt32(txtOrderId.Text) + "'";
+                reference += " orderId='" + Convert.ToInt32(txtOrderId.Text).ToString() + "'";
             }
             if (txtStaffId.Text != "")
             {
@@ -64,7 +66,7 @@ namespace SDP
                 {
                     reference += " or";
                 }
-                reference += " staffId='" + Convert.ToInt32(txtStaffId.Text) + "'";
+                reference += " staffId='" + Convert.ToInt32(txtStaffId.Text).ToString() + "'";
             }
             if (txtCustId.Text != "")
             {
@@ -72,15 +74,21 @@ namespace SDP
                 {
                     reference += " or";
                 }
-                reference += " custId='" + Convert.ToInt32(txtCustId.Text) + "'";
+                reference += " custId='" + Convert.ToInt32(txtCustId.Text).ToString() + "'";
             }
-            /*if (txtCustPhone.Text != "") { 
-                if (reference != "")
+            if (txtCustPhone.Text != "")
+            {
+                String custId = "";
+                MySqlCommand cmd = Program.ExecSQL("select custId from customer where phone='" + txtCustPhone.Text + "'");
+                MySqlDataReader data = cmd.ExecuteReader();
+                while (data.Read()) { 
+                custId = data.GetString(0).ToString();
+            }
+                if (reference != ""&&custId!="")
                 {
-                    reference += " or";
+                    reference += " or"+ " custId='" + custId + "'";
                 }
-                reference += " custPhone='" + txtCustPhone.Text + "'";
-            }*/
+            }
             if (cboOrderStatus.SelectedItem != null)
             {
                 if (reference != "")
@@ -89,15 +97,15 @@ namespace SDP
                 }
                 reference += " status='" + cboOrderStatus.SelectedItem.ToString() + "'";
             }
-
-            DateTime startDate = dtpStartDate.Value.Date;
+            String startDate = dtpStartDate.Value.ToString("yyyy-MM-dd");
+            startDate += " 00:00:00";
+            String endDate = dtpEndDate.Value.ToString("yyyy-MM-dd");
+            endDate += " 23:59:59";
             if (reference != "")
             {
                 reference += " or";
             }
-            reference += " date>='" + startDate + "'";
-            DateTime endDate = dtpEndDate.Value.Date;
-            Console.WriteLine(startDate+"     "+endDate);
+            reference += " date>='" + startDate + "' and date<='" + endDate + "'";
             if (reference != "")
             {
                 String sql = "select * from dbOPSRS.order where " + reference;
@@ -127,6 +135,21 @@ namespace SDP
                 cmd.Dispose();
             }
         }
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            lvResult_order.Items.Clear();
+            txtOrderId.Clear();
+            txtStaffId.Clear();
+            txtCustId.Clear();
+            txtCustPhone.Clear();
+            cboOrderStatus.SelectedItem = null;
+            dtpStartDate.Value = DateTime.Today;
+            dtpEndDate.Value = DateTime.Today;
+        }
 
+        private void DtpEndDate_ValueChanged(object sender, EventArgs e)
+        {
+            dtpStartDate.MaxDate = dtpEndDate.Value;
+        }
     }
 }
