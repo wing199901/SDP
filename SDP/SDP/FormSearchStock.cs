@@ -45,7 +45,7 @@ namespace SDP
             txtPID.Text = ProductId;
             Category = category;
             txtCategory.Text = Category;
-            //btnSearch_Click(new object(), new EventArgs());
+            BtnSearch_Click(new object(), new EventArgs());
 
             //ListView Header
             lviSearch.GridLines = true;
@@ -59,11 +59,6 @@ namespace SDP
             lviSearch.Columns.Add("On hand", 50);
             lviSearch.Columns.Add("In hand", 50);
             lviSearch.Columns.Add("Price", 50);
-        }
-
-        private void FormSearchStock_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void BtnSearch_Click(object sender, EventArgs e)
@@ -92,6 +87,25 @@ namespace SDP
                 data.Close();
                 cmd.Dispose();
             }
+           
+            /*if(txtCategory.Text != "")
+            {
+              sql = String.Format("")
+            }*/
+        }
+        private void TxtPID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                btnSearch.Focus();
+                BtnSearch_Click(sender, e);
+                txtPID.Focus();
+            }
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
