@@ -80,6 +80,7 @@
             this.btnSearch.TabIndex = 154;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // btnCancel
             // 
@@ -161,8 +162,13 @@
             // cboOrderStatus
             // 
             this.cboOrderStatus.FormattingEnabled = true;
-            this.cboOrderStatus.Location = new System.Drawing.Point(197, 279);
-            this.cboOrderStatus.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.cboOrderStatus.Items.AddRange(new object[] {
+            "Creation",
+            "Reservation",
+            "Shipping",
+            "Deletion",
+            "Finish"});
+            this.cboOrderStatus.Location = new System.Drawing.Point(394, 582);
             this.cboOrderStatus.Name = "cboOrderStatus";
             this.cboOrderStatus.Size = new System.Drawing.Size(200, 20);
             this.cboOrderStatus.TabIndex = 167;

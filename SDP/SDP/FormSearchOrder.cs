@@ -24,5 +24,17 @@ namespace SDP
             dtpEndDate.Format = DateTimePickerFormat.Custom;
             dtpEndDate.CustomFormat = "dd/MM/yyyy";
         }
+
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            int orderId = Convert.ToInt32(txtOrderId.Text);
+            String staffId = txtStaffId.Text;
+            String orderStatus = cboOrderStatus.SelectedItem.ToString();
+            DateTime startDate = dtpStartDate.Value.Date;
+            DateTime endDate = dtpEndDate.Value.Date;
+            Console.WriteLine(orderStatus + "     " + startDate.ToString() + "    " + endDate.ToString());
+            MessageBox.Show(orderStatus + "     " + startDate.ToString() + "    " + endDate.ToString());
+
+        }
     }
 }
