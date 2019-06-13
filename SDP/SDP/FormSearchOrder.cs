@@ -53,7 +53,6 @@ namespace SDP
         private void BtnSearch_Click(object sender, EventArgs e)
         {
             String reference = "";
-            String orderStatus = "";
             String custPhone = "";
             if (txtOrderId.Text != "")
             {
@@ -90,10 +89,15 @@ namespace SDP
                 }
                 reference += " status='" + cboOrderStatus.SelectedItem.ToString() + "'";
             }
-            custPhone = txtCustPhone.Text;
-            DateTime startDate = dtpStartDate.Value.Date;
-            DateTime endDate = dtpEndDate.Value.Date;
 
+            DateTime startDate = dtpStartDate.Value.Date;
+            if (reference != "")
+            {
+                reference += " or";
+            }
+            reference += " date>='" + startDate + "'";
+            DateTime endDate = dtpEndDate.Value.Date;
+            Console.WriteLine(startDate+"     "+endDate);
             if (reference != "")
             {
                 String sql = "select * from dbOPSRS.order where " + reference;
