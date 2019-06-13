@@ -87,10 +87,10 @@ DROP TABLE IF EXISTS `orderProduct`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `orderProduct` (
-  `orderid` int(6) NOT NULL,
+  `orderId` int(6) NOT NULL,
   `productId` int(6) NOT NULL,
   `qty` int(11) NOT NULL,
-  PRIMARY KEY (`orderid`,`productId`)
+  PRIMARY KEY (`orderId`,`productId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -175,4 +175,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-14  1:05:06
+-- Dump completed on 2019-06-14  5:43:54

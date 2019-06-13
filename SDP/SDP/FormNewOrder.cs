@@ -330,11 +330,54 @@ namespace SDP
                 }
 
                 MessageBox.Show("Submit Sussesed!");
-               // Utilities.ResetAllControls(this);
+                Utilities.ResetAllControls(this);
+                //dtpDelivery.Value = DateTime.Today.AddDays(1);
+            }
+        }
+    }
+    public class Utilities
+    {
+        public static void ResetAllControls(Control form)
+        {
+            foreach (Control control in form.Controls)
+            {
+                if (control is TextBox)
+                {
+                    TextBox textBox = (TextBox)control;
+                    Console.WriteLine(textBox.Name);
+                    textBox.Text = null;
+                }
+
+                if (control is ComboBox)
+                {
+                    ComboBox comboBox = (ComboBox)control;
+                        comboBox.SelectedIndex = 0;
+                }
+
+                if (control is CheckBox)
+                {
+                    CheckBox checkBox = (CheckBox)control;
+                    checkBox.Checked = false;
+                }
+
+                if (control is ListBox)
+                {
+                    ListBox listBox = (ListBox)control;
+                    listBox.ClearSelected();
+                }
+
+                if(control is DateTimePicker)
+                {
+                    DateTimePicker dateTimePicker = (DateTimePicker)control;
+                    dateTimePicker.Value = DateTime.Today.AddDays(1);
+                }
+                if(control is ListView)
+                {
+                    ListView listView = (ListView)control;
+                    listView.Items.Clear();
+                }
 
             }
         }
-
-
     }
 }
