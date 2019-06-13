@@ -47,6 +47,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtCustPhone = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.btnReset = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblCompany
@@ -93,7 +95,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(574, 683);
+            this.btnCancel.Location = new System.Drawing.Point(718, 683);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(6);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(150, 48);
@@ -174,6 +176,7 @@
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.Size = new System.Drawing.Size(396, 31);
             this.dtpEndDate.TabIndex = 166;
+            this.dtpEndDate.ValueChanged += new System.EventHandler(this.DtpEndDate_ValueChanged);
             // 
             // lblTo
             // 
@@ -238,11 +241,23 @@
             this.label3.TabIndex = 172;
             this.label3.Text = "Customer Tel:";
             // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(556, 683);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(6);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(150, 48);
+            this.btnReset.TabIndex = 174;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // FormSearchOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2533, 1401);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.txtCustPhone);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtCustId);
@@ -291,5 +306,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCustPhone;
         private System.Windows.Forms.Label label3;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Button btnReset;
     }
 }
