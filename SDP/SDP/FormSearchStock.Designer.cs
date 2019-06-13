@@ -36,7 +36,7 @@
             this.lblKeyword = new System.Windows.Forms.Label();
             this.txtCategory = new System.Windows.Forms.TextBox();
             this.txtKeyword = new System.Windows.Forms.TextBox();
-            this.txtSKU = new System.Windows.Forms.TextBox();
+            this.txtPID = new System.Windows.Forms.TextBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
@@ -109,13 +109,13 @@
             this.txtKeyword.Size = new System.Drawing.Size(200, 22);
             this.txtKeyword.TabIndex = 152;
             // 
-            // txtSKU
+            // txtPID
             // 
-            this.txtSKU.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSKU.Location = new System.Drawing.Point(194, 249);
-            this.txtSKU.Name = "txtSKU";
-            this.txtSKU.Size = new System.Drawing.Size(200, 22);
-            this.txtSKU.TabIndex = 153;
+            this.txtPID.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPID.Location = new System.Drawing.Point(194, 249);
+            this.txtPID.Name = "txtPID";
+            this.txtPID.Size = new System.Drawing.Size(200, 22);
+            this.txtPID.TabIndex = 153;
             // 
             // listView1
             // 
@@ -131,7 +131,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
             this.Controls.Add(this.listView1);
-            this.Controls.Add(this.txtSKU);
+            this.Controls.Add(this.txtPID);
             this.Controls.Add(this.txtKeyword);
             this.Controls.Add(this.txtCategory);
             this.Controls.Add(this.lblKeyword);
@@ -157,7 +157,7 @@
         private System.Windows.Forms.Label lblKeyword;
         private System.Windows.Forms.TextBox txtCategory;
         private System.Windows.Forms.TextBox txtKeyword;
-        private System.Windows.Forms.TextBox txtSKU;
+        private System.Windows.Forms.TextBox txtPID;
         private System.Windows.Forms.ListView listView1;
     }
 }
