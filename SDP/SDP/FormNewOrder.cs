@@ -341,14 +341,32 @@ namespace SDP
                 if (control is TextBox)
                 {
                     TextBox textBox = (TextBox)control;
-                    Console.WriteLine(textBox.Name);
-                    textBox.Text = null;
+                    if (textBox.Name == "txtNumber")
+                    {
+                        MySqlCommand cmd = Program.ExecSQL("select max(orderId) from dbOPSRS.order");
+                        MySqlDataReader data = cmd.ExecuteReader();
+
+                        while (data.Read())
+                        {
+                            textBox.Text = (data.GetInt32(0) + 1).ToString();
+                        }
+                    }else if(textBox.Name == "txtDate")
+                    {
+                        textBox.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                    }else if (textBox.Name == "txtStaffId")
+                    {
+
+                    }
+                    else
+                    {
+                        textBox.Text = null;
+                    }
                 }
 
                 if (control is ComboBox)
                 {
                     ComboBox comboBox = (ComboBox)control;
-                        comboBox.SelectedIndex = 0;
+                    comboBox.SelectedIndex = 0;
                 }
 
                 if (control is CheckBox)
@@ -363,12 +381,14 @@ namespace SDP
                     listBox.ClearSelected();
                 }
 
-                if(control is DateTimePicker)
+                if (control is DateTimePicker)
                 {
                     DateTimePicker dateTimePicker = (DateTimePicker)control;
-                    dateTimePicker.Value = DateTime.Today.AddDays(1);
+                    if (dateTimePicker.Name == "dtpDelivery")
+                        dateTimePicker.Value = DateTime.Today.AddDays(1);
+                    else { dateTimePicker.Value = DateTime.Today; }
                 }
-                if(control is ListView)
+                if (control is ListView)
                 {
                     ListView listView = (ListView)control;
                     listView.Items.Clear();
