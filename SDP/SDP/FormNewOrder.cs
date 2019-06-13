@@ -177,5 +177,16 @@ namespace SDP
                 txtQty.Focus();
             }
         }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            //int Index = this.lvResult.SelectedItems[0].Index;
+            double price = Convert.ToDouble(lvResult.SelectedItems[0].SubItems[5].Text);
+            double qty= Convert.ToDouble(lvResult.SelectedItems[0].SubItems[6].Text);
+            total -= (price * qty);
+            txtAmount.Text = "$" + total.ToString();
+            lvResult.SelectedItems.Clear();
+
+        }
     }
 }
