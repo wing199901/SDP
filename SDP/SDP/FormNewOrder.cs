@@ -269,7 +269,8 @@ namespace SDP
             }
             else
             {
-
+                String sql = String.Format("insert into customer (custName, address, companyName, email, phone) values '{0}', '{1}', '{2}', '{3}', '{4}'", txtName.Text, txtAddr.Text, txtCompany.Text, txtEmail.Text, txtPhone.Text);
+                Program.ExecSQL(sql);
             }
 
         }
