@@ -13,21 +13,11 @@ namespace SDP
 {
     public partial class FormSearchOrder : Form
     {
+        private ListViewItem currentItem;
 
         public FormSearchOrder()
         {
             InitializeComponent();
-        }
-
-        private void FormSearchOrder_Load(object sender, EventArgs e)
-        {
-            dtpStartDate.Format = DateTimePickerFormat.Custom;
-            dtpStartDate.CustomFormat = "dd/MM/yyyy";
-            dtpStartDate.MaxDate = dtpEndDate.Value;
-            dtpEndDate.Format = DateTimePickerFormat.Custom;
-            dtpEndDate.CustomFormat = "dd/MM/yyyy";
-            dtpEndDate.MaxDate = DateTime.Today;
-
 
             //ListView Header
             lvResult_order.GridLines = true;
@@ -42,6 +32,18 @@ namespace SDP
             lvResult_order.Columns.Add("Shipping Address", 200);
             lvResult_order.Columns.Add("Total Amount", 80);
             lvResult_order.Columns.Add("Remark", 200);
+
+        }
+
+        private void FormSearchOrder_Load(object sender, EventArgs e)
+        {
+            dtpStartDate.Format = DateTimePickerFormat.Custom;
+            dtpStartDate.CustomFormat = "dd/MM/yyyy";
+            dtpStartDate.MaxDate = dtpEndDate.Value;
+            dtpEndDate.Format = DateTimePickerFormat.Custom;
+            dtpEndDate.CustomFormat = "dd/MM/yyyy";
+            dtpEndDate.MaxDate = DateTime.Today;
+
         }
         private void Txt_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -80,12 +82,13 @@ namespace SDP
                 String custId = "";
                 MySqlCommand cmd = Program.ExecSQL("select custId from customer where phone='" + txtCustPhone.Text + "'");
                 MySqlDataReader data = cmd.ExecuteReader();
-                while (data.Read()) { 
-                custId = data.GetString(0).ToString();
-            }
-                if (reference != ""&&custId!="")
+                while (data.Read())
                 {
-                    reference += " or"+ " custId='" + custId + "'";
+                    custId = data.GetString(0).ToString();
+                }
+                if (reference != "" && custId != "")
+                {
+                    reference += " or" + " custId='" + custId + "'";
                 }
             }
             if (cboOrderStatus.SelectedItem != null)
@@ -149,6 +152,18 @@ namespace SDP
         private void DtpEndDate_ValueChanged(object sender, EventArgs e)
         {
             dtpStartDate.MaxDate = dtpEndDate.Value;
+        }
+
+        private void LvResult_order_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            currentItem = lvResult_order.GetItemAt(e.X, e.Y);
+
+            if (currentItem != null)
+            {
+                String orderId = currentItem.Text;
+                FormEditOrder editOrder = new FormEditOrder(orderId);
+                editOrder.ShowDialog();
+            }
         }
     }
 }
