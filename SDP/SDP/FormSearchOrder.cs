@@ -57,38 +57,38 @@ namespace SDP
             String custPhone = "";
             if (txtOrderId.Text != "")
             {
-                String orderId = Convert.ToInt64(txtOrderId.Text).ToString();
-                reference += " orderId='" + orderId + "'";
+                reference += " orderId='" + Convert.ToInt32(txtOrderId.Text) + "'";
             }
             if (txtStaffId.Text != "")
             {
-                String staffId = Convert.ToInt64(txtStaffId.Text).ToString();
                 if (reference != "")
                 {
                     reference += " or";
                 }
-                reference += " staffId='" + staffId + "'";
+                reference += " staffId='" + Convert.ToInt32(txtStaffId.Text) + "'";
             }
             if (txtCustId.Text != "")
             {
-                String custId = Convert.ToInt64(txtCustId.Text).ToString();
                 if (reference != "")
                 {
                     reference += " or";
                 }
-                reference += " custId='" + custId + "'";
+                reference += " custId='" + Convert.ToInt32(txtCustId.Text) + "'";
             }
-            if (txtCustPhone.Text != "") { 
-            custPhone = txtCustPhone.Text;
+            /*if (txtCustPhone.Text != "") { 
                 if (reference != "")
                 {
                     reference += " or";
                 }
-                reference += " custPhone='" + custPhone + "'";
-            }
+                reference += " custPhone='" + txtCustPhone.Text + "'";
+            }*/
             if (cboOrderStatus.SelectedItem != null)
             {
-                orderStatus = cboOrderStatus.SelectedItem.ToString();
+                if (reference != "")
+                {
+                    reference += " or";
+                }
+                reference += " status='" + cboOrderStatus.SelectedItem.ToString() + "'";
             }
             custPhone = txtCustPhone.Text;
             DateTime startDate = dtpStartDate.Value.Date;
