@@ -27,6 +27,8 @@ namespace SDP
         private double quantity = 0;
         private double total = 0;
 
+        private String custId = "";
+
         ListViewItem currentItem;
         private ListViewItem.ListViewSubItem currentItemSub;
         public FormNewOrder(String username)
@@ -78,7 +80,7 @@ namespace SDP
             data.Close();
             cmd.Dispose();
 
-            txtId.Text = UserName;
+            txtStaffId.Text = UserName;
 
             //cboStatus default value
             cboStatus.SelectedIndex = 0;
@@ -258,6 +260,7 @@ namespace SDP
 
         private void BtnSubmit_Click(object sender, EventArgs e)
         {
+            String submitTime = DateTime.Now.ToString("yyyy-MM-dd H:mm:ss");
 
             if ((txtName.Text == "") || (txtCompany.Text == "") || (txtAddr.Text == "") || (txtShipAddr.Text == "") || (txtEmail.Text == "") || (txtPhone.Text == ""))
             {
@@ -269,8 +272,41 @@ namespace SDP
             }
             else
             {
-                String sql = String.Format("insert into customer (custName, address, companyName, email, phone) values '{0}', '{1}', '{2}', '{3}', '{4}'", txtName.Text, txtAddr.Text, txtCompany.Text, txtEmail.Text, txtPhone.Text);
-                Program.ExecSQL(sql);
+                String sql = String.Format("insert into customer (custName, address, companyName, email, phone) " +
+                    "select '{0}', '{1}', '{2}', '{3}', '{4}' from dual " +
+                    "where not exists (select phone from customer where phone='{4}')",
+                    txtName.Text, txtAddr.Text, txtCompany.Text, txtEmail.Text, txtPhone.Text);
+                MySqlCommand cmd = Program.ExecSQL(sql);
+                cmd.Dispose();
+
+                sql = String.Format("select custId from customer where phone='{0}'", txtPhone.Text);
+                cmd = Program.ExecSQL(sql);
+                MySqlDataReader data = cmd.ExecuteReader();
+
+                while (data.Read())
+                {
+                    custId = data.GetString(0).ToString();
+                }
+
+                data.Close();
+                cmd.Dispose();
+
+                sql = String.Format("insert into dbOPSRS.order (staffId, custId, status, date, deliveryDate, shippingAddress, totalAmount, remark) " +
+                    "values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', {6}, '{7}'",
+                    txtStaffId.Text, custId, cboStatus.Text, submitTime, dtpDelivery.ToString(), txtShipAddr.Text, total, txtRemark.Text);
+                cmd = Program.ExecSQL(sql);
+
+                data.Close();
+                cmd.Dispose();
+
+                sql = String.Format("select orderId from dbOPSRS.order where custId = '{0}' and date = '{1}'", custId, submitTime);
+                cmd = Program.ExecSQL(sql);
+                data = cmd.ExecuteReader();
+
+                while (data.Read())
+                {
+                    custId = data.GetString(0).ToString();
+                }
             }
 
         }
