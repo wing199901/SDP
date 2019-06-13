@@ -224,9 +224,6 @@ namespace SDP
                         break;
                 }
             }
-
-
-
         }
 
         private void TxtHide_KeyPress(object sender, KeyPressEventArgs e)
