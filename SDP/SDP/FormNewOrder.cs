@@ -80,6 +80,9 @@ namespace SDP
 
             txtId.Text = UserName;
 
+            //cboStatus default value
+            cboStatus.SelectedIndex = 0;
+
         }
 
         private void TxtRemark_Enter(object sender, EventArgs e)
@@ -100,7 +103,7 @@ namespace SDP
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void BtnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -226,23 +229,23 @@ namespace SDP
             switch (e.KeyChar)
             {
                 case (char)13:  //Enter
-                    if (curQty>newQty)
+                    if (curQty > newQty)
                     {
                         curQty -= newQty;
                         total -= (price * curQty);
                     }
-                    else if(curQty < newQty)
+                    else if (curQty < newQty)
                     {
                         newQty -= curQty;
                         total += (price * newQty);
                     }
                     txtAmount.Text = "$" + total.ToString();
                     currentItemSub.Text = txtHide.Text;
-                    
 
                     e.Handled = true;
                     txtHide.Hide();
                     break;
+
                 case (char)27:  //Escape
                     txtHide.Text = "";
                     e.Handled = true;
@@ -251,6 +254,24 @@ namespace SDP
                 default:
                     break;
             }
+        }
+
+        private void BtnSubmit_Click(object sender, EventArgs e)
+        {
+
+            if ((txtName.Text == "") || (txtCompany.Text == "") || (txtAddr.Text == "") || (txtShipAddr.Text == "") || (txtEmail.Text == "") || (txtPhone.Text == ""))
+            {
+                MessageBox.Show("Please fill in the customer infomation!");
+            }
+            else if (txtAmount.Text == "$")     //Empty Total Amount
+            {
+                MessageBox.Show("There is no product in cart!");
+            }
+            else
+            {
+
+            }
+
         }
     }
 }
