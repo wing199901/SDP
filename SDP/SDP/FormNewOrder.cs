@@ -48,6 +48,8 @@ namespace SDP
             lvResult.Columns.Add("Description", 150);
             lvResult.Columns.Add("Price", 50);
             lvResult.Columns.Add("Quantity", 100);
+
+
         }
 
         private void ChoShipAddr_Click(object sender, EventArgs e)
@@ -164,7 +166,7 @@ namespace SDP
 
                     data.Close();
                     cmd.Dispose();
-                                    }
+                }
                 else
                 {
                     MessageBox.Show("Product ID can not be empty!");
@@ -276,10 +278,10 @@ namespace SDP
             }
             else
             {
-                
+
                 String sql = String.Format("insert into customer (custName, address, companyName, email, phone) select '{0}', '{1}', '{2}', '{3}', '{4}' from dual where not exists (select phone from customer where phone='{4}')",
                 txtName.Text, txtAddr.Text, txtCompany.Text, txtEmail.Text, txtPhone.Text);
-                MySqlCommand cmd =  Program.ExecSQL(sql);
+                MySqlCommand cmd = Program.ExecSQL(sql);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
 
@@ -315,9 +317,9 @@ namespace SDP
                 data.Close();
                 cmd.Dispose();
 
-                for (int i =0; i< lvResult.Items.Count; i++)
+                for (int i = 0; i < lvResult.Items.Count; i++)
                 {
-                    String productId=lvResult.Items[i].Text;
+                    String productId = lvResult.Items[i].Text;
                     int qty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
                     sql = String.Format("insert into orderProduct (orderId, productId, qty) " +
                         "values ('{0}', '{1}', {2})", orderId, productId, qty);
@@ -328,10 +330,11 @@ namespace SDP
                 }
 
                 MessageBox.Show("Submit Sussesed!");
-                //this.Close();
-                
-            }
 
+
+            }
         }
+
+
     }
 }
