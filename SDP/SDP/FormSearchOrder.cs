@@ -42,28 +42,38 @@ namespace SDP
             lvResult_order.Columns.Add("Date", 70);
             lvResult_order.Columns.Add("Delivery Date", 80);
             lvResult_order.Columns.Add("Shipping Address", 200);
+            lvResult_order.Columns.Add("Total Amount", 80);
             lvResult_order.Columns.Add("Remark", 200);
         }
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            String orderId = Convert.ToInt32(txtOrderId.Text).ToString();
-            String staffId = txtStaffId.Text;
-            if (cboOrderStatus.SelectedItem != null) { 
-            String orderStatus = cboOrderStatus.SelectedItem.ToString();
-        } 
-            String custId = tbCustId.Text;
-            String custPhone = tbCustPhone.Text;
+            orderId = Convert.ToInt32(txtOrderId.Text).ToString();
+            staffId = Convert.ToInt32(txtStaffId.Text).ToString();
+            custId = Convert.ToInt32(txtCustId.Text).ToString();
+            custPhone = txtCustPhone.Text;
+            if (cboOrderStatus.SelectedItem != null)
+            {
+                orderStatus = cboOrderStatus.SelectedItem.ToString();
+            }
+            custId = txtCustId.Text;
+            custPhone = txtCustPhone.Text;
             DateTime startDate = dtpStartDate.Value.Date;
             DateTime endDate = dtpEndDate.Value.Date;
-
-            String sql = String.Format("select * from dbOPSRS.order where {0}{1}{2}{3}{4}{5}",
-                                        " orderId = '"+orderId+"'",
-                                        "", "", "", "", "");
+            // ((orderId!="")?" or ":"")+
+            String index_control = "{0}{1}{2}{3}{4}{5}";
+            String sql = String.Format("select * from dbOPSRS.order where " + index_control,
+                                      //  " orderId = '" + orderId + "'",
+                                        " orderId = '" + orderId + "'",
+                                       ((staffId != "") ? " or" : "")
+                                       , " staffId = '" + staffId + "'",
+                                       ((custId != "") ? " or" : "")
+                                       , " custId = '" + staffId + "'"
+                                       , "");
             MySqlCommand cmd = Program.ExecSQL(sql);
             MySqlDataReader data = cmd.ExecuteReader();
 
-            //lvResult_order.Clear();
+            lvResult_order.Items.Clear();
 
             while (data.Read())
             {
@@ -74,9 +84,10 @@ namespace SDP
                 lv.SubItems.Add(data.GetDateTime(4).ToString("dd/MM/yyyy"));
                 lv.SubItems.Add(data.GetDateTime(5).ToString("dd/MM/yyyy"));
                 lv.SubItems.Add(data.GetString(6).ToString());
-                if(!data.IsDBNull(7))
+                lv.SubItems.Add("$" + data.GetString(7).ToString());
+                if (!data.IsDBNull(8))
                 {
-                    lv.SubItems.Add(data.GetString(7).ToString());
+                    lv.SubItems.Add(data.GetString(8).ToString());
                 }
                 lvResult_order.Items.Add(lv);
             }

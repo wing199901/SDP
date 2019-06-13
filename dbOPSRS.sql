@@ -27,7 +27,7 @@ DROP TABLE IF EXISTS `customer`;
 CREATE TABLE `customer` (
   `custId` int(6) NOT NULL AUTO_INCREMENT,
   `custName` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `Address` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `address` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `companyName` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `email` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `phone` varchar(8) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
@@ -182,4 +182,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-13 22:13:04
+-- Dump completed on 2019-06-13 23:14:20

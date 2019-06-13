@@ -43,9 +43,9 @@
             this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
             this.lblTo = new System.Windows.Forms.Label();
             this.cboOrderStatus = new System.Windows.Forms.ComboBox();
-            this.tbCustId = new System.Windows.Forms.TextBox();
+            this.txtCustId = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.tbCustPhone = new System.Windows.Forms.TextBox();
+            this.txtCustPhone = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -197,14 +197,14 @@
             this.cboOrderStatus.Size = new System.Drawing.Size(396, 33);
             this.cboOrderStatus.TabIndex = 169;
             // 
-            // tbCustId
+            // txtCustId
             // 
-            this.tbCustId.Location = new System.Drawing.Point(1010, 533);
-            this.tbCustId.Margin = new System.Windows.Forms.Padding(6);
-            this.tbCustId.Multiline = true;
-            this.tbCustId.Name = "tbCustId";
-            this.tbCustId.Size = new System.Drawing.Size(396, 31);
-            this.tbCustId.TabIndex = 171;
+            this.txtCustId.Location = new System.Drawing.Point(1010, 533);
+            this.txtCustId.Margin = new System.Windows.Forms.Padding(6);
+            this.txtCustId.Multiline = true;
+            this.txtCustId.Name = "txtCustId";
+            this.txtCustId.Size = new System.Drawing.Size(396, 31);
+            this.txtCustId.TabIndex = 171;
             // 
             // label2
             // 
@@ -216,14 +216,14 @@
             this.label2.TabIndex = 170;
             this.label2.Text = "Customer ID:";
             // 
-            // tbCustPhone
+            // txtCustPhone
             // 
-            this.tbCustPhone.Location = new System.Drawing.Point(1010, 573);
-            this.tbCustPhone.Margin = new System.Windows.Forms.Padding(6);
-            this.tbCustPhone.Multiline = true;
-            this.tbCustPhone.Name = "tbCustPhone";
-            this.tbCustPhone.Size = new System.Drawing.Size(396, 31);
-            this.tbCustPhone.TabIndex = 173;
+            this.txtCustPhone.Location = new System.Drawing.Point(1010, 573);
+            this.txtCustPhone.Margin = new System.Windows.Forms.Padding(6);
+            this.txtCustPhone.Multiline = true;
+            this.txtCustPhone.Name = "txtCustPhone";
+            this.txtCustPhone.Size = new System.Drawing.Size(396, 31);
+            this.txtCustPhone.TabIndex = 173;
             // 
             // label3
             // 
@@ -240,9 +240,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2533, 1401);
-            this.Controls.Add(this.tbCustPhone);
+            this.Controls.Add(this.txtCustPhone);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.tbCustId);
+            this.Controls.Add(this.txtCustId);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cboOrderStatus);
             this.Controls.Add(this.lblTo);
@@ -284,9 +284,9 @@
         private System.Windows.Forms.DateTimePicker dtpEndDate;
         private System.Windows.Forms.Label lblTo;
         private System.Windows.Forms.ComboBox cboOrderStatus;
-        private System.Windows.Forms.TextBox tbCustId;
+        private System.Windows.Forms.TextBox txtCustId;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbCustPhone;
+        private System.Windows.Forms.TextBox txtCustPhone;
         private System.Windows.Forms.Label label3;
     }
 }
