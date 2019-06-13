@@ -330,7 +330,7 @@ namespace SDP
                 }
 
                 MessageBox.Show("Submit Sussesed!");
-
+               // Utilities.ResetAllControls(this);
 
             }
         }

@@ -55,7 +55,6 @@ namespace SDP
         private void BtnSearch_Click(object sender, EventArgs e)
         {
             String reference = "";
-            String custPhone = "";
             if (txtOrderId.Text != "")
             {
                 reference += " orderId='" + Convert.ToInt32(txtOrderId.Text).ToString() + "'";
