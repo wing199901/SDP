@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data;
@@ -23,8 +24,11 @@ namespace SDP
         }
 
         private String priceTxt = "";
-        private double quantity =0;
+        private double quantity = 0;
         private double total = 0;
+
+        ListViewItem currentItem;
+        private ListViewItem.ListViewSubItem currentItemSub;
         public FormNewOrder(String username)
         {
             InitializeComponent();
@@ -66,16 +70,16 @@ namespace SDP
 
             MySqlCommand cmd = Program.ExecSQL("select max(orderId) from dbOPSRS.order");
             MySqlDataReader data = cmd.ExecuteReader();
-            
+
             while (data.Read())
             {
-                txtNumber.Text = (data.GetInt32(0)+1).ToString();
+                txtNumber.Text = (data.GetInt32(0) + 1).ToString();
             }
             data.Close();
             cmd.Dispose();
 
             txtId.Text = UserName;
-            
+
         }
 
         private void TxtRemark_Enter(object sender, EventArgs e)
@@ -105,7 +109,7 @@ namespace SDP
         {
             String keyword = txtKeyword.Text;
             FormSearchProduct searchResult = new FormSearchProduct(keyword);
-            
+
             if (searchResult.ShowDialog() == DialogResult.OK)
             {
                 txtProductID.Text = searchResult.ProductId;
@@ -142,14 +146,14 @@ namespace SDP
                         lv.SubItems.Add(data.GetString(3).ToString());
                         lv.SubItems.Add(data.GetString(4).ToString());
                         priceTxt = data.GetDouble(5).ToString();
-                        lv.SubItems.Add("$"+priceTxt);
+                        lv.SubItems.Add("$" + priceTxt);
                         lv.SubItems.Add(txtQty.Text);
                         lvResult.Items.Add(lv);
                         double price = Convert.ToDouble(priceTxt);
                         quantity = Convert.ToDouble(txtQty.Text);
                         price *= quantity;
                         total += price;
-                        txtAmount.Text = "$"+total.ToString();
+                        txtAmount.Text = "$" + total.ToString();
                     }
                 }
                 else
@@ -175,6 +179,77 @@ namespace SDP
                 BtnAdd_Click(sender, e);
 
                 txtQty.Focus();
+            }
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            double price = Convert.ToDouble(Regex.Replace(lvResult.SelectedItems[0].SubItems[5].Text, "[$]", ""));
+            double qty = Convert.ToDouble(lvResult.SelectedItems[0].SubItems[6].Text);
+            total -= (price * qty);
+            txtAmount.Text = "$" + total.ToString();
+            lvResult.Items.Remove(lvResult.SelectedItems[0]);
+        }
+
+        private void LvResult_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            currentItem = lvResult.GetItemAt(e.X, e.Y);
+
+            if (currentItem != null)
+            {
+                currentItemSub = currentItem.GetSubItemAt(e.X, e.Y);
+                int subIndex = currentItem.SubItems.IndexOf(currentItemSub);
+                switch (subIndex)
+                {
+                    case 6:
+                        int lLeft = currentItemSub.Bounds.Left + 2;
+                        int lWidth = currentItemSub.Bounds.Width;
+                        txtHide.SetBounds(lLeft + lvResult.Left, currentItemSub.Bounds.Top + lvResult.Top, lWidth, currentItemSub.Bounds.Height);
+                        txtHide.Text = currentItemSub.Text;
+                        txtHide.Show();
+                        txtHide.Focus();
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+
+
+        }
+
+        private void TxtHide_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            double price = Convert.ToDouble(Regex.Replace(currentItem.SubItems[5].Text, "[$]", ""));
+            double curQty = Convert.ToDouble(currentItem.SubItems[6].Text);
+            double newQty = Convert.ToInt32(txtHide.Text);
+            switch (e.KeyChar)
+            {
+                case (char)13:  //Enter
+                    if (curQty>newQty)
+                    {
+                        curQty -= newQty;
+                        total -= (price * curQty);
+                    }
+                    else if(curQty < newQty)
+                    {
+                        newQty -= curQty;
+                        total += (price * newQty);
+                    }
+                    txtAmount.Text = "$" + total.ToString();
+                    currentItemSub.Text = txtHide.Text;
+                    
+
+                    e.Handled = true;
+                    txtHide.Hide();
+                    break;
+                case (char)27:  //Escape
+                    txtHide.Text = "";
+                    e.Handled = true;
+                    txtHide.Hide();
+                    break;
+                default:
+                    break;
             }
         }
     }

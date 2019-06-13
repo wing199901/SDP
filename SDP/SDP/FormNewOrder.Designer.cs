@@ -68,6 +68,7 @@
             this.button7 = new System.Windows.Forms.Button();
             this.txtRemark = new System.Windows.Forms.TextBox();
             this.lvResult = new System.Windows.Forms.ListView();
+            this.txtHide = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblCompany
@@ -326,6 +327,7 @@
             this.btnDelete.TabIndex = 171;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // txtProductID
             // 
@@ -418,12 +420,23 @@
             this.lvResult.Size = new System.Drawing.Size(806, 132);
             this.lvResult.TabIndex = 191;
             this.lvResult.UseCompatibleStateImageBehavior = false;
+            this.lvResult.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LvResult_MouseDoubleClick);
+            // 
+            // txtHide
+            // 
+            this.txtHide.Location = new System.Drawing.Point(368, 210);
+            this.txtHide.Name = "txtHide";
+            this.txtHide.Size = new System.Drawing.Size(200, 22);
+            this.txtHide.TabIndex = 192;
+            this.txtHide.Visible = false;
+            this.txtHide.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtHide_KeyPress);
             // 
             // FormNewOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 541);
+            this.Controls.Add(this.txtHide);
             this.Controls.Add(this.lvResult);
             this.Controls.Add(this.txtRemark);
             this.Controls.Add(this.btnCancel);
@@ -513,5 +526,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.TextBox txtRemark;
         private System.Windows.Forms.ListView lvResult;
+        private System.Windows.Forms.TextBox txtHide;
     }
 }
