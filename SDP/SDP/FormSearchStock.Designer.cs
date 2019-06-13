@@ -68,6 +68,7 @@
             this.btnCancel.TabIndex = 146;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // lblPID
             // 
@@ -117,6 +118,7 @@
             this.txtPID.Name = "txtPID";
             this.txtPID.Size = new System.Drawing.Size(200, 22);
             this.txtPID.TabIndex = 153;
+            this.txtPID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtPID_KeyDown);
             // 
             // lviSearch
             // 
@@ -143,7 +145,7 @@
             this.Controls.Add(this.lblCompany);
             this.Name = "FormSearchStock";
             this.Text = "Search stock";
-            this.Load += new System.EventHandler(this.FormSearchStock_Load);
+            this.Click += new System.EventHandler(this.BtnSearch_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 
