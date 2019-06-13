@@ -82,7 +82,7 @@ namespace SDP
 
             //cboStatus default value
             cboStatus.SelectedIndex = 0;
-            
+
         }
 
         private void TxtRemark_Enter(object sender, EventArgs e)
@@ -254,6 +254,24 @@ namespace SDP
                 default:
                     break;
             }
+        }
+
+        private void BtnSubmit_Click(object sender, EventArgs e)
+        {
+
+            if ((txtName.Text == "") || (txtCompany.Text == "") || (txtAddr.Text == "") || (txtShipAddr.Text == "") || (txtEmail.Text == "") || (txtPhone.Text == ""))
+            {
+                MessageBox.Show("Please fill in the customer infomation!");
+            }
+            else if (txtAmount.Text == "$")     //Empty Total Amount
+            {
+                MessageBox.Show("There is no product in cart!");
+            }
+            else
+            {
+
+            }
+
         }
     }
 }
