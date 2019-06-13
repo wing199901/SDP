@@ -78,6 +78,7 @@
             this.txtOrderId.Name = "txtOrderId";
             this.txtOrderId.Size = new System.Drawing.Size(396, 31);
             this.txtOrderId.TabIndex = 151;
+            this.txtOrderId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_KeyPress);
             // 
             // btnSearch
             // 
@@ -146,6 +147,7 @@
             this.txtStaffId.Name = "txtStaffId";
             this.txtStaffId.Size = new System.Drawing.Size(396, 31);
             this.txtStaffId.TabIndex = 163;
+            this.txtStaffId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_KeyPress);
             // 
             // label4
             // 
@@ -205,6 +207,7 @@
             this.txtCustId.Name = "txtCustId";
             this.txtCustId.Size = new System.Drawing.Size(396, 31);
             this.txtCustId.TabIndex = 171;
+            this.txtCustId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_KeyPress);
             // 
             // label2
             // 
