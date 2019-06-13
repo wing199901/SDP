@@ -77,6 +77,7 @@
             this.txtHide.Size = new System.Drawing.Size(200, 22);
             this.txtHide.TabIndex = 233;
             this.txtHide.Visible = false;
+            this.txtHide.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtHide_KeyPress);
             // 
             // lvResult
             // 
@@ -85,6 +86,7 @@
             this.lvResult.Size = new System.Drawing.Size(806, 132);
             this.lvResult.TabIndex = 232;
             this.lvResult.UseCompatibleStateImageBehavior = false;
+            this.lvResult.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LvResult_MouseDoubleClick);
             // 
             // txtRemark
             // 
@@ -95,6 +97,8 @@
             this.txtRemark.Size = new System.Drawing.Size(806, 67);
             this.txtRemark.TabIndex = 231;
             this.txtRemark.Text = "Remark";
+            this.txtRemark.Enter += new System.EventHandler(this.TxtRemark_Enter);
+            this.txtRemark.Leave += new System.EventHandler(this.TxtRemark_Leave);
             // 
             // btnCancel
             // 
@@ -113,6 +117,7 @@
             this.btnSubmit.TabIndex = 229;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.BtnSubmit_Click);
             // 
             // label17
             // 
@@ -172,6 +177,7 @@
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(200, 22);
             this.txtQty.TabIndex = 222;
+            this.txtQty.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtQty_KeyDown);
             // 
             // btnSearch
             // 
@@ -181,6 +187,7 @@
             this.btnSearch.TabIndex = 221;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // txtProductID
             // 
@@ -237,7 +244,6 @@
             // 
             this.txtStaffId.Location = new System.Drawing.Point(623, 44);
             this.txtStaffId.Name = "txtStaffId";
-            this.txtStaffId.ReadOnly = true;
             this.txtStaffId.Size = new System.Drawing.Size(200, 22);
             this.txtStaffId.TabIndex = 213;
             // 
@@ -263,6 +269,7 @@
             // 
             this.txtNumber.Location = new System.Drawing.Point(118, 16);
             this.txtNumber.Name = "txtNumber";
+            this.txtNumber.ReadOnly = true;
             this.txtNumber.Size = new System.Drawing.Size(200, 22);
             this.txtNumber.TabIndex = 210;
             // 
@@ -332,6 +339,7 @@
             // 
             this.txtAddr.Location = new System.Drawing.Point(118, 124);
             this.txtAddr.Name = "txtAddr";
+            this.txtAddr.ReadOnly = true;
             this.txtAddr.Size = new System.Drawing.Size(200, 22);
             this.txtAddr.TabIndex = 201;
             // 
@@ -339,6 +347,7 @@
             // 
             this.txtCompany.Location = new System.Drawing.Point(118, 98);
             this.txtCompany.Name = "txtCompany";
+            this.txtCompany.ReadOnly = true;
             this.txtCompany.Size = new System.Drawing.Size(200, 22);
             this.txtCompany.TabIndex = 200;
             // 
@@ -346,6 +355,7 @@
             // 
             this.txtName.Location = new System.Drawing.Point(118, 70);
             this.txtName.Name = "txtName";
+            this.txtName.ReadOnly = true;
             this.txtName.Size = new System.Drawing.Size(200, 22);
             this.txtName.TabIndex = 199;
             // 
@@ -403,6 +413,7 @@
             this.choShipAddr.TabIndex = 204;
             this.choShipAddr.Text = "Shipping Address";
             this.choShipAddr.UseVisualStyleBackColor = true;
+            this.choShipAddr.CheckStateChanged += new System.EventHandler(this.ChoShipAddr_CheckStateChanged);
             // 
             // lblCompany
             // 
