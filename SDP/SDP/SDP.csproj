@@ -104,6 +104,12 @@
     <Compile Include="FormEditOrder.Designer.cs">
       <DependentUpon>FormEditOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEditStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditStock.Designer.cs">
+      <DependentUpon>FormEditStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormGenerate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,12 +158,6 @@
     <Compile Include="FormSearchProduct.Designer.cs">
       <DependentUpon>FormSearchProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormEditStock.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormEditStock.Designer.cs">
-      <DependentUpon>FormEditStock.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormDefective.resx">
@@ -165,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditOrder.resx">
       <DependentUpon>FormEditOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditStock.resx">
+      <DependentUpon>FormEditStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGenerate.resx">
       <DependentUpon>FormGenerate.cs</DependentUpon>
@@ -189,9 +192,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSearchProduct.resx">
       <DependentUpon>FormSearchProduct.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormEditStock.resx">
-      <DependentUpon>FormEditStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
