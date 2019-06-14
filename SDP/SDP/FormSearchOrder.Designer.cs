@@ -243,7 +243,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(962, 449);
+            this.ClientSize = new System.Drawing.Size(838, 441);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.txtCustPhone);
             this.Controls.Add(this.label3);

@@ -158,6 +158,12 @@
     <Compile Include="FormSearchProduct.Designer.cs">
       <DependentUpon>FormSearchProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSearchStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearchStock.Designer.cs">
+      <DependentUpon>FormSearchStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormDefective.resx">
@@ -192,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSearchProduct.resx">
       <DependentUpon>FormSearchProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSearchStock.resx">
+      <DependentUpon>FormSearchStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
