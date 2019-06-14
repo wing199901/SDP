@@ -37,6 +37,7 @@
             this.lblEnd = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.btnApply = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblCompany
@@ -52,7 +53,7 @@
             // lblReport
             // 
             this.lblReport.AutoSize = true;
-            this.lblReport.Location = new System.Drawing.Point(76, 58);
+            this.lblReport.Location = new System.Drawing.Point(38, 63);
             this.lblReport.Name = "lblReport";
             this.lblReport.Size = new System.Drawing.Size(67, 12);
             this.lblReport.TabIndex = 145;
@@ -61,14 +62,14 @@
             // cboType
             // 
             this.cboType.FormattingEnabled = true;
-            this.cboType.Location = new System.Drawing.Point(168, 55);
+            this.cboType.Location = new System.Drawing.Point(130, 60);
             this.cboType.Name = "cboType";
             this.cboType.Size = new System.Drawing.Size(121, 20);
             this.cboType.TabIndex = 146;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(168, 100);
+            this.dateTimePicker1.Location = new System.Drawing.Point(130, 105);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
             this.dateTimePicker1.TabIndex = 147;
@@ -76,7 +77,7 @@
             // lblStart
             // 
             this.lblStart.AutoSize = true;
-            this.lblStart.Location = new System.Drawing.Point(76, 107);
+            this.lblStart.Location = new System.Drawing.Point(38, 112);
             this.lblStart.Name = "lblStart";
             this.lblStart.Size = new System.Drawing.Size(53, 12);
             this.lblStart.TabIndex = 148;
@@ -85,7 +86,7 @@
             // lblTo
             // 
             this.lblTo.AutoSize = true;
-            this.lblTo.Location = new System.Drawing.Point(411, 107);
+            this.lblTo.Location = new System.Drawing.Point(357, 112);
             this.lblTo.Name = "lblTo";
             this.lblTo.Size = new System.Drawing.Size(18, 12);
             this.lblTo.TabIndex = 149;
@@ -94,7 +95,7 @@
             // lblEnd
             // 
             this.lblEnd.AutoSize = true;
-            this.lblEnd.Location = new System.Drawing.Point(483, 107);
+            this.lblEnd.Location = new System.Drawing.Point(407, 112);
             this.lblEnd.Name = "lblEnd";
             this.lblEnd.Size = new System.Drawing.Size(51, 12);
             this.lblEnd.TabIndex = 150;
@@ -102,7 +103,7 @@
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(560, 100);
+            this.dateTimePicker2.Location = new System.Drawing.Point(484, 105);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
             this.dateTimePicker2.TabIndex = 151;
@@ -115,11 +116,21 @@
             this.listView1.TabIndex = 152;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
+            // btnApply
+            // 
+            this.btnApply.Location = new System.Drawing.Point(715, 107);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Size = new System.Drawing.Size(75, 23);
+            this.btnApply.TabIndex = 153;
+            this.btnApply.Text = "Apply";
+            this.btnApply.UseVisualStyleBackColor = true;
+            // 
             // FormGenerate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
+            this.Controls.Add(this.btnApply);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.lblEnd);
@@ -146,5 +157,6 @@
         private System.Windows.Forms.Label lblEnd;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Button btnApply;
     }
 }
