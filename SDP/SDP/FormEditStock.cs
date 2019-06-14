@@ -12,9 +12,22 @@ namespace SDP
 {
     public partial class FormEditStock : Form
     {
-        public FormEditStock()
+        public FormEditStock(String productId)
         {
             InitializeComponent();
         }
+
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            String productId = txtProductId.Text;
+            FormSearchStock searchResult = new FormSearchStock(productId);
+
+            if (searchResult.ShowDialog() == DialogResult.OK)
+            {
+                txtProductId.Text = searchResult.ProductId;
+            }
+           // txtKeyword.Text = "";
+        }
     }
+
 }
