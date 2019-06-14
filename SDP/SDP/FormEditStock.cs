@@ -63,7 +63,7 @@ namespace SDP
         }
 
         private void BtnSearch_Click(object sender, EventArgs e)
-        {/*
+        {
             if (txtPID.Text != "")
             {
                 String sql = String.Format("select * from product where productId like '%{0}%'", ProductId);
@@ -92,7 +92,7 @@ namespace SDP
             /*if(txtCategory.Text != "")
             {
               sql = String.Format("")
-            }*/
+            }
         }
         private void TxtPID_KeyDown(object sender, KeyEventArgs e)
         {

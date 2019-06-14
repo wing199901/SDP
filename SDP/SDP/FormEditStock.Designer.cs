@@ -66,7 +66,7 @@
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(194, 715);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(6);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(150, 48);
             this.btnSearch.TabIndex = 145;
@@ -77,7 +77,7 @@
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(388, 715);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(6);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(150, 48);
             this.btnCancel.TabIndex = 146;
@@ -118,7 +118,7 @@
             // txtCategory
             // 
             this.txtCategory.Location = new System.Drawing.Point(387, 539);
-            this.txtCategory.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtCategory.Margin = new System.Windows.Forms.Padding(6);
             this.txtCategory.Name = "txtCategory";
             this.txtCategory.Size = new System.Drawing.Size(396, 31);
             this.txtCategory.TabIndex = 151;
@@ -126,7 +126,7 @@
             // txtKeyword
             // 
             this.txtKeyword.Location = new System.Drawing.Point(387, 593);
-            this.txtKeyword.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtKeyword.Margin = new System.Windows.Forms.Padding(6);
             this.txtKeyword.Name = "txtKeyword";
             this.txtKeyword.Size = new System.Drawing.Size(396, 31);
             this.txtKeyword.TabIndex = 152;
@@ -135,7 +135,7 @@
             // 
             this.txtPID.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPID.Location = new System.Drawing.Point(387, 481);
-            this.txtPID.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtPID.Margin = new System.Windows.Forms.Padding(6);
             this.txtPID.Name = "txtPID";
             this.txtPID.Size = new System.Drawing.Size(396, 31);
             this.txtPID.TabIndex = 153;
@@ -144,7 +144,7 @@
             // lviSearch
             // 
             this.lviSearch.Location = new System.Drawing.Point(24, 154);
-            this.lviSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.lviSearch.Margin = new System.Windows.Forms.Padding(6);
             this.lviSearch.Name = "lviSearch";
             this.lviSearch.Size = new System.Drawing.Size(1608, 271);
             this.lviSearch.TabIndex = 154;
@@ -278,9 +278,9 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.lblCompany);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormSearchStock";
-            this.Text = "Search stock";
+            this.Text = "Edit stock";
             this.Load += new System.EventHandler(this.FormSearchStock_Load);
             this.Click += new System.EventHandler(this.BtnSearch_Click);
             this.ResumeLayout(false);
