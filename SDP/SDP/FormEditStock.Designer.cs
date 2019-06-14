@@ -44,6 +44,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtDscription = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtProductName
@@ -121,7 +122,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(200, 346);
+            this.btnCancel.Location = new System.Drawing.Point(281, 346);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 169;
@@ -130,13 +131,12 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(103, 346);
+            this.btnSubmit.Location = new System.Drawing.Point(119, 346);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnSubmit.TabIndex = 168;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // lblCompany
             // 
@@ -181,11 +181,22 @@
             this.label6.TabIndex = 193;
             this.label6.Text = "Description:";
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(200, 346);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 195;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
+            // 
             // FormEditStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtDscription);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtPrice);
@@ -227,5 +238,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtDscription;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnSearch;
     }
 }
