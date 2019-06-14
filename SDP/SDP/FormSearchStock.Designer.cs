@@ -32,6 +32,7 @@
             this.txtKeyword = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.lblCompany = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lvResult
@@ -41,7 +42,6 @@
             this.lvResult.Size = new System.Drawing.Size(806, 132);
             this.lvResult.TabIndex = 194;
             this.lvResult.UseCompatibleStateImageBehavior = false;
-            this.lvResult.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LvResult_MouseDoubleClick);
             // 
             // txtKeyword
             // 
@@ -70,11 +70,22 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
+            // lblCompany
+            // 
+            this.lblCompany.AutoSize = true;
+            this.lblCompany.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblCompany.Location = new System.Drawing.Point(414, 396);
+            this.lblCompany.Name = "lblCompany";
+            this.lblCompany.Size = new System.Drawing.Size(399, 24);
+            this.lblCompany.TabIndex = 195;
+            this.lblCompany.Text = "Smart && Luxury Motor Company (Spares)";
+            // 
             // FormSearchStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
+            this.Controls.Add(this.lblCompany);
             this.Controls.Add(this.lvResult);
             this.Controls.Add(this.txtKeyword);
             this.Controls.Add(this.label10);
@@ -92,5 +103,6 @@
         private System.Windows.Forms.TextBox txtKeyword;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Label lblCompany;
     }
 }

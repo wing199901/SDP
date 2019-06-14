@@ -27,6 +27,7 @@ namespace SDP
         {
             get { return productId; }
             set { productId = value; }
+        }
 
         public FormSearchStock(String keyword)
         {
@@ -92,13 +93,6 @@ namespace SDP
 
                 txtKeyword.Focus();
             }
-        }
-
-        private void LvResult_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
-            ProductId = lvResult.SelectedItems[0].ToString();
-            ProductId = System.Text.RegularExpressions.Regex.Replace(ProductId, "[a-zA-Z{}: ]", "");
         }
     }
 }
