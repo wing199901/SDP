@@ -105,6 +105,30 @@ INSERT INTO `orderProduct` VALUES (100001,100001,50),(100002,100001,10),(100002,
 UNLOCK TABLES;
 
 --
+-- Table structure for table `poProduct`
+--
+
+DROP TABLE IF EXISTS `poProduct`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `poProduct` (
+  `poId` int(11) NOT NULL,
+  `productId` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `date` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`poId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `poProduct`
+--
+
+LOCK TABLES `poProduct` WRITE;
+/*!40000 ALTER TABLE `poProduct` DISABLE KEYS */;
+/*!40000 ALTER TABLE `poProduct` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `product`
 --
 
@@ -116,11 +140,14 @@ CREATE TABLE `product` (
   `type` char(1) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `brand` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `productName` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `Description` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `description` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `atHand` int(11) NOT NULL,
   `onHand` int(11) NOT NULL,
   `inHand` int(11) NOT NULL,
   `price` double NOT NULL,
+  `safetyStock` int(11) NOT NULL,
+  `leadTime` int(11) NOT NULL,
+  `reorderPoint` int(11) NOT NULL,
   PRIMARY KEY (`productId`),
   UNIQUE KEY `productId_UNIQUE` (`productId`),
   UNIQUE KEY `productName_UNIQUE` (`productName`),
@@ -134,7 +161,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (100001,'A','Self','Metal03','The metal 03',0,1000,1000,40),(100002,'A','Self','Metal01','The first metal',0,1000,1000,50),(100003,'B','Self','Engine01','The major engine',0,1000,1000,5000),(100004,'C','Self','Bulb01','The smail bulb',0,1000,1000,30),(100005,'D','Self','Metal Button 01','The smaill metal button',0,1000,1000,5),(100006,'A','Self','Metal02','The metal 02',0,1000,1000,30);
+INSERT INTO `product` VALUES (100001,'A','Self','Metal03','The metal 03',0,1000,1000,40,0,0,0),(100002,'A','Self','Metal01','The first metal',0,1000,1000,50,0,0,0),(100003,'B','Self','Engine01','The major engine',0,1000,1000,5000,0,0,0),(100004,'C','Self','Bulb01','The smail bulb',0,1000,1000,30,0,0,0),(100005,'D','Self','Metal Button 01','The smaill metal button',0,1000,1000,5,0,0,0),(100006,'A','Self','Metal02','The metal 02',0,1000,1000,30,0,0,0);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -175,4 +202,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-14  5:43:54
+-- Dump completed on 2019-06-14 10:08:23
