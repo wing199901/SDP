@@ -43,11 +43,41 @@ namespace SDP
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
+            lvResult.Items.Clear();
             if (txtProductId.Text != "" || txtType.Text != "" || txtBrand.Text != "" || txtProductName.Text != "" || txtPrice.Text != "")
             {
-                String sql = String.Format("select * from product where productId like '%{0}%' or type like '%{1}%' or brand like '%{2}%' or productName like '%{3}%' or price like '%{4}%'",
-                    txtProductId.Text,txtType.Text,txtBrand.Text,txtProductName.Text,txtPrice.Text);
-                MySqlCommand cmd = Program.ExecSQL(sql);
+                String sql = "";
+                // String sql = String.Format("select * from product where productId = '{0}' or type = '{1}' or brand = '{2}' or productName like '%{3}%' or price = {4}",
+                //   txtProductId.Text,txtType.Text,txtBrand.Text,txtProductName.Text,txtPrice.Text);
+                if (txtProductId.Text != "")
+                {
+                    sql += " productId='" + Convert.ToInt32(txtProductId.Text).ToString() + "'";
+                }
+                if (txtType.Text != "")
+                {
+                    if (sql != "")
+                    {
+                        sql += " or";
+                    }
+                    sql += " type='" + txtType.Text.ToString() + "'";
+                }
+                if (txtBrand.Text != "")
+                {
+                    if (sql != "")
+                    {
+                        sql += " or";
+                    }
+                    sql += " brand='" + txtBrand.Text.ToString() + "'";
+                }
+                if (txtProductName.Text != "")
+                {
+                    if (sql != "")
+                    {
+                        sql += " or";
+                    }
+                    sql += " productName like '%" + txtProductName.Text.ToString() + "%'";
+                }
+                MySqlCommand cmd = Program.ExecSQL("select * from product where " + sql );
                 MySqlDataReader data = cmd.ExecuteReader();
 
                 lvResult.Items.Clear();
@@ -72,4 +102,5 @@ namespace SDP
         }
     }
 
-    }
+}
+
