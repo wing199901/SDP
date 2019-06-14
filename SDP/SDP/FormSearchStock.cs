@@ -11,8 +11,16 @@ using System.Windows.Forms;
 
 namespace SDP
 {
-    public partial class FormEditStock : Form
+    public partial class FormSearchStock : Form
     {
+        private String keyword;
+
+        public String Keyword
+        {
+            get { return keyword; }
+            set { keyword = value; }
+        }
+
         private String productId = "";
 
         public String ProductId
@@ -20,9 +28,13 @@ namespace SDP
             get { return productId; }
             set { productId = value; }
         }
-        public FormEditStock()
+
+        public FormSearchStock(String keyword)
         {
             InitializeComponent();
+            Keyword = keyword;
+            txtKeyword.Text = Keyword;
+            BtnSearch_Click(new object(), new EventArgs());
 
             // ListView Header
             lvResult.GridLines = true;
@@ -38,15 +50,15 @@ namespace SDP
             lvResult.Columns.Add("In hand", 50);
             lvResult.Columns.Add("Price", 50);
 
-
+            txtKeyword.Focus();
         }
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            if (txtProductId.Text != "" || txtType.Text != "" || txtBrand.Text != "" || txtProductName.Text != "" || txtPrice.Text != "")
+            Keyword = txtKeyword.Text;
+            if (txtKeyword.Text != "")
             {
-                String sql = String.Format("select * from product where productId like '%{0}%' or type like '%{1}%' or brand like '%{2}%' or productName like '%{3}%' or price like '%{4}%'",
-                    txtProductId.Text,txtType.Text,txtBrand.Text,txtProductName.Text,txtPrice.Text);
+                String sql = String.Format("select * from product where productId like '%{0}%' or type like '%{0}%' or brand like '%{0}%' or productName like '%{0}%' or Description like '%{0}%' or atHand like '%{0}%' or onHand like '%{0}%' or inHand like '%{0}%' or price like '%{0}%'", Keyword);
                 MySqlCommand cmd = Program.ExecSQL(sql);
                 MySqlDataReader data = cmd.ExecuteReader();
 
@@ -70,6 +82,17 @@ namespace SDP
                 cmd.Dispose();
             }
         }
-    }
 
+        private void TxtKeyword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSearch.Focus();
+
+                BtnSearch_Click(sender, e);
+
+                txtKeyword.Focus();
+            }
+        }
     }
+}

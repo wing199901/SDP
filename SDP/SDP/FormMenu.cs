@@ -47,7 +47,7 @@ namespace SDP
 
         private void BtnStock_Click(object sender, EventArgs e)
         {
-            Form stock = new FormEditStock();
+            Form stock = new FormSearchStock("");
             stock.ShowDialog();
         }
 
@@ -118,6 +118,11 @@ namespace SDP
                 btnLogoutWasClicked = false;
             }
         }
-              
+
+        private void TxtEditStock_Click(object sender, EventArgs e)
+        {
+            Form editStock = new FormEditStock();
+            editStock.ShowDialog();
+        }
     }
 }
