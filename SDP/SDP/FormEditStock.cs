@@ -33,9 +33,9 @@ namespace SDP
             lvResult.Columns.Add("Brand", 100);
             lvResult.Columns.Add("Product name", 100);
             lvResult.Columns.Add("Description", 150);
-            lvResult.Columns.Add("At hand", 50);
-            lvResult.Columns.Add("On hand", 50);
-            lvResult.Columns.Add("In hand", 50);
+            lvResult.Columns.Add("At hand", 70);
+            lvResult.Columns.Add("On hand", 70);
+            lvResult.Columns.Add("In hand", 70);
             lvResult.Columns.Add("Price", 50);
 
 
