@@ -193,7 +193,7 @@
             this.cboOrderStatus.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.cboOrderStatus.Name = "cboOrderStatus";
             this.cboOrderStatus.Size = new System.Drawing.Size(200, 20);
-            this.cboOrderStatus.TabIndex = 3;
+            this.cboOrderStatus.TabIndex = 2;
             // 
             // txtCustId
             // 
@@ -201,7 +201,7 @@
             this.txtCustId.Multiline = true;
             this.txtCustId.Name = "txtCustId";
             this.txtCustId.Size = new System.Drawing.Size(200, 17);
-            this.txtCustId.TabIndex = 2;
+            this.txtCustId.TabIndex = 3;
             this.txtCustId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_KeyPress);
             // 
             // label2

@@ -75,7 +75,7 @@
             this.txtHide.Location = new System.Drawing.Point(365, 214);
             this.txtHide.Name = "txtHide";
             this.txtHide.Size = new System.Drawing.Size(200, 22);
-            this.txtHide.TabIndex = 10;
+            this.txtHide.TabIndex = 11;
             this.txtHide.Visible = false;
             this.txtHide.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtHide_KeyPress);
             // 
@@ -152,7 +152,7 @@
             this.txtKeyword.Location = new System.Drawing.Point(623, 186);
             this.txtKeyword.Name = "txtKeyword";
             this.txtKeyword.Size = new System.Drawing.Size(200, 22);
-            this.txtKeyword.TabIndex = 8;
+            this.txtKeyword.TabIndex = 9;
             // 
             // label10
             // 
@@ -177,7 +177,7 @@
             this.txtQty.Location = new System.Drawing.Point(623, 129);
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(200, 22);
-            this.txtQty.TabIndex = 4;
+            this.txtQty.TabIndex = 7;
             this.txtQty.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtQty_KeyDown);
             // 
             // btnSearch
@@ -185,7 +185,7 @@
             this.btnSearch.Location = new System.Drawing.Point(623, 214);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 9;
+            this.btnSearch.TabIndex = 10;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
@@ -195,7 +195,7 @@
             this.txtProductID.Location = new System.Drawing.Point(623, 101);
             this.txtProductID.Name = "txtProductID";
             this.txtProductID.Size = new System.Drawing.Size(200, 22);
-            this.txtProductID.TabIndex = 3;
+            this.txtProductID.TabIndex = 6;
             // 
             // label8
             // 
@@ -211,7 +211,7 @@
             this.btnAdd.Location = new System.Drawing.Point(623, 157);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 5;
+            this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
@@ -230,7 +230,7 @@
             this.dtpDelivery.Location = new System.Drawing.Point(623, 73);
             this.dtpDelivery.Name = "dtpDelivery";
             this.dtpDelivery.Size = new System.Drawing.Size(200, 22);
-            this.dtpDelivery.TabIndex = 2;
+            this.dtpDelivery.TabIndex = 5;
             // 
             // txtDate
             // 
@@ -246,7 +246,7 @@
             this.txtStaffId.Location = new System.Drawing.Point(623, 44);
             this.txtStaffId.Name = "txtStaffId";
             this.txtStaffId.Size = new System.Drawing.Size(200, 22);
-            this.txtStaffId.TabIndex = 1;
+            this.txtStaffId.TabIndex = 4;
             // 
             // label16
             // 
@@ -311,7 +311,7 @@
             this.txtShipAddr.Location = new System.Drawing.Point(118, 152);
             this.txtShipAddr.Name = "txtShipAddr";
             this.txtShipAddr.Size = new System.Drawing.Size(200, 22);
-            this.txtShipAddr.TabIndex = 6;
+            this.txtShipAddr.TabIndex = 1;
             // 
             // label7
             // 
@@ -327,14 +327,14 @@
             this.txtPhone.Location = new System.Drawing.Point(118, 210);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(200, 22);
-            this.txtPhone.TabIndex = 11;
+            this.txtPhone.TabIndex = 3;
             // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(118, 180);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(200, 22);
-            this.txtEmail.TabIndex = 7;
+            this.txtEmail.TabIndex = 2;
             // 
             // txtAddr
             // 
@@ -358,7 +358,7 @@
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
             this.txtName.Size = new System.Drawing.Size(200, 22);
-            this.txtName.TabIndex = 199;
+            this.txtName.TabIndex = 1;
             // 
             // label6
             // 

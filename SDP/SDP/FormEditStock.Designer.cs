@@ -52,7 +52,7 @@
             this.txtProductName.Location = new System.Drawing.Point(200, 313);
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(200, 22);
-            this.txtProductName.TabIndex = 5;
+            this.txtProductName.TabIndex = 3;
             // 
             // label4
             // 
@@ -85,14 +85,14 @@
             this.txtBrand.Location = new System.Drawing.Point(200, 287);
             this.txtBrand.Name = "txtBrand";
             this.txtBrand.Size = new System.Drawing.Size(200, 22);
-            this.txtBrand.TabIndex = 4;
+            this.txtBrand.TabIndex = 2;
             // 
             // txtType
             // 
             this.txtType.Location = new System.Drawing.Point(200, 261);
             this.txtType.Name = "txtType";
             this.txtType.Size = new System.Drawing.Size(200, 22);
-            this.txtType.TabIndex = 2;
+            this.txtType.TabIndex = 1;
             // 
             // lblKeyword
             // 
@@ -154,7 +154,7 @@
             this.txtPrice.Location = new System.Drawing.Point(545, 234);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(200, 22);
-            this.txtPrice.TabIndex = 1;
+            this.txtPrice.TabIndex = 4;
             // 
             // label1
             // 
@@ -171,7 +171,7 @@
             this.txtDscription.Multiline = true;
             this.txtDscription.Name = "txtDscription";
             this.txtDscription.Size = new System.Drawing.Size(200, 46);
-            this.txtDscription.TabIndex = 3;
+            this.txtDscription.TabIndex = 5;
             // 
             // label6
             // 

@@ -122,7 +122,7 @@
             this.txtShipAddr.Location = new System.Drawing.Point(121, 148);
             this.txtShipAddr.Name = "txtShipAddr";
             this.txtShipAddr.Size = new System.Drawing.Size(200, 22);
-            this.txtShipAddr.TabIndex = 10;
+            this.txtShipAddr.TabIndex = 5;
             // 
             // label7
             // 
@@ -149,28 +149,28 @@
             this.txtPhone.Location = new System.Drawing.Point(121, 206);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(200, 22);
-            this.txtPhone.TabIndex = 15;
+            this.txtPhone.TabIndex = 7;
             // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(121, 176);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(200, 22);
-            this.txtEmail.TabIndex = 11;
+            this.txtEmail.TabIndex = 6;
             // 
             // txtAddr
             // 
             this.txtAddr.Location = new System.Drawing.Point(121, 120);
             this.txtAddr.Name = "txtAddr";
             this.txtAddr.Size = new System.Drawing.Size(200, 22);
-            this.txtAddr.TabIndex = 6;
+            this.txtAddr.TabIndex = 4;
             // 
             // txtCompany
             // 
             this.txtCompany.Location = new System.Drawing.Point(121, 94);
             this.txtCompany.Name = "txtCompany";
             this.txtCompany.Size = new System.Drawing.Size(200, 22);
-            this.txtCompany.TabIndex = 4;
+            this.txtCompany.TabIndex = 3;
             // 
             // txtName
             // 
@@ -273,14 +273,14 @@
             this.dtpDelivery.Location = new System.Drawing.Point(626, 69);
             this.dtpDelivery.Name = "dtpDelivery";
             this.dtpDelivery.Size = new System.Drawing.Size(200, 22);
-            this.dtpDelivery.TabIndex = 3;
+            this.dtpDelivery.TabIndex = 8;
             // 
             // txtKeyword
             // 
             this.txtKeyword.Location = new System.Drawing.Point(626, 182);
             this.txtKeyword.Name = "txtKeyword";
             this.txtKeyword.Size = new System.Drawing.Size(200, 22);
-            this.txtKeyword.TabIndex = 12;
+            this.txtKeyword.TabIndex = 13;
             this.txtKeyword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtKeyword_KeyDown);
             // 
             // label10
@@ -306,7 +306,7 @@
             this.txtQty.Location = new System.Drawing.Point(626, 125);
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(200, 22);
-            this.txtQty.TabIndex = 7;
+            this.txtQty.TabIndex = 10;
             this.txtQty.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtQty_KeyDown);
             // 
             // btnSearch
@@ -314,7 +314,7 @@
             this.btnSearch.Location = new System.Drawing.Point(626, 210);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 13;
+            this.btnSearch.TabIndex = 14;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
@@ -324,7 +324,7 @@
             this.btnDelete.Location = new System.Drawing.Point(707, 153);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 9;
+            this.btnDelete.TabIndex = 12;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
@@ -334,7 +334,7 @@
             this.txtProductID.Location = new System.Drawing.Point(626, 97);
             this.txtProductID.Name = "txtProductID";
             this.txtProductID.Size = new System.Drawing.Size(200, 22);
-            this.txtProductID.TabIndex = 5;
+            this.txtProductID.TabIndex = 9;
             // 
             // label8
             // 
@@ -350,7 +350,7 @@
             this.btnAdd.Location = new System.Drawing.Point(626, 153);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 8;
+            this.btnAdd.TabIndex = 11;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
@@ -429,7 +429,7 @@
             this.txtHide.Location = new System.Drawing.Point(368, 210);
             this.txtHide.Name = "txtHide";
             this.txtHide.Size = new System.Drawing.Size(200, 22);
-            this.txtHide.TabIndex = 14;
+            this.txtHide.TabIndex = 15;
             this.txtHide.Visible = false;
             this.txtHide.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtHide_KeyPress);
             // 
