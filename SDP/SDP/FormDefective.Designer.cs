@@ -60,7 +60,7 @@
             this.txtDid.Location = new System.Drawing.Point(204, 38);
             this.txtDid.Name = "txtDid";
             this.txtDid.Size = new System.Drawing.Size(200, 22);
-            this.txtDid.TabIndex = 1;
+            this.txtDid.TabIndex = 0;
             // 
             // lblDate
             // 
@@ -76,7 +76,7 @@
             this.txtDate.Location = new System.Drawing.Point(204, 77);
             this.txtDate.Name = "txtDate";
             this.txtDate.Size = new System.Drawing.Size(200, 22);
-            this.txtDate.TabIndex = 3;
+            this.txtDate.TabIndex = 1;
             // 
             // lblSid
             // 
@@ -92,7 +92,7 @@
             this.txtSid.Location = new System.Drawing.Point(204, 118);
             this.txtSid.Name = "txtSid";
             this.txtSid.Size = new System.Drawing.Size(200, 22);
-            this.txtSid.TabIndex = 5;
+            this.txtSid.TabIndex = 2;
             // 
             // lblPID
             // 
@@ -108,7 +108,7 @@
             this.txtSKU.Location = new System.Drawing.Point(204, 163);
             this.txtSKU.Name = "txtSKU";
             this.txtSKU.Size = new System.Drawing.Size(200, 22);
-            this.txtSKU.TabIndex = 7;
+            this.txtSKU.TabIndex = 3;
             // 
             // lblQTY
             // 
@@ -124,7 +124,7 @@
             this.txtQTY.Location = new System.Drawing.Point(204, 207);
             this.txtQTY.Name = "txtQTY";
             this.txtQTY.Size = new System.Drawing.Size(200, 22);
-            this.txtQTY.TabIndex = 9;
+            this.txtQTY.TabIndex = 4;
             // 
             // lblReason
             // 
@@ -141,7 +141,7 @@
             this.txtReason.Multiline = true;
             this.txtReason.Name = "txtReason";
             this.txtReason.Size = new System.Drawing.Size(200, 22);
-            this.txtReason.TabIndex = 11;
+            this.txtReason.TabIndex = 5;
             // 
             // lblRemark
             // 
@@ -158,14 +158,14 @@
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(200, 67);
-            this.textBox1.TabIndex = 13;
+            this.textBox1.TabIndex = 6;
             // 
             // btnSubmit
             // 
             this.btnSubmit.Location = new System.Drawing.Point(116, 388);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnSubmit.TabIndex = 14;
+            this.btnSubmit.TabIndex = 7;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             // 
@@ -174,7 +174,7 @@
             this.btnCancel.Location = new System.Drawing.Point(276, 388);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 15;
+            this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 

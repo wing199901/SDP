@@ -65,14 +65,14 @@
             this.cboType.Location = new System.Drawing.Point(130, 60);
             this.cboType.Name = "cboType";
             this.cboType.Size = new System.Drawing.Size(121, 20);
-            this.cboType.TabIndex = 146;
+            this.cboType.TabIndex = 0;
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(130, 105);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker1.TabIndex = 147;
+            this.dateTimePicker1.TabIndex = 1;
             // 
             // lblStart
             // 
@@ -106,10 +106,11 @@
             this.dateTimePicker2.Location = new System.Drawing.Point(484, 105);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker2.TabIndex = 151;
+            this.dateTimePicker2.TabIndex = 2;
             // 
             // listView1
             // 
+            this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(20, 190);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(806, 132);
@@ -121,7 +122,7 @@
             this.btnApply.Location = new System.Drawing.Point(715, 107);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(75, 23);
-            this.btnApply.TabIndex = 153;
+            this.btnApply.TabIndex = 3;
             this.btnApply.Text = "Apply";
             this.btnApply.UseVisualStyleBackColor = true;
             // 

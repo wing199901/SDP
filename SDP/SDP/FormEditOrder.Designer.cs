@@ -75,12 +75,13 @@
             this.txtHide.Location = new System.Drawing.Point(365, 214);
             this.txtHide.Name = "txtHide";
             this.txtHide.Size = new System.Drawing.Size(200, 22);
-            this.txtHide.TabIndex = 233;
+            this.txtHide.TabIndex = 11;
             this.txtHide.Visible = false;
             this.txtHide.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtHide_KeyPress);
             // 
             // lvResult
             // 
+            this.lvResult.HideSelection = false;
             this.lvResult.Location = new System.Drawing.Point(17, 243);
             this.lvResult.Name = "lvResult";
             this.lvResult.Size = new System.Drawing.Size(806, 132);
@@ -95,7 +96,7 @@
             this.txtRemark.Multiline = true;
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Size = new System.Drawing.Size(806, 67);
-            this.txtRemark.TabIndex = 231;
+            this.txtRemark.TabIndex = 12;
             this.txtRemark.Text = "Remark";
             this.txtRemark.Enter += new System.EventHandler(this.TxtRemark_Enter);
             this.txtRemark.Leave += new System.EventHandler(this.TxtRemark_Leave);
@@ -105,7 +106,7 @@
             this.btnCancel.Location = new System.Drawing.Point(98, 479);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 230;
+            this.btnCancel.TabIndex = 14;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -114,7 +115,7 @@
             this.btnSubmit.Location = new System.Drawing.Point(17, 479);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnSubmit.TabIndex = 229;
+            this.btnSubmit.TabIndex = 13;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.BtnSubmit_Click);
@@ -151,7 +152,7 @@
             this.txtKeyword.Location = new System.Drawing.Point(623, 186);
             this.txtKeyword.Name = "txtKeyword";
             this.txtKeyword.Size = new System.Drawing.Size(200, 22);
-            this.txtKeyword.TabIndex = 225;
+            this.txtKeyword.TabIndex = 9;
             // 
             // label10
             // 
@@ -176,7 +177,7 @@
             this.txtQty.Location = new System.Drawing.Point(623, 129);
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(200, 22);
-            this.txtQty.TabIndex = 222;
+            this.txtQty.TabIndex = 7;
             this.txtQty.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtQty_KeyDown);
             // 
             // btnSearch
@@ -184,7 +185,7 @@
             this.btnSearch.Location = new System.Drawing.Point(623, 214);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 221;
+            this.btnSearch.TabIndex = 10;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
@@ -194,7 +195,7 @@
             this.txtProductID.Location = new System.Drawing.Point(623, 101);
             this.txtProductID.Name = "txtProductID";
             this.txtProductID.Size = new System.Drawing.Size(200, 22);
-            this.txtProductID.TabIndex = 219;
+            this.txtProductID.TabIndex = 6;
             // 
             // label8
             // 
@@ -210,7 +211,7 @@
             this.btnAdd.Location = new System.Drawing.Point(623, 157);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 217;
+            this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
@@ -229,7 +230,7 @@
             this.dtpDelivery.Location = new System.Drawing.Point(623, 73);
             this.dtpDelivery.Name = "dtpDelivery";
             this.dtpDelivery.Size = new System.Drawing.Size(200, 22);
-            this.dtpDelivery.TabIndex = 215;
+            this.dtpDelivery.TabIndex = 5;
             // 
             // txtDate
             // 
@@ -245,7 +246,7 @@
             this.txtStaffId.Location = new System.Drawing.Point(623, 44);
             this.txtStaffId.Name = "txtStaffId";
             this.txtStaffId.Size = new System.Drawing.Size(200, 22);
-            this.txtStaffId.TabIndex = 213;
+            this.txtStaffId.TabIndex = 4;
             // 
             // label16
             // 
@@ -271,7 +272,7 @@
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.ReadOnly = true;
             this.txtNumber.Size = new System.Drawing.Size(200, 22);
-            this.txtNumber.TabIndex = 210;
+            this.txtNumber.TabIndex = 0;
             // 
             // label15
             // 
@@ -303,14 +304,14 @@
             this.cboStatus.Location = new System.Drawing.Point(118, 44);
             this.cboStatus.Name = "cboStatus";
             this.cboStatus.Size = new System.Drawing.Size(200, 20);
-            this.cboStatus.TabIndex = 207;
+            this.cboStatus.TabIndex = 0;
             // 
             // txtShipAddr
             // 
             this.txtShipAddr.Location = new System.Drawing.Point(118, 152);
             this.txtShipAddr.Name = "txtShipAddr";
             this.txtShipAddr.Size = new System.Drawing.Size(200, 22);
-            this.txtShipAddr.TabIndex = 206;
+            this.txtShipAddr.TabIndex = 1;
             // 
             // label7
             // 
@@ -326,14 +327,14 @@
             this.txtPhone.Location = new System.Drawing.Point(118, 210);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(200, 22);
-            this.txtPhone.TabIndex = 203;
+            this.txtPhone.TabIndex = 3;
             // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(118, 180);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(200, 22);
-            this.txtEmail.TabIndex = 202;
+            this.txtEmail.TabIndex = 2;
             // 
             // txtAddr
             // 
@@ -357,7 +358,7 @@
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
             this.txtName.Size = new System.Drawing.Size(200, 22);
-            this.txtName.TabIndex = 199;
+            this.txtName.TabIndex = 1;
             // 
             // label6
             // 
@@ -418,7 +419,7 @@
             // lblCompany
             // 
             this.lblCompany.AutoSize = true;
-            this.lblCompany.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblCompany.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblCompany.Location = new System.Drawing.Point(411, 500);
             this.lblCompany.Name = "lblCompany";
             this.lblCompany.Size = new System.Drawing.Size(399, 24);

@@ -55,8 +55,7 @@
             // 
             this.lblCompany.AutoSize = true;
             this.lblCompany.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblCompany.Location = new System.Drawing.Point(828, 825);
-            this.lblCompany.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblCompany.Location = new System.Drawing.Point(414, 396);
             this.lblCompany.Name = "lblCompany";
             this.lblCompany.Size = new System.Drawing.Size(800, 48);
             this.lblCompany.TabIndex = 144;
@@ -77,8 +76,8 @@
             this.txtOrderId.Location = new System.Drawing.Point(394, 490);
             this.txtOrderId.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtOrderId.Name = "txtOrderId";
-            this.txtOrderId.Size = new System.Drawing.Size(396, 31);
-            this.txtOrderId.TabIndex = 151;
+            this.txtOrderId.Size = new System.Drawing.Size(200, 17);
+            this.txtOrderId.TabIndex = 0;
             this.txtOrderId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_KeyPress);
             // 
             // btnSearch
@@ -86,8 +85,8 @@
             this.btnSearch.Location = new System.Drawing.Point(394, 683);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(150, 48);
-            this.btnSearch.TabIndex = 154;
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 7;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
@@ -97,15 +96,15 @@
             this.btnCancel.Location = new System.Drawing.Point(718, 683);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(150, 48);
-            this.btnCancel.TabIndex = 155;
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // lvResult_order
             // 
-            this.lvResult_order.Location = new System.Drawing.Point(40, 150);
-            this.lvResult_order.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.lvResult_order.HideSelection = false;
+            this.lvResult_order.Location = new System.Drawing.Point(20, 72);
             this.lvResult_order.Name = "lvResult_order";
             this.lvResult_order.Size = new System.Drawing.Size(1608, 271);
             this.lvResult_order.TabIndex = 156;
@@ -146,8 +145,8 @@
             this.txtStaffId.Location = new System.Drawing.Point(394, 533);
             this.txtStaffId.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtStaffId.Name = "txtStaffId";
-            this.txtStaffId.Size = new System.Drawing.Size(396, 31);
-            this.txtStaffId.TabIndex = 163;
+            this.txtStaffId.Size = new System.Drawing.Size(200, 17);
+            this.txtStaffId.TabIndex = 1;
             this.txtStaffId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_KeyPress);
             // 
             // label4
@@ -165,16 +164,16 @@
             this.dtpStartDate.Location = new System.Drawing.Point(394, 625);
             this.dtpStartDate.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(396, 31);
-            this.dtpStartDate.TabIndex = 165;
+            this.dtpStartDate.Size = new System.Drawing.Size(200, 22);
+            this.dtpStartDate.TabIndex = 5;
             // 
             // dtpEndDate
             // 
             this.dtpEndDate.Location = new System.Drawing.Point(836, 627);
             this.dtpEndDate.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(396, 31);
-            this.dtpEndDate.TabIndex = 166;
+            this.dtpEndDate.Size = new System.Drawing.Size(200, 22);
+            this.dtpEndDate.TabIndex = 6;
             this.dtpEndDate.ValueChanged += new System.EventHandler(this.DtpEndDate_ValueChanged);
             // 
             // lblTo
@@ -199,16 +198,16 @@
             this.cboOrderStatus.Location = new System.Drawing.Point(394, 573);
             this.cboOrderStatus.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.cboOrderStatus.Name = "cboOrderStatus";
-            this.cboOrderStatus.Size = new System.Drawing.Size(396, 33);
-            this.cboOrderStatus.TabIndex = 169;
+            this.cboOrderStatus.Size = new System.Drawing.Size(200, 20);
+            this.cboOrderStatus.TabIndex = 2;
             // 
             // txtCustId
             // 
             this.txtCustId.Location = new System.Drawing.Point(1010, 533);
             this.txtCustId.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtCustId.Name = "txtCustId";
-            this.txtCustId.Size = new System.Drawing.Size(396, 31);
-            this.txtCustId.TabIndex = 171;
+            this.txtCustId.Size = new System.Drawing.Size(200, 17);
+            this.txtCustId.TabIndex = 3;
             this.txtCustId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_KeyPress);
             // 
             // label2
@@ -226,8 +225,8 @@
             this.txtCustPhone.Location = new System.Drawing.Point(1010, 573);
             this.txtCustPhone.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtCustPhone.Name = "txtCustPhone";
-            this.txtCustPhone.Size = new System.Drawing.Size(396, 31);
-            this.txtCustPhone.TabIndex = 173;
+            this.txtCustPhone.Size = new System.Drawing.Size(200, 17);
+            this.txtCustPhone.TabIndex = 4;
             // 
             // label3
             // 
@@ -244,8 +243,8 @@
             this.btnReset.Location = new System.Drawing.Point(556, 683);
             this.btnReset.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(150, 48);
-            this.btnReset.TabIndex = 174;
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 8;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
