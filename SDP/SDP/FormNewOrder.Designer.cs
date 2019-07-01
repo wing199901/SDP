@@ -122,7 +122,7 @@
             this.txtShipAddr.Location = new System.Drawing.Point(121, 148);
             this.txtShipAddr.Name = "txtShipAddr";
             this.txtShipAddr.Size = new System.Drawing.Size(200, 22);
-            this.txtShipAddr.TabIndex = 5;
+            this.txtShipAddr.TabIndex = 6;
             // 
             // label7
             // 
@@ -139,7 +139,7 @@
             this.choShipAddr.Location = new System.Drawing.Point(336, 122);
             this.choShipAddr.Name = "choShipAddr";
             this.choShipAddr.Size = new System.Drawing.Size(106, 16);
-            this.choShipAddr.TabIndex = 155;
+            this.choShipAddr.TabIndex = 5;
             this.choShipAddr.Text = "Shipping Address";
             this.choShipAddr.UseVisualStyleBackColor = true;
             this.choShipAddr.Click += new System.EventHandler(this.ChoShipAddr_Click);
@@ -149,14 +149,14 @@
             this.txtPhone.Location = new System.Drawing.Point(121, 206);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(200, 22);
-            this.txtPhone.TabIndex = 7;
+            this.txtPhone.TabIndex = 8;
             // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(121, 176);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(200, 22);
-            this.txtEmail.TabIndex = 6;
+            this.txtEmail.TabIndex = 7;
             // 
             // txtAddr
             // 
@@ -273,14 +273,14 @@
             this.dtpDelivery.Location = new System.Drawing.Point(626, 69);
             this.dtpDelivery.Name = "dtpDelivery";
             this.dtpDelivery.Size = new System.Drawing.Size(200, 22);
-            this.dtpDelivery.TabIndex = 8;
+            this.dtpDelivery.TabIndex = 9;
             // 
             // txtKeyword
             // 
             this.txtKeyword.Location = new System.Drawing.Point(626, 182);
             this.txtKeyword.Name = "txtKeyword";
             this.txtKeyword.Size = new System.Drawing.Size(200, 22);
-            this.txtKeyword.TabIndex = 13;
+            this.txtKeyword.TabIndex = 14;
             this.txtKeyword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtKeyword_KeyDown);
             // 
             // label10
@@ -306,7 +306,7 @@
             this.txtQty.Location = new System.Drawing.Point(626, 125);
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(200, 22);
-            this.txtQty.TabIndex = 10;
+            this.txtQty.TabIndex = 11;
             this.txtQty.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtQty_KeyDown);
             // 
             // btnSearch
@@ -314,7 +314,7 @@
             this.btnSearch.Location = new System.Drawing.Point(626, 210);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 14;
+            this.btnSearch.TabIndex = 15;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
@@ -324,7 +324,7 @@
             this.btnDelete.Location = new System.Drawing.Point(707, 153);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 12;
+            this.btnDelete.TabIndex = 13;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
@@ -334,7 +334,7 @@
             this.txtProductID.Location = new System.Drawing.Point(626, 97);
             this.txtProductID.Name = "txtProductID";
             this.txtProductID.Size = new System.Drawing.Size(200, 22);
-            this.txtProductID.TabIndex = 9;
+            this.txtProductID.TabIndex = 10;
             // 
             // label8
             // 
@@ -350,7 +350,7 @@
             this.btnAdd.Location = new System.Drawing.Point(626, 153);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 11;
+            this.btnAdd.TabIndex = 12;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
@@ -387,7 +387,7 @@
             this.btnCancel.Location = new System.Drawing.Point(101, 475);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 18;
+            this.btnCancel.TabIndex = 19;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
@@ -397,7 +397,7 @@
             this.btnSubmit.Location = new System.Drawing.Point(20, 475);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnSubmit.TabIndex = 17;
+            this.btnSubmit.TabIndex = 18;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.BtnSubmit_Click);
@@ -409,7 +409,7 @@
             this.txtRemark.Multiline = true;
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Size = new System.Drawing.Size(806, 67);
-            this.txtRemark.TabIndex = 16;
+            this.txtRemark.TabIndex = 17;
             this.txtRemark.Text = "Remark";
             this.txtRemark.Enter += new System.EventHandler(this.TxtRemark_Enter);
             this.txtRemark.Leave += new System.EventHandler(this.TxtRemark_Leave);
@@ -429,7 +429,7 @@
             this.txtHide.Location = new System.Drawing.Point(368, 210);
             this.txtHide.Name = "txtHide";
             this.txtHide.Size = new System.Drawing.Size(200, 22);
-            this.txtHide.TabIndex = 15;
+            this.txtHide.TabIndex = 16;
             this.txtHide.Visible = false;
             this.txtHide.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtHide_KeyPress);
             // 
