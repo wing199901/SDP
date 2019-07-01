@@ -102,6 +102,7 @@
             this.btnApply.TabIndex = 151;
             this.btnApply.Text = "Apply";
             this.btnApply.UseVisualStyleBackColor = true;
+            this.btnApply.Click += new System.EventHandler(this.BtnApply_Click);
             // 
             // btnSubmit
             // 
@@ -128,6 +129,7 @@
             this.lvResult.Size = new System.Drawing.Size(806, 132);
             this.lvResult.TabIndex = 154;
             this.lvResult.UseCompatibleStateImageBehavior = false;
+            this.lvResult.Click += new System.EventHandler(this.LvResult_Click);
             // 
             // FormROL
             // 
