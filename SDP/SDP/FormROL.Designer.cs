@@ -43,7 +43,7 @@
             // lblCompany
             // 
             this.lblCompany.AutoSize = true;
-            this.lblCompany.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblCompany.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblCompany.Location = new System.Drawing.Point(414, 396);
             this.lblCompany.Name = "lblCompany";
             this.lblCompany.Size = new System.Drawing.Size(399, 24);
@@ -65,7 +65,7 @@
             this.txtProductID.Multiline = true;
             this.txtProductID.Name = "txtProductID";
             this.txtProductID.Size = new System.Drawing.Size(200, 22);
-            this.txtProductID.TabIndex = 146;
+            this.txtProductID.TabIndex = 0;
             this.txtProductID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtProductID_KeyDown);
             // 
             // btnSearch
@@ -73,7 +73,7 @@
             this.btnSearch.Location = new System.Drawing.Point(497, 51);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 147;
+            this.btnSearch.TabIndex = 1;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
@@ -92,14 +92,14 @@
             this.txtSafetyStock.Location = new System.Drawing.Point(232, 272);
             this.txtSafetyStock.Name = "txtSafetyStock";
             this.txtSafetyStock.Size = new System.Drawing.Size(200, 22);
-            this.txtSafetyStock.TabIndex = 150;
+            this.txtSafetyStock.TabIndex = 2;
             // 
             // btnApply
             // 
             this.btnApply.Location = new System.Drawing.Point(497, 272);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(75, 23);
-            this.btnApply.TabIndex = 151;
+            this.btnApply.TabIndex = 3;
             this.btnApply.Text = "Apply";
             this.btnApply.UseVisualStyleBackColor = true;
             this.btnApply.Click += new System.EventHandler(this.BtnApply_Click);
@@ -109,7 +109,7 @@
             this.btnSubmit.Location = new System.Drawing.Point(137, 324);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnSubmit.TabIndex = 152;
+            this.btnSubmit.TabIndex = 4;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             // 
@@ -118,12 +118,13 @@
             this.btnCancel.Location = new System.Drawing.Point(269, 324);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 153;
+            this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // lvResult
             // 
+            this.lvResult.HideSelection = false;
             this.lvResult.Location = new System.Drawing.Point(20, 103);
             this.lvResult.Name = "lvResult";
             this.lvResult.Size = new System.Drawing.Size(806, 132);

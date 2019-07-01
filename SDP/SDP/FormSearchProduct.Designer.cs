@@ -39,7 +39,7 @@
             this.txtKeyword.Location = new System.Drawing.Point(120, 292);
             this.txtKeyword.Name = "txtKeyword";
             this.txtKeyword.Size = new System.Drawing.Size(200, 22);
-            this.txtKeyword.TabIndex = 189;
+            this.txtKeyword.TabIndex = 0;
             this.txtKeyword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtKeyword_KeyDown);
             // 
             // label10
@@ -56,13 +56,14 @@
             this.btnSearch.Location = new System.Drawing.Point(120, 320);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 187;
+            this.btnSearch.TabIndex = 1;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // lvResult
             // 
+            this.lvResult.HideSelection = false;
             this.lvResult.Location = new System.Drawing.Point(12, 154);
             this.lvResult.Name = "lvResult";
             this.lvResult.Size = new System.Drawing.Size(806, 132);

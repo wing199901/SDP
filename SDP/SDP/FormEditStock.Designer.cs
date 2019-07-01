@@ -52,7 +52,7 @@
             this.txtProductName.Location = new System.Drawing.Point(200, 313);
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(200, 22);
-            this.txtProductName.TabIndex = 184;
+            this.txtProductName.TabIndex = 5;
             // 
             // label4
             // 
@@ -65,6 +65,7 @@
             // 
             // lvResult
             // 
+            this.lvResult.HideSelection = false;
             this.lvResult.Location = new System.Drawing.Point(18, 77);
             this.lvResult.Name = "lvResult";
             this.lvResult.Size = new System.Drawing.Size(806, 132);
@@ -77,21 +78,21 @@
             this.txtProductId.Location = new System.Drawing.Point(200, 234);
             this.txtProductId.Name = "txtProductId";
             this.txtProductId.Size = new System.Drawing.Size(200, 22);
-            this.txtProductId.TabIndex = 175;
+            this.txtProductId.TabIndex = 0;
             // 
             // txtBrand
             // 
             this.txtBrand.Location = new System.Drawing.Point(200, 287);
             this.txtBrand.Name = "txtBrand";
             this.txtBrand.Size = new System.Drawing.Size(200, 22);
-            this.txtBrand.TabIndex = 174;
+            this.txtBrand.TabIndex = 4;
             // 
             // txtType
             // 
             this.txtType.Location = new System.Drawing.Point(200, 261);
             this.txtType.Name = "txtType";
             this.txtType.Size = new System.Drawing.Size(200, 22);
-            this.txtType.TabIndex = 173;
+            this.txtType.TabIndex = 2;
             // 
             // lblKeyword
             // 
@@ -125,7 +126,7 @@
             this.btnCancel.Location = new System.Drawing.Point(281, 346);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 169;
+            this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -134,14 +135,14 @@
             this.btnSubmit.Location = new System.Drawing.Point(119, 346);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnSubmit.TabIndex = 168;
+            this.btnSubmit.TabIndex = 6;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             // 
             // lblCompany
             // 
             this.lblCompany.AutoSize = true;
-            this.lblCompany.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblCompany.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblCompany.Location = new System.Drawing.Point(414, 396);
             this.lblCompany.Name = "lblCompany";
             this.lblCompany.Size = new System.Drawing.Size(399, 24);
@@ -153,7 +154,7 @@
             this.txtPrice.Location = new System.Drawing.Point(545, 234);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(200, 22);
-            this.txtPrice.TabIndex = 192;
+            this.txtPrice.TabIndex = 1;
             // 
             // label1
             // 
@@ -170,7 +171,7 @@
             this.txtDscription.Multiline = true;
             this.txtDscription.Name = "txtDscription";
             this.txtDscription.Size = new System.Drawing.Size(200, 46);
-            this.txtDscription.TabIndex = 194;
+            this.txtDscription.TabIndex = 3;
             // 
             // label6
             // 
@@ -186,7 +187,7 @@
             this.btnSearch.Location = new System.Drawing.Point(200, 346);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 195;
+            this.btnSearch.TabIndex = 7;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
