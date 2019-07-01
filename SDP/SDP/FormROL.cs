@@ -103,6 +103,14 @@ namespace SDP
                     MySqlCommand cmd = Program.ExecSQL(sql);
                     MySqlDataReader data = cmd.ExecuteReader();
 
+                    MessageBox.Show("Update successfully!");
+
+                    data.Close();
+                    cmd.Dispose();
+
+                    txtSafetyStock.Clear();
+                    txtProductID.Clear();
+                    lvResult.Clear();
                 }
                 else
                 {

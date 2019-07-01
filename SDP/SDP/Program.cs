@@ -23,7 +23,7 @@ namespace SDP
 
         public static MySqlCommand ExecSQL(String sql)
         {
-            string dbHost = "localhost";
+            string dbHost = "192.168.65.2";
             string dbUser = "user";
             string dbPass = "user";
             string dbName = "dbOPSRS";
@@ -36,7 +36,7 @@ namespace SDP
                 conn.Open();
                 cmd = new MySqlCommand(sql, conn);
             }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
+            catch (MySqlException ex)
             {
                 switch (ex.Number)
                 {
