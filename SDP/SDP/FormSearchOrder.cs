@@ -65,7 +65,7 @@ namespace SDP
             {
                 if (reference != "")
                 {
-                    reference += " or";
+                    reference += " and";
                 }
                 reference += " staffId='" + Convert.ToInt32(txtStaffId.Text).ToString() + "'";
             }
@@ -73,7 +73,7 @@ namespace SDP
             {
                 if (reference != "")
                 {
-                    reference += " or";
+                    reference += " and";
                 }
                 reference += " custId='" + Convert.ToInt32(txtCustId.Text).ToString() + "'";
             }
@@ -88,14 +88,14 @@ namespace SDP
                 }
                 if (reference != "" && custId != "")
                 {
-                    reference += " or" + " custId='" + custId + "'";
+                    reference += " and" + " custId='" + custId + "'";
                 }
             }
             if (cboOrderStatus.SelectedItem != null)
             {
                 if (reference != "")
                 {
-                    reference += " or";
+                    reference += " and";
                 }
                 reference += " status='" + cboOrderStatus.SelectedItem.ToString() + "'";
             }
@@ -105,7 +105,7 @@ namespace SDP
             endDate += " 23:59:59";
             if (reference != "")
             {
-                reference += " or";
+                reference += " and";
             }
             reference += " date>='" + startDate + "' and date<='" + endDate + "'";
             if (reference != "")

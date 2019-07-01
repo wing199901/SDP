@@ -54,36 +54,39 @@
             // lblCompany
             // 
             this.lblCompany.AutoSize = true;
-            this.lblCompany.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblCompany.Location = new System.Drawing.Point(414, 396);
+            this.lblCompany.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblCompany.Location = new System.Drawing.Point(828, 825);
+            this.lblCompany.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblCompany.Name = "lblCompany";
-            this.lblCompany.Size = new System.Drawing.Size(399, 24);
+            this.lblCompany.Size = new System.Drawing.Size(800, 48);
             this.lblCompany.TabIndex = 144;
             this.lblCompany.Text = "Smart && Luxury Motor Company (Spares)";
             // 
             // lblOrderId
             // 
             this.lblOrderId.AutoSize = true;
-            this.lblOrderId.Location = new System.Drawing.Point(114, 237);
+            this.lblOrderId.Location = new System.Drawing.Point(228, 494);
+            this.lblOrderId.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblOrderId.Name = "lblOrderId";
-            this.lblOrderId.Size = new System.Drawing.Size(50, 12);
+            this.lblOrderId.Size = new System.Drawing.Size(98, 25);
             this.lblOrderId.TabIndex = 148;
             this.lblOrderId.Text = "Order ID:";
             // 
             // txtOrderId
             // 
-            this.txtOrderId.Location = new System.Drawing.Point(197, 235);
-            this.txtOrderId.Multiline = true;
+            this.txtOrderId.Location = new System.Drawing.Point(394, 490);
+            this.txtOrderId.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtOrderId.Name = "txtOrderId";
-            this.txtOrderId.Size = new System.Drawing.Size(200, 17);
+            this.txtOrderId.Size = new System.Drawing.Size(396, 31);
             this.txtOrderId.TabIndex = 151;
             this.txtOrderId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_KeyPress);
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(197, 328);
+            this.btnSearch.Location = new System.Drawing.Point(394, 683);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.Size = new System.Drawing.Size(150, 48);
             this.btnSearch.TabIndex = 154;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -91,18 +94,20 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(359, 328);
+            this.btnCancel.Location = new System.Drawing.Point(718, 683);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(150, 48);
             this.btnCancel.TabIndex = 155;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // lvResult_order
             // 
-            this.lvResult_order.Location = new System.Drawing.Point(20, 72);
+            this.lvResult_order.Location = new System.Drawing.Point(40, 150);
+            this.lvResult_order.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.lvResult_order.Name = "lvResult_order";
-            this.lvResult_order.Size = new System.Drawing.Size(806, 132);
+            this.lvResult_order.Size = new System.Drawing.Size(1608, 271);
             this.lvResult_order.TabIndex = 156;
             this.lvResult_order.UseCompatibleStateImageBehavior = false;
             this.lvResult_order.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LvResult_order_MouseDoubleClick);
@@ -110,72 +115,75 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(446, 290);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(892, 604);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 12);
+            this.label1.Size = new System.Drawing.Size(0, 25);
             this.label1.TabIndex = 157;
             // 
             // lblOrderDate
             // 
             this.lblOrderDate.AutoSize = true;
-            this.lblOrderDate.Location = new System.Drawing.Point(114, 303);
+            this.lblOrderDate.Location = new System.Drawing.Point(228, 631);
+            this.lblOrderDate.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblOrderDate.Name = "lblOrderDate";
-            this.lblOrderDate.Size = new System.Drawing.Size(59, 12);
+            this.lblOrderDate.Size = new System.Drawing.Size(123, 25);
             this.lblOrderDate.TabIndex = 158;
             this.lblOrderDate.Text = "Order Date:";
             // 
             // lblOrderStatus
             // 
             this.lblOrderStatus.AutoSize = true;
-            this.lblOrderStatus.Location = new System.Drawing.Point(114, 276);
+            this.lblOrderStatus.Location = new System.Drawing.Point(228, 575);
+            this.lblOrderStatus.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblOrderStatus.Name = "lblOrderStatus";
-            this.lblOrderStatus.Size = new System.Drawing.Size(65, 12);
+            this.lblOrderStatus.Size = new System.Drawing.Size(139, 25);
             this.lblOrderStatus.TabIndex = 160;
             this.lblOrderStatus.Text = "Order Status:";
             // 
             // txtStaffId
             // 
-            this.txtStaffId.Location = new System.Drawing.Point(197, 256);
-            this.txtStaffId.Multiline = true;
+            this.txtStaffId.Location = new System.Drawing.Point(394, 533);
+            this.txtStaffId.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtStaffId.Name = "txtStaffId";
-            this.txtStaffId.Size = new System.Drawing.Size(200, 17);
+            this.txtStaffId.Size = new System.Drawing.Size(396, 31);
             this.txtStaffId.TabIndex = 163;
             this.txtStaffId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_KeyPress);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(114, 257);
+            this.label4.Location = new System.Drawing.Point(228, 535);
+            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 12);
+            this.label4.Size = new System.Drawing.Size(88, 25);
             this.label4.TabIndex = 162;
             this.label4.Text = "Staff ID:";
             // 
             // dtpStartDate
             // 
-            this.dtpStartDate.Location = new System.Drawing.Point(197, 300);
-            this.dtpStartDate.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.dtpStartDate.Location = new System.Drawing.Point(394, 625);
+            this.dtpStartDate.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(200, 22);
+            this.dtpStartDate.Size = new System.Drawing.Size(396, 31);
             this.dtpStartDate.TabIndex = 165;
             // 
             // dtpEndDate
             // 
-            this.dtpEndDate.Location = new System.Drawing.Point(418, 301);
-            this.dtpEndDate.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.dtpEndDate.Location = new System.Drawing.Point(836, 627);
+            this.dtpEndDate.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(200, 22);
+            this.dtpEndDate.Size = new System.Drawing.Size(396, 31);
             this.dtpEndDate.TabIndex = 166;
             this.dtpEndDate.ValueChanged += new System.EventHandler(this.DtpEndDate_ValueChanged);
             // 
             // lblTo
             // 
             this.lblTo.AutoSize = true;
-            this.lblTo.Location = new System.Drawing.Point(399, 303);
-            this.lblTo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTo.Location = new System.Drawing.Point(798, 631);
+            this.lblTo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTo.Name = "lblTo";
-            this.lblTo.Size = new System.Drawing.Size(14, 12);
+            this.lblTo.Size = new System.Drawing.Size(30, 25);
             this.lblTo.TabIndex = 168;
             this.lblTo.Text = "to";
             // 
@@ -188,52 +196,55 @@
             "Shipping",
             "Deletion",
             "Finish"});
-            this.cboOrderStatus.Location = new System.Drawing.Point(197, 275);
-            this.cboOrderStatus.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.cboOrderStatus.Location = new System.Drawing.Point(394, 573);
+            this.cboOrderStatus.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.cboOrderStatus.Name = "cboOrderStatus";
-            this.cboOrderStatus.Size = new System.Drawing.Size(200, 20);
+            this.cboOrderStatus.Size = new System.Drawing.Size(396, 33);
             this.cboOrderStatus.TabIndex = 169;
             // 
             // txtCustId
             // 
-            this.txtCustId.Location = new System.Drawing.Point(505, 256);
-            this.txtCustId.Multiline = true;
+            this.txtCustId.Location = new System.Drawing.Point(1010, 533);
+            this.txtCustId.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtCustId.Name = "txtCustId";
-            this.txtCustId.Size = new System.Drawing.Size(200, 17);
+            this.txtCustId.Size = new System.Drawing.Size(396, 31);
             this.txtCustId.TabIndex = 171;
             this.txtCustId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_KeyPress);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(422, 257);
+            this.label2.Location = new System.Drawing.Point(844, 535);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 12);
+            this.label2.Size = new System.Drawing.Size(136, 25);
             this.label2.TabIndex = 170;
             this.label2.Text = "Customer ID:";
             // 
             // txtCustPhone
             // 
-            this.txtCustPhone.Location = new System.Drawing.Point(505, 275);
-            this.txtCustPhone.Multiline = true;
+            this.txtCustPhone.Location = new System.Drawing.Point(1010, 573);
+            this.txtCustPhone.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtCustPhone.Name = "txtCustPhone";
-            this.txtCustPhone.Size = new System.Drawing.Size(200, 17);
+            this.txtCustPhone.Size = new System.Drawing.Size(396, 31);
             this.txtCustPhone.TabIndex = 173;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(422, 276);
+            this.label3.Location = new System.Drawing.Point(844, 575);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 12);
+            this.label3.Size = new System.Drawing.Size(146, 25);
             this.label3.TabIndex = 172;
             this.label3.Text = "Customer Tel:";
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(278, 328);
+            this.btnReset.Location = new System.Drawing.Point(556, 683);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.Size = new System.Drawing.Size(150, 48);
             this.btnReset.TabIndex = 174;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
@@ -241,9 +252,9 @@
             // 
             // FormSearchOrder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(838, 441);
+            this.ClientSize = new System.Drawing.Size(1676, 919);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.txtCustPhone);
             this.Controls.Add(this.label3);
@@ -264,6 +275,7 @@
             this.Controls.Add(this.txtOrderId);
             this.Controls.Add(this.lblOrderId);
             this.Controls.Add(this.lblCompany);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "FormSearchOrder";
             this.Text = "Search order";
             this.Load += new System.EventHandler(this.FormSearchOrder_Load);
