@@ -89,5 +89,36 @@ namespace SDP
                 txtProductID.Focus();
             }
         }
+
+        private void BtnApply_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lvResult.SelectedItems[0].ToString() != "")
+                {
+                    ProductId = lvResult.SelectedItems[0].ToString();
+                    ProductId = System.Text.RegularExpressions.Regex.Replace(ProductId, "[a-zA-Z{}: ]", "");
+
+                    String sql = String.Format("UPDATE product SET safetyStock = {0} WHERE productId = {1}", txtSafetyStock.Text, ProductId);
+                    MySqlCommand cmd = Program.ExecSQL(sql);
+                    MySqlDataReader data = cmd.ExecuteReader();
+
+                }
+                else
+                {
+                    MessageBox.Show("Please select a product");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Please select a product");
+            }
+
+        }
+
+        private void LvResult_Click(object sender, EventArgs e)
+        {
+            txtSafetyStock.Text = lvResult.SelectedItems[0].SubItems[5].Text;
+        }
     }
 }
