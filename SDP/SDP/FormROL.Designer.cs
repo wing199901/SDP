@@ -30,14 +30,14 @@
         {
             this.lblCompany = new System.Windows.Forms.Label();
             this.lblSKU = new System.Windows.Forms.Label();
-            this.txtSKU = new System.Windows.Forms.TextBox();
+            this.txtProductID = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.lblReOrderAmount = new System.Windows.Forms.Label();
-            this.txtReOrderQTY = new System.Windows.Forms.TextBox();
+            this.lblSafetyStock = new System.Windows.Forms.Label();
+            this.txtSafetyStock = new System.Windows.Forms.TextBox();
             this.btnApply = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lvResult = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // lblCompany
@@ -59,43 +59,44 @@
             this.lblSKU.TabIndex = 145;
             this.lblSKU.Text = "Product ID:";
             // 
-            // txtSKU
+            // txtProductID
             // 
-            this.txtSKU.Location = new System.Drawing.Point(232, 51);
-            this.txtSKU.Multiline = true;
-            this.txtSKU.Name = "txtSKU";
-            this.txtSKU.Size = new System.Drawing.Size(200, 22);
-            this.txtSKU.TabIndex = 146;
+            this.txtProductID.Location = new System.Drawing.Point(232, 51);
+            this.txtProductID.Multiline = true;
+            this.txtProductID.Name = "txtProductID";
+            this.txtProductID.Size = new System.Drawing.Size(200, 22);
+            this.txtProductID.TabIndex = 146;
+            this.txtProductID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtProductID_KeyDown);
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(497, 49);
+            this.btnSearch.Location = new System.Drawing.Point(497, 51);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 147;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
-            // lblReOrderAmount
+            // lblSafetyStock
             // 
-            this.lblReOrderAmount.AutoSize = true;
-            this.lblReOrderAmount.Location = new System.Drawing.Point(135, 275);
-            this.lblReOrderAmount.Name = "lblReOrderAmount";
-            this.lblReOrderAmount.Size = new System.Drawing.Size(89, 12);
-            this.lblReOrderAmount.TabIndex = 149;
-            this.lblReOrderAmount.Text = "ReOrder Amount:";
+            this.lblSafetyStock.AutoSize = true;
+            this.lblSafetyStock.Location = new System.Drawing.Point(135, 275);
+            this.lblSafetyStock.Name = "lblSafetyStock";
+            this.lblSafetyStock.Size = new System.Drawing.Size(66, 12);
+            this.lblSafetyStock.TabIndex = 149;
+            this.lblSafetyStock.Text = "Safety Stock:";
             // 
-            // txtReOrderQTY
+            // txtSafetyStock
             // 
-            this.txtReOrderQTY.Location = new System.Drawing.Point(232, 272);
-            this.txtReOrderQTY.Multiline = true;
-            this.txtReOrderQTY.Name = "txtReOrderQTY";
-            this.txtReOrderQTY.Size = new System.Drawing.Size(200, 22);
-            this.txtReOrderQTY.TabIndex = 150;
+            this.txtSafetyStock.Location = new System.Drawing.Point(232, 272);
+            this.txtSafetyStock.Name = "txtSafetyStock";
+            this.txtSafetyStock.Size = new System.Drawing.Size(200, 22);
+            this.txtSafetyStock.TabIndex = 150;
             // 
             // btnApply
             // 
-            this.btnApply.Location = new System.Drawing.Point(497, 275);
+            this.btnApply.Location = new System.Drawing.Point(497, 272);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(75, 23);
             this.btnApply.TabIndex = 151;
@@ -120,27 +121,27 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // listView1
+            // lvResult
             // 
-            this.listView1.Location = new System.Drawing.Point(20, 103);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(806, 132);
-            this.listView1.TabIndex = 154;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.lvResult.Location = new System.Drawing.Point(20, 103);
+            this.lvResult.Name = "lvResult";
+            this.lvResult.Size = new System.Drawing.Size(806, 132);
+            this.lvResult.TabIndex = 154;
+            this.lvResult.UseCompatibleStateImageBehavior = false;
             // 
             // FormROL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.lvResult);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.btnApply);
-            this.Controls.Add(this.txtReOrderQTY);
-            this.Controls.Add(this.lblReOrderAmount);
+            this.Controls.Add(this.txtSafetyStock);
+            this.Controls.Add(this.lblSafetyStock);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.txtSKU);
+            this.Controls.Add(this.txtProductID);
             this.Controls.Add(this.lblSKU);
             this.Controls.Add(this.lblCompany);
             this.Name = "FormROL";
@@ -153,13 +154,13 @@
         #endregion
         private System.Windows.Forms.Label lblCompany;
         private System.Windows.Forms.Label lblSKU;
-        private System.Windows.Forms.TextBox txtSKU;
+        private System.Windows.Forms.TextBox txtProductID;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Label lblReOrderAmount;
-        private System.Windows.Forms.TextBox txtReOrderQTY;
+        private System.Windows.Forms.Label lblSafetyStock;
+        private System.Windows.Forms.TextBox txtSafetyStock;
         private System.Windows.Forms.Button btnApply;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lvResult;
     }
 }
