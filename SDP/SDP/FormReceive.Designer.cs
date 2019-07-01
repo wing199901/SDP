@@ -62,14 +62,14 @@
             this.txtOrderID.Location = new System.Drawing.Point(224, 53);
             this.txtOrderID.Name = "txtOrderID";
             this.txtOrderID.Size = new System.Drawing.Size(200, 22);
-            this.txtOrderID.TabIndex = 146;
+            this.txtOrderID.TabIndex = 0;
             // 
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(87, 133);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 148;
+            this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             // 
@@ -78,7 +78,7 @@
             this.btnCancel.Location = new System.Drawing.Point(224, 133);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 149;
+            this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -96,10 +96,11 @@
             this.txtDate.Location = new System.Drawing.Point(224, 93);
             this.txtDate.Name = "txtDate";
             this.txtDate.Size = new System.Drawing.Size(200, 22);
-            this.txtDate.TabIndex = 151;
+            this.txtDate.TabIndex = 1;
             // 
             // listView1
             // 
+            this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(20, 196);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(806, 132);

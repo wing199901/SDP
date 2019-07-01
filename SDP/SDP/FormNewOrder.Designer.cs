@@ -74,7 +74,7 @@
             // lblCompany
             // 
             this.lblCompany.AutoSize = true;
-            this.lblCompany.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblCompany.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblCompany.Location = new System.Drawing.Point(414, 496);
             this.lblCompany.Name = "lblCompany";
             this.lblCompany.Size = new System.Drawing.Size(399, 24);
@@ -86,7 +86,7 @@
             this.txtNumber.Location = new System.Drawing.Point(121, 12);
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Size = new System.Drawing.Size(200, 22);
-            this.txtNumber.TabIndex = 161;
+            this.txtNumber.TabIndex = 0;
             // 
             // label15
             // 
@@ -115,14 +115,14 @@
             this.cboStatus.Location = new System.Drawing.Point(121, 40);
             this.cboStatus.Name = "cboStatus";
             this.cboStatus.Size = new System.Drawing.Size(200, 20);
-            this.cboStatus.TabIndex = 158;
+            this.cboStatus.TabIndex = 1;
             // 
             // txtShipAddr
             // 
             this.txtShipAddr.Location = new System.Drawing.Point(121, 148);
             this.txtShipAddr.Name = "txtShipAddr";
             this.txtShipAddr.Size = new System.Drawing.Size(200, 22);
-            this.txtShipAddr.TabIndex = 157;
+            this.txtShipAddr.TabIndex = 10;
             // 
             // label7
             // 
@@ -149,35 +149,35 @@
             this.txtPhone.Location = new System.Drawing.Point(121, 206);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(200, 22);
-            this.txtPhone.TabIndex = 154;
+            this.txtPhone.TabIndex = 15;
             // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(121, 176);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(200, 22);
-            this.txtEmail.TabIndex = 153;
+            this.txtEmail.TabIndex = 11;
             // 
             // txtAddr
             // 
             this.txtAddr.Location = new System.Drawing.Point(121, 120);
             this.txtAddr.Name = "txtAddr";
             this.txtAddr.Size = new System.Drawing.Size(200, 22);
-            this.txtAddr.TabIndex = 152;
+            this.txtAddr.TabIndex = 6;
             // 
             // txtCompany
             // 
             this.txtCompany.Location = new System.Drawing.Point(121, 94);
             this.txtCompany.Name = "txtCompany";
             this.txtCompany.Size = new System.Drawing.Size(200, 22);
-            this.txtCompany.TabIndex = 151;
+            this.txtCompany.TabIndex = 4;
             // 
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(121, 66);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(200, 22);
-            this.txtName.TabIndex = 150;
+            this.txtName.TabIndex = 2;
             // 
             // label6
             // 
@@ -273,14 +273,14 @@
             this.dtpDelivery.Location = new System.Drawing.Point(626, 69);
             this.dtpDelivery.Name = "dtpDelivery";
             this.dtpDelivery.Size = new System.Drawing.Size(200, 22);
-            this.dtpDelivery.TabIndex = 166;
+            this.dtpDelivery.TabIndex = 3;
             // 
             // txtKeyword
             // 
             this.txtKeyword.Location = new System.Drawing.Point(626, 182);
             this.txtKeyword.Name = "txtKeyword";
             this.txtKeyword.Size = new System.Drawing.Size(200, 22);
-            this.txtKeyword.TabIndex = 176;
+            this.txtKeyword.TabIndex = 12;
             this.txtKeyword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtKeyword_KeyDown);
             // 
             // label10
@@ -306,7 +306,7 @@
             this.txtQty.Location = new System.Drawing.Point(626, 125);
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(200, 22);
-            this.txtQty.TabIndex = 173;
+            this.txtQty.TabIndex = 7;
             this.txtQty.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtQty_KeyDown);
             // 
             // btnSearch
@@ -314,7 +314,7 @@
             this.btnSearch.Location = new System.Drawing.Point(626, 210);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 172;
+            this.btnSearch.TabIndex = 13;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
@@ -324,7 +324,7 @@
             this.btnDelete.Location = new System.Drawing.Point(707, 153);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 171;
+            this.btnDelete.TabIndex = 9;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
@@ -334,7 +334,7 @@
             this.txtProductID.Location = new System.Drawing.Point(626, 97);
             this.txtProductID.Name = "txtProductID";
             this.txtProductID.Size = new System.Drawing.Size(200, 22);
-            this.txtProductID.TabIndex = 170;
+            this.txtProductID.TabIndex = 5;
             // 
             // label8
             // 
@@ -350,7 +350,7 @@
             this.btnAdd.Location = new System.Drawing.Point(626, 153);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 168;
+            this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
@@ -387,7 +387,7 @@
             this.btnCancel.Location = new System.Drawing.Point(101, 475);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 183;
+            this.btnCancel.TabIndex = 18;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
@@ -397,7 +397,7 @@
             this.btnSubmit.Location = new System.Drawing.Point(20, 475);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnSubmit.TabIndex = 182;
+            this.btnSubmit.TabIndex = 17;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.BtnSubmit_Click);
@@ -409,13 +409,14 @@
             this.txtRemark.Multiline = true;
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Size = new System.Drawing.Size(806, 67);
-            this.txtRemark.TabIndex = 184;
+            this.txtRemark.TabIndex = 16;
             this.txtRemark.Text = "Remark";
             this.txtRemark.Enter += new System.EventHandler(this.TxtRemark_Enter);
             this.txtRemark.Leave += new System.EventHandler(this.TxtRemark_Leave);
             // 
             // lvResult
             // 
+            this.lvResult.HideSelection = false;
             this.lvResult.Location = new System.Drawing.Point(20, 239);
             this.lvResult.Name = "lvResult";
             this.lvResult.Size = new System.Drawing.Size(806, 132);
@@ -428,7 +429,7 @@
             this.txtHide.Location = new System.Drawing.Point(368, 210);
             this.txtHide.Name = "txtHide";
             this.txtHide.Size = new System.Drawing.Size(200, 22);
-            this.txtHide.TabIndex = 192;
+            this.txtHide.TabIndex = 14;
             this.txtHide.Visible = false;
             this.txtHide.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtHide_KeyPress);
             // 
