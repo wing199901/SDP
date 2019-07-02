@@ -14,7 +14,7 @@ namespace SDP
     public partial class FormStaff : Form
     {
         private ListViewItem currentItem;
-        private ListViewItem.ListViewSubItem currentItemSub;
+        
         public FormStaff()
         {
             InitializeComponent();
@@ -24,7 +24,8 @@ namespace SDP
             lvResult.View = View.Details;
             lvResult.FullRowSelect = true;
             lvResult.Columns.Add("Staff ID", 100);
-            lvResult.Columns.Add("Role ID", 100);
+            lvResult.Columns.Add("Role ID", 50);
+            lvResult.Columns.Add("Role Name", 200);
             lvResult.Columns.Add("Staff Name", 100);
             lvResult.Columns.Add("Available", 100);
 
@@ -35,7 +36,7 @@ namespace SDP
         {
             lvResult.Items.Clear();
 
-            String sql = "SELECT * FROM staff";
+            String sql = "SELECT * FROM staff, role WHERE staff.roleId = role.roleId";
             MySqlCommand cmd = Program.ExecSQL(sql);
             MySqlDataReader data = cmd.ExecuteReader();
 
@@ -43,6 +44,7 @@ namespace SDP
             {
                 ListViewItem lv = new ListViewItem(data.GetInt32(0).ToString());
                 lv.SubItems.Add(data.GetInt32(1).ToString());
+                lv.SubItems.Add(data.GetString(6).ToString());
                 lv.SubItems.Add(data.GetString(2).ToString());
                 lv.SubItems.Add(data.GetBoolean(4).ToString());
                 lvResult.Items.Add(lv);
