@@ -44,6 +44,7 @@ namespace SDP
             lvResult.Columns.Add("Description", 150);
             lvResult.Columns.Add("Price", 50);
             lvResult.Columns.Add("Quantity", 100);
+            lvResult.Columns.Add("Despatched", 100);
         }
 
         private void FormEditOrder_Load(object sender, EventArgs e)
@@ -277,11 +278,12 @@ namespace SDP
 
                     //sql = String.Format("update dbOPSRS.order set staffId='{6}' status='{0}', deliveryDate='{1}', shippingAddress='{2}', totalAmount={3}, remark='{4}' where orderId = '{5}'",
                     //cboStatus.Text, dtpDelivery.Value.ToString("yyyy-MM-dd"), txtShipAddr.Text, total, txtRemark.Text, OrderId, txtStaffId.Text);
-                    sql = String.Format("update dbOPSRS.order set staffId='{0}', deliveryDate='{1}', status='{2}'", txtStaffId.Text,dtpDelivery.Value.ToString("yyyy-MM-dd"),cboStatus.Text);
+                    sql = String.Format("update dbOPSRS.order set staffId='{1}', deliveryDate='{2}', status='{3}',shippingAddress='{4}',totalAmount={5}, remark='{6}' where orderId= '{0}'",
+                        OrderId,txtStaffId.Text,dtpDelivery.Value.ToString("yyyy-MM-dd"),cboStatus.Text,txtShipAddr.Text, total, txtRemark.Text);
                     cmd = Program.ExecSQL(sql);
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
-                    /*
+                    
                     sql = String.Format("delete from orderProduct where orderId='{0}'", OrderId);
                     cmd = Program.ExecSQL(sql);
                     cmd.ExecuteNonQuery();
@@ -299,7 +301,7 @@ namespace SDP
 
                         cmd.Dispose();
                     }
-                    */
+                    
                     MessageBox.Show("Update Sussesed!");
                     this.Close();
                 }catch (Exception ex)
