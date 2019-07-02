@@ -145,7 +145,6 @@
             this.lblWelcome.Size = new System.Drawing.Size(399, 24);
             this.lblWelcome.TabIndex = 154;
             this.lblWelcome.Text = "Welcome, ";
-            this.lblWelcome.Click += new System.EventHandler(this.LblWelcome_Click);
             // 
             // txtEditStock
             // 
@@ -174,6 +173,7 @@
             this.btnCust.TabIndex = 10;
             this.btnCust.Text = "Customer Management";
             this.btnCust.UseVisualStyleBackColor = true;
+            this.btnCust.Click += new System.EventHandler(this.BtnCust_Click);
             // 
             // btnJPos
             // 

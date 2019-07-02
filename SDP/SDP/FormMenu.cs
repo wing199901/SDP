@@ -125,7 +125,7 @@ namespace SDP
             editStock.ShowDialog();
         }
 
-        private void LblWelcome_Click(object sender, EventArgs e)
+        private void BtnCust_Click(object sender, EventArgs e)
         {
 
         }
