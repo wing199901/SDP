@@ -86,12 +86,14 @@ namespace SDP
                 {
                     custId = data.GetString(0).ToString();
                 }
-                if (reference != "" && custId != "")
+                if (reference != "")
                 {
-                    reference += " AND" + " custId='" + custId + "'";
+                    reference += " AND";
                 }
+                Console.WriteLine(custId);
+                reference += " custId='" + custId + "'";
             }
-            if (cboOrderStatus.SelectedItem != null)
+            if (cboOrderStatus.SelectedItem != null&& cboOrderStatus.SelectedIndex!=0)
             {
                 if (reference != "")
                 {
@@ -164,6 +166,11 @@ namespace SDP
                 FormEditOrder editOrder = new FormEditOrder(orderId);
                 editOrder.ShowDialog();
             }
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
