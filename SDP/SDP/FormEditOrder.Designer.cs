@@ -153,6 +153,7 @@
             this.txtKeyword.Name = "txtKeyword";
             this.txtKeyword.Size = new System.Drawing.Size(200, 22);
             this.txtKeyword.TabIndex = 9;
+            this.txtKeyword.Visible = false;
             // 
             // label10
             // 
@@ -162,6 +163,7 @@
             this.label10.Size = new System.Drawing.Size(51, 12);
             this.label10.TabIndex = 224;
             this.label10.Text = "Keyword:";
+            this.label10.Visible = false;
             // 
             // label9
             // 
@@ -171,6 +173,7 @@
             this.label9.Size = new System.Drawing.Size(25, 12);
             this.label9.TabIndex = 223;
             this.label9.Text = "Qty:";
+            this.label9.Visible = false;
             // 
             // txtQty
             // 
@@ -178,6 +181,7 @@
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(200, 22);
             this.txtQty.TabIndex = 7;
+            this.txtQty.Visible = false;
             this.txtQty.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtQty_KeyDown);
             // 
             // btnSearch
@@ -188,6 +192,7 @@
             this.btnSearch.TabIndex = 10;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Visible = false;
             this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // txtProductID
@@ -196,6 +201,7 @@
             this.txtProductID.Name = "txtProductID";
             this.txtProductID.Size = new System.Drawing.Size(200, 22);
             this.txtProductID.TabIndex = 6;
+            this.txtProductID.Visible = false;
             // 
             // label8
             // 
@@ -205,6 +211,7 @@
             this.label8.Size = new System.Drawing.Size(59, 12);
             this.label8.TabIndex = 218;
             this.label8.Text = "Product ID:";
+            this.label8.Visible = false;
             // 
             // btnAdd
             // 
@@ -214,6 +221,7 @@
             this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Visible = false;
             this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // label14
