@@ -78,7 +78,7 @@
             this.txtOrderId.Multiline = true;
             this.txtOrderId.Name = "txtOrderId";
             this.txtOrderId.Size = new System.Drawing.Size(200, 17);
-            this.txtOrderId.TabIndex = 151;
+            this.txtOrderId.TabIndex = 0;
             this.txtOrderId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_KeyPress);
             // 
             // btnSearch
@@ -86,7 +86,7 @@
             this.btnSearch.Location = new System.Drawing.Point(197, 328);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 154;
+            this.btnSearch.TabIndex = 7;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
@@ -96,7 +96,7 @@
             this.btnCancel.Location = new System.Drawing.Point(522, 328);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 155;
+            this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -143,7 +143,7 @@
             this.txtStaffId.Multiline = true;
             this.txtStaffId.Name = "txtStaffId";
             this.txtStaffId.Size = new System.Drawing.Size(200, 17);
-            this.txtStaffId.TabIndex = 163;
+            this.txtStaffId.TabIndex = 1;
             this.txtStaffId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_KeyPress);
             // 
             // label4
@@ -161,7 +161,7 @@
             this.dtpStartDate.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.Size = new System.Drawing.Size(200, 22);
-            this.dtpStartDate.TabIndex = 165;
+            this.dtpStartDate.TabIndex = 5;
             // 
             // dtpEndDate
             // 
@@ -169,7 +169,7 @@
             this.dtpEndDate.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.Size = new System.Drawing.Size(200, 22);
-            this.dtpEndDate.TabIndex = 166;
+            this.dtpEndDate.TabIndex = 6;
             this.dtpEndDate.ValueChanged += new System.EventHandler(this.DtpEndDate_ValueChanged);
             // 
             // lblTo
@@ -195,7 +195,7 @@
             this.cboOrderStatus.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.cboOrderStatus.Name = "cboOrderStatus";
             this.cboOrderStatus.Size = new System.Drawing.Size(200, 20);
-            this.cboOrderStatus.TabIndex = 169;
+            this.cboOrderStatus.TabIndex = 2;
             // 
             // txtCustId
             // 
@@ -203,7 +203,7 @@
             this.txtCustId.Multiline = true;
             this.txtCustId.Name = "txtCustId";
             this.txtCustId.Size = new System.Drawing.Size(200, 17);
-            this.txtCustId.TabIndex = 171;
+            this.txtCustId.TabIndex = 3;
             this.txtCustId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_KeyPress);
             // 
             // label2
@@ -221,7 +221,7 @@
             this.txtCustPhone.Multiline = true;
             this.txtCustPhone.Name = "txtCustPhone";
             this.txtCustPhone.Size = new System.Drawing.Size(200, 17);
-            this.txtCustPhone.TabIndex = 173;
+            this.txtCustPhone.TabIndex = 4;
             // 
             // label3
             // 
@@ -237,7 +237,7 @@
             this.btnReset.Location = new System.Drawing.Point(441, 328);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 174;
+            this.btnReset.TabIndex = 10;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -247,8 +247,8 @@
             this.btnGenDIS.Location = new System.Drawing.Point(278, 328);
             this.btnGenDIS.Name = "btnGenDIS";
             this.btnGenDIS.Size = new System.Drawing.Size(75, 23);
-            this.btnGenDIS.TabIndex = 175;
-            this.btnGenDIS.Text = "GDI";
+            this.btnGenDIS.TabIndex = 8;
+            this.btnGenDIS.Text = "Gen. DIS";
             this.btnGenDIS.UseVisualStyleBackColor = true;
             // 
             // btnGenIN
@@ -256,8 +256,8 @@
             this.btnGenIN.Location = new System.Drawing.Point(360, 328);
             this.btnGenIN.Name = "btnGenIN";
             this.btnGenIN.Size = new System.Drawing.Size(75, 23);
-            this.btnGenIN.TabIndex = 176;
-            this.btnGenIN.Text = "GIN";
+            this.btnGenIN.TabIndex = 9;
+            this.btnGenIN.Text = "Gen. Invoice";
             this.btnGenIN.UseVisualStyleBackColor = true;
             // 
             // FormSearchOrder

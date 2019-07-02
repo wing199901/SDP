@@ -49,27 +49,27 @@
             // 
             // btnROL
             // 
-            this.btnROL.Location = new System.Drawing.Point(142, 302);
+            this.btnROL.Location = new System.Drawing.Point(142, 253);
             this.btnROL.Name = "btnROL";
             this.btnROL.Size = new System.Drawing.Size(123, 23);
-            this.btnROL.TabIndex = 7;
+            this.btnROL.TabIndex = 9;
             this.btnROL.Text = "Correct ROL";
             this.btnROL.UseVisualStyleBackColor = true;
             this.btnROL.Click += new System.EventHandler(this.BtnROL_Click);
             // 
             // btnGoods
             // 
-            this.btnGoods.Location = new System.Drawing.Point(366, 253);
+            this.btnGoods.Location = new System.Drawing.Point(366, 204);
             this.btnGoods.Name = "btnGoods";
             this.btnGoods.Size = new System.Drawing.Size(123, 23);
-            this.btnGoods.TabIndex = 5;
+            this.btnGoods.TabIndex = 7;
             this.btnGoods.Text = "Receive Goods";
             this.btnGoods.UseVisualStyleBackColor = true;
             this.btnGoods.Click += new System.EventHandler(this.BtnGoods_Click);
             // 
             // btnGenReport
             // 
-            this.btnGenReport.Location = new System.Drawing.Point(142, 253);
+            this.btnGenReport.Location = new System.Drawing.Point(142, 204);
             this.btnGenReport.Name = "btnGenReport";
             this.btnGenReport.Size = new System.Drawing.Size(123, 23);
             this.btnGenReport.TabIndex = 6;
@@ -79,10 +79,10 @@
             // 
             // btnDefective
             // 
-            this.btnDefective.Location = new System.Drawing.Point(588, 253);
+            this.btnDefective.Location = new System.Drawing.Point(588, 204);
             this.btnDefective.Name = "btnDefective";
             this.btnDefective.Size = new System.Drawing.Size(123, 23);
-            this.btnDefective.TabIndex = 2;
+            this.btnDefective.TabIndex = 8;
             this.btnDefective.Text = "Report Defective";
             this.btnDefective.UseVisualStyleBackColor = true;
             this.btnDefective.Click += new System.EventHandler(this.BtnDefective_Click);
@@ -92,37 +92,37 @@
             this.btnLogout.Location = new System.Drawing.Point(662, 20);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(123, 23);
-            this.btnLogout.TabIndex = 8;
+            this.btnLogout.TabIndex = 13;
             this.btnLogout.Text = "Log Out";
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.BtnLogout_Click);
             // 
             // btnStock
             // 
-            this.btnStock.Location = new System.Drawing.Point(588, 204);
+            this.btnStock.Location = new System.Drawing.Point(588, 155);
             this.btnStock.Name = "btnStock";
             this.btnStock.Size = new System.Drawing.Size(123, 23);
-            this.btnStock.TabIndex = 3;
+            this.btnStock.TabIndex = 5;
             this.btnStock.Text = "Search Stock";
             this.btnStock.UseVisualStyleBackColor = true;
             this.btnStock.Click += new System.EventHandler(this.BtnStock_Click);
             // 
             // btnSearchOrder
             // 
-            this.btnSearchOrder.Location = new System.Drawing.Point(588, 155);
+            this.btnSearchOrder.Location = new System.Drawing.Point(588, 106);
             this.btnSearchOrder.Name = "btnSearchOrder";
             this.btnSearchOrder.Size = new System.Drawing.Size(123, 23);
-            this.btnSearchOrder.TabIndex = 1;
+            this.btnSearchOrder.TabIndex = 2;
             this.btnSearchOrder.Text = "Search Order";
             this.btnSearchOrder.UseVisualStyleBackColor = true;
             this.btnSearchOrder.Click += new System.EventHandler(this.BtnSearchOrder_Click);
             // 
             // btnNewOrder
             // 
-            this.btnNewOrder.Location = new System.Drawing.Point(366, 155);
+            this.btnNewOrder.Location = new System.Drawing.Point(366, 106);
             this.btnNewOrder.Name = "btnNewOrder";
             this.btnNewOrder.Size = new System.Drawing.Size(123, 23);
-            this.btnNewOrder.TabIndex = 0;
+            this.btnNewOrder.TabIndex = 1;
             this.btnNewOrder.Text = "New Order";
             this.btnNewOrder.UseVisualStyleBackColor = true;
             this.btnNewOrder.Click += new System.EventHandler(this.BtnNewOrder_Click);
@@ -149,7 +149,7 @@
             // 
             // txtEditStock
             // 
-            this.txtEditStock.Location = new System.Drawing.Point(366, 204);
+            this.txtEditStock.Location = new System.Drawing.Point(366, 155);
             this.txtEditStock.Name = "txtEditStock";
             this.txtEditStock.Size = new System.Drawing.Size(123, 23);
             this.txtEditStock.TabIndex = 4;
@@ -159,46 +159,46 @@
             // 
             // btnStaff
             // 
-            this.btnStaff.Location = new System.Drawing.Point(366, 106);
+            this.btnStaff.Location = new System.Drawing.Point(366, 317);
             this.btnStaff.Name = "btnStaff";
             this.btnStaff.Size = new System.Drawing.Size(123, 23);
-            this.btnStaff.TabIndex = 10;
+            this.btnStaff.TabIndex = 11;
             this.btnStaff.Text = "Staff Management";
             this.btnStaff.UseVisualStyleBackColor = true;
             // 
             // btnCust
             // 
-            this.btnCust.Location = new System.Drawing.Point(142, 106);
+            this.btnCust.Location = new System.Drawing.Point(142, 317);
             this.btnCust.Name = "btnCust";
             this.btnCust.Size = new System.Drawing.Size(123, 23);
-            this.btnCust.TabIndex = 9;
+            this.btnCust.TabIndex = 10;
             this.btnCust.Text = "Customer Management";
             this.btnCust.UseVisualStyleBackColor = true;
             // 
             // btnJPos
             // 
-            this.btnJPos.Location = new System.Drawing.Point(588, 106);
+            this.btnJPos.Location = new System.Drawing.Point(588, 317);
             this.btnJPos.Name = "btnJPos";
             this.btnJPos.Size = new System.Drawing.Size(123, 23);
-            this.btnJPos.TabIndex = 11;
+            this.btnJPos.TabIndex = 12;
             this.btnJPos.Text = "Role Control";
             this.btnJPos.UseVisualStyleBackColor = true;
             // 
             // btnNewPO
             // 
-            this.btnNewPO.Location = new System.Drawing.Point(142, 155);
+            this.btnNewPO.Location = new System.Drawing.Point(142, 106);
             this.btnNewPO.Name = "btnNewPO";
             this.btnNewPO.Size = new System.Drawing.Size(123, 23);
-            this.btnNewPO.TabIndex = 155;
+            this.btnNewPO.TabIndex = 0;
             this.btnNewPO.Text = "New Purchase Order";
             this.btnNewPO.UseVisualStyleBackColor = true;
             // 
             // btnNStock
             // 
-            this.btnNStock.Location = new System.Drawing.Point(142, 204);
+            this.btnNStock.Location = new System.Drawing.Point(142, 155);
             this.btnNStock.Name = "btnNStock";
             this.btnNStock.Size = new System.Drawing.Size(123, 23);
-            this.btnNStock.TabIndex = 156;
+            this.btnNStock.TabIndex = 3;
             this.btnNStock.Text = "New Stock";
             this.btnNStock.UseVisualStyleBackColor = true;
             // 
