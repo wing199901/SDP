@@ -40,7 +40,7 @@
             this.lblWelcome = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.txtEditStock = new System.Windows.Forms.Button();
-            this.btnUser = new System.Windows.Forms.Button();
+            this.btnStaff = new System.Windows.Forms.Button();
             this.btnCust = new System.Windows.Forms.Button();
             this.btnJPos = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -155,31 +155,31 @@
             this.txtEditStock.UseVisualStyleBackColor = true;
             this.txtEditStock.Click += new System.EventHandler(this.TxtEditStock_Click);
             // 
-            // btnUser
+            // btnStaff
             // 
-            this.btnUser.Location = new System.Drawing.Point(717, 46);
-            this.btnUser.Name = "btnUser";
-            this.btnUser.Size = new System.Drawing.Size(93, 23);
-            this.btnUser.TabIndex = 9;
-            this.btnUser.Text = "Edit User";
-            this.btnUser.UseVisualStyleBackColor = true;
+            this.btnStaff.Location = new System.Drawing.Point(687, 86);
+            this.btnStaff.Name = "btnStaff";
+            this.btnStaff.Size = new System.Drawing.Size(123, 23);
+            this.btnStaff.TabIndex = 10;
+            this.btnStaff.Text = "Staff Management";
+            this.btnStaff.UseVisualStyleBackColor = true;
             // 
             // btnCust
             // 
-            this.btnCust.Location = new System.Drawing.Point(717, 86);
+            this.btnCust.Location = new System.Drawing.Point(687, 46);
             this.btnCust.Name = "btnCust";
-            this.btnCust.Size = new System.Drawing.Size(93, 23);
-            this.btnCust.TabIndex = 10;
-            this.btnCust.Text = "Edit Customer";
+            this.btnCust.Size = new System.Drawing.Size(123, 23);
+            this.btnCust.TabIndex = 9;
+            this.btnCust.Text = "Customer Management";
             this.btnCust.UseVisualStyleBackColor = true;
             // 
             // btnJPos
             // 
-            this.btnJPos.Location = new System.Drawing.Point(717, 127);
+            this.btnJPos.Location = new System.Drawing.Point(687, 127);
             this.btnJPos.Name = "btnJPos";
-            this.btnJPos.Size = new System.Drawing.Size(93, 23);
+            this.btnJPos.Size = new System.Drawing.Size(123, 23);
             this.btnJPos.TabIndex = 11;
-            this.btnJPos.Text = "Edit Job Postiton";
+            this.btnJPos.Text = "Role Control";
             this.btnJPos.UseVisualStyleBackColor = true;
             // 
             // FormMenu
@@ -189,7 +189,7 @@
             this.ClientSize = new System.Drawing.Size(838, 441);
             this.Controls.Add(this.btnJPos);
             this.Controls.Add(this.btnCust);
-            this.Controls.Add(this.btnUser);
+            this.Controls.Add(this.btnStaff);
             this.Controls.Add(this.txtEditStock);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.btnROL);
@@ -224,7 +224,7 @@
         private System.Windows.Forms.Label lblWelcome;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button txtEditStock;
-        private System.Windows.Forms.Button btnUser;
+        private System.Windows.Forms.Button btnStaff;
         private System.Windows.Forms.Button btnCust;
         private System.Windows.Forms.Button btnJPos;
     }
