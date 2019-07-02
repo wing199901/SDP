@@ -44,7 +44,7 @@
             this.btnCust = new System.Windows.Forms.Button();
             this.btnJPos = new System.Windows.Forms.Button();
             this.btnNewPO = new System.Windows.Forms.Button();
-            this.btnNStock = new System.Windows.Forms.Button();
+            this.btnNProduct = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnROL
@@ -193,21 +193,21 @@
             this.btnNewPO.Text = "New Purchase Order";
             this.btnNewPO.UseVisualStyleBackColor = true;
             // 
-            // btnNStock
+            // btnNProduct
             // 
-            this.btnNStock.Location = new System.Drawing.Point(142, 155);
-            this.btnNStock.Name = "btnNStock";
-            this.btnNStock.Size = new System.Drawing.Size(123, 23);
-            this.btnNStock.TabIndex = 3;
-            this.btnNStock.Text = "New Stock";
-            this.btnNStock.UseVisualStyleBackColor = true;
+            this.btnNProduct.Location = new System.Drawing.Point(142, 155);
+            this.btnNProduct.Name = "btnNProduct";
+            this.btnNProduct.Size = new System.Drawing.Size(123, 23);
+            this.btnNProduct.TabIndex = 3;
+            this.btnNProduct.Text = "New Product";
+            this.btnNProduct.UseVisualStyleBackColor = true;
             // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
-            this.Controls.Add(this.btnNStock);
+            this.Controls.Add(this.btnNProduct);
             this.Controls.Add(this.btnNewPO);
             this.Controls.Add(this.btnJPos);
             this.Controls.Add(this.btnCust);
@@ -250,6 +250,6 @@
         private System.Windows.Forms.Button btnCust;
         private System.Windows.Forms.Button btnJPos;
         private System.Windows.Forms.Button btnNewPO;
-        private System.Windows.Forms.Button btnNStock;
+        private System.Windows.Forms.Button btnNProduct;
     }
 }

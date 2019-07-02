@@ -38,7 +38,7 @@
             this.lblOrderDate = new System.Windows.Forms.Label();
             this.lblOrderStatus = new System.Windows.Forms.Label();
             this.txtStaffId = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblSID = new System.Windows.Forms.Label();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
             this.lblTo = new System.Windows.Forms.Label();
@@ -146,14 +146,14 @@
             this.txtStaffId.TabIndex = 1;
             this.txtStaffId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_KeyPress);
             // 
-            // label4
+            // lblSID
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(114, 257);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 12);
-            this.label4.TabIndex = 162;
-            this.label4.Text = "Staff ID:";
+            this.lblSID.AutoSize = true;
+            this.lblSID.Location = new System.Drawing.Point(114, 257);
+            this.lblSID.Name = "lblSID";
+            this.lblSID.Size = new System.Drawing.Size(45, 12);
+            this.lblSID.TabIndex = 162;
+            this.lblSID.Text = "Staff ID:";
             // 
             // dtpStartDate
             // 
@@ -277,7 +277,7 @@
             this.Controls.Add(this.dtpEndDate);
             this.Controls.Add(this.dtpStartDate);
             this.Controls.Add(this.txtStaffId);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblSID);
             this.Controls.Add(this.lblOrderStatus);
             this.Controls.Add(this.lblOrderDate);
             this.Controls.Add(this.label1);
@@ -306,7 +306,7 @@
         private System.Windows.Forms.Label lblOrderDate;
         private System.Windows.Forms.Label lblOrderStatus;
         private System.Windows.Forms.TextBox txtStaffId;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblSID;
         private System.Windows.Forms.DateTimePicker dtpStartDate;
         private System.Windows.Forms.DateTimePicker dtpEndDate;
         private System.Windows.Forms.Label lblTo;
