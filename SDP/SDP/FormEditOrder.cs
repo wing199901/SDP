@@ -93,7 +93,8 @@ namespace SDP
             data.Close();
             cmd.Dispose();
 
-            sql = String.Format("select productId, qty from orderProduct where orderId = '{0}'", OrderId);
+           // sql = String.Format("select productId, qty from orderProduct where orderId = '{0}'", OrderId);
+            sql = String.Format("SELECT orderProduct.productId, type, brand, productName, description, price, qty, despatched FROM orderProduct, product WHERE orderProduct.orderId={0} and orderProduct.productId = product.productId", OrderId);
             cmd = Program.ExecSQL(sql);
             data = cmd.ExecuteReader();
 
@@ -101,15 +102,17 @@ namespace SDP
 
             while (data.Read())
             {
-                txtProductID.Text = data.GetString(0).ToString();
-                txtQty.Text = data.GetDouble(1).ToString();
-                BtnAdd_Click(sender, e);
+                ListViewItem lv = new ListViewItem(data.GetString(0).ToString());
+                lv.SubItems.Add(data.GetString(1).ToString());
+                lv.SubItems.Add(data.GetString(1).ToString());
+                lv.SubItems.Add(data.GetString(1).ToString());
+                lv.SubItems.Add(data.GetString(1).ToString());
             }
 
             txtShipAddr.ReadOnly = (txtShipAddr.Text == txtAddr.Text);
             choShipAddr.Checked = (txtShipAddr.Text == txtAddr.Text);
         }
-
+        /*
         private void BtnAdd_Click(object sender, EventArgs e)
         {
             if (txtAmount.Text != "")
@@ -154,7 +157,7 @@ namespace SDP
             txtProductID.Text = "";
             txtQty.Text = "";
         }
-
+        */
         private void LvResult_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             currentItem = lvResult.GetItemAt(e.X, e.Y);
@@ -214,18 +217,6 @@ namespace SDP
             }
         }
 
-        private void TxtQty_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                btnAdd.Focus();
-
-                BtnAdd_Click(sender, e);
-
-                txtQty.Focus();
-            }
-        }
-
         private void TxtRemark_Enter(object sender, EventArgs e)
         {
             if (txtRemark.Text == "Remark")
@@ -244,17 +235,6 @@ namespace SDP
             }
         }
 
-        private void BtnSearch_Click(object sender, EventArgs e)
-        {
-            String keyword = txtKeyword.Text;
-            FormSearchProduct searchResult = new FormSearchProduct(keyword);
-
-            if (searchResult.ShowDialog() == DialogResult.OK)
-            {
-                txtProductID.Text = searchResult.ProductId;
-            }
-            txtKeyword.Text = "";
-        }
 
         private void BtnSubmit_Click(object sender, EventArgs e)
         {
