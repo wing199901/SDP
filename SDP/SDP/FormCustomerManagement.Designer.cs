@@ -214,6 +214,7 @@
             this.Controls.Add(this.lvCustomer);
             this.Name = "FormCustomerManagement";
             this.Text = "Customer Management";
+            this.Load += new System.EventHandler(this.FormCustomerManagement_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
