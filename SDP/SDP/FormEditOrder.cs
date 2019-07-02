@@ -292,6 +292,11 @@ namespace SDP
             }
         }
 
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void ChoShipAddr_CheckStateChanged(object sender, EventArgs e)
         {
             if (choShipAddr.Checked)
