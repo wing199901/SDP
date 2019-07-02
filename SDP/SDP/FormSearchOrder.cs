@@ -165,6 +165,7 @@ namespace SDP
                 String orderId = currentItem.Text;
                 FormEditOrder editOrder = new FormEditOrder(orderId);
                 editOrder.ShowDialog();
+                BtnSearch_Click(sender, e);
             }
         }
 
