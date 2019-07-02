@@ -1,6 +1,6 @@
 ﻿namespace SDP
 {
-    partial class FormRole
+    partial class FormRoleControl
     {
         /// <summary>
         /// Required designer variable.
@@ -117,7 +117,7 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Smart && Luxury Motor Company (Spares)";
             // 
-            // FormRole
+            // FormRoleControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -131,7 +131,7 @@
             this.Controls.Add(this.lblRName);
             this.Controls.Add(this.lblRID);
             this.Controls.Add(this.lvRole);
-            this.Name = "FormRole";
+            this.Name = "FormRoleControl";
             this.Text = "Role Control";
             this.ResumeLayout(false);
             this.PerformLayout();

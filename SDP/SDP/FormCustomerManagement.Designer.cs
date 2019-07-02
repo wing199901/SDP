@@ -1,6 +1,6 @@
 ﻿namespace SDP
 {
-    partial class FormCustomer
+    partial class FormCustomerManagement
     {
         /// <summary>
         /// Required designer variable.
@@ -189,7 +189,7 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Smart && Luxury Motor Company (Spares)";
             // 
-            // FormCustomer
+            // FormCustomerManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -211,7 +211,7 @@
             this.Controls.Add(this.lblCustName);
             this.Controls.Add(this.lblCustID);
             this.Controls.Add(this.lvCustomer);
-            this.Name = "FormCustomer";
+            this.Name = "FormCustomerManagement";
             this.Text = "Customer Management";
             this.ResumeLayout(false);
             this.PerformLayout();

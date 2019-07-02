@@ -197,6 +197,8 @@
             this.Controls.Add(this.lvResult);
             this.Name = "FormStaff";
             this.Text = "Staff Management";
+            this.Activated += new System.EventHandler(this.FormStaff_Activated);
+            this.Load += new System.EventHandler(this.FormStaff_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
