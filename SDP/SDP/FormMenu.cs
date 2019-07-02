@@ -129,5 +129,12 @@ namespace SDP
         {
 
         }
+
+        private void BtnStaff_Click(object sender, EventArgs e)
+        {
+            
+                Form staff = new FormStaff();
+            staff.ShowDialog();
+        }
     }
 }
