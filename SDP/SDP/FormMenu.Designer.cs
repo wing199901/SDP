@@ -43,13 +43,15 @@
             this.btnStaff = new System.Windows.Forms.Button();
             this.btnCust = new System.Windows.Forms.Button();
             this.btnJPos = new System.Windows.Forms.Button();
+            this.btnNewPO = new System.Windows.Forms.Button();
+            this.btnNStock = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnROL
             // 
-            this.btnROL.Location = new System.Drawing.Point(44, 331);
+            this.btnROL.Location = new System.Drawing.Point(142, 302);
             this.btnROL.Name = "btnROL";
-            this.btnROL.Size = new System.Drawing.Size(93, 23);
+            this.btnROL.Size = new System.Drawing.Size(123, 23);
             this.btnROL.TabIndex = 7;
             this.btnROL.Text = "Correct ROL";
             this.btnROL.UseVisualStyleBackColor = true;
@@ -57,9 +59,9 @@
             // 
             // btnGoods
             // 
-            this.btnGoods.Location = new System.Drawing.Point(44, 250);
+            this.btnGoods.Location = new System.Drawing.Point(366, 253);
             this.btnGoods.Name = "btnGoods";
-            this.btnGoods.Size = new System.Drawing.Size(93, 23);
+            this.btnGoods.Size = new System.Drawing.Size(123, 23);
             this.btnGoods.TabIndex = 5;
             this.btnGoods.Text = "Receive Goods";
             this.btnGoods.UseVisualStyleBackColor = true;
@@ -67,9 +69,9 @@
             // 
             // btnGenReport
             // 
-            this.btnGenReport.Location = new System.Drawing.Point(44, 290);
+            this.btnGenReport.Location = new System.Drawing.Point(142, 253);
             this.btnGenReport.Name = "btnGenReport";
-            this.btnGenReport.Size = new System.Drawing.Size(93, 23);
+            this.btnGenReport.Size = new System.Drawing.Size(123, 23);
             this.btnGenReport.TabIndex = 6;
             this.btnGenReport.Text = "Generate Report";
             this.btnGenReport.UseVisualStyleBackColor = true;
@@ -77,9 +79,9 @@
             // 
             // btnDefective
             // 
-            this.btnDefective.Location = new System.Drawing.Point(44, 127);
+            this.btnDefective.Location = new System.Drawing.Point(588, 253);
             this.btnDefective.Name = "btnDefective";
-            this.btnDefective.Size = new System.Drawing.Size(93, 23);
+            this.btnDefective.Size = new System.Drawing.Size(123, 23);
             this.btnDefective.TabIndex = 2;
             this.btnDefective.Text = "Report Defective";
             this.btnDefective.UseVisualStyleBackColor = true;
@@ -87,9 +89,9 @@
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(44, 372);
+            this.btnLogout.Location = new System.Drawing.Point(662, 20);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(93, 23);
+            this.btnLogout.Size = new System.Drawing.Size(123, 23);
             this.btnLogout.TabIndex = 8;
             this.btnLogout.Text = "Log Out";
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -97,9 +99,9 @@
             // 
             // btnStock
             // 
-            this.btnStock.Location = new System.Drawing.Point(44, 168);
+            this.btnStock.Location = new System.Drawing.Point(588, 204);
             this.btnStock.Name = "btnStock";
-            this.btnStock.Size = new System.Drawing.Size(93, 23);
+            this.btnStock.Size = new System.Drawing.Size(123, 23);
             this.btnStock.TabIndex = 3;
             this.btnStock.Text = "Search Stock";
             this.btnStock.UseVisualStyleBackColor = true;
@@ -107,9 +109,9 @@
             // 
             // btnSearchOrder
             // 
-            this.btnSearchOrder.Location = new System.Drawing.Point(44, 86);
+            this.btnSearchOrder.Location = new System.Drawing.Point(588, 155);
             this.btnSearchOrder.Name = "btnSearchOrder";
-            this.btnSearchOrder.Size = new System.Drawing.Size(93, 23);
+            this.btnSearchOrder.Size = new System.Drawing.Size(123, 23);
             this.btnSearchOrder.TabIndex = 1;
             this.btnSearchOrder.Text = "Search Order";
             this.btnSearchOrder.UseVisualStyleBackColor = true;
@@ -117,9 +119,9 @@
             // 
             // btnNewOrder
             // 
-            this.btnNewOrder.Location = new System.Drawing.Point(44, 46);
+            this.btnNewOrder.Location = new System.Drawing.Point(366, 155);
             this.btnNewOrder.Name = "btnNewOrder";
-            this.btnNewOrder.Size = new System.Drawing.Size(93, 23);
+            this.btnNewOrder.Size = new System.Drawing.Size(123, 23);
             this.btnNewOrder.TabIndex = 0;
             this.btnNewOrder.Text = "New Order";
             this.btnNewOrder.UseVisualStyleBackColor = true;
@@ -138,7 +140,7 @@
             // lblWelcome
             // 
             this.lblWelcome.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblWelcome.Location = new System.Drawing.Point(414, 46);
+            this.lblWelcome.Location = new System.Drawing.Point(205, 36);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Size = new System.Drawing.Size(399, 24);
             this.lblWelcome.TabIndex = 154;
@@ -147,9 +149,9 @@
             // 
             // txtEditStock
             // 
-            this.txtEditStock.Location = new System.Drawing.Point(44, 209);
+            this.txtEditStock.Location = new System.Drawing.Point(366, 204);
             this.txtEditStock.Name = "txtEditStock";
-            this.txtEditStock.Size = new System.Drawing.Size(93, 23);
+            this.txtEditStock.Size = new System.Drawing.Size(123, 23);
             this.txtEditStock.TabIndex = 4;
             this.txtEditStock.Text = "Edit Stock";
             this.txtEditStock.UseVisualStyleBackColor = true;
@@ -157,7 +159,7 @@
             // 
             // btnStaff
             // 
-            this.btnStaff.Location = new System.Drawing.Point(687, 86);
+            this.btnStaff.Location = new System.Drawing.Point(366, 106);
             this.btnStaff.Name = "btnStaff";
             this.btnStaff.Size = new System.Drawing.Size(123, 23);
             this.btnStaff.TabIndex = 10;
@@ -166,7 +168,7 @@
             // 
             // btnCust
             // 
-            this.btnCust.Location = new System.Drawing.Point(687, 46);
+            this.btnCust.Location = new System.Drawing.Point(142, 106);
             this.btnCust.Name = "btnCust";
             this.btnCust.Size = new System.Drawing.Size(123, 23);
             this.btnCust.TabIndex = 9;
@@ -175,18 +177,38 @@
             // 
             // btnJPos
             // 
-            this.btnJPos.Location = new System.Drawing.Point(687, 127);
+            this.btnJPos.Location = new System.Drawing.Point(588, 106);
             this.btnJPos.Name = "btnJPos";
             this.btnJPos.Size = new System.Drawing.Size(123, 23);
             this.btnJPos.TabIndex = 11;
             this.btnJPos.Text = "Role Control";
             this.btnJPos.UseVisualStyleBackColor = true;
             // 
+            // btnNewPO
+            // 
+            this.btnNewPO.Location = new System.Drawing.Point(142, 155);
+            this.btnNewPO.Name = "btnNewPO";
+            this.btnNewPO.Size = new System.Drawing.Size(123, 23);
+            this.btnNewPO.TabIndex = 155;
+            this.btnNewPO.Text = "New Purchase Order";
+            this.btnNewPO.UseVisualStyleBackColor = true;
+            // 
+            // btnNStock
+            // 
+            this.btnNStock.Location = new System.Drawing.Point(142, 204);
+            this.btnNStock.Name = "btnNStock";
+            this.btnNStock.Size = new System.Drawing.Size(123, 23);
+            this.btnNStock.TabIndex = 156;
+            this.btnNStock.Text = "New Stock";
+            this.btnNStock.UseVisualStyleBackColor = true;
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
+            this.Controls.Add(this.btnNStock);
+            this.Controls.Add(this.btnNewPO);
             this.Controls.Add(this.btnJPos);
             this.Controls.Add(this.btnCust);
             this.Controls.Add(this.btnStaff);
@@ -227,5 +249,7 @@
         private System.Windows.Forms.Button btnStaff;
         private System.Windows.Forms.Button btnCust;
         private System.Windows.Forms.Button btnJPos;
+        private System.Windows.Forms.Button btnNewPO;
+        private System.Windows.Forms.Button btnNStock;
     }
 }
