@@ -40,7 +40,9 @@
             this.lblWelcome = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.txtEditStock = new System.Windows.Forms.Button();
-            this.btnAdmin = new System.Windows.Forms.Button();
+            this.btnUser = new System.Windows.Forms.Button();
+            this.btnCust = new System.Windows.Forms.Button();
+            this.btnJPos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnROL
@@ -136,11 +138,12 @@
             // lblWelcome
             // 
             this.lblWelcome.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblWelcome.Location = new System.Drawing.Point(416, 53);
+            this.lblWelcome.Location = new System.Drawing.Point(414, 46);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Size = new System.Drawing.Size(399, 24);
             this.lblWelcome.TabIndex = 154;
             this.lblWelcome.Text = "Welcome, ";
+            this.lblWelcome.Click += new System.EventHandler(this.LblWelcome_Click);
             // 
             // txtEditStock
             // 
@@ -152,21 +155,41 @@
             this.txtEditStock.UseVisualStyleBackColor = true;
             this.txtEditStock.Click += new System.EventHandler(this.TxtEditStock_Click);
             // 
-            // btnAdmin
+            // btnUser
             // 
-            this.btnAdmin.Location = new System.Drawing.Point(671, 46);
-            this.btnAdmin.Name = "btnAdmin";
-            this.btnAdmin.Size = new System.Drawing.Size(75, 23);
-            this.btnAdmin.TabIndex = 155;
-            this.btnAdmin.Text = "Admin Function";
-            this.btnAdmin.UseVisualStyleBackColor = true;
+            this.btnUser.Location = new System.Drawing.Point(717, 46);
+            this.btnUser.Name = "btnUser";
+            this.btnUser.Size = new System.Drawing.Size(93, 23);
+            this.btnUser.TabIndex = 9;
+            this.btnUser.Text = "Edit User";
+            this.btnUser.UseVisualStyleBackColor = true;
+            // 
+            // btnCust
+            // 
+            this.btnCust.Location = new System.Drawing.Point(717, 86);
+            this.btnCust.Name = "btnCust";
+            this.btnCust.Size = new System.Drawing.Size(93, 23);
+            this.btnCust.TabIndex = 10;
+            this.btnCust.Text = "Edit Customer";
+            this.btnCust.UseVisualStyleBackColor = true;
+            // 
+            // btnJPos
+            // 
+            this.btnJPos.Location = new System.Drawing.Point(717, 127);
+            this.btnJPos.Name = "btnJPos";
+            this.btnJPos.Size = new System.Drawing.Size(93, 23);
+            this.btnJPos.TabIndex = 11;
+            this.btnJPos.Text = "Edit Job Postiton";
+            this.btnJPos.UseVisualStyleBackColor = true;
             // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
-            this.Controls.Add(this.btnAdmin);
+            this.Controls.Add(this.btnJPos);
+            this.Controls.Add(this.btnCust);
+            this.Controls.Add(this.btnUser);
             this.Controls.Add(this.txtEditStock);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.btnROL);
@@ -201,6 +224,8 @@
         private System.Windows.Forms.Label lblWelcome;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button txtEditStock;
-        private System.Windows.Forms.Button btnAdmin;
+        private System.Windows.Forms.Button btnUser;
+        private System.Windows.Forms.Button btnCust;
+        private System.Windows.Forms.Button btnJPos;
     }
 }
