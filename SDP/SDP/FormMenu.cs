@@ -128,7 +128,13 @@ namespace SDP
         private void BtnCust_Click(object sender, EventArgs e)
         {
             Form cutomerManagement = new FormCustomerManagement();
-            customerMangement.ShowDialog();
+            cutomerManagement.ShowDialog();
+        }
+
+        private void BtnJPos_Click(object sender, EventArgs e)
+        {
+            Form roleControl = new FormRoleControl();
+            roleControl.ShowDialog();
         }
     }
 }
