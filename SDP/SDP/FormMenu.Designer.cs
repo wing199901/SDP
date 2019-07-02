@@ -184,6 +184,7 @@
             this.btnJPos.TabIndex = 12;
             this.btnJPos.Text = "Role Control";
             this.btnJPos.UseVisualStyleBackColor = true;
+            this.btnJPos.Click += new System.EventHandler(this.BtnJPos_Click);
             // 
             // btnNewPO
             // 
