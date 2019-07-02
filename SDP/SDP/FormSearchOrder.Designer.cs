@@ -38,7 +38,7 @@
             this.lblOrderDate = new System.Windows.Forms.Label();
             this.lblOrderStatus = new System.Windows.Forms.Label();
             this.txtStaffId = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblSID = new System.Windows.Forms.Label();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
             this.lblTo = new System.Windows.Forms.Label();
@@ -49,16 +49,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnReset = new System.Windows.Forms.Button();
+            this.btnGenDIS = new System.Windows.Forms.Button();
+            this.btnGenIN = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblCompany
             // 
             this.lblCompany.AutoSize = true;
-
             this.lblCompany.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-
-            this.lblCompany.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-
             this.lblCompany.Location = new System.Drawing.Point(414, 396);
             this.lblCompany.Name = "lblCompany";
             this.lblCompany.Size = new System.Drawing.Size(399, 24);
@@ -80,11 +78,7 @@
             this.txtOrderId.Multiline = true;
             this.txtOrderId.Name = "txtOrderId";
             this.txtOrderId.Size = new System.Drawing.Size(200, 17);
-
             this.txtOrderId.TabIndex = 0;
-
-            this.txtOrderId.TabIndex = 151;
-
             this.txtOrderId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_KeyPress);
             // 
             // btnSearch
@@ -92,33 +86,23 @@
             this.btnSearch.Location = new System.Drawing.Point(197, 328);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
-
             this.btnSearch.TabIndex = 7;
-
-            this.btnSearch.TabIndex = 154;
-
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(359, 328);
+            this.btnCancel.Location = new System.Drawing.Point(522, 328);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-
-            this.btnCancel.TabIndex = 9;
-
-            this.btnCancel.TabIndex = 155;
-
+            this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // lvResult_order
             // 
-
             this.lvResult_order.HideSelection = false;
-
             this.lvResult_order.Location = new System.Drawing.Point(20, 72);
             this.lvResult_order.Name = "lvResult_order";
             this.lvResult_order.Size = new System.Drawing.Size(806, 132);
@@ -159,21 +143,17 @@
             this.txtStaffId.Multiline = true;
             this.txtStaffId.Name = "txtStaffId";
             this.txtStaffId.Size = new System.Drawing.Size(200, 17);
-
             this.txtStaffId.TabIndex = 1;
-
-            this.txtStaffId.TabIndex = 163;
-
             this.txtStaffId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_KeyPress);
             // 
-            // label4
+            // lblSID
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(114, 257);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 12);
-            this.label4.TabIndex = 162;
-            this.label4.Text = "Staff ID:";
+            this.lblSID.AutoSize = true;
+            this.lblSID.Location = new System.Drawing.Point(114, 257);
+            this.lblSID.Name = "lblSID";
+            this.lblSID.Size = new System.Drawing.Size(45, 12);
+            this.lblSID.TabIndex = 162;
+            this.lblSID.Text = "Staff ID:";
             // 
             // dtpStartDate
             // 
@@ -181,11 +161,7 @@
             this.dtpStartDate.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.Size = new System.Drawing.Size(200, 22);
-
             this.dtpStartDate.TabIndex = 5;
-
-            this.dtpStartDate.TabIndex = 165;
-
             // 
             // dtpEndDate
             // 
@@ -193,11 +169,7 @@
             this.dtpEndDate.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.Size = new System.Drawing.Size(200, 22);
-
             this.dtpEndDate.TabIndex = 6;
-
-            this.dtpEndDate.TabIndex = 166;
-
             this.dtpEndDate.ValueChanged += new System.EventHandler(this.DtpEndDate_ValueChanged);
             // 
             // lblTo
@@ -223,11 +195,7 @@
             this.cboOrderStatus.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.cboOrderStatus.Name = "cboOrderStatus";
             this.cboOrderStatus.Size = new System.Drawing.Size(200, 20);
-
             this.cboOrderStatus.TabIndex = 2;
-
-            this.cboOrderStatus.TabIndex = 169;
-
             // 
             // txtCustId
             // 
@@ -235,10 +203,7 @@
             this.txtCustId.Multiline = true;
             this.txtCustId.Name = "txtCustId";
             this.txtCustId.Size = new System.Drawing.Size(200, 17);
-
             this.txtCustId.TabIndex = 3;
-            this.txtCustId.TabIndex = 171;
-
             this.txtCustId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_KeyPress);
             // 
             // label2
@@ -256,11 +221,7 @@
             this.txtCustPhone.Multiline = true;
             this.txtCustPhone.Name = "txtCustPhone";
             this.txtCustPhone.Size = new System.Drawing.Size(200, 17);
-
             this.txtCustPhone.TabIndex = 4;
-
-            this.txtCustPhone.TabIndex = 173;
-
             // 
             // label3
             // 
@@ -273,23 +234,39 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(278, 328);
+            this.btnReset.Location = new System.Drawing.Point(441, 328);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
-
-            this.btnReset.TabIndex = 8;
-
-            this.btnReset.TabIndex = 174;
-
+            this.btnReset.TabIndex = 10;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnGenDIS
+            // 
+            this.btnGenDIS.Location = new System.Drawing.Point(278, 328);
+            this.btnGenDIS.Name = "btnGenDIS";
+            this.btnGenDIS.Size = new System.Drawing.Size(75, 23);
+            this.btnGenDIS.TabIndex = 8;
+            this.btnGenDIS.Text = "Gen. DIS";
+            this.btnGenDIS.UseVisualStyleBackColor = true;
+            // 
+            // btnGenIN
+            // 
+            this.btnGenIN.Location = new System.Drawing.Point(360, 328);
+            this.btnGenIN.Name = "btnGenIN";
+            this.btnGenIN.Size = new System.Drawing.Size(75, 23);
+            this.btnGenIN.TabIndex = 9;
+            this.btnGenIN.Text = "Gen. Invoice";
+            this.btnGenIN.UseVisualStyleBackColor = true;
             // 
             // FormSearchOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
+            this.Controls.Add(this.btnGenIN);
+            this.Controls.Add(this.btnGenDIS);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.txtCustPhone);
             this.Controls.Add(this.label3);
@@ -300,7 +277,7 @@
             this.Controls.Add(this.dtpEndDate);
             this.Controls.Add(this.dtpStartDate);
             this.Controls.Add(this.txtStaffId);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblSID);
             this.Controls.Add(this.lblOrderStatus);
             this.Controls.Add(this.lblOrderDate);
             this.Controls.Add(this.label1);
@@ -329,7 +306,7 @@
         private System.Windows.Forms.Label lblOrderDate;
         private System.Windows.Forms.Label lblOrderStatus;
         private System.Windows.Forms.TextBox txtStaffId;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblSID;
         private System.Windows.Forms.DateTimePicker dtpStartDate;
         private System.Windows.Forms.DateTimePicker dtpEndDate;
         private System.Windows.Forms.Label lblTo;
@@ -340,5 +317,7 @@
         private System.Windows.Forms.Label label3;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Button btnGenDIS;
+        private System.Windows.Forms.Button btnGenIN;
     }
 }
