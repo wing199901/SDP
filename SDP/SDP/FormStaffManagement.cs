@@ -13,6 +13,8 @@ namespace SDP
 {
     public partial class FormStaff : Form
     {
+        private ListViewItem currentItem;
+        private ListViewItem.ListViewSubItem currentItemSub;
         public FormStaff()
         {
             InitializeComponent();
@@ -42,27 +44,29 @@ namespace SDP
                 lv.SubItems.Add(data.GetString(2).ToString());
                 lv.SubItems.Add(data.GetString(3).ToString());
                 lv.SubItems.Add(data.GetBoolean(4).ToString());
+                                lvResult.Items.Add(lv);
             }
             data.Close();
             cmd.Dispose();
         }
 
-        private void FormStaff_Activated(object sender, EventArgs e)
+        private void LvResult_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            String sql = "SELECT * FROM staff";
-            MySqlCommand cmd = Program.ExecSQL(sql);
-            MySqlDataReader data = cmd.ExecuteReader();
+            currentItem = lvResult.GetItemAt(e.X, e.Y);
 
-            while (data.Read())
+            if (currentItem != null)
             {
-                ListViewItem lv = new ListViewItem(data.GetInt32(0).ToString());
-                lv.SubItems.Add(data.GetInt32(1).ToString());
-                lv.SubItems.Add(data.GetString(2).ToString());
-                lv.SubItems.Add(data.GetString(3).ToString());
-                lv.SubItems.Add(data.GetBoolean(4).ToString());
+                currentItemSub = currentItem.GetSubItemAt(e.X, e.Y);
+                int subIndex = currentItem.SubItems.IndexOf(currentItemSub);
+                switch (subIndex)
+                {
+                    case 6:
+                        
+                        break;
+                    default:
+                        break;
+                }
             }
-            data.Close();
-            cmd.Dispose();
         }
     }
 }
