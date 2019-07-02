@@ -15,6 +15,15 @@ namespace SDP
         public FormStaff()
         {
             InitializeComponent();
+
+            //ListView Header
+            lvResult.GridLines = true;
+            lvResult.View = View.Details;
+            lvResult.FullRowSelect = true;
+            lvResult.Columns.Add("Staff ID", 100);
+            lvResult.Columns.Add("Role ID", 100);
+            lvResult.Columns.Add("Staff Name", 100);
+            lvResult.Columns.Add("Quantity", 100);
         }
     }
 }
