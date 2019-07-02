@@ -36,14 +36,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.txtKeyword = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtQty = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.txtProductID = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.dtpDelivery = new System.Windows.Forms.DateTimePicker();
             this.txtDate = new System.Windows.Forms.TextBox();
@@ -146,75 +138,6 @@
             this.label13.Size = new System.Drawing.Size(73, 12);
             this.label13.TabIndex = 226;
             this.label13.Text = "Total Amount:";
-            // 
-            // txtKeyword
-            // 
-            this.txtKeyword.Location = new System.Drawing.Point(623, 186);
-            this.txtKeyword.Name = "txtKeyword";
-            this.txtKeyword.Size = new System.Drawing.Size(200, 22);
-            this.txtKeyword.TabIndex = 9;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(520, 189);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(51, 12);
-            this.label10.TabIndex = 224;
-            this.label10.Text = "Keyword:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(520, 132);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(25, 12);
-            this.label9.TabIndex = 223;
-            this.label9.Text = "Qty:";
-            // 
-            // txtQty
-            // 
-            this.txtQty.Location = new System.Drawing.Point(623, 129);
-            this.txtQty.Name = "txtQty";
-            this.txtQty.Size = new System.Drawing.Size(200, 22);
-            this.txtQty.TabIndex = 7;
-            this.txtQty.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtQty_KeyDown);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(623, 214);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 10;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
-            // 
-            // txtProductID
-            // 
-            this.txtProductID.Location = new System.Drawing.Point(623, 101);
-            this.txtProductID.Name = "txtProductID";
-            this.txtProductID.Size = new System.Drawing.Size(200, 22);
-            this.txtProductID.TabIndex = 6;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(520, 104);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 12);
-            this.label8.TabIndex = 218;
-            this.label8.Text = "Product ID:";
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(623, 157);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 8;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // label14
             // 
@@ -439,14 +362,6 @@
             this.Controls.Add(this.label17);
             this.Controls.Add(this.txtAmount);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.txtKeyword);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.txtQty);
-            this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.txtProductID);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.dtpDelivery);
             this.Controls.Add(this.txtDate);
@@ -489,14 +404,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtAmount;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtKeyword;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtQty;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.TextBox txtProductID;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DateTimePicker dtpDelivery;
         private System.Windows.Forms.TextBox txtDate;

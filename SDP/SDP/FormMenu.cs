@@ -127,7 +127,8 @@ namespace SDP
 
         private void BtnCust_Click(object sender, EventArgs e)
         {
-
+            Form cutomerManagement = new FormCustomerManagement();
+            customerMangement.ShowDialog();
         }
     }
 }
