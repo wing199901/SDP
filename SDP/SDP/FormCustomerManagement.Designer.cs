@@ -55,6 +55,7 @@
             this.lvCustomer.Size = new System.Drawing.Size(806, 132);
             this.lvCustomer.TabIndex = 0;
             this.lvCustomer.UseCompatibleStateImageBehavior = false;
+            this.lvCustomer.SelectedIndexChanged += new System.EventHandler(this.LvCustomer_SelectedIndexChanged);
             // 
             // lblCustID
             // 
