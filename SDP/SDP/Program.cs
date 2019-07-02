@@ -18,7 +18,7 @@ namespace SDP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormEditOrder("orderId"));
+            Application.Run(new FormLogin());
         }
 
         public static MySqlCommand ExecSQL(String sql)
