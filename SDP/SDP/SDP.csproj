@@ -95,11 +95,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormCustomer.cs">
+    <Compile Include="FormCustomerManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCustomer.Designer.cs">
-      <DependentUpon>FormCustomer.cs</DependentUpon>
+    <Compile Include="FormCustomerManagement.Designer.cs">
+      <DependentUpon>FormCustomerManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDefective.cs">
       <SubType>Form</SubType>
@@ -125,11 +125,11 @@
     <Compile Include="FormGenerate.Designer.cs">
       <DependentUpon>FormGenerate.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormJobPos.cs">
+    <Compile Include="FormRoleControl.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormJobPos.Designer.cs">
-      <DependentUpon>FormJobPos.cs</DependentUpon>
+    <Compile Include="FormRoleControl.Designer.cs">
+      <DependentUpon>FormRoleControl.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
@@ -191,16 +191,16 @@
     <Compile Include="FormSearchStock.Designer.cs">
       <DependentUpon>FormSearchStock.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormUser.cs">
+    <Compile Include="FormStaffManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormUser.Designer.cs">
-      <DependentUpon>FormUser.cs</DependentUpon>
+    <Compile Include="FormStaffManagement.Designer.cs">
+      <DependentUpon>FormStaffManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormCustomer.resx">
-      <DependentUpon>FormCustomer.cs</DependentUpon>
+    <EmbeddedResource Include="FormCustomerManagement.resx">
+      <DependentUpon>FormCustomerManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDefective.resx">
       <DependentUpon>FormDefective.cs</DependentUpon>
@@ -214,8 +214,8 @@
     <EmbeddedResource Include="FormGenerate.resx">
       <DependentUpon>FormGenerate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormJobPos.resx">
-      <DependentUpon>FormJobPos.cs</DependentUpon>
+    <EmbeddedResource Include="FormRoleControl.resx">
+      <DependentUpon>FormRoleControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
@@ -247,8 +247,8 @@
     <EmbeddedResource Include="FormSearchStock.resx">
       <DependentUpon>FormSearchStock.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormUser.resx">
-      <DependentUpon>FormUser.cs</DependentUpon>
+    <EmbeddedResource Include="FormStaffManagement.resx">
+      <DependentUpon>FormStaffManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

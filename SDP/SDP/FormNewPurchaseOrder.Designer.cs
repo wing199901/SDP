@@ -73,14 +73,14 @@
             this.txtOrderID.Location = new System.Drawing.Point(180, 245);
             this.txtOrderID.Name = "txtOrderID";
             this.txtOrderID.Size = new System.Drawing.Size(200, 22);
-            this.txtOrderID.TabIndex = 3;
+            this.txtOrderID.TabIndex = 0;
             // 
             // txtSID
             // 
             this.txtSID.Location = new System.Drawing.Point(180, 286);
             this.txtSID.Name = "txtSID";
             this.txtSID.Size = new System.Drawing.Size(200, 22);
-            this.txtSID.TabIndex = 4;
+            this.txtSID.TabIndex = 1;
             // 
             // lblOrderDate
             // 
@@ -96,7 +96,7 @@
             this.txtDate.Location = new System.Drawing.Point(537, 242);
             this.txtDate.Name = "txtDate";
             this.txtDate.Size = new System.Drawing.Size(200, 22);
-            this.txtDate.TabIndex = 6;
+            this.txtDate.TabIndex = 2;
             // 
             // lblKeyword
             // 
@@ -112,14 +112,14 @@
             this.txtKeyword.Location = new System.Drawing.Point(537, 283);
             this.txtKeyword.Name = "txtKeyword";
             this.txtKeyword.Size = new System.Drawing.Size(200, 22);
-            this.txtKeyword.TabIndex = 8;
+            this.txtKeyword.TabIndex = 3;
             // 
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(111, 344);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 9;
+            this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             // 
@@ -128,7 +128,7 @@
             this.btnCancel.Location = new System.Drawing.Point(262, 344);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 10;
+            this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 

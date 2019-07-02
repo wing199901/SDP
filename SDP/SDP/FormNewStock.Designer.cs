@@ -58,7 +58,7 @@
             this.textBox1.Location = new System.Drawing.Point(165, 74);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(200, 22);
-            this.textBox1.TabIndex = 1;
+            this.textBox1.TabIndex = 0;
             // 
             // lblType
             // 
@@ -83,7 +83,7 @@
             this.txtBrand.Location = new System.Drawing.Point(165, 180);
             this.txtBrand.Name = "txtBrand";
             this.txtBrand.Size = new System.Drawing.Size(200, 22);
-            this.txtBrand.TabIndex = 7;
+            this.txtBrand.TabIndex = 2;
             // 
             // lblName
             // 
@@ -99,7 +99,7 @@
             this.txtName.Location = new System.Drawing.Point(509, 74);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(200, 22);
-            this.txtName.TabIndex = 9;
+            this.txtName.TabIndex = 3;
             // 
             // lblDescription
             // 
@@ -116,7 +116,7 @@
             this.txtDes.Multiline = true;
             this.txtDes.Name = "txtDes";
             this.txtDes.Size = new System.Drawing.Size(200, 22);
-            this.txtDes.TabIndex = 11;
+            this.txtDes.TabIndex = 5;
             // 
             // comboBox1
             // 
@@ -129,7 +129,7 @@
             this.comboBox1.Location = new System.Drawing.Point(165, 127);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(200, 20);
-            this.comboBox1.TabIndex = 12;
+            this.comboBox1.TabIndex = 1;
             // 
             // lblPrice
             // 
@@ -145,14 +145,14 @@
             this.txtPrice.Location = new System.Drawing.Point(509, 127);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(200, 22);
-            this.txtPrice.TabIndex = 14;
+            this.txtPrice.TabIndex = 4;
             // 
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(82, 249);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 15;
+            this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             // 
@@ -161,7 +161,7 @@
             this.btnCancel.Location = new System.Drawing.Point(243, 249);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 16;
+            this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
