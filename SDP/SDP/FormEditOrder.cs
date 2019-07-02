@@ -70,7 +70,7 @@ namespace SDP
                 {
                     txtRemark.Text = data.GetString(8).ToString();
                 }
-                
+
             }
 
             data.Close();
@@ -267,39 +267,45 @@ namespace SDP
             }
             else
             {
-                
-                String sql = String.Format("update customer set email='{0}', phone='{1}' where custId='{2}'",
-                txtEmail.Text, txtPhone.Text, custId);
-                MySqlCommand cmd = Program.ExecSQL(sql);
-                cmd.ExecuteNonQuery();
-                cmd.Dispose();
-                
-                sql = String.Format("update dbOPSRS.order set staffId='{6}' status='{0}', deliveryDate='{1}', shippingAddress='{2}', totalAmount={3}, remark='{4}' where orderId = '{5}'",
-                    cboStatus.Text, dtpDelivery.Value.ToString("yyyy-MM-dd"), txtShipAddr.Text, total, txtRemark.Text, OrderId, txtStaffId.Text);
-                cmd = Program.ExecSQL(sql);
-                cmd.ExecuteNonQuery();
-                cmd.Dispose();
-                /*
-                sql = String.Format("delete from orderProduct where orderId='{0}'", OrderId);
-                cmd = Program.ExecSQL(sql);
-                cmd.ExecuteNonQuery();
-
-                cmd.Dispose();
-
-                for (int i = 0; i < lvResult.Items.Count; i++)
+                try
                 {
-                    String productId = lvResult.Items[i].Text;
-                    int qty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
-                    sql = String.Format("insert into orderProduct (orderId, productId, qty) " +
-                        "values ('{0}', '{1}', {2})", OrderId, productId, qty);
+                    String sql = String.Format("update customer set email='{0}', phone='{1}' where custId='{2}'",
+                    txtEmail.Text, txtPhone.Text, custId);
+                    MySqlCommand cmd = Program.ExecSQL(sql);
+                    cmd.ExecuteNonQuery();
+                    cmd.Dispose();
+
+                    //sql = String.Format("update dbOPSRS.order set staffId='{6}' status='{0}', deliveryDate='{1}', shippingAddress='{2}', totalAmount={3}, remark='{4}' where orderId = '{5}'",
+                    //cboStatus.Text, dtpDelivery.Value.ToString("yyyy-MM-dd"), txtShipAddr.Text, total, txtRemark.Text, OrderId, txtStaffId.Text);
+                    sql = String.Format("update dbOPSRS.order set staffId='{0}', deliveryDate='{1}', status='{2}'", txtStaffId.Text,dtpDelivery.Value.ToString("yyyy-MM-dd"),cboStatus.Text);
+                    cmd = Program.ExecSQL(sql);
+                    cmd.ExecuteNonQuery();
+                    cmd.Dispose();
+                    /*
+                    sql = String.Format("delete from orderProduct where orderId='{0}'", OrderId);
                     cmd = Program.ExecSQL(sql);
                     cmd.ExecuteNonQuery();
 
                     cmd.Dispose();
+
+                    for (int i = 0; i < lvResult.Items.Count; i++)
+                    {
+                        String productId = lvResult.Items[i].Text;
+                        int qty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
+                        sql = String.Format("insert into orderProduct (orderId, productId, qty) " +
+                            "values ('{0}', '{1}', {2})", OrderId, productId, qty);
+                        cmd = Program.ExecSQL(sql);
+                        cmd.ExecuteNonQuery();
+
+                        cmd.Dispose();
+                    }
+                    */
+                    MessageBox.Show("Update Sussesed!");
+                    this.Close();
+                }catch (Exception ex)
+                {
+                    MessageBox.Show("Update failed. There are incorrected information.");
                 }
-                */
-                MessageBox.Show("Update Sussesed!");
-                this.Close();
             }
         }
 
