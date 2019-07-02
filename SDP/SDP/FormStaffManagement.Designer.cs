@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lvUser = new System.Windows.Forms.ListView();
+            this.lvResult = new System.Windows.Forms.ListView();
             this.lblSID = new System.Windows.Forms.Label();
             this.txtSID = new System.Windows.Forms.TextBox();
             this.lblRID = new System.Windows.Forms.Label();
@@ -45,14 +45,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // lvUser
+            // lvResult
             // 
-            this.lvUser.HideSelection = false;
-            this.lvUser.Location = new System.Drawing.Point(18, 77);
-            this.lvUser.Name = "lvUser";
-            this.lvUser.Size = new System.Drawing.Size(806, 132);
-            this.lvUser.TabIndex = 0;
-            this.lvUser.UseCompatibleStateImageBehavior = false;
+            this.lvResult.HideSelection = false;
+            this.lvResult.Location = new System.Drawing.Point(18, 77);
+            this.lvResult.Name = "lvResult";
+            this.lvResult.Size = new System.Drawing.Size(806, 132);
+            this.lvResult.TabIndex = 0;
+            this.lvResult.UseCompatibleStateImageBehavior = false;
             // 
             // lblSID
             // 
@@ -168,7 +168,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("PMingLiU", 18F);
+            this.label1.Font = new System.Drawing.Font("新細明體", 18F);
             this.label1.Location = new System.Drawing.Point(414, 396);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(399, 24);
@@ -194,7 +194,7 @@
             this.Controls.Add(this.lblRID);
             this.Controls.Add(this.txtSID);
             this.Controls.Add(this.lblSID);
-            this.Controls.Add(this.lvUser);
+            this.Controls.Add(this.lvResult);
             this.Name = "FormStaff";
             this.Text = "Staff Management";
             this.ResumeLayout(false);
@@ -204,7 +204,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView lvUser;
+        private System.Windows.Forms.ListView lvResult;
         private System.Windows.Forms.Label lblSID;
         private System.Windows.Forms.TextBox txtSID;
         private System.Windows.Forms.Label lblRID;
