@@ -268,18 +268,18 @@ namespace SDP
             else
             {
                 
-                String sql = String.Format("update customer set custName='{0}', address='{1}', companyName='{2}', email='{3}', phone='{4}' where custId='{5}'",
-                txtName.Text, txtAddr.Text, txtCompany.Text, txtEmail.Text, txtPhone.Text, custId);
+                String sql = String.Format("update customer set email='{0}', phone='{1}' where custId='{2}'",
+                txtEmail.Text, txtPhone.Text, custId);
                 MySqlCommand cmd = Program.ExecSQL(sql);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
-                /*
+                
                 sql = String.Format("update dbOPSRS.order set staffId='{6}' status='{0}', deliveryDate='{1}', shippingAddress='{2}', totalAmount={3}, remark='{4}' where orderId = '{5}'",
                     cboStatus.Text, dtpDelivery.Value.ToString("yyyy-MM-dd"), txtShipAddr.Text, total, txtRemark.Text, OrderId, txtStaffId.Text);
                 cmd = Program.ExecSQL(sql);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
-
+                /*
                 sql = String.Format("delete from orderProduct where orderId='{0}'", OrderId);
                 cmd = Program.ExecSQL(sql);
                 cmd.ExecuteNonQuery();
