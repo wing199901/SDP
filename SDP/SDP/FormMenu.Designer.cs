@@ -160,7 +160,7 @@
             this.btnStaff.Location = new System.Drawing.Point(687, 86);
             this.btnStaff.Name = "btnStaff";
             this.btnStaff.Size = new System.Drawing.Size(123, 23);
-            this.btnStaff.TabIndex = 9;
+            this.btnStaff.TabIndex = 10;
             this.btnStaff.Text = "Staff Management";
             this.btnStaff.UseVisualStyleBackColor = true;
             // 
@@ -169,7 +169,7 @@
             this.btnCust.Location = new System.Drawing.Point(687, 46);
             this.btnCust.Name = "btnCust";
             this.btnCust.Size = new System.Drawing.Size(123, 23);
-            this.btnCust.TabIndex = 10;
+            this.btnCust.TabIndex = 9;
             this.btnCust.Text = "Customer Management";
             this.btnCust.UseVisualStyleBackColor = true;
             // 
@@ -179,7 +179,7 @@
             this.btnJPos.Name = "btnJPos";
             this.btnJPos.Size = new System.Drawing.Size(123, 23);
             this.btnJPos.TabIndex = 11;
-            this.btnJPos.Text = "Job Postiton";
+            this.btnJPos.Text = "Role Control";
             this.btnJPos.UseVisualStyleBackColor = true;
             // 
             // FormMenu

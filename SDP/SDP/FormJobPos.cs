@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SDP
 {
-    public partial class FormJobPos : Form
+    public partial class FormRole : Form
     {
-        public FormJobPos()
+        public FormRole()
         {
             InitializeComponent();
         }
