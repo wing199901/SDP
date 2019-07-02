@@ -127,8 +127,8 @@ namespace SDP
 
         private void BtnCust_Click(object sender, EventArgs e)
         {
-            Form cutomerManagement = new FormCustomerManagement();
-            cutomerManagement.ShowDialog();
+            Form csutomerManagement = new FormCustomerManagement();
+            csutomerManagement.ShowDialog();
         }
 
         private void BtnJPos_Click(object sender, EventArgs e)
@@ -139,8 +139,8 @@ namespace SDP
 
         private void BtnStaff_Click(object sender, EventArgs e)
         {
-            
-                Form staff = new FormStaff();
+
+            Form staff = new FormStaff();
             staff.ShowDialog();
         }
     }
