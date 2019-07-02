@@ -40,6 +40,7 @@
             this.lblWelcome = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.txtEditStock = new System.Windows.Forms.Button();
+            this.btnAdmin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnROL
@@ -151,11 +152,21 @@
             this.txtEditStock.UseVisualStyleBackColor = true;
             this.txtEditStock.Click += new System.EventHandler(this.TxtEditStock_Click);
             // 
+            // btnAdmin
+            // 
+            this.btnAdmin.Location = new System.Drawing.Point(671, 46);
+            this.btnAdmin.Name = "btnAdmin";
+            this.btnAdmin.Size = new System.Drawing.Size(75, 23);
+            this.btnAdmin.TabIndex = 155;
+            this.btnAdmin.Text = "Admin Function";
+            this.btnAdmin.UseVisualStyleBackColor = true;
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
+            this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.txtEditStock);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.btnROL);
@@ -190,5 +201,6 @@
         private System.Windows.Forms.Label lblWelcome;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button txtEditStock;
+        private System.Windows.Forms.Button btnAdmin;
     }
 }
