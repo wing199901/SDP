@@ -124,5 +124,10 @@ namespace SDP
             Form editStock = new FormEditStock();
             editStock.ShowDialog();
         }
+
+        private void LblWelcome_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
