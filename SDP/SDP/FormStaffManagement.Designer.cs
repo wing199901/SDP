@@ -53,6 +53,7 @@
             this.lvResult.Size = new System.Drawing.Size(806, 132);
             this.lvResult.TabIndex = 0;
             this.lvResult.UseCompatibleStateImageBehavior = false;
+            this.lvResult.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LvResult_MouseDoubleClick);
             // 
             // lblSID
             // 
@@ -197,7 +198,6 @@
             this.Controls.Add(this.lvResult);
             this.Name = "FormStaff";
             this.Text = "Staff Management";
-            this.Activated += new System.EventHandler(this.FormStaff_Activated);
             this.Load += new System.EventHandler(this.FormStaff_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
