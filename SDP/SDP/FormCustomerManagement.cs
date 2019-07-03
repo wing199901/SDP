@@ -31,28 +31,6 @@ namespace SDP
 
         }
 
-        private void LvCustomer_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            String sql = String.Format("select * from customer");
-            MySqlCommand cmd = Program.ExecSQL(sql);
-            MySqlDataReader data = cmd.ExecuteReader();
-
-            lvCustomer.Items.Clear();
-
-            while (data.Read())
-            {
-                ListViewItem lv = new ListViewItem(data.GetString(1).ToString());
-                lv.SubItems.Add(data.GetString(2).ToString());
-                lv.SubItems.Add(data.GetString(3).ToString());
-                lv.SubItems.Add(data.GetString(4).ToString());
-                lv.SubItems.Add(data.GetInt32(5).ToString());
-                lvCustomer.Items.Add(lv);
-            }
-
-            data.Close();
-            cmd.Dispose();
-        }
-
         private void FormCustomerManagement_Load(object sender, EventArgs e)
         {
             String sql = String.Format("select * from customer");

@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblPID = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblType = new System.Windows.Forms.Label();
             this.lblBrand = new System.Windows.Forms.Label();
             this.txtBrand = new System.Windows.Forms.TextBox();
@@ -37,33 +35,17 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblDescription = new System.Windows.Forms.Label();
             this.txtDes = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbType = new System.Windows.Forms.ComboBox();
             this.lblPrice = new System.Windows.Forms.Label();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lblPID
-            // 
-            this.lblPID.AutoSize = true;
-            this.lblPID.Location = new System.Drawing.Point(62, 77);
-            this.lblPID.Name = "lblPID";
-            this.lblPID.Size = new System.Drawing.Size(59, 12);
-            this.lblPID.TabIndex = 0;
-            this.lblPID.Text = "Product ID:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(165, 74);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 22);
-            this.textBox1.TabIndex = 0;
-            // 
             // lblType
             // 
             this.lblType.AutoSize = true;
-            this.lblType.Location = new System.Drawing.Point(62, 130);
+            this.lblType.Location = new System.Drawing.Point(140, 125);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(32, 12);
             this.lblType.TabIndex = 2;
@@ -72,7 +54,7 @@
             // lblBrand
             // 
             this.lblBrand.AutoSize = true;
-            this.lblBrand.Location = new System.Drawing.Point(62, 183);
+            this.lblBrand.Location = new System.Drawing.Point(140, 224);
             this.lblBrand.Name = "lblBrand";
             this.lblBrand.Size = new System.Drawing.Size(37, 12);
             this.lblBrand.TabIndex = 6;
@@ -80,7 +62,7 @@
             // 
             // txtBrand
             // 
-            this.txtBrand.Location = new System.Drawing.Point(165, 180);
+            this.txtBrand.Location = new System.Drawing.Point(243, 221);
             this.txtBrand.Name = "txtBrand";
             this.txtBrand.Size = new System.Drawing.Size(200, 22);
             this.txtBrand.TabIndex = 2;
@@ -88,7 +70,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(408, 77);
+            this.lblName.Location = new System.Drawing.Point(139, 76);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(74, 12);
             this.lblName.TabIndex = 8;
@@ -96,7 +78,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(509, 74);
+            this.txtName.Location = new System.Drawing.Point(240, 73);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(200, 22);
             this.txtName.TabIndex = 3;
@@ -104,7 +86,7 @@
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(408, 183);
+            this.lblDescription.Location = new System.Drawing.Point(142, 281);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(61, 12);
             this.lblDescription.TabIndex = 10;
@@ -112,29 +94,31 @@
             // 
             // txtDes
             // 
-            this.txtDes.Location = new System.Drawing.Point(509, 180);
+            this.txtDes.Location = new System.Drawing.Point(243, 278);
             this.txtDes.Multiline = true;
             this.txtDes.Name = "txtDes";
             this.txtDes.Size = new System.Drawing.Size(200, 22);
             this.txtDes.TabIndex = 5;
             // 
-            // comboBox1
+            // cbType
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbType.FormattingEnabled = true;
+            this.cbType.Items.AddRange(new object[] {
             "A. Sheet Metal",
             "B. Major Assemblies",
             "C. Light Components",
             "D. Accessories"});
-            this.comboBox1.Location = new System.Drawing.Point(165, 127);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 20);
-            this.comboBox1.TabIndex = 1;
+            this.cbType.Location = new System.Drawing.Point(243, 122);
+            this.cbType.Name = "cbType";
+            this.cbType.Size = new System.Drawing.Size(200, 20);
+            this.cbType.TabIndex = 1;
+            this.cbType.SelectedIndexChanged += new System.EventHandler(this.CbType_SelectedIndexChanged);
             // 
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(408, 130);
+            this.lblPrice.Location = new System.Drawing.Point(142, 176);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(31, 12);
             this.lblPrice.TabIndex = 13;
@@ -142,28 +126,30 @@
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(509, 127);
+            this.txtPrice.Location = new System.Drawing.Point(243, 173);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(200, 22);
             this.txtPrice.TabIndex = 4;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(82, 249);
+            this.btnAdd.Location = new System.Drawing.Point(142, 337);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(243, 249);
+            this.btnCancel.Location = new System.Drawing.Point(303, 337);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // FormNewProduct
             // 
@@ -174,7 +160,7 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.lblPrice);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbType);
             this.Controls.Add(this.txtDes);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.txtName);
@@ -182,19 +168,15 @@
             this.Controls.Add(this.txtBrand);
             this.Controls.Add(this.lblBrand);
             this.Controls.Add(this.lblType);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.lblPID);
             this.Name = "FormNewProduct";
             this.Text = "New Product";
+            this.Load += new System.EventHandler(this.FormNewProduct_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblPID;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.Label lblBrand;
         private System.Windows.Forms.TextBox txtBrand;
@@ -202,7 +184,7 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.TextBox txtDes;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbType;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Button btnAdd;
