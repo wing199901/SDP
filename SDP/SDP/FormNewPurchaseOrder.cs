@@ -255,7 +255,6 @@ namespace SDP
                     MySqlCommand cmd = Program.ExecSQL(sql);
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
-                    /*
                     for (int i = 0; i < lvResult.Items.Count; i++)
                     {
                         String productId = lvResult.Items[i].Text;
@@ -265,8 +264,12 @@ namespace SDP
                         cmd = Program.ExecSQL(sql);
                         cmd.ExecuteNonQuery();
                         cmd.Dispose();
-                    }*/
 
+                        sql = String.Format("UPDATE product SET atHand = atHand + {0} WHERE productId = {1}", qty, productId);
+                        cmd = Program.ExecSQL(sql);
+                        cmd.ExecuteNonQuery();
+                        cmd.Dispose();
+                    }
 
                     MessageBox.Show("Submit Sussesed!");
                 }
