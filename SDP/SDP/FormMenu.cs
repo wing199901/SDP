@@ -143,5 +143,11 @@ namespace SDP
             Form staff = new FormStaff();
             staff.ShowDialog();
         }
+
+        private void BtnNProduct_Click(object sender, EventArgs e)
+        {
+            Form newProduct = new FormNewProduct();
+            newProduct.ShowDialog();
+        }
     }
 }
