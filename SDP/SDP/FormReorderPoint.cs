@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace SDP
 {
-    public partial class FormROP : Form
+    public partial class FormReorderPoint : Form
     {
         private String keyword;
 
@@ -28,7 +28,7 @@ namespace SDP
             get { return productId; }
             set { productId = value; }
         }
-        public FormROP()
+        public FormReorderPoint()
         {
             InitializeComponent();
 
@@ -41,9 +41,9 @@ namespace SDP
             lvResult.Columns.Add("Brand", 100);
             lvResult.Columns.Add("Product name", 100);
             lvResult.Columns.Add("Description", 150);
-            lvResult.Columns.Add("Safety Stock", 100);
-            lvResult.Columns.Add("Reorder Point", 100);
-            lvResult.Columns.Add("Reorder Level", 100);
+            lvResult.Columns.Add("Lead Time", 50);
+            lvResult.Columns.Add("Safety Stock", 50);
+            lvResult.Columns.Add("Reorder Point", 50);
 
             txtSafetyStock.Focus();
         }
@@ -88,7 +88,7 @@ namespace SDP
 
         private void FormROL_Load(object sender, EventArgs e)
         {
-            String sql = "select productId, type, brand, productName, description, safetyStock, reorderPoint from product";
+            String sql = "select productId, type, brand, productName, description, leadTime, safetyStock, reorderPoint from product";
             MySqlCommand cmd = Program.ExecSQL(sql);
             MySqlDataReader data = cmd.ExecuteReader();
 
@@ -101,6 +101,7 @@ namespace SDP
                 lv.SubItems.Add(data.GetString(2).ToString());
                 lv.SubItems.Add(data.GetString(3).ToString());
                 lv.SubItems.Add(data.GetString(4).ToString());
+                lv.SubItems.Add(data.GetInt32(5).ToString());
                 lv.SubItems.Add(data.GetInt32(5).ToString());
                 lv.SubItems.Add(data.GetInt32(6).ToString());
                 lvResult.Items.Add(lv);

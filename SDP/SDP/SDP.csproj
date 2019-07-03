@@ -161,11 +161,11 @@
     <Compile Include="FormReceive.Designer.cs">
       <DependentUpon>FormReceive.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormROL.cs">
+    <Compile Include="FormROP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormROL.Designer.cs">
-      <DependentUpon>FormROL.cs</DependentUpon>
+    <Compile Include="FormROP.Designer.cs">
+      <DependentUpon>FormROP.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSearchOrder.cs">
       <SubType>Form</SubType>
@@ -235,8 +235,8 @@
     <EmbeddedResource Include="FormReceive.resx">
       <DependentUpon>FormReceive.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormROL.resx">
-      <DependentUpon>FormROL.cs</DependentUpon>
+    <EmbeddedResource Include="FormROP.resx">
+      <DependentUpon>FormROP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSearchOrder.resx">
       <DependentUpon>FormSearchOrder.cs</DependentUpon>
