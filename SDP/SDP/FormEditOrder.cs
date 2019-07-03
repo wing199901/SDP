@@ -21,7 +21,7 @@ namespace SDP
         private double total;
         private ListViewItem currentItem;
         private ListViewItem.ListViewSubItem currentItemSub;
-        private int subIndex, despatched;
+        private int subIndex;
 
         public String OrderId
         {
@@ -196,8 +196,27 @@ namespace SDP
                 }
             }else if (subIndex == 7)
             {
+               
+                String sql = String.Format("select qty, despatched from orderProduct where productId={0}", currentItem.SubItems[0].Text);
+                MySqlCommand cmd = Program.ExecSQL(sql);
+                MySqlDataReader data = cmd.ExecuteReader();
+                data.Close();
+                data = cmd.ExecuteReader();
+                int despatched = 0;
+                int qty = 0;
+                while (data.Read())
+                {
+                    qty = data.GetInt32(0);
+                    despatched = data.GetInt32(1);
+                }
+                if (Convert.ToInt32(txtHide.Text+e.KeyChar) < qty)
+                {
+                    e.Handled = true;
+                }
+                ////////////////////////////////////////////here
 
-                switch (e.KeyChar)
+
+                    switch (e.KeyChar)
                 {
                     case (char)13:  //Enter
                        // despatched = Convert.ToInt32(txtHide.Text);
@@ -272,11 +291,24 @@ namespace SDP
                     {
                         String productId = lvResult.Items[i].Text;
                         int qty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
-                        int despatched = Convert.ToInt32(lvResult.Items[i].SubItems[7].Text);
+                        int currentDespatched = Convert.ToInt32(lvResult.Items[i].SubItems[7].Text);
                         sql = String.Format("insert into orderProduct (orderId, productId, qty, despatched) " +
-                            "values ('{0}', '{1}', {2}, {3})", OrderId, productId, qty, despatched);
-                        MessageBox.Show("orderId:" + OrderId + " productId:" + productId + " qty:" + qty + " despatched:" + despatched);
+                            "values ('{0}', '{1}', {2}, {3})", OrderId, productId, qty, currentDespatched);
                         cmd = Program.ExecSQL(sql);
+                        sql = String.Format("select despatched from orderProduct where productId={0}", productId);
+                        cmd = Program.ExecSQL(sql);
+                        MySqlDataReader data = cmd.ExecuteReader();
+                        data = cmd.ExecuteReader();
+                        int despatched = 0;
+                        while (data.Read())
+                        {
+                            despatched=data.GetInt32(3);
+                        }
+                        if (currentDespatched > despatched)
+                        {
+                            sql = String.Format("update product set despatched = {0} where productId = {1}", currentDespatched - despatched, productId);
+                            cmd = Program.ExecSQL(sql);
+                        }
                         cmd.ExecuteNonQuery();
 
                         cmd.Dispose();
