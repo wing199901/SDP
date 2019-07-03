@@ -90,7 +90,6 @@ namespace SDP
 
                 while (data.Read())
                 {
-                    txtCID.Text = data.GetInt32(0).ToString();
                     txtName.Text = data.GetString(1).ToString();
                     txtAddress.Text = data.GetString(2).ToString();
                     txtComName.Text = data.GetString(3).ToString();
@@ -108,10 +107,7 @@ namespace SDP
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtCID.Text))
-            {
-                MessageBox.Show("Customer ID can not be empty.");
-            }else if (string.IsNullOrWhiteSpace(txtName.Text))
+            if (string.IsNullOrWhiteSpace(txtName.Text))
             {
                 MessageBox.Show("Customer Name can not be empty");
             }
@@ -133,39 +129,28 @@ namespace SDP
             }
             else
             {
-                if (currentItem != null)
+                MySqlCommand cmd = null;
+                try
                 {
-                    MySqlCommand cmd = null;
-                    try
-                    {
-                        String sql = String.Format("INSERT INTO customer VALUES ({0}, '{1}', '{2}', '{3}', '{4}', '{5}') ", txtCID.Text, txtName.Text, txtAddress.Text, txtComName.Text, txtEmail.Text, txtPhone.Text);
-                        cmd = Program.ExecSQL(sql);
-                        cmd.ExecuteReader();
-                        MessageBox.Show("Add successfully!");
-                        FormCustomerManagement_Load(sender, e);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.ToString());
-                    }
-
-                    cmd.Dispose();
-
+                    String sql = String.Format("INSERT INTO customer VALUES ('{1}', '{2}', '{3}', '{4}', '{5}') ", txtName.Text, txtAddress.Text, txtComName.Text, txtEmail.Text, txtPhone.Text);
+                    cmd = Program.ExecSQL(sql);
+                    cmd.ExecuteReader();
+                    MessageBox.Show("Add successfully!");
+                    FormCustomerManagement_Load(sender, e);
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Please type information");
+                    MessageBox.Show(ex.ToString());
                 }
+
+                cmd.Dispose();
+
             }
         }
 
         private void BtnEdit_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtCID.Text))
-            {
-                MessageBox.Show("Customer ID can not be empty.");
-            }
-            else if (string.IsNullOrWhiteSpace(txtName.Text))
+            if (string.IsNullOrWhiteSpace(txtName.Text))
             {
                 MessageBox.Show("Customer Name can not be empty");
             }
@@ -193,7 +178,7 @@ namespace SDP
                     MySqlCommand cmd = null;
                     try
                     {
-                        String sql = String.Format("UPDATE customer SET custID = {0}, custName = '{1}', address = '{2}', companyName = '{3}', email = '{4}', phone = '{5}' WHERE custID = {6}", txtCID.Text, txtName.Text, txtAddress.Text, txtComName.Text, txtEmail.Text, txtPhone.Text, txtCID.Text);
+                        String sql = String.Format("UPDATE customer SET custID = {0}, custName = '{1}', address = '{2}', companyName = '{3}', email = '{4}', phone = '{5}' WHERE custID = {6}", CustomerID, txtName.Text, txtAddress.Text, txtComName.Text, txtEmail.Text, txtPhone.Text, txtCID.Text);
                         cmd = Program.ExecSQL(sql);
                         cmd.ExecuteReader();
                         MessageBox.Show("Update successfully!");
@@ -209,7 +194,7 @@ namespace SDP
                 }
                 else
                 {
-                    MessageBox.Show("Please select a user");
+                    MessageBox.Show("Please select a customer");
                 }
             }
         }
