@@ -285,19 +285,9 @@ namespace SDP
             }
             else
             {
-
-
                 String sql = String.Format("insert into customer (custName, address, companyName, email, phone) select '{0}', '{1}', '{2}', '{3}', '{4}' from dual where not exists (select phone from customer where phone='{4}')",
-              txtName.Text, txtAddr.Text, txtCompany.Text, txtEmail.Text, txtPhone.Text);
-                sql = String.Format("update customer set custName={0}, address={1}, companyName{2}, email{3}, phone{4}");
-                MySqlCommand cmd = Program.ExecSQL(sql);
-                cmd.ExecuteNonQuery();
-                cmd.Dispose();
-
-
-                sql = String.Format("insert into customer (custName, address, companyName, email, phone) select '{0}', '{1}', '{2}', '{3}', '{4}' from dual where not exists (select phone from customer where phone='{4}')",
                  txtName.Text, txtAddr.Text, txtCompany.Text, txtEmail.Text, txtPhone.Text);
-                cmd = Program.ExecSQL(sql);
+                MySqlCommand cmd = Program.ExecSQL(sql);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
 
@@ -312,11 +302,6 @@ namespace SDP
 
                 data.Close();
                 cmd.Dispose();
-
-
-
-
-
 
                 sql = String.Format("insert into dbOPSRS.order (staffId, custId, status, date, deliveryDate, shippingAddress, totalAmount, remark) " +
                     "values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', {6}, '{7}')",
