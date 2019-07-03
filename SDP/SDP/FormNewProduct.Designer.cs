@@ -168,7 +168,6 @@
             this.txtLeadTime.Name = "txtLeadTime";
             this.txtLeadTime.Size = new System.Drawing.Size(200, 22);
             this.txtLeadTime.TabIndex = 15;
-            this.txtLeadTime.TextChanged += new System.EventHandler(this.TxtLeadTime_TextChanged);
             // 
             // FormNewProduct
             // 

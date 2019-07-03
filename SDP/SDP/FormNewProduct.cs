@@ -14,7 +14,6 @@ namespace SDP
     public partial class FormNewProduct : Form
     {
         private String type;
-        private int leadTime;
 
         public FormNewProduct()
         {
@@ -36,6 +35,10 @@ namespace SDP
             {
                 MessageBox.Show("Brand can not be empty");
             }
+            else if (txtLeadTime.Text == null)
+            {
+                
+            }
             else if (string.IsNullOrWhiteSpace(txtDes.Text))
             {
                 MessageBox.Show("Description can not be empty");
@@ -45,7 +48,7 @@ namespace SDP
                 MySqlCommand cmd = null;
                 try
                 {
-                    String sql = String.Format("INSERT INTO product(productName, type, price, brand, leadTime, description) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}') ", txtName.Text, type, txtPrice.Text, txtBrand.Text, leadTime, txtDes.Text);
+                    String sql = String.Format("INSERT INTO product(productName, type, price, brand, leadTime, description) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}') ", txtName.Text, type, txtPrice.Text, txtBrand.Text, txtLeadTime.Text, txtDes.Text);
                     cmd = Program.ExecSQL(sql);
                     cmd.ExecuteReader();
                     MessageBox.Show("Add successfully!");
@@ -89,18 +92,6 @@ namespace SDP
             if (cbType.SelectedIndex == 3)
             {
                 type = "D";
-            }
-        }
-
-        private void TxtLeadTime_TextChanged(object sender, EventArgs e)
-        {
-            if(leadTime != null)
-            {
-                leadTime = int.Parse(txtLeadTime.Text);
-            }
-            else
-            {
-                
             }
         }
     }
