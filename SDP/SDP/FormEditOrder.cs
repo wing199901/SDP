@@ -290,12 +290,6 @@ namespace SDP
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
 
-                   /* sql = String.Format("delete from orderProduct where orderId='{0}'", OrderId);
-                    cmd = Program.ExecSQL(sql);
-                    cmd.ExecuteNonQuery();
-
-                    cmd.Dispose();*/
-
                     for (int i = 0; i < lvResult.Items.Count; i++)
                     {
                         String productId = lvResult.Items[i].Text;
