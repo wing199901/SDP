@@ -40,12 +40,14 @@
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.lblLeadTime = new System.Windows.Forms.Label();
+            this.txtLeadTime = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblType
             // 
             this.lblType.AutoSize = true;
-            this.lblType.Location = new System.Drawing.Point(140, 125);
+            this.lblType.Location = new System.Drawing.Point(137, 128);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(32, 12);
             this.lblType.TabIndex = 2;
@@ -54,7 +56,7 @@
             // lblBrand
             // 
             this.lblBrand.AutoSize = true;
-            this.lblBrand.Location = new System.Drawing.Point(140, 224);
+            this.lblBrand.Location = new System.Drawing.Point(137, 208);
             this.lblBrand.Name = "lblBrand";
             this.lblBrand.Size = new System.Drawing.Size(37, 12);
             this.lblBrand.TabIndex = 6;
@@ -62,7 +64,7 @@
             // 
             // txtBrand
             // 
-            this.txtBrand.Location = new System.Drawing.Point(243, 221);
+            this.txtBrand.Location = new System.Drawing.Point(240, 205);
             this.txtBrand.Name = "txtBrand";
             this.txtBrand.Size = new System.Drawing.Size(200, 22);
             this.txtBrand.TabIndex = 2;
@@ -70,7 +72,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(139, 76);
+            this.lblName.Location = new System.Drawing.Point(139, 86);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(74, 12);
             this.lblName.TabIndex = 8;
@@ -78,7 +80,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(240, 73);
+            this.txtName.Location = new System.Drawing.Point(240, 83);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(200, 22);
             this.txtName.TabIndex = 3;
@@ -86,7 +88,7 @@
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(142, 281);
+            this.lblDescription.Location = new System.Drawing.Point(139, 288);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(61, 12);
             this.lblDescription.TabIndex = 10;
@@ -94,7 +96,7 @@
             // 
             // txtDes
             // 
-            this.txtDes.Location = new System.Drawing.Point(243, 278);
+            this.txtDes.Location = new System.Drawing.Point(240, 285);
             this.txtDes.Multiline = true;
             this.txtDes.Name = "txtDes";
             this.txtDes.Size = new System.Drawing.Size(200, 22);
@@ -109,7 +111,7 @@
             "B. Major Assemblies",
             "C. Light Components",
             "D. Accessories"});
-            this.cbType.Location = new System.Drawing.Point(243, 122);
+            this.cbType.Location = new System.Drawing.Point(240, 125);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(200, 20);
             this.cbType.TabIndex = 1;
@@ -118,7 +120,7 @@
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(142, 176);
+            this.lblPrice.Location = new System.Drawing.Point(139, 167);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(31, 12);
             this.lblPrice.TabIndex = 13;
@@ -126,7 +128,7 @@
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(243, 173);
+            this.txtPrice.Location = new System.Drawing.Point(240, 164);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(200, 22);
             this.txtPrice.TabIndex = 4;
@@ -151,11 +153,29 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
+            // lblLeadTime
+            // 
+            this.lblLeadTime.AutoSize = true;
+            this.lblLeadTime.Location = new System.Drawing.Point(139, 247);
+            this.lblLeadTime.Name = "lblLeadTime";
+            this.lblLeadTime.Size = new System.Drawing.Size(58, 12);
+            this.lblLeadTime.TabIndex = 14;
+            this.lblLeadTime.Text = "Lead Time:";
+            // 
+            // txtLeadTime
+            // 
+            this.txtLeadTime.Location = new System.Drawing.Point(240, 244);
+            this.txtLeadTime.Name = "txtLeadTime";
+            this.txtLeadTime.Size = new System.Drawing.Size(200, 22);
+            this.txtLeadTime.TabIndex = 15;
+            // 
             // FormNewProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
+            this.Controls.Add(this.txtLeadTime);
+            this.Controls.Add(this.lblLeadTime);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtPrice);
@@ -189,5 +209,7 @@
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label lblLeadTime;
+        private System.Windows.Forms.TextBox txtLeadTime;
     }
 }
