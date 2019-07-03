@@ -25,8 +25,8 @@ namespace SDP
             lvResult.View = View.Details;
             lvResult.FullRowSelect = true;
             lvResult.Columns.Add("Purchasing Order ID", 100);
-            lvResult.Columns.Add("Type", 100);
-            lvResult.Columns.Add("Brand", 100);
+            lvResult.Columns.Add("Product ID", 100);
+            lvResult.Columns.Add("Quantity", 100);
 
         }
 
