@@ -23,7 +23,7 @@ namespace SDP
 
         public static MySqlCommand ExecSQL(String sql)
         {
-            string dbHost = "192.168.64.2";
+            string dbHost = "192.168.65.2";
             string dbUser = "user";
             string dbPass = "user";
             string dbName = "dbOPSRS";
@@ -49,6 +49,75 @@ namespace SDP
                 }
             }
             return cmd;
+        }
+
+    }
+
+    public class Utilities
+    {
+        public static void ResetAllControls(Control form)
+        {
+            foreach (Control control in form.Controls)
+            {
+                if (control is TextBox)
+                {
+                    TextBox textBox = (TextBox)control;
+                    if (textBox.Name == "txtNumber")
+                    {
+                        MySqlCommand cmd = Program.ExecSQL("select max(orderId) from dbOPSRS.order");
+                        MySqlDataReader data = cmd.ExecuteReader();
+
+                        while (data.Read())
+                        {
+                            textBox.Text = (data.GetInt32(0) + 1).ToString();
+                        }
+                    }
+                    else if (textBox.Name == "txtDate")
+                    {
+                        textBox.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                    }
+                    else if (textBox.Name == "txtStaffId")
+                    {
+
+                    }
+                    else
+                    {
+                        textBox.Text = null;
+                    }
+                }
+
+                if (control is ComboBox)
+                {
+                    ComboBox comboBox = (ComboBox)control;
+                    comboBox.SelectedIndex = 0;
+                }
+
+                if (control is CheckBox)
+                {
+                    CheckBox checkBox = (CheckBox)control;
+                    checkBox.Checked = false;
+                }
+
+                if (control is ListBox)
+                {
+                    ListBox listBox = (ListBox)control;
+                    listBox.ClearSelected();
+                }
+
+                if (control is DateTimePicker)
+                {
+                    DateTimePicker dateTimePicker = (DateTimePicker)control;
+                    if (dateTimePicker.Name == "dtpDelivery")
+                        dateTimePicker.Value = DateTime.Today.AddDays(1);
+                    else { dateTimePicker.Value = DateTime.Today; }
+                }
+                if (control is ListView)
+                {
+                    ListView listView = (ListView)control;
+                    listView.Items.Clear();
+                }
+
+            }
         }
     }
 }

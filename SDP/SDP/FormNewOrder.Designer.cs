@@ -33,16 +33,9 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.cboStatus = new System.Windows.Forms.ComboBox();
-            this.txtShipAddr = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.choShipAddr = new System.Windows.Forms.CheckBox();
-            this.txtPhone = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtAddr = new System.Windows.Forms.TextBox();
             this.txtCompany = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -69,6 +62,13 @@
             this.txtRemark = new System.Windows.Forms.TextBox();
             this.lvResult = new System.Windows.Forms.ListView();
             this.txtHide = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtPhone = new System.Windows.Forms.TextBox();
+            this.choShipAddr = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtShipAddr = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblCompany
@@ -475,6 +475,65 @@
             this.txtHide.Visible = false;
             this.txtHide.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtHide_KeyPress);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(18, 179);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 12);
+            this.label5.TabIndex = 148;
+            this.label5.Text = "Email:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(18, 209);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 12);
+            this.label6.TabIndex = 149;
+            this.label6.Text = "Phone:";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(121, 176);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(200, 22);
+            this.txtEmail.TabIndex = 7;
+            // 
+            // txtPhone
+            // 
+            this.txtPhone.Location = new System.Drawing.Point(121, 206);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(200, 22);
+            this.txtPhone.TabIndex = 8;
+            // 
+            // choShipAddr
+            // 
+            this.choShipAddr.AutoSize = true;
+            this.choShipAddr.Location = new System.Drawing.Point(336, 122);
+            this.choShipAddr.Name = "choShipAddr";
+            this.choShipAddr.Size = new System.Drawing.Size(106, 16);
+            this.choShipAddr.TabIndex = 5;
+            this.choShipAddr.Text = "Shipping Address";
+            this.choShipAddr.UseVisualStyleBackColor = true;
+            this.choShipAddr.Click += new System.EventHandler(this.ChoShipAddr_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(18, 151);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(90, 12);
+            this.label7.TabIndex = 156;
+            this.label7.Text = "Shipping Address:";
+            // 
+            // txtShipAddr
+            // 
+            this.txtShipAddr.Location = new System.Drawing.Point(121, 148);
+            this.txtShipAddr.Name = "txtShipAddr";
+            this.txtShipAddr.Size = new System.Drawing.Size(200, 22);
+            this.txtShipAddr.TabIndex = 6;
+            // 
             // FormNewOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -536,16 +595,9 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox cboStatus;
-        private System.Windows.Forms.TextBox txtShipAddr;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.CheckBox choShipAddr;
-        private System.Windows.Forms.TextBox txtPhone;
-        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtAddr;
         private System.Windows.Forms.TextBox txtCompany;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -572,5 +624,12 @@
         private System.Windows.Forms.TextBox txtRemark;
         private System.Windows.Forms.ListView lvResult;
         private System.Windows.Forms.TextBox txtHide;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtPhone;
+        private System.Windows.Forms.CheckBox choShipAddr;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtShipAddr;
     }
 }
