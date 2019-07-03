@@ -66,6 +66,9 @@ namespace SDP
             cmd.Dispose();
 
             txtStaffId.Text = UserName;
+
+            //cboStatus default value
+            cboStatus.SelectedIndex = 0;
         }
 
         private void TxtRemark_Enter(object sender, EventArgs e)
