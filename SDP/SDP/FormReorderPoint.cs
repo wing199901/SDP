@@ -41,9 +41,9 @@ namespace SDP
             lvResult.Columns.Add("Brand", 100);
             lvResult.Columns.Add("Product name", 100);
             lvResult.Columns.Add("Description", 150);
-            lvResult.Columns.Add("Lead Time", 50);
-            lvResult.Columns.Add("Safety Stock", 50);
-            lvResult.Columns.Add("Reorder Point", 50);
+            lvResult.Columns.Add("Lead Time", 70);
+            lvResult.Columns.Add("Safety Stock", 70);
+            lvResult.Columns.Add("Reorder Point", 70);
 
             txtSafetyStock.Focus();
         }
