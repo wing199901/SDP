@@ -14,6 +14,7 @@ namespace SDP
     public partial class FormNewProduct : Form
     {
         private String type;
+        private int leadTime;
 
         public FormNewProduct()
         {
@@ -44,7 +45,7 @@ namespace SDP
                 MySqlCommand cmd = null;
                 try
                 {
-                    String sql = String.Format("INSERT INTO product(productName, type, price, brand, description) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}') ", txtName.Text, type, txtPrice.Text, txtBrand.Text, txtDes.Text);
+                    String sql = String.Format("INSERT INTO product(productName, type, price, brand, leadTime, description) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}') ", txtName.Text, type, txtPrice.Text, txtBrand.Text, leadTime, txtDes.Text);
                     cmd = Program.ExecSQL(sql);
                     cmd.ExecuteReader();
                     MessageBox.Show("Add successfully!");
@@ -72,9 +73,6 @@ namespace SDP
 
         private void CbType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //String type;
-
-
             if(cbType.SelectedIndex == 0)
             {
                 type = "A";
@@ -91,6 +89,18 @@ namespace SDP
             if (cbType.SelectedIndex == 3)
             {
                 type = "D";
+            }
+        }
+
+        private void TxtLeadTime_TextChanged(object sender, EventArgs e)
+        {
+            if(leadTime != null)
+            {
+                leadTime = int.Parse(txtLeadTime.Text);
+            }
+            else
+            {
+                
             }
         }
     }
