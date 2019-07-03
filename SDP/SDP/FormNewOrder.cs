@@ -197,12 +197,14 @@ namespace SDP
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            if()
-            double price = Convert.ToDouble(Regex.Replace(lvResult.SelectedItems[0].SubItems[5].Text, "[$]", ""));
-            double qty = Convert.ToDouble(lvResult.SelectedItems[0].SubItems[6].Text);
-            total -= (price * qty);
-            txtAmount.Text = "$" + total.ToString();
-            lvResult.Items.Remove(lvResult.SelectedItems[0]);
+            if (currentItem != null)
+            {
+                double price = Convert.ToDouble(Regex.Replace(lvResult.SelectedItems[0].SubItems[5].Text, "[$]", ""));
+                double qty = Convert.ToDouble(lvResult.SelectedItems[0].SubItems[6].Text);
+                total -= (price * qty);
+                txtAmount.Text = "$" + total.ToString();
+                lvResult.Items.Remove(currentItem);
+            }
         }
 
         private void LvResult_MouseDoubleClick(object sender, MouseEventArgs e)
