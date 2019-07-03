@@ -125,6 +125,12 @@
     <Compile Include="FormGenerate.Designer.cs">
       <DependentUpon>FormGenerate.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormReorderPoint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReorderPoint.Designer.cs">
+      <DependentUpon>FormReorderPoint.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRoleControl.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,12 +166,6 @@
     </Compile>
     <Compile Include="FormReceive.Designer.cs">
       <DependentUpon>FormReceive.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormROL.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormROL.Designer.cs">
-      <DependentUpon>FormROL.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSearchOrder.cs">
       <SubType>Form</SubType>
@@ -214,6 +214,9 @@
     <EmbeddedResource Include="FormGenerate.resx">
       <DependentUpon>FormGenerate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormReorderPoint.resx">
+      <DependentUpon>FormReorderPoint.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormRoleControl.resx">
       <DependentUpon>FormRoleControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -234,9 +237,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormReceive.resx">
       <DependentUpon>FormReceive.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormROL.resx">
-      <DependentUpon>FormROL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSearchOrder.resx">
       <DependentUpon>FormSearchOrder.cs</DependentUpon>

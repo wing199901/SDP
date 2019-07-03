@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace SDP
 {
-    public partial class FormROL : Form
+    public partial class FormReorderPoint : Form
     {
         private String keyword;
 
@@ -28,11 +28,9 @@ namespace SDP
             get { return productId; }
             set { productId = value; }
         }
-        public FormROL()
+        public FormReorderPoint()
         {
             InitializeComponent();
-
-            BtnSearch_Click(new object(), new EventArgs());
 
             //ListView Header
             lvResult.GridLines = true;
@@ -43,51 +41,11 @@ namespace SDP
             lvResult.Columns.Add("Brand", 100);
             lvResult.Columns.Add("Product name", 100);
             lvResult.Columns.Add("Description", 150);
-            lvResult.Columns.Add("Safety Stock", 100);
-            lvResult.Columns.Add("Reorder Point", 100);
-            lvResult.Columns.Add("Reorder Level", 100);
+            lvResult.Columns.Add("Lead Time", 50);
+            lvResult.Columns.Add("Safety Stock", 50);
+            lvResult.Columns.Add("Reorder Point", 50);
 
             txtSafetyStock.Focus();
-        }
-
-        private void BtnSearch_Click(object sender, EventArgs e)
-        {
-            Keyword = txtProductID.Text;
-            if (txtProductID.Text != "")
-            {
-                String sql = String.Format("select productId, type, brand, productName, description, safetyStock, reorderPoint from product where productId = '{0}'", txtProductID.Text);
-                MySqlCommand cmd = Program.ExecSQL(sql);
-                MySqlDataReader data = cmd.ExecuteReader();
-
-                lvResult.Items.Clear();
-
-                while (data.Read())
-                {
-                    ListViewItem lv = new ListViewItem(data.GetString(0).ToString());
-                    lv.SubItems.Add(data.GetString(1).ToString());
-                    lv.SubItems.Add(data.GetString(2).ToString());
-                    lv.SubItems.Add(data.GetString(3).ToString());
-                    lv.SubItems.Add(data.GetString(4).ToString());
-                    lv.SubItems.Add(data.GetInt32(5).ToString());
-                    lv.SubItems.Add(data.GetInt32(6).ToString());
-                    lvResult.Items.Add(lv);
-                }
-
-                data.Close();
-                cmd.Dispose();
-            }
-        }
-
-        private void TxtProductID_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                btnSearch.Focus();
-
-                BtnSearch_Click(sender, e);
-
-                txtProductID.Focus();
-            }
         }
 
         private void BtnApply_Click(object sender, EventArgs e)
@@ -109,7 +67,6 @@ namespace SDP
                     cmd.Dispose();
 
                     txtSafetyStock.Clear();
-                    txtProductID.Clear();
                     lvResult.Clear();
                 }
                 else
@@ -127,6 +84,31 @@ namespace SDP
         private void LvResult_Click(object sender, EventArgs e)
         {
             txtSafetyStock.Text = lvResult.SelectedItems[0].SubItems[5].Text;
+        }
+
+        private void FormROL_Load(object sender, EventArgs e)
+        {
+            String sql = "select productId, type, brand, productName, description, leadTime, safetyStock, reorderPoint from product";
+            MySqlCommand cmd = Program.ExecSQL(sql);
+            MySqlDataReader data = cmd.ExecuteReader();
+
+            lvResult.Items.Clear();
+
+            while (data.Read())
+            {
+                ListViewItem lv = new ListViewItem(data.GetString(0).ToString());
+                lv.SubItems.Add(data.GetString(1).ToString());
+                lv.SubItems.Add(data.GetString(2).ToString());
+                lv.SubItems.Add(data.GetString(3).ToString());
+                lv.SubItems.Add(data.GetString(4).ToString());
+                lv.SubItems.Add(data.GetInt32(5).ToString());
+                lv.SubItems.Add(data.GetInt32(5).ToString());
+                lv.SubItems.Add(data.GetInt32(6).ToString());
+                lvResult.Items.Add(lv);
+            }
+
+            data.Close();
+            cmd.Dispose();
         }
     }
 }

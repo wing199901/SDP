@@ -39,7 +39,6 @@
             this.lblCompany = new System.Windows.Forms.Label();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.txtEditStock = new System.Windows.Forms.Button();
             this.btnStaff = new System.Windows.Forms.Button();
             this.btnCust = new System.Windows.Forms.Button();
             this.btnJPos = new System.Windows.Forms.Button();
@@ -49,7 +48,7 @@
             // 
             // btnROL
             // 
-            this.btnROL.Location = new System.Drawing.Point(142, 253);
+            this.btnROL.Location = new System.Drawing.Point(133, 262);
             this.btnROL.Name = "btnROL";
             this.btnROL.Size = new System.Drawing.Size(123, 23);
             this.btnROL.TabIndex = 9;
@@ -59,7 +58,7 @@
             // 
             // btnGoods
             // 
-            this.btnGoods.Location = new System.Drawing.Point(366, 204);
+            this.btnGoods.Location = new System.Drawing.Point(133, 210);
             this.btnGoods.Name = "btnGoods";
             this.btnGoods.Size = new System.Drawing.Size(123, 23);
             this.btnGoods.TabIndex = 7;
@@ -69,7 +68,7 @@
             // 
             // btnGenReport
             // 
-            this.btnGenReport.Location = new System.Drawing.Point(142, 204);
+            this.btnGenReport.Location = new System.Drawing.Point(588, 210);
             this.btnGenReport.Name = "btnGenReport";
             this.btnGenReport.Size = new System.Drawing.Size(123, 23);
             this.btnGenReport.TabIndex = 6;
@@ -79,7 +78,7 @@
             // 
             // btnDefective
             // 
-            this.btnDefective.Location = new System.Drawing.Point(588, 204);
+            this.btnDefective.Location = new System.Drawing.Point(360, 210);
             this.btnDefective.Name = "btnDefective";
             this.btnDefective.Size = new System.Drawing.Size(123, 23);
             this.btnDefective.TabIndex = 8;
@@ -99,17 +98,17 @@
             // 
             // btnStock
             // 
-            this.btnStock.Location = new System.Drawing.Point(588, 155);
+            this.btnStock.Location = new System.Drawing.Point(360, 158);
             this.btnStock.Name = "btnStock";
             this.btnStock.Size = new System.Drawing.Size(123, 23);
             this.btnStock.TabIndex = 5;
-            this.btnStock.Text = "Search Stock";
+            this.btnStock.Text = "Search Product";
             this.btnStock.UseVisualStyleBackColor = true;
             this.btnStock.Click += new System.EventHandler(this.BtnStock_Click);
             // 
             // btnSearchOrder
             // 
-            this.btnSearchOrder.Location = new System.Drawing.Point(588, 106);
+            this.btnSearchOrder.Location = new System.Drawing.Point(587, 106);
             this.btnSearchOrder.Name = "btnSearchOrder";
             this.btnSearchOrder.Size = new System.Drawing.Size(123, 23);
             this.btnSearchOrder.TabIndex = 2;
@@ -119,7 +118,7 @@
             // 
             // btnNewOrder
             // 
-            this.btnNewOrder.Location = new System.Drawing.Point(366, 106);
+            this.btnNewOrder.Location = new System.Drawing.Point(133, 106);
             this.btnNewOrder.Name = "btnNewOrder";
             this.btnNewOrder.Size = new System.Drawing.Size(123, 23);
             this.btnNewOrder.TabIndex = 1;
@@ -146,19 +145,9 @@
             this.lblWelcome.TabIndex = 154;
             this.lblWelcome.Text = "Welcome, ";
             // 
-            // txtEditStock
-            // 
-            this.txtEditStock.Location = new System.Drawing.Point(366, 155);
-            this.txtEditStock.Name = "txtEditStock";
-            this.txtEditStock.Size = new System.Drawing.Size(123, 23);
-            this.txtEditStock.TabIndex = 4;
-            this.txtEditStock.Text = "Edit Stock";
-            this.txtEditStock.UseVisualStyleBackColor = true;
-            this.txtEditStock.Click += new System.EventHandler(this.TxtEditStock_Click);
-            // 
             // btnStaff
             // 
-            this.btnStaff.Location = new System.Drawing.Point(366, 317);
+            this.btnStaff.Location = new System.Drawing.Point(360, 317);
             this.btnStaff.Name = "btnStaff";
             this.btnStaff.Size = new System.Drawing.Size(123, 23);
             this.btnStaff.TabIndex = 11;
@@ -168,7 +157,7 @@
             // 
             // btnCust
             // 
-            this.btnCust.Location = new System.Drawing.Point(142, 317);
+            this.btnCust.Location = new System.Drawing.Point(133, 314);
             this.btnCust.Name = "btnCust";
             this.btnCust.Size = new System.Drawing.Size(123, 23);
             this.btnCust.TabIndex = 10;
@@ -178,7 +167,7 @@
             // 
             // btnJPos
             // 
-            this.btnJPos.Location = new System.Drawing.Point(588, 317);
+            this.btnJPos.Location = new System.Drawing.Point(587, 317);
             this.btnJPos.Name = "btnJPos";
             this.btnJPos.Size = new System.Drawing.Size(123, 23);
             this.btnJPos.TabIndex = 12;
@@ -188,7 +177,7 @@
             // 
             // btnNewPO
             // 
-            this.btnNewPO.Location = new System.Drawing.Point(142, 106);
+            this.btnNewPO.Location = new System.Drawing.Point(360, 106);
             this.btnNewPO.Name = "btnNewPO";
             this.btnNewPO.Size = new System.Drawing.Size(123, 23);
             this.btnNewPO.TabIndex = 0;
@@ -198,7 +187,7 @@
             // 
             // btnNProduct
             // 
-            this.btnNProduct.Location = new System.Drawing.Point(142, 155);
+            this.btnNProduct.Location = new System.Drawing.Point(133, 158);
             this.btnNProduct.Name = "btnNProduct";
             this.btnNProduct.Size = new System.Drawing.Size(123, 23);
             this.btnNProduct.TabIndex = 3;
@@ -216,7 +205,6 @@
             this.Controls.Add(this.btnJPos);
             this.Controls.Add(this.btnCust);
             this.Controls.Add(this.btnStaff);
-            this.Controls.Add(this.txtEditStock);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.btnROL);
             this.Controls.Add(this.btnGoods);
@@ -249,7 +237,6 @@
         private System.Windows.Forms.Label lblCompany;
         private System.Windows.Forms.Label lblWelcome;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Button txtEditStock;
         private System.Windows.Forms.Button btnStaff;
         private System.Windows.Forms.Button btnCust;
         private System.Windows.Forms.Button btnJPos;

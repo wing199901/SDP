@@ -65,7 +65,7 @@ namespace SDP
 
         private void BtnROL_Click(object sender, EventArgs e)
         {
-            Form rol = new FormROL();
+            Form rol = new FormROP();
             rol.ShowDialog();
         }
 
