@@ -331,7 +331,10 @@ namespace SDP
                         "values ('{0}', '{1}', {2})", orderId, productId, qty);
                     cmd = Program.ExecSQL(sql);
                     cmd.ExecuteNonQuery();
-
+                    cmd.Dispose();
+                    sql = String.Format("update product set onHand = onHand - {0}, inHand = inHand + {0} where productId = {1}", qty, productId);
+                    cmd = Program.ExecSQL(sql);
+                    cmd.ExecuteNonQuery();
                     cmd.Dispose();
                 }
 
