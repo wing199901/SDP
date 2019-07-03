@@ -1,6 +1,6 @@
 ﻿namespace SDP
 {
-    partial class FormROL
+    partial class FormROP
     {
         /// <summary>
         /// Required designer variable.
@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.lblCompany = new System.Windows.Forms.Label();
-            this.lblSKU = new System.Windows.Forms.Label();
-            this.txtProductID = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.lblSafetyStock = new System.Windows.Forms.Label();
             this.txtSafetyStock = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -47,34 +44,6 @@
             this.lblCompany.Size = new System.Drawing.Size(399, 24);
             this.lblCompany.TabIndex = 144;
             this.lblCompany.Text = "Smart && Luxury Motor Company (Spares)";
-            // 
-            // lblSKU
-            // 
-            this.lblSKU.AutoSize = true;
-            this.lblSKU.Location = new System.Drawing.Point(135, 54);
-            this.lblSKU.Name = "lblSKU";
-            this.lblSKU.Size = new System.Drawing.Size(59, 12);
-            this.lblSKU.TabIndex = 145;
-            this.lblSKU.Text = "Product ID:";
-            // 
-            // txtProductID
-            // 
-            this.txtProductID.Location = new System.Drawing.Point(232, 51);
-            this.txtProductID.Multiline = true;
-            this.txtProductID.Name = "txtProductID";
-            this.txtProductID.Size = new System.Drawing.Size(200, 22);
-            this.txtProductID.TabIndex = 0;
-            this.txtProductID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtProductID_KeyDown);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(497, 51);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 1;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // lblSafetyStock
             // 
@@ -120,12 +89,10 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtSafetyStock);
             this.Controls.Add(this.lblSafetyStock);
-            this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.txtProductID);
-            this.Controls.Add(this.lblSKU);
             this.Controls.Add(this.lblCompany);
             this.Name = "FormROL";
-            this.Text = "Correct ROL";
+            this.Text = "Correct Reorder Point";
+            this.Load += new System.EventHandler(this.FormROL_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -133,9 +100,6 @@
 
         #endregion
         private System.Windows.Forms.Label lblCompany;
-        private System.Windows.Forms.Label lblSKU;
-        private System.Windows.Forms.TextBox txtProductID;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label lblSafetyStock;
         private System.Windows.Forms.TextBox txtSafetyStock;
         private System.Windows.Forms.Button btnCancel;
