@@ -34,8 +34,9 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.lblDate = new System.Windows.Forms.Label();
-            this.txtDate = new System.Windows.Forms.TextBox();
             this.lvResult = new System.Windows.Forms.ListView();
+            this.dtpDay = new System.Windows.Forms.DateTimePicker();
+            this.btnReceived = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblCompany
@@ -77,28 +78,22 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(224, 133);
+            this.btnCancel.Location = new System.Drawing.Point(168, 334);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // lblDate
             // 
             this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(85, 96);
+            this.lblDate.Location = new System.Drawing.Point(85, 84);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(65, 12);
             this.lblDate.TabIndex = 150;
             this.lblDate.Text = "Arrival Date:";
-            // 
-            // txtDate
-            // 
-            this.txtDate.Location = new System.Drawing.Point(224, 93);
-            this.txtDate.Name = "txtDate";
-            this.txtDate.Size = new System.Drawing.Size(200, 22);
-            this.txtDate.TabIndex = 1;
             // 
             // lvResult
             // 
@@ -108,14 +103,33 @@
             this.lvResult.Size = new System.Drawing.Size(806, 132);
             this.lvResult.TabIndex = 152;
             this.lvResult.UseCompatibleStateImageBehavior = false;
+            this.lvResult.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LvResult_MouseClick);
+            // 
+            // dtpDay
+            // 
+            this.dtpDay.Location = new System.Drawing.Point(224, 81);
+            this.dtpDay.Name = "dtpDay";
+            this.dtpDay.Size = new System.Drawing.Size(200, 22);
+            this.dtpDay.TabIndex = 234;
+            // 
+            // btnReceived
+            // 
+            this.btnReceived.Location = new System.Drawing.Point(87, 334);
+            this.btnReceived.Name = "btnReceived";
+            this.btnReceived.Size = new System.Drawing.Size(75, 23);
+            this.btnReceived.TabIndex = 235;
+            this.btnReceived.Text = "Received";
+            this.btnReceived.UseVisualStyleBackColor = true;
+            this.btnReceived.Click += new System.EventHandler(this.BtnReceived_Click);
             // 
             // FormReceive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
+            this.Controls.Add(this.btnReceived);
+            this.Controls.Add(this.dtpDay);
             this.Controls.Add(this.lvResult);
-            this.Controls.Add(this.txtDate);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSearch);
@@ -137,7 +151,8 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblDate;
-        private System.Windows.Forms.TextBox txtDate;
         private System.Windows.Forms.ListView lvResult;
+        private System.Windows.Forms.DateTimePicker dtpDay;
+        private System.Windows.Forms.Button btnReceived;
     }
 }

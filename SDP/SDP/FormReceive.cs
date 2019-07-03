@@ -13,6 +13,8 @@ namespace SDP
 {
     public partial class FormReceive : Form
     {
+        //private ListViewItem currentItem;
+
         public FormReceive()
         {
             InitializeComponent();
@@ -34,22 +36,48 @@ namespace SDP
         {
             if (txtOrderID.Text != "")
             {
-                String sql = String.Format("select * from purchasingOrderProduct WHERE poId = '{0}'", txtOrderID.Text);
-                MySqlCommand cmd = Program.ExecSQL(sql);
-                MySqlDataReader data = cmd.ExecuteReader();
-
-                lvResult.Items.Clear();
-
-                while (data.Read())
+                try
                 {
-                    ListViewItem lv = new ListViewItem(data.GetString(0).ToString());
-                    lv.SubItems.Add(data.GetString(1).ToString());
-                    lv.SubItems.Add(data.GetString(2).ToString());
-                    lvResult.Items.Add(lv);
-                }
+                    String sql = String.Format("select * from purchasingOrder WHERE poId = '{0}' AND status = 'Creation'", txtOrderID.Text);
+                    MySqlCommand cmd = Program.ExecSQL(sql);
+                    MySqlDataReader data = cmd.ExecuteReader();
 
-                data.Close();
-                cmd.Dispose();
+                    String orderID="";
+
+                    while (data.Read())
+                    {
+                         orderID=data.GetString("poId");
+                        MessageBox.Show(orderID);
+                    }
+
+                    if (orderID != "")
+                    {
+                        sql = String.Format("select * from purchasingOrderProduct WHERE poId = '{0}'", orderID);
+                        cmd = Program.ExecSQL(sql);
+                        data = cmd.ExecuteReader();
+
+                        lvResult.Items.Clear();
+
+                        while (data.Read())
+                        {
+                            ListViewItem lv = new ListViewItem(data.GetString(0).ToString());
+                            lv.SubItems.Add(data.GetString(1).ToString());
+                            lv.SubItems.Add(data.GetString(2).ToString());
+                            lvResult.Items.Add(lv);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("This order is Finished!");
+                    }
+
+                    data.Close();
+                    cmd.Dispose();
+                }
+                catch
+                {
+                    MessageBox.Show("No this order!");
+                }
             }
         }
 
@@ -63,6 +91,50 @@ namespace SDP
 
                 txtOrderID.Focus();
             }
+        }
+
+        private void LvResult_MouseClick(object sender, MouseEventArgs e)
+        {
+            //currentItem = lvResult.GetItemAt(e.X, e.Y);
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnReceived_Click(object sender, EventArgs e)
+        {
+            if (lvResult != null)
+            {
+                String sql = String.Format("select * from purchasingOrderProduct WHERE poId = '{0}'", txtOrderID.Text);
+                MySqlCommand cmd = Program.ExecSQL(sql);
+                MySqlDataReader data = cmd.ExecuteReader();
+                                
+                while (data.Read())
+                {
+                    sql = String.Format("UPDATE product SET onHand = onHand + {0}, atHand = atHand - {0} WHERE productId = '{1}'", data.GetString(2), data.GetString(1));
+                    cmd = Program.ExecSQL(sql);
+                    cmd.ExecuteNonQuery();
+                }
+
+                sql = String.Format("UPDATE purchasingOrder SET status = 'Finish', deliveryDate = '{0}' WHERE poId = '{1}'", dtpDay.Value.ToString("yyyy-MM-dd"), txtOrderID.Text);
+                cmd = Program.ExecSQL(sql);
+                cmd.ExecuteNonQuery();
+
+                data.Close();
+                cmd.Dispose();
+
+                MessageBox.Show("Order Finished");
+            }
+            else
+            {
+                MessageBox.Show("Please search a order");
+            }
+
+            lvResult.Items.Clear();
+            txtOrderID.Clear();
+            dtpDay.Value = DateTime.Now;
         }
     }
 }

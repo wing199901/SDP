@@ -126,7 +126,7 @@ namespace SDP
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            if (txtAmount.Text != "")
+            if (txtQty.Text != "")
             {
                 if (txtProductID.Text != "")
                 {
@@ -163,7 +163,7 @@ namespace SDP
             }
             else
             {
-                MessageBox.Show("Qantity can not be empty!");
+                MessageBox.Show("Quantity can not be empty!");
             }
             txtProductID.Text = "";
             txtQty.Text = "";
@@ -251,7 +251,7 @@ namespace SDP
 
         private void BtnSubmit_Click(object sender, EventArgs e)
         {
-            String submitTime = DateTime.Now.ToString("yyyy-MM-dd H:mm:ss");
+            //String submitTime = DateTime.Now.ToString("yyyy-MM-dd H:mm:ss");
 
             if (txtAmount.Text == "$")     //If Total Amount is Empty
             {
