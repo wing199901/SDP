@@ -55,7 +55,7 @@
             this.lvCustomer.Size = new System.Drawing.Size(806, 132);
             this.lvCustomer.TabIndex = 0;
             this.lvCustomer.UseCompatibleStateImageBehavior = false;
-            this.lvCustomer.SelectedIndexChanged += new System.EventHandler(this.LvCustomer_SelectedIndexChanged);
+            this.lvCustomer.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvCustomer_MouseClick);
             // 
             // lblCustID
             // 
@@ -161,6 +161,7 @@
             this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // btnEdit
             // 
@@ -170,6 +171,7 @@
             this.btnEdit.TabIndex = 7;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
             // btnCancel
             // 
@@ -179,6 +181,7 @@
             this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // label1
             // 

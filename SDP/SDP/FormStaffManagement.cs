@@ -28,7 +28,8 @@ namespace SDP
             lvResult.Columns.Add("Staff Name", 100);
             lvResult.Columns.Add("Available", 100);
 
-
+            lvResult.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lvResult.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         private void FormStaff_Load(object sender, EventArgs e)
