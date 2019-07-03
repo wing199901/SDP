@@ -13,7 +13,8 @@ namespace SDP
 {
     public partial class FormCustomerManagement : Form
     {
-        
+        private ListViewItem currentItem;
+
         public FormCustomerManagement()
         {
             InitializeComponent();
@@ -28,14 +29,38 @@ namespace SDP
             lvCustomer.Columns.Add("Company Name", 100);
             lvCustomer.Columns.Add("Email", 150);
             lvCustomer.Columns.Add("Phone Number", 50);
-            
 
+            lvCustomer.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lvCustomer.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         private void LvCustomer_SelectedIndexChanged(object sender, EventArgs e)
         {
-            String sql = String.Format("select * from customer"); /* where custId like '%{0}%' or custName like '%{1}%' or address like '%{2}% or companyName like '%{3}%' or email like '%{4}%' or phone like '%{5}%' ",txtCID,txtName,txtAddress,txtComName,txtEmail,txtPhone);
-            */MySqlCommand cmd = Program.ExecSQL(sql);
+            String sql = String.Format("select * from customer");
+            MySqlCommand cmd = Program.ExecSQL(sql);
+            MySqlDataReader data = cmd.ExecuteReader();
+
+            lvCustomer.Items.Clear();
+
+            while (data.Read())
+            {
+                ListViewItem lv = new ListViewItem(data.GetInt32(0).ToString());
+                lv.SubItems.Add(data.GetString(1).ToString());
+                lv.SubItems.Add(data.GetString(2).ToString());
+                lv.SubItems.Add(data.GetString(3).ToString());
+                lv.SubItems.Add(data.GetString(4).ToString());
+                lv.SubItems.Add(data.GetInt32(5).ToString());
+                lvCustomer.Items.Add(lv);
+            }
+
+            data.Close();
+            cmd.Dispose();
+        }
+
+        private void FormCustomerManagement_Load(object sender, EventArgs e)
+        {
+            String sql = String.Format("select * from customer");
+            MySqlCommand cmd = Program.ExecSQL(sql);
             MySqlDataReader data = cmd.ExecuteReader();
 
             lvCustomer.Items.Clear();
@@ -55,9 +80,147 @@ namespace SDP
             cmd.Dispose();
         }
 
-        private void FormCustomerManagement_Load(object sender, EventArgs e)
+        private void lvCustomer_MouseClick(object sender, MouseEventArgs e)
         {
+            currentItem = lvCustomer.GetItemAt(e.X, e.Y);
 
+            if (currentItem != null)
+            {
+                String CustomerID = currentItem.Text;
+
+                String sql = String.Format("SELECT * FROM customer WHERE custID = {0}", CustomerID);
+                MySqlCommand cmd = Program.ExecSQL(sql);
+                MySqlDataReader data = cmd.ExecuteReader();
+
+                while (data.Read())
+                {
+                    txtCID.Text = data.GetInt32(0).ToString();
+                    txtName.Text = data.GetString(1).ToString();
+                    txtAddress.Text = data.GetString(2).ToString();
+                    txtComName.Text = data.GetString(3).ToString();
+                    txtEmail.Text = data.GetString(4).ToString();
+                    txtPhone.Text = data.GetInt32(5).ToString();
+                }
+                data.Close();
+                cmd.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("Please select a user");
+            }
+        }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtCID.Text))
+            {
+                MessageBox.Show("Customer ID can not be empty.");
+            }else if (string.IsNullOrWhiteSpace(txtName.Text))
+            {
+                MessageBox.Show("Customer Name can not be empty");
+            }
+            else if (string.IsNullOrWhiteSpace(txtAddress.Text))
+            {
+                MessageBox.Show("Address can not be empty");
+            }
+            else if (string.IsNullOrWhiteSpace(txtComName.Text))
+            {
+                MessageBox.Show("Company Name can not be empty");
+            }
+            else if (string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                MessageBox.Show("Email can not be empty");
+            }
+            else if (string.IsNullOrWhiteSpace(txtPhone.Text))
+            {
+                MessageBox.Show("Customer Name can not be empty");
+            }
+            else
+            {
+                if (currentItem != null)
+                {
+                    MySqlCommand cmd = null;
+                    try
+                    {
+                        String sql = String.Format("INSERT INTO customer VALUES ({0}, '{1}', '{2}', '{3}', '{4}', '{5}') ", txtCID.Text, txtName.Text, txtAddress.Text, txtComName.Text, txtEmail.Text, txtPhone.Text);
+                        cmd = Program.ExecSQL(sql);
+                        cmd.ExecuteReader();
+                        MessageBox.Show("Add successfully!");
+                        FormCustomerManagement_Load(sender, e);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+
+                    cmd.Dispose();
+
+                }
+                else
+                {
+                    MessageBox.Show("Please type information");
+                }
+            }
+        }
+
+        private void BtnEdit_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtCID.Text))
+            {
+                MessageBox.Show("Customer ID can not be empty.");
+            }
+            else if (string.IsNullOrWhiteSpace(txtName.Text))
+            {
+                MessageBox.Show("Customer Name can not be empty");
+            }
+            else if (string.IsNullOrWhiteSpace(txtAddress.Text))
+            {
+                MessageBox.Show("Address can not be empty");
+            }
+            else if (string.IsNullOrWhiteSpace(txtComName.Text))
+            {
+                MessageBox.Show("Company Name can not be empty");
+            }
+            else if (string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                MessageBox.Show("Email can not be empty");
+            }
+            else if (string.IsNullOrWhiteSpace(txtPhone.Text))
+            {
+                MessageBox.Show("Customer Name can not be empty");
+            }
+            else
+            {
+                if (currentItem != null)
+                {
+                    String CustomerID = currentItem.Text;
+                    MySqlCommand cmd = null;
+                    try
+                    {
+                        String sql = String.Format("UPDATE customer SET custID = {0}, custName = '{1}', address = '{2}', companyName = '{3}', email = '{4}', phone = '{5}' WHERE custID = {6}", txtCID.Text, txtName.Text, txtAddress.Text, txtComName.Text, txtEmail.Text, txtPhone.Text, txtCID.Text);
+                        cmd = Program.ExecSQL(sql);
+                        cmd.ExecuteReader();
+                        MessageBox.Show("Update successfully!");
+                        FormCustomerManagement_Load(sender, e);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+
+                    cmd.Dispose();
+
+                }
+                else
+                {
+                    MessageBox.Show("Please select a user");
+                }
+            }
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
