@@ -197,13 +197,17 @@ namespace SDP
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            int a =currentItem.SubItems.Count;
-            MessageBox.Show(a.ToString());
+            try
+            {
                 double price = Convert.ToDouble(Regex.Replace(lvResult.SelectedItems[0].SubItems[5].Text, "[$]", ""));
                 double qty = Convert.ToDouble(lvResult.SelectedItems[0].SubItems[6].Text);
                 total -= (price * qty);
                 txtAmount.Text = "$" + total.ToString();
                 lvResult.Items.Remove(lvResult.SelectedItems[0]);
+            }catch (Exception ex)
+            {
+
+            }
             
         }
 
