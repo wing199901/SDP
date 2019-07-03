@@ -60,12 +60,22 @@ namespace SDP
 
             while (data.Read())
             {
-                txtNumber.Text = (data.GetInt32(0) + 1).ToString();
+                try
+                {
+                    txtNumber.Text = (data.GetInt32(0) + 1).ToString();
+                }
+                catch
+                {
+                    txtNumber.Text = "100001";
+                }
             }
             data.Close();
             cmd.Dispose();
 
             txtStaffId.Text = UserName;
+
+            //cboStatus default value
+            cboStatus.SelectedIndex = 0;
         }
 
         private void TxtRemark_Enter(object sender, EventArgs e)
@@ -247,6 +257,10 @@ namespace SDP
             {
                 MessageBox.Show("There is no product in cart!");
             }
+            else if (txtAddr.Text == "")     //If Address is Empty
+            {
+                MessageBox.Show("Address can not be empty!");
+            }
             else
             {
                 try
@@ -259,8 +273,7 @@ namespace SDP
                     {
                         String productId = lvResult.Items[i].Text;
                         int qty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
-                        sql = String.Format("insert into purchasingOrderProduct " +
-                            "VALUES ('{0}', '{1}', {2})", txtNumber.Text, productId, qty);
+                        sql = String.Format("INSERT INTO purchasingOrderProduct VALUES ('{0}', '{1}', {2})", txtNumber.Text, productId, qty);
                         cmd = Program.ExecSQL(sql);
                         cmd.ExecuteNonQuery();
                         cmd.Dispose();
