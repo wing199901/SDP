@@ -21,6 +21,7 @@ namespace SDP
         private double total;
         private ListViewItem currentItem;
         private ListViewItem.ListViewSubItem currentItemSub;
+        private int subIndex, despatched;
 
         public String OrderId
         {
@@ -93,7 +94,6 @@ namespace SDP
             data.Close();
             cmd.Dispose();
 
-           // sql = String.Format("select productId, qty from orderProduct where orderId = '{0}'", OrderId);
             sql = String.Format("SELECT orderProduct.productId, type, brand, productName, description, price, qty, despatched FROM orderProduct, product WHERE orderProduct.orderId={0} and orderProduct.productId = product.productId", OrderId);
             cmd = Program.ExecSQL(sql);
             data = cmd.ExecuteReader();
@@ -104,60 +104,24 @@ namespace SDP
             {
                 ListViewItem lv = new ListViewItem(data.GetString(0).ToString());
                 lv.SubItems.Add(data.GetString(1).ToString());
-                lv.SubItems.Add(data.GetString(1).ToString());
-                lv.SubItems.Add(data.GetString(1).ToString());
-                lv.SubItems.Add(data.GetString(1).ToString());
+                lv.SubItems.Add(data.GetString(2).ToString());
+                lv.SubItems.Add(data.GetString(3).ToString());
+                lv.SubItems.Add(data.GetString(4).ToString());
+                lv.SubItems.Add("$" + data.GetString(5).ToString());
+                lv.SubItems.Add(data.GetString(6).ToString());
+                lv.SubItems.Add(data.GetString(7).ToString());
+                double price = data.GetDouble(5);
+                double qty = data.GetDouble(6);
+                total += price * qty;
+                lvResult.Items.Add(lv);
             }
-
+            txtAmount.Text= "$"+ total;
+            data.Close();
+            cmd.Dispose();
             txtShipAddr.ReadOnly = (txtShipAddr.Text == txtAddr.Text);
             choShipAddr.Checked = (txtShipAddr.Text == txtAddr.Text);
         }
-        /*
-        private void BtnAdd_Click(object sender, EventArgs e)
-        {
-            if (txtAmount.Text != "")
-            {
-                if (txtProductID.Text != "")
-                {
-                    String sql = String.Format("select productId, type, brand, productName, Description, price from product where productId like '%{0}%'", txtProductID.Text);
-                    MySqlCommand cmd = Program.ExecSQL(sql);
-                    MySqlDataReader data = cmd.ExecuteReader();
 
-                    while (data.Read())
-                    {
-                        ListViewItem lv = new ListViewItem(data.GetString(0).ToString());
-                        lv.SubItems.Add(data.GetString(1).ToString());
-                        lv.SubItems.Add(data.GetString(2).ToString());
-                        lv.SubItems.Add(data.GetString(3).ToString());
-                        lv.SubItems.Add(data.GetString(4).ToString());
-                        priceTxt = data.GetDouble(5).ToString();
-                        lv.SubItems.Add("$" + priceTxt);
-                        lv.SubItems.Add(txtQty.Text);
-                        lvResult.Items.Add(lv);
-                        double price = Convert.ToDouble(priceTxt);
-                        quantity = Convert.ToDouble(txtQty.Text);
-                        price *= quantity;
-                        total += price;
-                        txtAmount.Text = "$" + total.ToString();
-                    }
-
-                    data.Close();
-                    cmd.Dispose();
-                }
-                else
-                {
-                    MessageBox.Show("Product ID can not be empty!");
-                    txtProductID.Focus();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Qantity can not be empty!");
-            }
-            txtProductID.Text = "";
-            txtQty.Text = "";
-        }
-        */
         private void LvResult_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             currentItem = lvResult.GetItemAt(e.X, e.Y);
@@ -165,13 +129,21 @@ namespace SDP
             if (currentItem != null)
             {
                 currentItemSub = currentItem.GetSubItemAt(e.X, e.Y);
-                int subIndex = currentItem.SubItems.IndexOf(currentItemSub);
+                subIndex = currentItem.SubItems.IndexOf(currentItemSub);
                 switch (subIndex)
                 {
                     case 6:
                         int lLeft = currentItemSub.Bounds.Left + 2;
                         int lWidth = currentItemSub.Bounds.Width;
                         txtHide.SetBounds(lLeft + lvResult.Left, currentItemSub.Bounds.Top + lvResult.Top, lWidth, currentItemSub.Bounds.Height);
+                        txtHide.Text = currentItemSub.Text;
+                        txtHide.Show();
+                        txtHide.Focus();
+                        break;
+                    case 7:
+                        int lLeft2 = currentItemSub.Bounds.Left + 2;
+                        int lWidth2 = currentItemSub.Bounds.Width;
+                        txtHide.SetBounds(lLeft2 + lvResult.Left, currentItemSub.Bounds.Top + lvResult.Top, lWidth2, currentItemSub.Bounds.Height);
                         txtHide.Text = currentItemSub.Text;
                         txtHide.Show();
                         txtHide.Focus();
@@ -184,36 +156,64 @@ namespace SDP
 
         private void TxtHide_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (subIndex == 6)
+            {
             double price = Convert.ToDouble(Regex.Replace(currentItem.SubItems[5].Text, "[$]", ""));
             double curQty = Convert.ToDouble(currentItem.SubItems[6].Text);
-            double newQty = Convert.ToInt32(txtHide.Text);
-            switch (e.KeyChar)
+            double newQty = Convert.ToInt64(txtHide.Text);
+                switch (e.KeyChar)
+                {
+                    case (char)13:  //Enter
+                        if (curQty > newQty)
+                        {
+                            curQty -= newQty;
+                            total -= (price * curQty);
+                        }
+                        else if (curQty < newQty)
+                        {
+                            newQty -= curQty;
+                            total += (price * newQty);
+                        }
+                        txtAmount.Text = "$" + total.ToString();
+                        currentItemSub.Text = txtHide.Text;
+
+                        e.Handled = true;
+                        txtHide.Hide();
+                        break;
+
+                    case (char)27:  //Escape
+                        txtHide.Text = "";
+                        e.Handled = true;
+                        txtHide.Hide();
+                        break;
+                    default:
+                        break;
+                }
+            }else if (subIndex == 7)
             {
-                case (char)13:  //Enter
-                    if (curQty > newQty)
-                    {
-                        curQty -= newQty;
-                        total -= (price * curQty);
-                    }
-                    else if (curQty < newQty)
-                    {
-                        newQty -= curQty;
-                        total += (price * newQty);
-                    }
-                    txtAmount.Text = "$" + total.ToString();
-                    currentItemSub.Text = txtHide.Text;
 
-                    e.Handled = true;
-                    txtHide.Hide();
-                    break;
+                switch (e.KeyChar)
+                {
+                    case (char)13:  //Enter
+                       // despatched = Convert.ToInt32(txtHide.Text);
+                        currentItemSub.Text = txtHide.Text;
+                        e.Handled = true;
+                        txtHide.Hide();
+                        break;
 
-                case (char)27:  //Escape
-                    txtHide.Text = "";
-                    e.Handled = true;
-                    txtHide.Hide();
-                    break;
-                default:
-                    break;
+                    case (char)27:  //Escape
+                        txtHide.Text = "";
+                        e.Handled = true;
+                        txtHide.Hide();
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 
@@ -256,14 +256,12 @@ namespace SDP
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
 
-                    //sql = String.Format("update dbOPSRS.order set staffId='{6}' status='{0}', deliveryDate='{1}', shippingAddress='{2}', totalAmount={3}, remark='{4}' where orderId = '{5}'",
-                    //cboStatus.Text, dtpDelivery.Value.ToString("yyyy-MM-dd"), txtShipAddr.Text, total, txtRemark.Text, OrderId, txtStaffId.Text);
                     sql = String.Format("update dbOPSRS.order set staffId='{1}', deliveryDate='{2}', status='{3}',shippingAddress='{4}',totalAmount={5}, remark='{6}' where orderId= '{0}'",
-                        OrderId,txtStaffId.Text,dtpDelivery.Value.ToString("yyyy-MM-dd"),cboStatus.Text,txtShipAddr.Text, total, txtRemark.Text);
+                        OrderId, txtStaffId.Text, dtpDelivery.Value.ToString("yyyy-MM-dd"), cboStatus.Text, txtShipAddr.Text, total, txtRemark.Text);
                     cmd = Program.ExecSQL(sql);
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
-                    
+
                     sql = String.Format("delete from orderProduct where orderId='{0}'", OrderId);
                     cmd = Program.ExecSQL(sql);
                     cmd.ExecuteNonQuery();
@@ -274,8 +272,10 @@ namespace SDP
                     {
                         String productId = lvResult.Items[i].Text;
                         int qty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
-                        sql = String.Format("insert into orderProduct (orderId, productId, qty) " +
-                            "values ('{0}', '{1}', {2})", OrderId, productId, qty);
+                        int despatched = Convert.ToInt32(lvResult.Items[i].SubItems[7].Text);
+                        sql = String.Format("insert into orderProduct (orderId, productId, qty, despatched) " +
+                            "values ('{0}', '{1}', {2}, {3})", OrderId, productId, qty, despatched);
+                        MessageBox.Show("orderId:" + OrderId + " productId:" + productId + " qty:" + qty + " despatched:" + despatched);
                         cmd = Program.ExecSQL(sql);
                         cmd.ExecuteNonQuery();
 
@@ -284,11 +284,17 @@ namespace SDP
                     
                     MessageBox.Show("Update Sussesed!");
                     this.Close();
-                }catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     MessageBox.Show("Update failed. There are incorrected information.");
                 }
             }
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void ChoShipAddr_CheckStateChanged(object sender, EventArgs e)
