@@ -291,6 +291,7 @@ namespace SDP
                     MessageBox.Show(ex.ToString());
                 }
                 Utilities.ResetAllControls(this);
+                FormNewPurchaseOrder_Load(sender, e);
             }
         }
     }
