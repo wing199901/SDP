@@ -204,11 +204,12 @@ namespace SDP
                 total -= (price * qty);
                 txtAmount.Text = "$" + total.ToString();
                 lvResult.Items.Remove(lvResult.SelectedItems[0]);
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
 
             }
-            
+
         }
 
         private void LvResult_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -284,28 +285,19 @@ namespace SDP
             }
             else
             {
-                /*
-                String sql = String.Format("select custId from customer where phone='{0}'", txtPhone.Text);
-                MySqlCommand cmd = Program.ExecSQL(sql);
-                MySqlDataReader data = cmd.ExecuteReader();
-                DataTable dt = new DataTable();
-                dt.Load(data);
-                if (dt.Rows.Count == 1)
-                {
-                    while (data.Read()) {
-                        custId = data.GetString(0).ToString();
-                    }
-                    sql = String.Format("insert into customer (custName, address, companyName, email, phone) select '{0}', '{1}', '{2}', '{3}', '{4}' from dual where not exists (select phone from customer where phone='{4}')",
-                  txtName.Text, txtAddr.Text, txtCompany.Text, txtEmail.Text, txtPhone.Text);
-                    sql = String.Format("update customer set custName={0}, address={1}, companyName{2}, email{3}, phone{4}");
-                    cmd = Program.ExecSQL(sql);
-                    cmd.ExecuteNonQuery();
-                    cmd.Dispose();
-                }
-                */
+
+
                 String sql = String.Format("insert into customer (custName, address, companyName, email, phone) select '{0}', '{1}', '{2}', '{3}', '{4}' from dual where not exists (select phone from customer where phone='{4}')",
-                txtName.Text, txtAddr.Text, txtCompany.Text, txtEmail.Text, txtPhone.Text);
+              txtName.Text, txtAddr.Text, txtCompany.Text, txtEmail.Text, txtPhone.Text);
+                sql = String.Format("update customer set custName={0}, address={1}, companyName{2}, email{3}, phone{4}");
                 MySqlCommand cmd = Program.ExecSQL(sql);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+
+
+                sql = String.Format("insert into customer (custName, address, companyName, email, phone) select '{0}', '{1}', '{2}', '{3}', '{4}' from dual where not exists (select phone from customer where phone='{4}')",
+                 txtName.Text, txtAddr.Text, txtCompany.Text, txtEmail.Text, txtPhone.Text);
+                cmd = Program.ExecSQL(sql);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
 
@@ -357,7 +349,7 @@ namespace SDP
 
                     cmd.Dispose();
                 }
-                
+
                 MessageBox.Show("Submit Sussesed!");
                 Utilities.ResetAllControls(this);
                 //dtpDelivery.Value = DateTime.Today.AddDays(1);
