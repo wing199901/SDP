@@ -362,19 +362,20 @@ namespace SDP
                                 }
                             }
                             break;
-                        case "Shipping":
+                        case "Shipping":////////////////////////////here
 
-                            if (cboStatus.SelectedItem == "Finish")
+                            if (cboStatus.SelectedItem == "Creation")
                             {
-                                MessageBox.Show("The status 'Reservation' cannot change to status 'Finish'.");
+                                MessageBox.Show("The status 'Shipping' cannot change to status 'Creation'.");
                                 FormEditOrder_Load(sender, e);
                                 submitStatus = false;
                                 break;
                             }
-                            else if (cboStatus.SelectedItem == "Delection")
+                            else if (cboStatus.SelectedItem == "Reservation")
                             {
-                                submit();
-                                updateProductTable("onHand", "inHand");
+                                MessageBox.Show("The status 'Shipping' cannot change to status 'Creation'.");
+                                FormEditOrder_Load(sender, e);
+                                submitStatus = false;
                                 break;
                             }
                             else if (cboStatus.SelectedItem == "Shipping")
