@@ -77,7 +77,7 @@
             // txtOrderId
             // 
             this.txtOrderId.Location = new System.Drawing.Point(394, 490);
-            this.txtOrderId.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtOrderId.Margin = new System.Windows.Forms.Padding(6);
             this.txtOrderId.Name = "txtOrderId";
             this.txtOrderId.Size = new System.Drawing.Size(396, 31);
             this.txtOrderId.TabIndex = 0;
@@ -86,7 +86,7 @@
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(394, 683);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(6);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(150, 48);
             this.btnSearch.TabIndex = 7;
@@ -97,18 +97,19 @@
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(1044, 683);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(6);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(150, 48);
             this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // lvResult_order
             // 
             this.lvResult_order.HideSelection = false;
             this.lvResult_order.Location = new System.Drawing.Point(40, 150);
-            this.lvResult_order.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.lvResult_order.Margin = new System.Windows.Forms.Padding(6);
             this.lvResult_order.Name = "lvResult_order";
             this.lvResult_order.Size = new System.Drawing.Size(1608, 271);
             this.lvResult_order.TabIndex = 156;
@@ -147,7 +148,7 @@
             // txtStaffId
             // 
             this.txtStaffId.Location = new System.Drawing.Point(394, 533);
-            this.txtStaffId.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtStaffId.Margin = new System.Windows.Forms.Padding(6);
             this.txtStaffId.Name = "txtStaffId";
             this.txtStaffId.Size = new System.Drawing.Size(396, 31);
             this.txtStaffId.TabIndex = 1;
@@ -210,7 +211,7 @@
             // txtCustId
             // 
             this.txtCustId.Location = new System.Drawing.Point(1010, 533);
-            this.txtCustId.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtCustId.Margin = new System.Windows.Forms.Padding(6);
             this.txtCustId.Name = "txtCustId";
             this.txtCustId.Size = new System.Drawing.Size(396, 31);
             this.txtCustId.TabIndex = 3;
@@ -229,7 +230,7 @@
             // txtCustPhone
             // 
             this.txtCustPhone.Location = new System.Drawing.Point(1010, 573);
-            this.txtCustPhone.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtCustPhone.Margin = new System.Windows.Forms.Padding(6);
             this.txtCustPhone.Name = "txtCustPhone";
             this.txtCustPhone.Size = new System.Drawing.Size(396, 31);
             this.txtCustPhone.TabIndex = 4;
@@ -247,7 +248,7 @@
             // btnReset
             // 
             this.btnReset.Location = new System.Drawing.Point(882, 683);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(6);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(150, 48);
             this.btnReset.TabIndex = 10;
@@ -258,7 +259,7 @@
             // btnGenDIS
             // 
             this.btnGenDIS.Location = new System.Drawing.Point(556, 683);
-            this.btnGenDIS.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnGenDIS.Margin = new System.Windows.Forms.Padding(6);
             this.btnGenDIS.Name = "btnGenDIS";
             this.btnGenDIS.Size = new System.Drawing.Size(150, 48);
             this.btnGenDIS.TabIndex = 8;
@@ -268,7 +269,7 @@
             // btnGenIN
             // 
             this.btnGenIN.Location = new System.Drawing.Point(720, 683);
-            this.btnGenIN.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnGenIN.Margin = new System.Windows.Forms.Padding(6);
             this.btnGenIN.Name = "btnGenIN";
             this.btnGenIN.Size = new System.Drawing.Size(150, 48);
             this.btnGenIN.TabIndex = 9;
@@ -302,7 +303,7 @@
             this.Controls.Add(this.txtOrderId);
             this.Controls.Add(this.lblOrderId);
             this.Controls.Add(this.lblCompany);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormSearchOrder";
             this.Text = "Search order";
             this.Load += new System.EventHandler(this.FormSearchOrder_Load);

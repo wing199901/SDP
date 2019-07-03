@@ -22,7 +22,7 @@ namespace SDP
         private ListViewItem currentItem;
         private ListViewItem.ListViewSubItem currentItemSub;
         private int subIndex;
-
+        private String status;
         public String OrderId
         {
             get { return orderId; }
@@ -72,6 +72,7 @@ namespace SDP
                 {
                     txtRemark.Text = data.GetString(8).ToString();
                 }
+                status = data.GetString(3).ToString();
 
             }
 
@@ -279,33 +280,31 @@ namespace SDP
             {
                 try
                 {
-                    String sql = String.Format("update customer set email='{0}', phone='{1}' where custId='{2}'",
-                    txtEmail.Text, txtPhone.Text, custId);
-                    MySqlCommand cmd = Program.ExecSQL(sql);
-                    cmd.ExecuteNonQuery();
-                    cmd.Dispose();
-
-
-                    sql = String.Format("update dbOPSRS.order set staffId='{1}', deliveryDate='{2}', status='{3}',shippingAddress='{4}',totalAmount={5}, remark='{6}' where orderId= '{0}'",
-                        OrderId, txtStaffId.Text, dtpDelivery.Value.ToString("yyyy-MM-dd"), cboStatus.Text, txtShipAddr.Text, total, txtRemark.Text);
-                    cmd = Program.ExecSQL(sql);
-                    cmd.ExecuteNonQuery();
-                    cmd.Dispose();
-
-                    for (int i = 0; i < lvResult.Items.Count; i++)
+                    Boolean submitStatus = true;
+                    switch (status)
                     {
-                        String productId = lvResult.Items[i].Text;
-                        int qty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
-                        int currentDespatched = Convert.ToInt32(lvResult.Items[i].SubItems[7].Text);
-                        sql = String.Format("update orderProduct set qty = {0}, despatched = {1} where  orderId = {2} and productId={3}",
-                            qty,currentDespatched,OrderId,productId);
-                        cmd = Program.ExecSQL(sql);
-                        cmd.ExecuteNonQuery();
-                        cmd.Dispose();
-                    }
+                        case "Creation":
+                            if (cboStatus.SelectedItem == "Finish")
+                            {
+                                MessageBox.Show("The 'Creation' status cannot change to 'Finish' status.");
+                                break;
+                            }else if (cboStatus.SelectedItem == "Delection")
+                            {
+                                submit();
+                                updateNumberOfProduct("onHand", "inHand");
+                                break;
+                            }
+                            submit();
+                            break;
 
-                    MessageBox.Show("Update Sussesed!");
-                    this.Close();
+
+
+                    }
+                    if (submitStatus)
+                    {
+                        MessageBox.Show("Update Sussesed!");
+                        this.Close();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -314,6 +313,46 @@ namespace SDP
             }
         }
 
+        private void submit()
+        {
+
+            String sql = String.Format("update customer set email='{0}', phone='{1}' where custId='{2}'",
+            txtEmail.Text, txtPhone.Text, custId);
+            MySqlCommand cmd = Program.ExecSQL(sql);
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+
+
+            sql = String.Format("update dbOPSRS.order set staffId='{1}', deliveryDate='{2}', status='{3}',shippingAddress='{4}',totalAmount={5}, remark='{6}' where orderId= '{0}'",
+                OrderId, txtStaffId.Text, dtpDelivery.Value.ToString("yyyy-MM-dd"), cboStatus.Text, txtShipAddr.Text, total, txtRemark.Text);
+            cmd = Program.ExecSQL(sql);
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+
+            for (int i = 0; i < lvResult.Items.Count; i++)
+            {
+                String productId = lvResult.Items[i].Text;
+                int qty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
+                int currentDespatched = Convert.ToInt32(lvResult.Items[i].SubItems[7].Text);
+                sql = String.Format("update orderProduct set qty = {0}, despatched = {1} where  orderId = {2} and productId={3}",
+                    qty, currentDespatched, OrderId, productId);
+                cmd = Program.ExecSQL(sql);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+        }
+        private void updateNumberOfProduct(String add, String minus)
+        {
+            for (int i = 0; i < lvResult.Items.Count; i++)
+            {
+                String productId = lvResult.Items[i].Text;
+                int qty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
+                String sql = String.Format("update product set {2} = {2} - {0}, {3} = {3} + {0} where productId = {1}", qty, productId,minus,add);
+                MySqlCommand cmd = Program.ExecSQL(sql);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+        }
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -330,6 +369,11 @@ namespace SDP
             {
                 txtShipAddr.ReadOnly = false;
             }
+        }
+
+        private void BtnCancel_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
