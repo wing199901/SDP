@@ -138,9 +138,9 @@ namespace SDP
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            if (txtAmount.Text != "")
+            if (txtProductID.Text != "")
             {
-                if (txtProductID.Text != "")
+                if (txtQty.Text != "")
                 {
                     String sql = String.Format("select productId, type, brand, productName, Description, price from product where productId like '%{0}%'", txtProductID.Text);
                     MySqlCommand cmd = Program.ExecSQL(sql);
@@ -166,19 +166,21 @@ namespace SDP
 
                     data.Close();
                     cmd.Dispose();
+                    txtProductID.Text = "";
+                    txtQty.Text = "";
                 }
                 else
                 {
-                    MessageBox.Show("Product ID can not be empty!");
-                    txtProductID.Focus();
+                    MessageBox.Show("Qantity can not be empty!");
+                    txtQty.Focus();
                 }
             }
             else
             {
-                MessageBox.Show("Qantity can not be empty!");
+                MessageBox.Show("Product ID can not be empty!");
+                txtProductID.Focus();
             }
-            txtProductID.Text = "";
-            txtQty.Text = "";
+
         }
 
         private void TxtQty_KeyDown(object sender, KeyEventArgs e)
@@ -275,16 +277,25 @@ namespace SDP
             }
             else
             {
-
-                String sql = String.Format("insert into customer (custName, address, companyName, email, phone) select '{0}', '{1}', '{2}', '{3}', '{4}' from dual where not exists (select phone from customer where phone='{4}')",
-                txtName.Text, txtAddr.Text, txtCompany.Text, txtEmail.Text, txtPhone.Text);
+                String sql = String.Format("select custId from customer where phone='{0}'", txtPhone.Text);
                 MySqlCommand cmd = Program.ExecSQL(sql);
+                MySqlDataReader data = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(data);
+                if (dt.Rows.Count == 1)
+                {
+                    MessageBox.Show("ok");
+                }
+                /*
+                sql = String.Format("insert into customer (custName, address, companyName, email, phone) select '{0}', '{1}', '{2}', '{3}', '{4}' from dual where not exists (select phone from customer where phone='{4}')",
+                txtName.Text, txtAddr.Text, txtCompany.Text, txtEmail.Text, txtPhone.Text);
+                cmd = Program.ExecSQL(sql);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
 
                 sql = String.Format("select custId from customer where phone='{0}'", txtPhone.Text);
                 cmd = Program.ExecSQL(sql);
-                MySqlDataReader data = cmd.ExecuteReader();
+               data = cmd.ExecuteReader();
 
                 while (data.Read())
                 {
@@ -293,6 +304,11 @@ namespace SDP
 
                 data.Close();
                 cmd.Dispose();
+
+
+
+
+
 
                 sql = String.Format("insert into dbOPSRS.order (staffId, custId, status, date, deliveryDate, shippingAddress, totalAmount, remark) " +
                     "values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', {6}, '{7}')",
@@ -325,75 +341,10 @@ namespace SDP
 
                     cmd.Dispose();
                 }
-
+                */
                 MessageBox.Show("Submit Sussesed!");
                 Utilities.ResetAllControls(this);
                 //dtpDelivery.Value = DateTime.Today.AddDays(1);
-            }
-        }
-    }
-    public class Utilities
-    {
-        public static void ResetAllControls(Control form)
-        {
-            foreach (Control control in form.Controls)
-            {
-                if (control is TextBox)
-                {
-                    TextBox textBox = (TextBox)control;
-                    if (textBox.Name == "txtNumber")
-                    {
-                        MySqlCommand cmd = Program.ExecSQL("select max(orderId) from dbOPSRS.order");
-                        MySqlDataReader data = cmd.ExecuteReader();
-
-                        while (data.Read())
-                        {
-                            textBox.Text = (data.GetInt32(0) + 1).ToString();
-                        }
-                    }else if(textBox.Name == "txtDate")
-                    {
-                        textBox.Text = DateTime.Now.ToString("dd/MM/yyyy");
-                    }else if (textBox.Name == "txtStaffId")
-                    {
-
-                    }
-                    else
-                    {
-                        textBox.Text = null;
-                    }
-                }
-
-                if (control is ComboBox)
-                {
-                    ComboBox comboBox = (ComboBox)control;
-                    comboBox.SelectedIndex = 0;
-                }
-
-                if (control is CheckBox)
-                {
-                    CheckBox checkBox = (CheckBox)control;
-                    checkBox.Checked = false;
-                }
-
-                if (control is ListBox)
-                {
-                    ListBox listBox = (ListBox)control;
-                    listBox.ClearSelected();
-                }
-
-                if (control is DateTimePicker)
-                {
-                    DateTimePicker dateTimePicker = (DateTimePicker)control;
-                    if (dateTimePicker.Name == "dtpDelivery")
-                        dateTimePicker.Value = DateTime.Today.AddDays(1);
-                    else { dateTimePicker.Value = DateTime.Today; }
-                }
-                if (control is ListView)
-                {
-                    ListView listView = (ListView)control;
-                    listView.Items.Clear();
-                }
-
             }
         }
     }

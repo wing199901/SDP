@@ -115,7 +115,7 @@ namespace SDP
                 total += price * qty;
                 lvResult.Items.Add(lv);
             }
-            txtAmount.Text= "$"+ total;
+            txtAmount.Text = "$" + total;
             data.Close();
             cmd.Dispose();
             txtShipAddr.ReadOnly = (txtShipAddr.Text == txtAddr.Text);
@@ -163,9 +163,9 @@ namespace SDP
 
             if (subIndex == 6)
             {
-            double price = Convert.ToDouble(Regex.Replace(currentItem.SubItems[5].Text, "[$]", ""));
-            double curQty = Convert.ToDouble(currentItem.SubItems[6].Text);
-            double newQty = Convert.ToInt64(txtHide.Text);
+                double price = Convert.ToDouble(Regex.Replace(currentItem.SubItems[5].Text, "[$]", ""));
+                double curQty = Convert.ToDouble(currentItem.SubItems[6].Text);
+                double newQty = Convert.ToInt64(txtHide.Text);
                 switch (e.KeyChar)
                 {
                     case (char)13:  //Enter
@@ -194,10 +194,11 @@ namespace SDP
                     default:
                         break;
                 }
-            }else if (subIndex == 7)
+            }
+            else if (subIndex == 7)
             {
-               
-                String sql = String.Format("select qty, despatched from orderProduct where productId={0}", currentItem.SubItems[0].Text);
+
+                String sql = String.Format("select qty, despatched from orderProduct where orderId={0}", currentItem.SubItems[0].Text);
                 MySqlCommand cmd = Program.ExecSQL(sql);
                 MySqlDataReader data = cmd.ExecuteReader();
                 data.Close();
@@ -206,21 +207,29 @@ namespace SDP
                 int qty = 0;
                 while (data.Read())
                 {
-                    qty = data.GetInt32(0);
-                    despatched = data.GetInt32(1);
+                    qty = data.GetInt32("qty");
+                    despatched = data.GetInt32("despatched");
                 }
-                if (Convert.ToInt32(txtHide.Text+e.KeyChar) < qty)
-                {
-                    e.Handled = true;
-                }
-                ////////////////////////////////////////////here
 
-
-                    switch (e.KeyChar)
+                switch (e.KeyChar)
                 {
                     case (char)13:  //Enter
-                       // despatched = Convert.ToInt32(txtHide.Text);
-                        currentItemSub.Text = txtHide.Text;
+                                    // despatched = Convert.ToInt32(txtHide.Text);
+                        if (txtHide.Text != "")
+                        {
+                            if (Convert.ToInt32(txtHide.Text) < despatched)
+                            {
+                                currentItemSub.Text = despatched.ToString();
+                            }
+                            else if ((Convert.ToInt32(txtHide.Text) > qty))
+                            {
+                                currentItemSub.Text = qty.ToString();
+                            }
+                            else
+                            {
+                                currentItemSub.Text = txtHide.Text;
+                            }
+                        }
                         e.Handled = true;
                         txtHide.Hide();
                         break;
@@ -257,6 +266,7 @@ namespace SDP
 
         private void BtnSubmit_Click(object sender, EventArgs e)
         {
+
             if ((txtName.Text == "") || (txtCompany.Text == "") || (txtAddr.Text == "") || (txtShipAddr.Text == "") || (txtEmail.Text == "") || (txtPhone.Text == ""))
             {
                 MessageBox.Show("Please fill in the customer infomation!");
@@ -275,16 +285,11 @@ namespace SDP
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
 
+
                     sql = String.Format("update dbOPSRS.order set staffId='{1}', deliveryDate='{2}', status='{3}',shippingAddress='{4}',totalAmount={5}, remark='{6}' where orderId= '{0}'",
                         OrderId, txtStaffId.Text, dtpDelivery.Value.ToString("yyyy-MM-dd"), cboStatus.Text, txtShipAddr.Text, total, txtRemark.Text);
                     cmd = Program.ExecSQL(sql);
                     cmd.ExecuteNonQuery();
-                    cmd.Dispose();
-
-                    sql = String.Format("delete from orderProduct where orderId='{0}'", OrderId);
-                    cmd = Program.ExecSQL(sql);
-                    cmd.ExecuteNonQuery();
-
                     cmd.Dispose();
 
                     for (int i = 0; i < lvResult.Items.Count; i++)
@@ -292,28 +297,13 @@ namespace SDP
                         String productId = lvResult.Items[i].Text;
                         int qty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
                         int currentDespatched = Convert.ToInt32(lvResult.Items[i].SubItems[7].Text);
-                        sql = String.Format("insert into orderProduct (orderId, productId, qty, despatched) " +
-                            "values ('{0}', '{1}', {2}, {3})", OrderId, productId, qty, currentDespatched);
+                        sql = String.Format("update orderProduct set qty = {0}, despatched = {1} where  orderId = {2} and productId={3}",
+                            qty,currentDespatched,OrderId,productId);
                         cmd = Program.ExecSQL(sql);
-                        sql = String.Format("select despatched from orderProduct where productId={0}", productId);
-                        cmd = Program.ExecSQL(sql);
-                        MySqlDataReader data = cmd.ExecuteReader();
-                        data = cmd.ExecuteReader();
-                        int despatched = 0;
-                        while (data.Read())
-                        {
-                            despatched=data.GetInt32(3);
-                        }
-                        if (currentDespatched > despatched)
-                        {
-                            sql = String.Format("update product set despatched = {0} where productId = {1}", currentDespatched - despatched, productId);
-                            cmd = Program.ExecSQL(sql);
-                        }
                         cmd.ExecuteNonQuery();
-
                         cmd.Dispose();
                     }
-                    
+
                     MessageBox.Show("Update Sussesed!");
                     this.Close();
                 }

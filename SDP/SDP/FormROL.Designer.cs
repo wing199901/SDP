@@ -34,8 +34,6 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblSafetyStock = new System.Windows.Forms.Label();
             this.txtSafetyStock = new System.Windows.Forms.TextBox();
-            this.btnApply = new System.Windows.Forms.Button();
-            this.btnSubmit = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.lvResult = new System.Windows.Forms.ListView();
             this.SuspendLayout();
@@ -43,7 +41,7 @@
             // lblCompany
             // 
             this.lblCompany.AutoSize = true;
-            this.lblCompany.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblCompany.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblCompany.Location = new System.Drawing.Point(414, 396);
             this.lblCompany.Name = "lblCompany";
             this.lblCompany.Size = new System.Drawing.Size(399, 24);
@@ -94,25 +92,6 @@
             this.txtSafetyStock.Size = new System.Drawing.Size(200, 22);
             this.txtSafetyStock.TabIndex = 2;
             // 
-            // btnApply
-            // 
-            this.btnApply.Location = new System.Drawing.Point(497, 272);
-            this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(75, 23);
-            this.btnApply.TabIndex = 3;
-            this.btnApply.Text = "Apply";
-            this.btnApply.UseVisualStyleBackColor = true;
-            this.btnApply.Click += new System.EventHandler(this.BtnApply_Click);
-            // 
-            // btnSubmit
-            // 
-            this.btnSubmit.Location = new System.Drawing.Point(137, 324);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnSubmit.TabIndex = 4;
-            this.btnSubmit.Text = "Submit";
-            this.btnSubmit.UseVisualStyleBackColor = true;
-            // 
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(269, 324);
@@ -139,8 +118,6 @@
             this.ClientSize = new System.Drawing.Size(838, 441);
             this.Controls.Add(this.lvResult);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnSubmit);
-            this.Controls.Add(this.btnApply);
             this.Controls.Add(this.txtSafetyStock);
             this.Controls.Add(this.lblSafetyStock);
             this.Controls.Add(this.btnSearch);
@@ -161,8 +138,6 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label lblSafetyStock;
         private System.Windows.Forms.TextBox txtSafetyStock;
-        private System.Windows.Forms.Button btnApply;
-        private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.ListView lvResult;
     }

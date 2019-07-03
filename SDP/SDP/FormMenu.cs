@@ -149,5 +149,11 @@ namespace SDP
             Form newProduct = new FormNewProduct();
             newProduct.ShowDialog();
         }
+
+        private void BtnNewPO_Click(object sender, EventArgs e)
+        {
+            Form newPurchaseOrder = new FormNewPurchaseOrder(UserName);
+            newPurchaseOrder.ShowDialog();
+        }
     }
 }

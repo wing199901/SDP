@@ -5,16 +5,280 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace SDP
 {
     public partial class FormNewPurchaseOrder : Form
     {
-        public FormNewPurchaseOrder()
+        private String userName = "";
+        public String UserName
+        {
+            get { return userName; }
+            set { userName = value; }
+        }
+
+        private String priceTxt = "";
+        private double quantity = 0;
+        private double total = 0;
+
+        ListViewItem currentItem;
+        private ListViewItem.ListViewSubItem currentItemSub;
+
+        public FormNewPurchaseOrder(String username)
         {
             InitializeComponent();
+            UserName = username;
+
+            //ListView Header
+            lvResult.GridLines = true;
+            lvResult.View = View.Details;
+            lvResult.FullRowSelect = true;
+            lvResult.Columns.Add("Product ID", 100);
+            lvResult.Columns.Add("Type", 100);
+            lvResult.Columns.Add("Brand", 100);
+            lvResult.Columns.Add("Product name", 100);
+            lvResult.Columns.Add("Description", 150);
+            lvResult.Columns.Add("Price", 50);
+            lvResult.Columns.Add("Quantity", 100);
+        }
+
+        private void FormNewPurchaseOrder_Load(object sender, EventArgs e)
+        {
+            dtpDay.Format = DateTimePickerFormat.Custom;
+            dtpDay.CustomFormat = "dd/MM/yyyy";
+
+            dtpDelivery.Format = DateTimePickerFormat.Custom;
+            dtpDelivery.CustomFormat = "dd/MM/yyyy";
+            dtpDelivery.MinDate = DateTime.Today.AddDays(1);
+
+            MySqlCommand cmd = Program.ExecSQL("select max(poId) from dbOPSRS.purchasingOrder");
+            MySqlDataReader data = cmd.ExecuteReader();
+
+            while (data.Read())
+            {
+                txtNumber.Text = (data.GetInt32(0) + 1).ToString();
+            }
+            data.Close();
+            cmd.Dispose();
+
+            txtStaffId.Text = UserName;
+        }
+
+        private void TxtRemark_Enter(object sender, EventArgs e)
+        {
+            if (txtRemark.Text == "Remark")
+            {
+                txtRemark.Text = "";
+                txtRemark.ForeColor = Color.Black;
+            }
+        }
+
+        private void TxtRemark_Leave(object sender, EventArgs e)
+        {
+            if (txtRemark.Text == "")
+            {
+                txtRemark.Text = "Remark";
+                txtRemark.ForeColor = Color.Silver;
+            }
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            String keyword = txtKeyword.Text;
+            FormSearchProduct searchResult = new FormSearchProduct(keyword);
+
+            if (searchResult.ShowDialog() == DialogResult.OK)
+            {
+                txtProductID.Text = searchResult.ProductId;
+            }
+            txtKeyword.Text = "";
+        }
+
+        private void TxtKeyword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSearch.Focus();
+
+                BtnSearch_Click(sender, e);
+
+            }
+        }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            if (txtAmount.Text != "")
+            {
+                if (txtProductID.Text != "")
+                {
+                    String sql = String.Format("select productId, type, brand, productName, Description, price from product where productId like '%{0}%'", txtProductID.Text);
+                    MySqlCommand cmd = Program.ExecSQL(sql);
+                    MySqlDataReader data = cmd.ExecuteReader();
+
+                    while (data.Read())
+                    {
+                        ListViewItem lv = new ListViewItem(data.GetString(0).ToString());
+                        lv.SubItems.Add(data.GetString(1).ToString());
+                        lv.SubItems.Add(data.GetString(2).ToString());
+                        lv.SubItems.Add(data.GetString(3).ToString());
+                        lv.SubItems.Add(data.GetString(4).ToString());
+                        priceTxt = data.GetDouble(5).ToString();
+                        lv.SubItems.Add("$" + priceTxt);
+                        lv.SubItems.Add(txtQty.Text);
+                        lvResult.Items.Add(lv);
+                        double price = Convert.ToDouble(priceTxt);
+                        quantity = Convert.ToDouble(txtQty.Text);
+                        price *= quantity;
+                        total += price;
+                        txtAmount.Text = "$" + total.ToString();
+                    }
+
+                    data.Close();
+                    cmd.Dispose();
+                }
+                else
+                {
+                    MessageBox.Show("Product ID can not be empty!");
+                    txtProductID.Focus();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Qantity can not be empty!");
+            }
+            txtProductID.Text = "";
+            txtQty.Text = "";
+        }
+
+        private void TxtQty_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnAdd.Focus();
+
+                BtnAdd_Click(sender, e);
+
+                txtQty.Focus();
+            }
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            double price = Convert.ToDouble(Regex.Replace(lvResult.SelectedItems[0].SubItems[5].Text, "[$]", ""));
+            double qty = Convert.ToDouble(lvResult.SelectedItems[0].SubItems[6].Text);
+            total -= (price * qty);
+            txtAmount.Text = "$" + total.ToString();
+            lvResult.Items.Remove(lvResult.SelectedItems[0]);
+        }
+
+        private void LvResult_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            currentItem = lvResult.GetItemAt(e.X, e.Y);
+
+            if (currentItem != null)
+            {
+                currentItemSub = currentItem.GetSubItemAt(e.X, e.Y);
+                int subIndex = currentItem.SubItems.IndexOf(currentItemSub);
+                switch (subIndex)
+                {
+                    case 6:
+                        int lLeft = currentItemSub.Bounds.Left + 2;
+                        int lWidth = currentItemSub.Bounds.Width;
+                        txtHide.SetBounds(lLeft + lvResult.Left, currentItemSub.Bounds.Top + lvResult.Top, lWidth, currentItemSub.Bounds.Height);
+                        txtHide.Text = currentItemSub.Text;
+                        txtHide.Show();
+                        txtHide.Focus();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        private void TxtHide_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            double price = Convert.ToDouble(Regex.Replace(currentItem.SubItems[5].Text, "[$]", ""));
+            double curQty = Convert.ToDouble(currentItem.SubItems[6].Text);
+            double newQty = Convert.ToInt32(txtHide.Text);
+            switch (e.KeyChar)
+            {
+                case (char)13:  //Enter
+                    if (curQty > newQty)
+                    {
+                        curQty -= newQty;
+                        total -= (price * curQty);
+                    }
+                    else if (curQty < newQty)
+                    {
+                        newQty -= curQty;
+                        total += (price * newQty);
+                    }
+                    txtAmount.Text = "$" + total.ToString();
+                    currentItemSub.Text = txtHide.Text;
+
+                    e.Handled = true;
+                    txtHide.Hide();
+                    break;
+
+                case (char)27:  //Escape
+                    txtHide.Text = "";
+                    e.Handled = true;
+                    txtHide.Hide();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void BtnSubmit_Click(object sender, EventArgs e)
+        {
+            String submitTime = DateTime.Now.ToString("yyyy-MM-dd H:mm:ss");
+
+            if (txtAmount.Text == "$")     //If Total Amount is Empty
+            {
+                MessageBox.Show("There is no product in cart!");
+            }
+            else
+            {
+                try
+                {
+                    String sql = String.Format("INSERT INTO purchasingOrder(`staffId`, `date`, `deliveryDate`, `address`, `totalAmount`, `remark`) VALUES('{0}','{1}','{2}','{3}','{4}','{5}')", txtStaffId.Text, dtpDay.Value.ToString("yyyy-MM-dd"), dtpDelivery.Value.ToString("yyyy-MM-dd"), txtAddr.Text, total, txtRemark.Text);
+                    MySqlCommand cmd = Program.ExecSQL(sql);
+                    cmd.ExecuteNonQuery();
+                    cmd.Dispose();
+                    for (int i = 0; i < lvResult.Items.Count; i++)
+                    {
+                        String productId = lvResult.Items[i].Text;
+                        int qty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
+                        sql = String.Format("insert into purchasingOrderProduct " +
+                            "VALUES ('{0}', '{1}', {2})", txtNumber.Text, productId, qty);
+                        cmd = Program.ExecSQL(sql);
+                        cmd.ExecuteNonQuery();
+                        cmd.Dispose();
+
+                        sql = String.Format("UPDATE product SET atHand = atHand + {0} WHERE productId = {1}", qty, productId);
+                        cmd = Program.ExecSQL(sql);
+                        cmd.ExecuteNonQuery();
+                        cmd.Dispose();
+                    }
+
+                    MessageBox.Show("Submit Sussesed!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                Utilities.ResetAllControls(this);
+            }
         }
     }
 }
