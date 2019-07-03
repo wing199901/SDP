@@ -266,6 +266,7 @@ namespace SDP
 
         private void BtnSubmit_Click(object sender, EventArgs e)
         {
+
             if ((txtName.Text == "") || (txtCompany.Text == "") || (txtAddr.Text == "") || (txtShipAddr.Text == "") || (txtEmail.Text == "") || (txtPhone.Text == ""))
             {
                 MessageBox.Show("Please fill in the customer infomation!");
@@ -283,6 +284,7 @@ namespace SDP
                     MySqlCommand cmd = Program.ExecSQL(sql);
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
+
 
                     sql = String.Format("update dbOPSRS.order set staffId='{1}', deliveryDate='{2}', status='{3}',shippingAddress='{4}',totalAmount={5}, remark='{6}' where orderId= '{0}'",
                         OrderId, txtStaffId.Text, dtpDelivery.Value.ToString("yyyy-MM-dd"), cboStatus.Text, txtShipAddr.Text, total, txtRemark.Text);
