@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Windows.Forms;  
 using MySql.Data.MySqlClient;
 
 namespace SDP
@@ -25,7 +25,6 @@ namespace SDP
         private double quantity = 0;
         private double total = 0;
 
-        private String custId = "";
         private String orderId = "";
 
         ListViewItem currentItem;
