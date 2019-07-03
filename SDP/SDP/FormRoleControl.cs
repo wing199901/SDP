@@ -13,7 +13,7 @@ namespace SDP
 {
     public partial class FormRoleControl : Form
     {
-        private ListViewItem currentItem;
+        //private ListViewItem currentItem;
         public FormRoleControl()
         {
             InitializeComponent();

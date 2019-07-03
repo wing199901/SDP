@@ -23,15 +23,12 @@ namespace SDP
             lvCustomer.GridLines = true;
             lvCustomer.View = View.Details;
             lvCustomer.FullRowSelect = true;
-            lvCustomer.Columns.Add("Customer ID", 100);
             lvCustomer.Columns.Add("Customer Name", 100);
             lvCustomer.Columns.Add("Address", 100);
             lvCustomer.Columns.Add("Company Name", 100);
             lvCustomer.Columns.Add("Email", 150);
-            lvCustomer.Columns.Add("Phone Number", 50);
+            lvCustomer.Columns.Add("Phone Number", 100);
 
-            lvCustomer.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            lvCustomer.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         private void LvCustomer_SelectedIndexChanged(object sender, EventArgs e)
@@ -44,8 +41,7 @@ namespace SDP
 
             while (data.Read())
             {
-                ListViewItem lv = new ListViewItem(data.GetInt32(0).ToString());
-                lv.SubItems.Add(data.GetString(1).ToString());
+                ListViewItem lv = new ListViewItem(data.GetString(1).ToString());
                 lv.SubItems.Add(data.GetString(2).ToString());
                 lv.SubItems.Add(data.GetString(3).ToString());
                 lv.SubItems.Add(data.GetString(4).ToString());
