@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Windows.Forms;  
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
 namespace SDP
@@ -24,8 +24,6 @@ namespace SDP
         private String priceTxt = "";
         private double quantity = 0;
         private double total = 0;
-
-        private String orderId = "";
 
         ListViewItem currentItem;
         private ListViewItem.ListViewSubItem currentItemSub;
@@ -251,23 +249,31 @@ namespace SDP
             }
             else
             {
-                String sql = String.Format("INSERT INTO purchasingOrder VALUES('{0}','{1}','{2}','{3}','{4}','{5}')", txtStaffId.Text, dtpDay.Value.ToString("yyyy-MM-dd"), dtpDelivery.Value.ToString("yyyy-MM-dd"), txtAddr.Text, total, txtRemark.Text);
-                MySqlCommand cmd = Program.ExecSQL(sql);
-                cmd.ExecuteNonQuery();
-                cmd.Dispose();
-
-                for (int i = 0; i < lvResult.Items.Count; i++)
+                try
                 {
-                    String productId = lvResult.Items[i].Text;
-                    int qty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
-                    sql = String.Format("insert into orderProduct (orderId, productId, qty) " +
-                        "values ('{0}', '{1}', {2})", orderId, productId, qty);
-                    cmd = Program.ExecSQL(sql);
+                    String sql = String.Format("INSERT INTO purchasingOrder(`staffId`, `date`, `deliveryDate`, `address`, `totalAmount`, `remark`) VALUES('{0}','{1}','{2}','{3}','{4}','{5}')", txtStaffId.Text, dtpDay.Value.ToString("yyyy-MM-dd"), dtpDelivery.Value.ToString("yyyy-MM-dd"), txtAddr.Text, total, txtRemark.Text);
+                    MySqlCommand cmd = Program.ExecSQL(sql);
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
-                }
+                    /*
+                    for (int i = 0; i < lvResult.Items.Count; i++)
+                    {
+                        String productId = lvResult.Items[i].Text;
+                        int qty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
+                        sql = String.Format("insert into purchasingOrderProduct " +
+                            "VALUES ('{0}', '{1}', {2})", txtNumber.Text, productId, qty);
+                        cmd = Program.ExecSQL(sql);
+                        cmd.ExecuteNonQuery();
+                        cmd.Dispose();
+                    }*/
 
-                MessageBox.Show("Submit Sussesed!");
+
+                    MessageBox.Show("Submit Sussesed!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
                 Utilities.ResetAllControls(this);
             }
         }
