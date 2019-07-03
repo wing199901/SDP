@@ -35,13 +35,13 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.lblDate = new System.Windows.Forms.Label();
             this.txtDate = new System.Windows.Forms.TextBox();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lvResult = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // lblCompany
             // 
             this.lblCompany.AutoSize = true;
-            this.lblCompany.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblCompany.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblCompany.Location = new System.Drawing.Point(414, 396);
             this.lblCompany.Name = "lblCompany";
             this.lblCompany.Size = new System.Drawing.Size(399, 24);
@@ -63,15 +63,17 @@
             this.txtOrderID.Name = "txtOrderID";
             this.txtOrderID.Size = new System.Drawing.Size(200, 22);
             this.txtOrderID.TabIndex = 0;
+            this.txtOrderID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtOrderID_KeyDown);
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(87, 133);
+            this.btnSearch.Location = new System.Drawing.Point(461, 53);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // btnCancel
             // 
@@ -87,9 +89,9 @@
             this.lblDate.AutoSize = true;
             this.lblDate.Location = new System.Drawing.Point(85, 96);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(73, 12);
+            this.lblDate.Size = new System.Drawing.Size(65, 12);
             this.lblDate.TabIndex = 150;
-            this.lblDate.Text = "Purchase Date:";
+            this.lblDate.Text = "Arrival Date:";
             // 
             // txtDate
             // 
@@ -98,21 +100,21 @@
             this.txtDate.Size = new System.Drawing.Size(200, 22);
             this.txtDate.TabIndex = 1;
             // 
-            // listView1
+            // lvResult
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(20, 196);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(806, 132);
-            this.listView1.TabIndex = 152;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.lvResult.HideSelection = false;
+            this.lvResult.Location = new System.Drawing.Point(20, 196);
+            this.lvResult.Name = "lvResult";
+            this.lvResult.Size = new System.Drawing.Size(806, 132);
+            this.lvResult.TabIndex = 152;
+            this.lvResult.UseCompatibleStateImageBehavior = false;
             // 
             // FormReceive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.lvResult);
             this.Controls.Add(this.txtDate);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.btnCancel);
@@ -122,6 +124,7 @@
             this.Controls.Add(this.lblCompany);
             this.Name = "FormReceive";
             this.Text = "Receive goods";
+            this.Load += new System.EventHandler(this.FormReceive_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,6 +138,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.TextBox txtDate;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lvResult;
     }
 }
