@@ -280,6 +280,7 @@ namespace SDP
             {
                 try
                 {
+                    Boolean submitStatus = true;
                     switch (status)
                     {
                         case "Creation":
@@ -287,15 +288,23 @@ namespace SDP
                             {
                                 MessageBox.Show("The 'Creation' status cannot change to 'Finish' status.");
                                 break;
-                            }else if (cboStatus.SelectedItem == "Shipping")
+                            }else if (cboStatus.SelectedItem == "Delection")
                             {
-                                /////////////here
+                                submit();
+                                updateNumberOfProduct("onHand", "inHand");
+                                break;
                             }
                             submit();
                             break;
 
-                    }
 
+
+                    }
+                    if (submitStatus)
+                    {
+                        MessageBox.Show("Update Sussesed!");
+                        this.Close();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -331,9 +340,18 @@ namespace SDP
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
             }
-
-            MessageBox.Show("Update Sussesed!");
-            this.Close();
+        }
+        private void updateNumberOfProduct(String add, String minus)
+        {
+            for (int i = 0; i < lvResult.Items.Count; i++)
+            {
+                String productId = lvResult.Items[i].Text;
+                int qty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
+                String sql = String.Format("update product set {2} = {2} - {0}, {3} = {3} + {0} where productId = {1}", qty, productId,minus,add);
+                MySqlCommand cmd = Program.ExecSQL(sql);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
         }
         private void BtnCancel_Click(object sender, EventArgs e)
         {
