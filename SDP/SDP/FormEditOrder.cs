@@ -113,6 +113,7 @@ namespace SDP
                 lv.SubItems.Add(data.GetString(7).ToString());
                 double price = data.GetDouble(5);
                 double qty = data.GetDouble(6);
+                
                 total += price * qty;
                 lvResult.Items.Add(lv);
             }
@@ -346,9 +347,21 @@ namespace SDP
             for (int i = 0; i < lvResult.Items.Count; i++)
             {
                 String productId = lvResult.Items[i].Text;
-                int qty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
-                String sql = String.Format("update product set {2} = {2} - {0}, {3} = {3} + {0} where productId = {1}", qty, productId,minus,add);
+                // int qty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
+                String sql = String.Format("select qty,despatched form orderProduct where productId = {0}", productId);
                 MySqlCommand cmd = Program.ExecSQL(sql);
+                MySqlDataReader data = cmd.ExecuteReader();
+                int qty = 0;
+                int despatched = 0;
+                while (data.Read())
+                {
+                     qty = data.GetInt32(0);
+                     despatched = data.GetInt32(1);
+                }
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+                sql = String.Format("update product set {2} = {2} - {0}, {3} = {3} + {0} where productId = {1}", qty, productId,minus,add);
+                cmd = Program.ExecSQL(sql);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
             }
