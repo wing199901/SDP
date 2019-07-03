@@ -85,7 +85,7 @@
             // txtNumber
             // 
             this.txtNumber.Location = new System.Drawing.Point(242, 25);
-            this.txtNumber.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtNumber.Margin = new System.Windows.Forms.Padding(6);
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.ReadOnly = true;
             this.txtNumber.Size = new System.Drawing.Size(396, 31);
@@ -118,61 +118,15 @@
             "Creation",
             "Reservation"});
             this.cboStatus.Location = new System.Drawing.Point(242, 83);
-            this.cboStatus.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cboStatus.Margin = new System.Windows.Forms.Padding(6);
             this.cboStatus.Name = "cboStatus";
             this.cboStatus.Size = new System.Drawing.Size(396, 33);
             this.cboStatus.TabIndex = 1;
             // 
-            // txtShipAddr
-            // 
-            this.txtShipAddr.Location = new System.Drawing.Point(242, 308);
-            this.txtShipAddr.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.txtShipAddr.Name = "txtShipAddr";
-            this.txtShipAddr.Size = new System.Drawing.Size(396, 31);
-            this.txtShipAddr.TabIndex = 6;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(36, 315);
-            this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(187, 25);
-            this.label7.TabIndex = 156;
-            this.label7.Text = "Shipping Address:";
-            // 
-            // choShipAddr
-            // 
-            this.choShipAddr.AutoSize = true;
-            this.choShipAddr.Location = new System.Drawing.Point(672, 254);
-            this.choShipAddr.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.choShipAddr.Name = "choShipAddr";
-            this.choShipAddr.Size = new System.Drawing.Size(213, 29);
-            this.choShipAddr.TabIndex = 5;
-            this.choShipAddr.Text = "Shipping Address";
-            this.choShipAddr.UseVisualStyleBackColor = true;
-            this.choShipAddr.Click += new System.EventHandler(this.ChoShipAddr_Click);
-            // 
-            // txtPhone
-            // 
-            this.txtPhone.Location = new System.Drawing.Point(242, 429);
-            this.txtPhone.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(396, 31);
-            this.txtPhone.TabIndex = 8;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(242, 367);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(396, 31);
-            this.txtEmail.TabIndex = 7;
-            // 
             // txtAddr
             // 
             this.txtAddr.Location = new System.Drawing.Point(242, 250);
-            this.txtAddr.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtAddr.Margin = new System.Windows.Forms.Padding(6);
             this.txtAddr.Name = "txtAddr";
             this.txtAddr.Size = new System.Drawing.Size(396, 31);
             this.txtAddr.TabIndex = 4;
@@ -180,7 +134,7 @@
             // txtCompany
             // 
             this.txtCompany.Location = new System.Drawing.Point(242, 196);
-            this.txtCompany.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtCompany.Margin = new System.Windows.Forms.Padding(6);
             this.txtCompany.Name = "txtCompany";
             this.txtCompany.Size = new System.Drawing.Size(396, 31);
             this.txtCompany.TabIndex = 3;
@@ -188,35 +142,15 @@
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(242, 137);
-            this.txtName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtName.Margin = new System.Windows.Forms.Padding(6);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(396, 31);
             this.txtName.TabIndex = 2;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(36, 435);
-            this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 25);
-            this.label6.TabIndex = 149;
-            this.label6.Text = "Phone:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(36, 373);
-            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 25);
-            this.label5.TabIndex = 148;
-            this.label5.Text = "Email:";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(36, 258);
+            this.label4.Location = new System.Drawing.Point(36, 253);
             this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(97, 25);
@@ -226,7 +160,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(36, 202);
+            this.label2.Location = new System.Drawing.Point(36, 196);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(109, 25);
@@ -247,7 +181,7 @@
             // 
             this.txtDate.BackColor = System.Drawing.SystemColors.Info;
             this.txtDate.Location = new System.Drawing.Point(1252, 25);
-            this.txtDate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtDate.Margin = new System.Windows.Forms.Padding(6);
             this.txtDate.Name = "txtDate";
             this.txtDate.ReadOnly = true;
             this.txtDate.Size = new System.Drawing.Size(396, 31);
@@ -256,7 +190,7 @@
             // txtStaffId
             // 
             this.txtStaffId.Location = new System.Drawing.Point(1252, 83);
-            this.txtStaffId.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtStaffId.Margin = new System.Windows.Forms.Padding(6);
             this.txtStaffId.Name = "txtStaffId";
             this.txtStaffId.ReadOnly = true;
             this.txtStaffId.Size = new System.Drawing.Size(396, 31);
@@ -295,7 +229,7 @@
             // dtpDelivery
             // 
             this.dtpDelivery.Location = new System.Drawing.Point(1252, 144);
-            this.dtpDelivery.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dtpDelivery.Margin = new System.Windows.Forms.Padding(6);
             this.dtpDelivery.Name = "dtpDelivery";
             this.dtpDelivery.Size = new System.Drawing.Size(396, 31);
             this.dtpDelivery.TabIndex = 9;
@@ -303,7 +237,7 @@
             // txtKeyword
             // 
             this.txtKeyword.Location = new System.Drawing.Point(1252, 379);
-            this.txtKeyword.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtKeyword.Margin = new System.Windows.Forms.Padding(6);
             this.txtKeyword.Name = "txtKeyword";
             this.txtKeyword.Size = new System.Drawing.Size(396, 31);
             this.txtKeyword.TabIndex = 14;
@@ -332,7 +266,7 @@
             // txtQty
             // 
             this.txtQty.Location = new System.Drawing.Point(1252, 260);
-            this.txtQty.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtQty.Margin = new System.Windows.Forms.Padding(6);
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(396, 31);
             this.txtQty.TabIndex = 11;
@@ -341,7 +275,7 @@
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(1252, 437);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(6);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(150, 48);
             this.btnSearch.TabIndex = 15;
@@ -352,7 +286,7 @@
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(1414, 319);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(6);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(150, 48);
             this.btnDelete.TabIndex = 13;
@@ -363,7 +297,7 @@
             // txtProductID
             // 
             this.txtProductID.Location = new System.Drawing.Point(1252, 202);
-            this.txtProductID.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtProductID.Margin = new System.Windows.Forms.Padding(6);
             this.txtProductID.Name = "txtProductID";
             this.txtProductID.Size = new System.Drawing.Size(396, 31);
             this.txtProductID.TabIndex = 10;
@@ -381,7 +315,7 @@
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(1252, 319);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(6);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(150, 48);
             this.btnAdd.TabIndex = 12;
@@ -392,7 +326,7 @@
             // txtAmount
             // 
             this.txtAmount.Location = new System.Drawing.Point(1252, 785);
-            this.txtAmount.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtAmount.Margin = new System.Windows.Forms.Padding(6);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.ReadOnly = true;
             this.txtAmount.Size = new System.Drawing.Size(396, 31);
@@ -422,7 +356,7 @@
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(202, 990);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(6);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(150, 48);
             this.btnCancel.TabIndex = 19;
@@ -433,7 +367,7 @@
             // btnSubmit
             // 
             this.btnSubmit.Location = new System.Drawing.Point(40, 990);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(6);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(150, 48);
             this.btnSubmit.TabIndex = 18;
@@ -445,7 +379,7 @@
             // 
             this.txtRemark.ForeColor = System.Drawing.Color.Silver;
             this.txtRemark.Location = new System.Drawing.Point(40, 837);
-            this.txtRemark.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtRemark.Margin = new System.Windows.Forms.Padding(6);
             this.txtRemark.Multiline = true;
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Size = new System.Drawing.Size(1608, 135);
@@ -458,7 +392,7 @@
             // 
             this.lvResult.HideSelection = false;
             this.lvResult.Location = new System.Drawing.Point(40, 498);
-            this.lvResult.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.lvResult.Margin = new System.Windows.Forms.Padding(6);
             this.lvResult.Name = "lvResult";
             this.lvResult.Size = new System.Drawing.Size(1608, 271);
             this.lvResult.TabIndex = 191;
@@ -468,7 +402,7 @@
             // txtHide
             // 
             this.txtHide.Location = new System.Drawing.Point(736, 437);
-            this.txtHide.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtHide.Margin = new System.Windows.Forms.Padding(6);
             this.txtHide.Name = "txtHide";
             this.txtHide.Size = new System.Drawing.Size(396, 31);
             this.txtHide.TabIndex = 16;
@@ -478,41 +412,46 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 179);
+            this.label5.Location = new System.Drawing.Point(35, 356);
+            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 12);
+            this.label5.Size = new System.Drawing.Size(71, 25);
             this.label5.TabIndex = 148;
             this.label5.Text = "Email:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(18, 209);
+            this.label6.Location = new System.Drawing.Point(36, 409);
+            this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 12);
+            this.label6.Size = new System.Drawing.Size(80, 25);
             this.label6.TabIndex = 149;
             this.label6.Text = "Phone:";
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(121, 176);
+            this.txtEmail.Location = new System.Drawing.Point(242, 353);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(6);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(200, 22);
+            this.txtEmail.Size = new System.Drawing.Size(396, 31);
             this.txtEmail.TabIndex = 7;
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(121, 206);
+            this.txtPhone.Location = new System.Drawing.Point(242, 406);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(6);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(200, 22);
+            this.txtPhone.Size = new System.Drawing.Size(396, 31);
             this.txtPhone.TabIndex = 8;
             // 
             // choShipAddr
             // 
             this.choShipAddr.AutoSize = true;
-            this.choShipAddr.Location = new System.Drawing.Point(336, 122);
+            this.choShipAddr.Location = new System.Drawing.Point(662, 250);
+            this.choShipAddr.Margin = new System.Windows.Forms.Padding(6);
             this.choShipAddr.Name = "choShipAddr";
-            this.choShipAddr.Size = new System.Drawing.Size(106, 16);
+            this.choShipAddr.Size = new System.Drawing.Size(213, 29);
             this.choShipAddr.TabIndex = 5;
             this.choShipAddr.Text = "Shipping Address";
             this.choShipAddr.UseVisualStyleBackColor = true;
@@ -521,17 +460,19 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(18, 151);
+            this.label7.Location = new System.Drawing.Point(35, 302);
+            this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(90, 12);
+            this.label7.Size = new System.Drawing.Size(187, 25);
             this.label7.TabIndex = 156;
             this.label7.Text = "Shipping Address:";
             // 
             // txtShipAddr
             // 
-            this.txtShipAddr.Location = new System.Drawing.Point(121, 148);
+            this.txtShipAddr.Location = new System.Drawing.Point(242, 299);
+            this.txtShipAddr.Margin = new System.Windows.Forms.Padding(6);
             this.txtShipAddr.Name = "txtShipAddr";
-            this.txtShipAddr.Size = new System.Drawing.Size(200, 22);
+            this.txtShipAddr.Size = new System.Drawing.Size(396, 31);
             this.txtShipAddr.TabIndex = 6;
             // 
             // FormNewOrder
@@ -580,7 +521,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.choShipAddr);
             this.Controls.Add(this.lblCompany);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormNewOrder";
             this.Text = "New order";
             this.Load += new System.EventHandler(this.FormNewOrder_Load);
