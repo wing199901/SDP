@@ -31,13 +31,13 @@
             this.lblCompany = new System.Windows.Forms.Label();
             this.lblReport = new System.Windows.Forms.Label();
             this.cboType = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.lblStart = new System.Windows.Forms.Label();
             this.lblTo = new System.Windows.Forms.Label();
             this.lblEnd = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.btnApply = new System.Windows.Forms.Button();
+            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
+            this.lvReport = new System.Windows.Forms.ListView();
+            this.btnGen = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblCompany
@@ -61,18 +61,24 @@
             // 
             // cboType
             // 
+            this.cboType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboType.FormattingEnabled = true;
+            this.cboType.Items.AddRange(new object[] {
+            "Defective Goods",
+            "Inward",
+            "Outward",
+            "Turnover"});
             this.cboType.Location = new System.Drawing.Point(130, 60);
             this.cboType.Name = "cboType";
             this.cboType.Size = new System.Drawing.Size(121, 20);
             this.cboType.TabIndex = 0;
             // 
-            // dateTimePicker1
+            // dtpStartDate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(130, 105);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker1.TabIndex = 1;
+            this.dtpStartDate.Location = new System.Drawing.Point(130, 105);
+            this.dtpStartDate.Name = "dtpStartDate";
+            this.dtpStartDate.Size = new System.Drawing.Size(200, 22);
+            this.dtpStartDate.TabIndex = 1;
             // 
             // lblStart
             // 
@@ -101,48 +107,50 @@
             this.lblEnd.TabIndex = 150;
             this.lblEnd.Text = "End Date:";
             // 
-            // dateTimePicker2
+            // dtpEndDate
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(484, 105);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker2.TabIndex = 2;
+            this.dtpEndDate.Location = new System.Drawing.Point(484, 105);
+            this.dtpEndDate.Name = "dtpEndDate";
+            this.dtpEndDate.Size = new System.Drawing.Size(200, 22);
+            this.dtpEndDate.TabIndex = 2;
             // 
-            // listView1
+            // lvReport
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(20, 190);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(806, 132);
-            this.listView1.TabIndex = 152;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.lvReport.HideSelection = false;
+            this.lvReport.Location = new System.Drawing.Point(20, 190);
+            this.lvReport.Name = "lvReport";
+            this.lvReport.Size = new System.Drawing.Size(806, 132);
+            this.lvReport.TabIndex = 152;
+            this.lvReport.UseCompatibleStateImageBehavior = false;
             // 
-            // btnApply
+            // btnGen
             // 
-            this.btnApply.Location = new System.Drawing.Point(715, 107);
-            this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(75, 23);
-            this.btnApply.TabIndex = 3;
-            this.btnApply.Text = "Apply";
-            this.btnApply.UseVisualStyleBackColor = true;
+            this.btnGen.Location = new System.Drawing.Point(715, 107);
+            this.btnGen.Name = "btnGen";
+            this.btnGen.Size = new System.Drawing.Size(75, 23);
+            this.btnGen.TabIndex = 3;
+            this.btnGen.Text = "Generate";
+            this.btnGen.UseVisualStyleBackColor = true;
+            this.btnGen.Click += new System.EventHandler(this.BtnGen_Click);
             // 
             // FormGenerate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
-            this.Controls.Add(this.btnApply);
-            this.Controls.Add(this.listView1);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.btnGen);
+            this.Controls.Add(this.lvReport);
+            this.Controls.Add(this.dtpEndDate);
             this.Controls.Add(this.lblEnd);
             this.Controls.Add(this.lblTo);
             this.Controls.Add(this.lblStart);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpStartDate);
             this.Controls.Add(this.cboType);
             this.Controls.Add(this.lblReport);
             this.Controls.Add(this.lblCompany);
             this.Name = "FormGenerate";
             this.Text = "Generate report";
+            this.Load += new System.EventHandler(this.FormGenerate_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,12 +160,12 @@
         private System.Windows.Forms.Label lblCompany;
         private System.Windows.Forms.Label lblReport;
         private System.Windows.Forms.ComboBox cboType;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpStartDate;
         private System.Windows.Forms.Label lblStart;
         private System.Windows.Forms.Label lblTo;
         private System.Windows.Forms.Label lblEnd;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Button btnApply;
+        private System.Windows.Forms.DateTimePicker dtpEndDate;
+        private System.Windows.Forms.ListView lvReport;
+        private System.Windows.Forms.Button btnGen;
     }
 }
