@@ -328,6 +328,7 @@ namespace SDP
                 for (int i = 0; i < lvResult.Items.Count; i++)
                 {
                     String productId = lvResult.Items[i].Text;
+                    int amount = Convert.ToInt32(lvResult.Items[i].SubItems[5].Text);
                     int qty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
                     sql = String.Format("insert into orderProduct (orderId, productId, qty) " +
                         "values ('{0}', '{1}', {2})", orderId, productId, qty);
@@ -363,7 +364,6 @@ namespace SDP
                             while (data.Read())
                             {
                                 poId = data.GetString(0);
-                                //MessageBox.Show(poId);
                             }
 
                         }
@@ -375,7 +375,7 @@ namespace SDP
                         cmd = Program.ExecSQL(sql);
                         cmd.ExecuteNonQuery();
 
-                        sql = String.Format("UPDATE purchasingOrder SET totalAmount = totalAmount +  WHERE productId = {0}", productId);
+                        sql = String.Format("UPDATE purchasingOrder SET totalAmount = totalAmount + {0} WHERE productId = {1}",amount, productId);
                         cmd = Program.ExecSQL(sql);
                         cmd.ExecuteNonQuery();
 
