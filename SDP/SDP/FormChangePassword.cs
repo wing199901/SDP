@@ -83,5 +83,17 @@ namespace SDP
                 }
             }
         }
+
+        private void TxtConfirmation_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSubmit.Focus();
+
+                BtnSubmit_Click(sender, e);
+
+                txtOld.Focus();
+            }
+        }
     }
 }

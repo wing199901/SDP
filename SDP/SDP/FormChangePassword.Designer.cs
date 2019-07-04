@@ -44,6 +44,7 @@
             this.txtConfirmation.Name = "txtConfirmation";
             this.txtConfirmation.Size = new System.Drawing.Size(200, 22);
             this.txtConfirmation.TabIndex = 150;
+            this.txtConfirmation.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtConfirmation_KeyDown);
             // 
             // txtNew
             // 
