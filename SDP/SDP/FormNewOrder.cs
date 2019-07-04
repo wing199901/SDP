@@ -363,6 +363,7 @@ namespace SDP
                             while (data.Read())
                             {
                                 poId = data.GetString(0);
+                                MessageBox.Show(poId);
                             }
 
                         }
