@@ -83,7 +83,7 @@ namespace SDP
             }
             else
             {
-                String sql = String.Format("INSER INTO defective VALUES('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')", txtSid.Text, txtSKU.Text, dtpDefective.Value.ToString("yyyy-MM-dd"), txtQTY.Text, txtReason.Text, txtRemark.Text);
+                String sql = String.Format("INSERT INTO defective(`staffId`, `productId`, `date`, `qty`, `reason`, `remark`) VALUES('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')", txtSid.Text, txtSKU.Text, dtpDefective.Value.ToString("yyyy-MM-dd"), txtQTY.Text, txtReason.Text, txtRemark.Text);
                 MySqlCommand cmd = Program.ExecSQL(sql);
                 cmd.ExecuteNonQuery();
 
