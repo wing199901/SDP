@@ -22,10 +22,18 @@ namespace SDP
         }
 
         private Boolean btnLogoutWasClicked;
+
         public FormMenu(String username)
         {
             InitializeComponent();
             UserName = username;
+
+            DateTime firstDay = new DateTime();
+            firstDay = firstDay.AddDays(-(firstDay.Day - 1));
+            if (DateTime.Now.Day.Equals(firstDay.Day))
+            {
+                this.Reorder("");
+            }
         }
 
         private void BtnNewOrder_Click(object sender, EventArgs e)
