@@ -197,6 +197,7 @@ namespace SDP
                         catch (Exception ex)
                         {
                             MessageBox.Show(ex.ToString());
+                            MessageBox.Show("Phone number cannot repeat");
                         }
 
                         cmd.Dispose();
@@ -204,7 +205,22 @@ namespace SDP
                     }
                     else
                     {
-                        MessageBox.Show("Phone number cannot repeat");
+                        //MessageBox.Show("Phone number cannot repeat");
+                        try
+                        {
+                            String sql = String.Format("UPDATE customer SET custName = '{0}', address = '{1}', companyName = '{2}', email = '{3}', WHERE custID = '{4}'", txtName.Text, txtAddress.Text, txtComName.Text, txtEmail.Text, CustomerID);
+                            cmd = Program.ExecSQL(sql);
+                            cmd.ExecuteReader();
+                            MessageBox.Show("Update successfully!");
+                            FormCustomerManagement_Load(sender, e);
+                            //Utilities.ResetAllControls(this);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.ToString());
+                        }
+
+                        cmd.Dispose();
                     }
                 }
             }
