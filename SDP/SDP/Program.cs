@@ -23,7 +23,7 @@ namespace SDP
 
         public static MySqlCommand ExecSQL(String sql)
         {
-            string dbHost = "192.168.6.2";
+            string dbHost = "192.168.65.2";
             string dbUser = "user";
             string dbPass = "user";
             string dbName = "dbOPSRS";

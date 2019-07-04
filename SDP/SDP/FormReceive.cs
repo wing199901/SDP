@@ -28,7 +28,7 @@ namespace SDP
             lvResult.GridLines = true;
             lvResult.View = View.Details;
             lvResult.FullRowSelect = true;
-            lvResult.Columns.Add("Purchasing Order ID", 100);
+            lvResult.Columns.Add("Purchasing Order ID", 150);
             lvResult.Columns.Add("Product ID", 100);
             lvResult.Columns.Add("Type", 50);
             lvResult.Columns.Add("Brand", 50);
