@@ -142,32 +142,46 @@ namespace SDP
             {
                 if (txtQty.Text != "")
                 {
-                    String sql = String.Format("select productId, type, brand, productName, Description, price from product where productId like '%{0}%'", txtProductID.Text);
+                    String sql = String.Format("select onHand from product where productId = {0}",txtProductID.Text.ToString());
                     MySqlCommand cmd = Program.ExecSQL(sql);
                     MySqlDataReader data = cmd.ExecuteReader();
-
+                    int onHand = 0;
                     while (data.Read())
                     {
-                        ListViewItem lv = new ListViewItem(data.GetString(0).ToString());
-                        lv.SubItems.Add(data.GetString(1).ToString());
-                        lv.SubItems.Add(data.GetString(2).ToString());
-                        lv.SubItems.Add(data.GetString(3).ToString());
-                        lv.SubItems.Add(data.GetString(4).ToString());
-                        priceTxt = data.GetDouble(5).ToString();
-                        lv.SubItems.Add("$" + priceTxt);
-                        lv.SubItems.Add(txtQty.Text);
-                        lvResult.Items.Add(lv);
-                        double price = Convert.ToDouble(priceTxt);
-                        quantity = Convert.ToDouble(txtQty.Text);
-                        price *= quantity;
-                        total += price;
-                        txtAmount.Text = "$" + total.ToString();
+                        onHand = data.GetInt32(0);
                     }
+                    if (onHand > 0)
+                    {
+                        sql = String.Format("select productId, type, brand, productName, Description, price from product where productId like '%{0}%'", txtProductID.Text);
+                        cmd = Program.ExecSQL(sql);
+                        data = cmd.ExecuteReader();
 
-                    data.Close();
-                    cmd.Dispose();
-                    txtProductID.Text = "";
-                    txtQty.Text = "";
+                        while (data.Read())
+                        {
+                            ListViewItem lv = new ListViewItem(data.GetString(0).ToString());
+                            lv.SubItems.Add(data.GetString(1).ToString());
+                            lv.SubItems.Add(data.GetString(2).ToString());
+                            lv.SubItems.Add(data.GetString(3).ToString());
+                            lv.SubItems.Add(data.GetString(4).ToString());
+                            priceTxt = data.GetDouble(5).ToString();
+                            lv.SubItems.Add("$" + priceTxt);
+                            lv.SubItems.Add(txtQty.Text);
+                            lvResult.Items.Add(lv);
+                            double price = Convert.ToDouble(priceTxt);
+                            quantity = Convert.ToDouble(txtQty.Text);
+                            price *= quantity;
+                            total += price;
+                            txtAmount.Text = "$" + total.ToString();
+                        }
+
+                        data.Close();
+                        cmd.Dispose();
+                        txtProductID.Text = "";
+                        txtQty.Text = "";
+                    }else
+                    {
+                        MessageBox.Show("This product is out of stock.");
+                    }
                 }
                 else
                 {
@@ -303,6 +317,7 @@ namespace SDP
                 data.Close();
                 cmd.Dispose();
 
+                MessageBox.Show(custId);
                 sql = String.Format("insert into dbOPSRS.order (staffId, custId, status, date, deliveryDate, shippingAddress, totalAmount, remark) " +
                     "values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', {6}, '{7}')",
                     txtStaffId.Text, custId, cboStatus.Text, submitTime, dtpDelivery.Value.ToString("yyyy-MM-dd"), txtShipAddr.Text, total, txtRemark.Text);
@@ -367,15 +382,15 @@ namespace SDP
                             }
 
                         }
-                        sql = String.Format("INSERT INTO purchasingOrderProduct VALUES('{0}','{1}','{2}')", poId, productId, qty);
+                        sql = String.Format("INSERT INTO purchasingOrderProduct VALUES('{0}','{1}','{2}')", poId, productId, qty-onHand);
                         cmd = Program.ExecSQL(sql);
                         cmd.ExecuteNonQuery();
 
-                        sql = String.Format("UPDATE product SET atHand = atHand + {0} WHERE productId = {1}", qty, productId);
+                        sql = String.Format("UPDATE product SET atHand = atHand + {0} WHERE productId = {1}", qty-onHand, productId);
                         cmd = Program.ExecSQL(sql);
                         cmd.ExecuteNonQuery();
 
-                        sql = String.Format("UPDATE purchasingOrder SET totalAmount = totalAmount + {0} WHERE poId = {1}",amount, poId);
+                        sql = String.Format("UPDATE purchasingOrder SET totalAmount = totalAmount + {0} WHERE poId = {1}",amount*(qty-onHand), poId);
                         cmd = Program.ExecSQL(sql);
                         cmd.ExecuteNonQuery();
 
