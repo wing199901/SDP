@@ -63,29 +63,38 @@ namespace SDP
                 {
                     MySqlCommand cmd = null;
                     String sql;
-                    if (txtLeadTime.Text == "")
+                    String check_Name = String.Format("select * from product where productName = '{0}'", txtName.Text);
+                    cmd = Program.ExecSQL(check_Name);
+                    MySqlDataReader data = cmd.ExecuteReader();
+                    int tmp = 0;
+                    while (data.Read())
                     {
-                        sql = String.Format("INSERT INTO product(type, brand,productName,description, price) VALUES('{0}','{1}','{2}','{3}','{4}')", type, txtBrand.Text, txtName.Text, txtDes.Text, txtPrice.Text);
+                        tmp++;
+                    }
+                    if (tmp == 0)
+                    {
+                        if (txtLeadTime.Text == "")
+                        {
+                            sql = String.Format("INSERT INTO product(type, brand,productName,description, price) VALUES('{0}','{1}','{2}','{3}','{4}')", type, txtBrand.Text, txtName.Text, txtDes.Text, txtPrice.Text);
+                        }
+                        else
+                        {
+                            sql = String.Format("INSERT INTO product(type, brand,productName,description, price, leadTime) VALUES('{0}','{1}','{2}','{3}','{4}','{5}')", type, txtBrand.Text, txtName.Text, txtDes.Text, txtPrice.Text, txtLeadTime.Text);
+                        }
+                        cmd = Program.ExecSQL(sql);
+                        cmd.ExecuteReader();
+                        cmd.Dispose();
+                        MessageBox.Show("Add successfully!");
                     }
                     else
                     {
-                        sql = String.Format("INSERT INTO product(type, brand,productName,description, price, leadTime) VALUES('{0}','{1}','{2}','{3}','{4}','{5}')", type, txtBrand.Text, txtName.Text, txtDes.Text, txtPrice.Text, txtLeadTime.Text);
+                        MessageBox.Show("Product Name cannot repeat :=)");
                     }
-                    cmd = Program.ExecSQL(sql);
-                    cmd.ExecuteReader();
-                    cmd.Dispose();
-                    MessageBox.Show("Add successfully!");
-
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
                 }
-
-
-                
-
-
             }
         }
 
@@ -101,7 +110,7 @@ namespace SDP
 
         private void CbType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

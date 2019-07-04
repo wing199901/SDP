@@ -104,17 +104,22 @@ namespace SDP
             }
             else if (string.IsNullOrWhiteSpace(txtPhone.Text))
             {
-                MessageBox.Show("Customer Name can not be empty");
+                MessageBox.Show("Phone Number can not be empty");
             }
             else
             {
                 MySqlCommand cmd = null;
-                try
+                String check_Phone = String.Format("select * from customer where phone = '{0}'", txtPhone.Text);
+                cmd = Program.ExecSQL(check_Phone);
+                MySqlDataReader data = cmd.ExecuteReader();
+                int tmp = 0;
+                while (data.Read())
                 {
-                    String check_Phone = String.Format("select count * from customer where phone = '{0}'", txtPhone.Text);
-                    cmd = Program.ExecSQL(check_Phone);
-                    //cmd.ExecuteReader();
-                    if(check_Phone == null)
+                    tmp++;
+                }
+                if (tmp == 0)
+                {
+                    try
                     {
                         String sql = String.Format("INSERT INTO customer (custName, address, companyName, email, phone) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}') ", txtName.Text, txtAddress.Text, txtComName.Text, txtEmail.Text, txtPhone.Text);
                         cmd = Program.ExecSQL(sql);
@@ -122,23 +127,21 @@ namespace SDP
                         MessageBox.Show("Add successfully!");
                         FormCustomerManagement_Load(sender, e);
                     }
-                    else
+
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Record exists!");
+                        MessageBox.Show(ex.ToString());
                     }
-                    
-                }
 
-                catch (Exception ex)
+                    cmd.Dispose();
+
+                }
+                else
                 {
-                    MessageBox.Show(ex.ToString());
+                    MessageBox.Show("Phone number cannot repeat :-)");
                 }
-
-                cmd.Dispose();
-
             }
         }
-
         private void BtnEdit_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtName.Text))
@@ -159,7 +162,7 @@ namespace SDP
             }
             else if (string.IsNullOrWhiteSpace(txtPhone.Text))
             {
-                MessageBox.Show("Customer Name can not be empty");
+                MessageBox.Show("Phone Number can not be empty");
             }
             else
             {
@@ -167,25 +170,36 @@ namespace SDP
                 {
                     String CustomerID = currentItem.Text;
                     MySqlCommand cmd = null;
-                    try
+                    String check_Phone = String.Format("select * from customer where phone = '{0}'", txtPhone.Text);
+                    cmd = Program.ExecSQL(check_Phone);
+                    MySqlDataReader data = cmd.ExecuteReader();
+                    int tmp = 0;
+                    while (data.Read())
                     {
-                        String sql = String.Format("UPDATE customer SET custName = '{0}', address = '{1}', companyName = '{2}', email = '{3}', phone = '{4}' WHERE custID = '{5}'", txtName.Text, txtAddress.Text, txtComName.Text, txtEmail.Text, txtPhone.Text, CustomerID);
-                        cmd = Program.ExecSQL(sql);
-                        cmd.ExecuteReader();
-                        MessageBox.Show("Update successfully!");
-                        FormCustomerManagement_Load(sender, e);
+                        tmp++;
                     }
-                    catch (Exception ex)
+                    if (tmp == 0)
                     {
-                        MessageBox.Show(ex.ToString());
+                        try
+                        {
+                            String sql = String.Format("UPDATE customer SET custName = '{0}', address = '{1}', companyName = '{2}', email = '{3}', phone = '{4}' WHERE custID = '{5}'", txtName.Text, txtAddress.Text, txtComName.Text, txtEmail.Text, txtPhone.Text, CustomerID);
+                            cmd = Program.ExecSQL(sql);
+                            cmd.ExecuteReader();
+                            MessageBox.Show("Update successfully!");
+                            FormCustomerManagement_Load(sender, e);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.ToString());
+                        }
+
+                        cmd.Dispose();
+
                     }
-
-                    cmd.Dispose();
-
-                }
-                else
-                {
-                    MessageBox.Show("Please select a customer");
+                    else
+                    {
+                        MessageBox.Show("Phone number cannot repeat :-)");
+                    }
                 }
             }
         }

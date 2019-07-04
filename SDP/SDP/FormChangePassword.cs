@@ -48,7 +48,7 @@ namespace SDP
             else
             {
                 String Old = null;
-                String sql = String.Format("SELECT pwd FROM staff WHERE stafId = {0}", UserName);
+                String sql = String.Format("SELECT pwd FROM staff WHERE staffId = {0}", UserName);
                 MySqlCommand cmd = Program.ExecSQL(sql);
                 MySqlDataReader data = cmd.ExecuteReader();
 
@@ -57,24 +57,29 @@ namespace SDP
                     Old = data.GetString(0);
                 }
 
-                if (Old.Equals(txtNew.Text))
+                if (!Old.Equals(txtNew.Text))
                 {
                     if (txtNew.Text.Equals(txtConfirmation.Text))
                     {
                         sql = String.Format("UPDATE staff SET pwd = '{0}' WHERE staffId = '{1}'", txtConfirmation.Text, UserName);
                         cmd = Program.ExecSQL(sql);
                         cmd.ExecuteNonQuery();
+                        MessageBox.Show("Update Successfully.");
                     }
                     else
                     {
                         MessageBox.Show("Your New Password and Confirmation Password are not match.");
                         txtNew.Clear();
                         txtConfirmation.Clear();
+                        txtNew.Focus();
                     }
                 }
                 else
                 {
                     MessageBox.Show("New Password can not be same as your Old Password.");
+                    txtNew.Clear();
+                    txtConfirmation.Clear();
+                    txtNew.Focus();
                 }
             }
         }
