@@ -25,83 +25,66 @@ namespace SDP
             InitializeComponent();
             ProductId = productId;
 
-            // ListView Header
-            lvResult.GridLines = true;
-            lvResult.View = View.Details;
-            lvResult.FullRowSelect = true;
-            lvResult.Columns.Add("Product ID", 100);
-            lvResult.Columns.Add("Type", 100);
-            lvResult.Columns.Add("Brand", 100);
-            lvResult.Columns.Add("Product name", 100);
-            lvResult.Columns.Add("Description", 150);
-            lvResult.Columns.Add("At hand", 70);
-            lvResult.Columns.Add("On hand", 70);
-            lvResult.Columns.Add("In hand", 70);
-            lvResult.Columns.Add("Price", 50);
-
-
         }
 
-        private void BtnSearch_Click(object sender, EventArgs e)
+        private void FormEditStock_Load(object sender, EventArgs e)
         {
-            lvResult.Items.Clear();
-            if (txtProductId.Text != "" || txtType.Text != "" || txtBrand.Text != "" || txtProductName.Text != "" || txtPrice.Text != "")
+            String sql = String.Format("select * from product where productId='{0}'", ProductId);
+            MySqlCommand cmd = Program.ExecSQL(sql);
+            MySqlDataReader data = cmd.ExecuteReader();
+
+            while (data.Read())
             {
-                String sql = "";
-                // String sql = String.Format("select * from product where productId = '{0}' or type = '{1}' or brand = '{2}' or productName like '%{3}%' or price = {4}",
-                //   txtProductId.Text,txtType.Text,txtBrand.Text,txtProductName.Text,txtPrice.Text);
-                if (txtProductId.Text != "")
-                {
-                    sql += " productId='" + Convert.ToInt32(txtProductId.Text).ToString() + "'";
-                }
-                if (txtType.Text != "")
-                {
-                    if (sql != "")
-                    {
-                        sql += " or";
-                    }
-                    sql += " type='" + txtType.Text.ToString() + "'";
-                }
-                if (txtBrand.Text != "")
-                {
-                    if (sql != "")
-                    {
-                        sql += " or";
-                    }
-                    sql += " brand='" + txtBrand.Text.ToString() + "'";
-                }
-                if (txtProductName.Text != "")
-                {
-                    if (sql != "")
-                    {
-                        sql += " or";
-                    }
-                    sql += " productName like '%" + txtProductName.Text.ToString() + "%'";
-                }
-                MySqlCommand cmd = Program.ExecSQL("select * from product where " + sql );
-                MySqlDataReader data = cmd.ExecuteReader();
+                txtProductId.Text = data.GetString("productId");
+                txtType.Text = data.GetString("type");
+                txtBrand.Text = data.GetString("brand");
+                txtProductName.Text = data.GetString("productName");
+                txtPrice.Text = data.GetString("price");
+                txtDescription.Text = data.GetString("description");
+            }
 
-                lvResult.Items.Clear();
+            txtProductId.ReadOnly = true;
+        }
 
-                while (data.Read())
-                {
-                    ListViewItem lv = new ListViewItem(data.GetString(0).ToString());
-                    lv.SubItems.Add(data.GetString(1).ToString());
-                    lv.SubItems.Add(data.GetString(2).ToString());
-                    lv.SubItems.Add(data.GetString(3).ToString());
-                    lv.SubItems.Add(data.GetString(4).ToString());
-                    lv.SubItems.Add(data.GetInt32(5).ToString());
-                    lv.SubItems.Add(data.GetInt32(6).ToString());
-                    lv.SubItems.Add(data.GetInt32(7).ToString());
-                    lv.SubItems.Add(data.GetDouble(8).ToString());
-                    lvResult.Items.Add(lv);
-                }
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
-                data.Close();
-                cmd.Dispose();
+        private void BtnSubmit_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtProductId.Text))
+            {
+                MessageBox.Show("Product ID can not be empty");
+            }
+            else if (string.IsNullOrWhiteSpace(txtType.Text))
+            {
+                MessageBox.Show("Type can not be empty");
+            }
+            else if (string.IsNullOrWhiteSpace(txtBrand.Text))
+            {
+                MessageBox.Show("Brand can not be empty");
+            }
+            else if (string.IsNullOrWhiteSpace(txtProductName.Text))
+            {
+                MessageBox.Show("Product Name can not be empty");
+            }
+            else if (string.IsNullOrWhiteSpace(txtPrice.Text))
+            {
+                MessageBox.Show("Price can not be empty");
+            }
+            else if (string.IsNullOrWhiteSpace(txtDescription.Text))
+            {
+                MessageBox.Show("Description can not be empty");
+            }
+            else
+            {
+                String sql = String.Format("UPDATE product SET type = '{0}', brand = '{1}', productName = '{2}', price = '{3}', description = '{4}' WHERE productId = '{5}'"
+                    , txtType.Text, txtBrand.Text, txtProductName.Text, txtPrice.Text, txtDescription.Text, txtProductId.Text);
+                MySqlCommand cmd = Program.ExecSQL(sql);
+                cmd.ExecuteNonQuery();
             }
         }
+
     }
-
 }
-
