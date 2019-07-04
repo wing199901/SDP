@@ -341,7 +341,7 @@ namespace SDP
                                     cmd.Dispose();
                                 }
                                 sql = String.Format("update orderProduct set qty = {0} where  orderId = {1} and productId={2}",
-                                    qty,OrderId, productId);
+                                    currentQty,OrderId, productId);
                                 cmd = Program.ExecSQL(sql);
                                 cmd.ExecuteNonQuery();
                                 cmd.Dispose();
