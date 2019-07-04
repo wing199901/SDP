@@ -310,15 +310,51 @@ namespace SDP
                                     submitStatus = false;
                                     break;
                                 }
-                                else
+                            }
+                            for (int i = 0; i < lvResult.Items.Count; i++)
+                            {
+                                String productId = lvResult.Items[i].Text;
+                                int currentQty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
+                                int currentDespatched = Convert.ToInt32(lvResult.Items[i].SubItems[7].Text);
+                                String sql = String.Format("select qty from orderProduct where orderId = {0} and productId = {1}", OrderId, productId);
+                                MySqlCommand cmd = Program.ExecSQL(sql);
+                                MySqlDataReader data = cmd.ExecuteReader();
+                                int qty = 0;
+                                if (data.Read())
                                 {
-                                    String sql = String.Format("update orderProduct set qty = {0}, despatched = {1} where  orderId = {2} and productId={3}",
-                                        qty, currentDespatched, OrderId, productId);
-                                    MySqlCommand cmd = Program.ExecSQL(sql);
+                                    qty = data.GetInt32(0);
+                                }
+                                if (currentQty != qty)
+                                {
+                                    int different = (currentQty > qty) ? currentQty - qty : qty - currentQty;
+                                    if (currentQty > qty)
+                                    {
+                                        sql = String.Format("update product set onHand = onHand - {0}, inHand = inHand + {0} where productId = {1}", different, productId);
+                                    }
+                                    else
+                                    {
+                                        sql = String.Format("update product set onHand = onHand + {0}, inHand = inHand - {0} where productId = {1}", different, productId);
+                                    }
+
+                                    cmd = Program.ExecSQL(sql);
                                     cmd.ExecuteNonQuery();
                                     cmd.Dispose();
                                 }
+                                sql = String.Format("update orderProduct set qty = {0} where  orderId = {1} and productId={2}",
+                                    qty,OrderId, productId);
+                                cmd = Program.ExecSQL(sql);
+                                cmd.ExecuteNonQuery();
+                                cmd.Dispose();
                             }
+                            /*else
+                            {
+                                String sql = String.Format("update orderProduct set qty = {0}, despatched = {1} where  orderId = {2} and productId={3}",
+                                    qty, currentDespatched, OrderId, productId);
+                                MySqlCommand cmd = Program.ExecSQL(sql);
+                                cmd.ExecuteNonQuery();
+                                cmd.Dispose();
+                            }*/
+
                             break;
                         case "Reservation":
                             if (cboStatus.SelectedItem == "Finish")
@@ -349,19 +385,46 @@ namespace SDP
                                 int currentDespatched = Convert.ToInt32(lvResult.Items[i].SubItems[7].Text);
                                 if (currentDespatched > 0)
                                 {
-                                    MessageBox.Show("Please change the order status to 'Creation' first.");
+                                    MessageBox.Show("Please change the order status to 'shipping' first.");
                                     FormEditOrder_Load(sender, e);
                                     submitStatus = false;
                                     break;
                                 }
-                                else
+                            }
+                            for (int i = 0; i < lvResult.Items.Count; i++)
+                            {
+                                String productId = lvResult.Items[i].Text;
+                                int currentQty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
+                                int currentDespatched = Convert.ToInt32(lvResult.Items[i].SubItems[7].Text);
+                                String sql = String.Format("select qty from orderProduct where orderId = {0} and productId = {1}", OrderId, productId);
+                                MySqlCommand cmd = Program.ExecSQL(sql);
+                                MySqlDataReader data = cmd.ExecuteReader();
+                                int qty = 0;
+                                if (data.Read())
                                 {
-                                    String sql = String.Format("update orderProduct set qty = {0}, despatched = {1} where  orderId = {2} and productId={3}",
-                                        qty, currentDespatched, OrderId, productId);
-                                    MySqlCommand cmd = Program.ExecSQL(sql);
+                                    qty = data.GetInt32(0);
+                                }
+                                if (currentQty != qty)
+                                {
+                                    int different = (currentQty > qty) ? currentQty - qty : qty - currentQty;
+                                    if (currentQty > qty)
+                                    {
+                                        sql = String.Format("update product set onHand = onHand - {0}, inHand = inHand + {0} where productId = {1}", different, productId);
+                                    }
+                                    else
+                                    {
+                                        sql = String.Format("update product set onHand = onHand + {0}, inHand = inHand - {0} where productId = {1}", different, productId);
+                                    }
+
+                                    cmd = Program.ExecSQL(sql);
                                     cmd.ExecuteNonQuery();
                                     cmd.Dispose();
                                 }
+                                sql = String.Format("update orderProduct set qty = {0} where  orderId = {1} and productId={2}",
+                                    qty, OrderId, productId);
+                                cmd = Program.ExecSQL(sql);
+                                cmd.ExecuteNonQuery();
+                                cmd.Dispose();
                             }
                             break;
                         case "Shipping":
@@ -388,10 +451,10 @@ namespace SDP
                                     String productId = lvResult.Items[i].Text;
                                     int currentQty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
                                     int currentDespatched = Convert.ToInt32(lvResult.Items[i].SubItems[7].Text);
-                                    String sql = String.Format("select qty from orderProduct where orderId = {0} and productId = {1}",OrderId, productId);
+                                    String sql = String.Format("select qty from orderProduct where orderId = {0} and productId = {1}", OrderId, productId);
                                     MySqlCommand cmd = Program.ExecSQL(sql);
                                     MySqlDataReader data = cmd.ExecuteReader();
-                                    int qty= 0;
+                                    int qty = 0;
                                     if (data.Read())
                                     {
                                         qty = data.GetInt32(0);
@@ -404,8 +467,8 @@ namespace SDP
                                         break;
                                     }
 
-                                     sql = String.Format("update orderProduct set despatched = {0} where  orderId = {1} and productId={2}",
-                                        currentDespatched, OrderId, productId);
+                                    sql = String.Format("update orderProduct set despatched = {0} where  orderId = {1} and productId={2}",
+                                       currentDespatched, OrderId, productId);
                                     cmd = Program.ExecSQL(sql);
                                     cmd.ExecuteNonQuery();
                                     cmd.Dispose();
