@@ -22,6 +22,7 @@ namespace SDP
         }
 
         private String productId = "";
+        private ListViewItem currentItem;
 
         public String ProductId
         {
@@ -92,6 +93,19 @@ namespace SDP
                 BtnSearch_Click(sender, e);
 
                 txtKeyword.Focus();
+            }
+        }
+
+        private void LvResult_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            currentItem = lvResult.GetItemAt(e.X, e.Y);
+
+            if (currentItem != null)
+            {
+                String productId = currentItem.Text;
+                FormEditStock formEditStock = new FormEditStock(productId);
+                formEditStock.ShowDialog();
+                BtnSearch_Click(sender, e);
             }
         }
     }

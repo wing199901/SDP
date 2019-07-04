@@ -122,12 +122,6 @@ namespace SDP
             }
         }
 
-        private void TxtEditStock_Click(object sender, EventArgs e)
-        {
-            Form editStock = new FormEditStock();
-            editStock.ShowDialog();
-        }
-
         private void BtnCust_Click(object sender, EventArgs e)
         {
             Form csutomerManagement = new FormCustomerManagement();
@@ -242,7 +236,7 @@ namespace SDP
                     }
 
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
                     MessageBox.Show("No product need to reorder.");
@@ -250,7 +244,54 @@ namespace SDP
             }
             else
             {
+                String sql = String.Format("SELECT * FROM product WHERE productId = '{0}'", productID);
+                MySqlCommand cmd = Program.ExecSQL(sql);
+                MySqlDataReader data = cmd.ExecuteReader();
 
+                while (data.Read())
+                {
+                    if ((data.GetInt32("atHand") + data.GetInt32("onHand")) < data.GetInt32("reorderPoint"))
+                    {
+                        String poId = null;
+
+                        sql = String.Format("INSERT INTO purchasingOrder(`staffId`, status, `date`, `deliveryDate`, `address`, `totalAmount`) " +
+                                "VALUES('99999', 'Pending', '{0}', '{1}', 'LWL', 0)", DateTime.Now.ToString("yyyy-MM-dd"),
+                                DateTime.Now.AddDays(data.GetInt32("leadTime")).ToString("yyyy-MM-dd"));
+                        cmd = Program.ExecSQL(sql);
+                        cmd.ExecuteNonQuery();
+
+                        sql = String.Format("SELECT poId ,deliveryDay FROM purchasingOrder WHERE staffId = '99999' AND address = 'LWL' AND totalAmount = '0'");
+                        cmd = Program.ExecSQL(sql);
+                        data = cmd.ExecuteReader();
+
+                        while (data.Read())
+                        {
+                            poId = data.GetString(0);
+                        }
+
+                        sql = String.Format("INSERT INTO purchasingOrderProduct VALUES('{0}','{1}','{2}')"
+                            , poId, data.GetString("productId"), data.GetInt32("reorderPoint"));
+                        cmd = Program.ExecSQL(sql);
+                        cmd.ExecuteNonQuery();
+
+                        sql = String.Format("UPDATE product SET atHand = atHand + {0} WHERE productId = {1}"
+                            , data.GetInt32("reorderPoint"), data.GetString("productId"));
+                        cmd = Program.ExecSQL(sql);
+                        cmd.ExecuteNonQuery();
+
+                        sql = String.Format("UPDATE purchasingOrder SET totalAmount = totalAmount + {0} WHERE poId = {1}"
+                            , data.GetDouble("price") * data.GetDouble("reorderPoint"), poId);
+                        cmd = Program.ExecSQL(sql);
+                        cmd.ExecuteNonQuery();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("This product is no need to reorder.");
+                    }
+
+                    cmd.Dispose();
+                }
             }
         }
     }

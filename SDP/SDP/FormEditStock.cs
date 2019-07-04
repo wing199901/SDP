@@ -20,9 +20,10 @@ namespace SDP
             get { return productId; }
             set { productId = value; }
         }
-        public FormEditStock()
+        public FormEditStock(String productId)
         {
             InitializeComponent();
+            ProductId = productId;
 
             // ListView Header
             lvResult.GridLines = true;
