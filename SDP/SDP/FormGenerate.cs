@@ -32,6 +32,8 @@ namespace SDP
 
         private void BtnGen_Click(object sender, EventArgs e)
         {
+            lvReport.Columns.Clear();
+
             if (cboType.SelectedItem == null)
             {
                 MessageBox.Show("Please select the type of the report!");
@@ -57,7 +59,7 @@ namespace SDP
                         MySqlCommand cmd = Program.ExecSQL(DG);
                         MySqlDataReader data = cmd.ExecuteReader();
 
-                        lvReport.Items.Clear();
+
 
                         while (data.Read())
                         {
@@ -116,7 +118,9 @@ namespace SDP
                     case 3: // Turnover
                         break;
                 }*/
+
                 }
+                //lvReport.Items.Clear();
             }
         }
     }
