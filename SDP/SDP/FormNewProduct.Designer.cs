@@ -67,7 +67,7 @@
             this.txtBrand.Location = new System.Drawing.Point(240, 205);
             this.txtBrand.Name = "txtBrand";
             this.txtBrand.Size = new System.Drawing.Size(200, 22);
-            this.txtBrand.TabIndex = 2;
+            this.txtBrand.TabIndex = 3;
             // 
             // lblName
             // 
@@ -83,7 +83,7 @@
             this.txtName.Location = new System.Drawing.Point(240, 83);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(200, 22);
-            this.txtName.TabIndex = 3;
+            this.txtName.TabIndex = 0;
             // 
             // lblDescription
             // 
@@ -131,7 +131,7 @@
             this.txtPrice.Location = new System.Drawing.Point(240, 164);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(200, 22);
-            this.txtPrice.TabIndex = 4;
+            this.txtPrice.TabIndex = 2;
             // 
             // btnAdd
             // 
@@ -167,7 +167,7 @@
             this.txtLeadTime.Location = new System.Drawing.Point(240, 244);
             this.txtLeadTime.Name = "txtLeadTime";
             this.txtLeadTime.Size = new System.Drawing.Size(200, 22);
-            this.txtLeadTime.TabIndex = 15;
+            this.txtLeadTime.TabIndex = 4;
             // 
             // FormNewProduct
             // 
