@@ -34,6 +34,7 @@
             this.lblSafetyStock = new System.Windows.Forms.Label();
             this.txtSafetyStock = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lvResult
@@ -45,7 +46,7 @@
             this.lvResult.Size = new System.Drawing.Size(1608, 271);
             this.lvResult.TabIndex = 159;
             this.lvResult.UseCompatibleStateImageBehavior = false;
-            this.lvResult.Click += new System.EventHandler(this.LvResult_Click);
+            this.lvResult.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvResult_MouseClick);
             // 
             // btnUpdateAll
             // 
@@ -98,11 +99,23 @@
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(652, 685);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(6);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(150, 48);
+            this.btnCancel.TabIndex = 161;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            // 
             // FormReorderPoint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1676, 919);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.lvResult);
             this.Controls.Add(this.btnUpdateAll);
@@ -126,5 +139,6 @@
         private System.Windows.Forms.Label lblSafetyStock;
         private System.Windows.Forms.TextBox txtSafetyStock;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

@@ -14,6 +14,9 @@ namespace SDP
     public partial class FormReorderPoint : Form
     {
         private String keyword;
+        private ListViewItem currentItem;
+        private ListViewItem.ListViewSubItem currentItemSub;
+        private Boolean isSeleted;
 
         public String Keyword
         {
@@ -47,47 +50,10 @@ namespace SDP
 
             txtSafetyStock.Focus();
         }
-        /*
-        private void BtnApply_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (lvResult.SelectedItems[0].ToString() != "")
-                {
-                    ProductId = lvResult.SelectedItems[0].ToString();
-                    ProductId = System.Text.RegularExpressions.Regex.Replace(ProductId, "[a-zA-Z{}: ]", "");
-
-                    String sql = String.Format("UPDATE product SET safetyStock = {0} WHERE productId = {1}", txtSafetyStock.Text, ProductId);
-                    MySqlCommand cmd = Program.ExecSQL(sql);
-                    MySqlDataReader data = cmd.ExecuteReader();
-
-                    MessageBox.Show("Update successfully!");
-
-                    data.Close();
-                    cmd.Dispose();
-
-                    txtSafetyStock.Clear();
-                    lvResult.Clear();
-                }
-                else
-                {
-                    MessageBox.Show("Please select a product");
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Please select a product");
-            }
-
-        }
-        */
-        private void LvResult_Click(object sender, EventArgs e)
-        {
-            txtSafetyStock.Text = lvResult.SelectedItems[0].SubItems[5].Text;
-        }
-
+        
         private void FormROL_Load(object sender, EventArgs e)
         {
+            isSeleted = false;
             String sql = "select productId, type, brand, productName, description, leadTime, safetyStock, reorderPoint from product";
             MySqlCommand cmd = Program.ExecSQL(sql);
             MySqlDataReader data = cmd.ExecuteReader();
@@ -110,10 +76,26 @@ namespace SDP
             data.Close();
             cmd.Dispose();
         }
+        private void lvResult_MouseClick(object sender, MouseEventArgs e)
+        {
+
+            //    currentItem = lvCustomer.GetItemAt(e.X, e.Y);
+            productId = lvResult.GetItemAt(e.X, e.Y).Text;
+            isSeleted = true;
+
+        }
 
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
-
+            if (isSeleted) { 
+            updateROP(productId);
+            MessageBox.Show("The reorder point and safety stock have been updated.");
+            FormROL_Load(sender, e);
+            }
+            else
+            {
+                MessageBox.Show("You must choose a item.");
+            }
         }
 
         private void BtnUpdateAll_Click(object sender, EventArgs e)
@@ -126,47 +108,55 @@ namespace SDP
             MySqlDataReader data = cmd.ExecuteReader();
             while (data.Read())
             {
-
-                String productId = data.GetString("productId");
-                sql = String.Format("SELECT qty FROM dbOPSRS.order,orderProduct WHERE YEAR(date) = YEAR(CURRENT_DATE - INTERVAL 1 MONTH) AND MONTH(date) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH) AND dbOPSRS.order.orderId = orderProduct.orderId AND status = 'Finish' and productId = {0}", productId);
-                cmd = Program.ExecSQL(sql);
-                MySqlDataReader subData = cmd.ExecuteReader();
-                int totalUsage = 0;
-                int maxUsage = 0;
-                while (subData.Read())
-                {
-                    if (subData.GetInt32(0) > maxUsage)
-                    {
-                        maxUsage = subData.GetInt32(0);
-                    }
-                    totalUsage += subData.GetInt32(0);
-                }
-                subData.Close();
-                cmd.Dispose();
-                sql = String.Format("select leadTime from product where productId = {0}", productId);
-                cmd = Program.ExecSQL(sql);
-                subData = cmd.ExecuteReader();
-                int leadTime = 0;
-                while (subData.Read())
-                {
-                    leadTime = subData.GetInt32(0);
-                }
-                int dailyUsage = (int)(totalUsage / 30.0);
-                int safetyStock = (maxUsage * leadTime) - (dailyUsage * leadTime);
-                int reorderPoint = (dailyUsage * leadTime) + safetyStock;
-                subData.Close();
-                cmd.Dispose();
-                sql = String.Format("update product set safetyStock = {0}, reorderPoint = {1} where productId = {2}", safetyStock, reorderPoint, productId);
-                cmd = Program.ExecSQL(sql);
-                cmd.ExecuteNonQuery();
-                /*MessageBox.Show("productId: " + productId.ToString() + "\ndailyUsage: " + dailyUsage.ToString() + "\nmaxUsage: " + maxUsage
-                    + "\nsafetyStock: " + safetyStock + "\nreorderPoint: " + reorderPoint);*/
-
+                updateROP(data.GetString("productId"));
             }
             data.Close();
             cmd.Dispose();
+            MessageBox.Show("All reorder points and safety stock have been updated.");
             FormROL_Load(sender, e);
             //
+        }
+        private void updateROP(String productId)
+        {
+            String  sql = String.Format("SELECT qty FROM dbOPSRS.order,orderProduct WHERE YEAR(date) = YEAR(CURRENT_DATE - INTERVAL 1 MONTH) AND MONTH(date) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH) AND dbOPSRS.order.orderId = orderProduct.orderId AND status = 'Finish' and productId = {0}", productId);
+            MySqlCommand cmd = Program.ExecSQL(sql);
+            MySqlDataReader subData = cmd.ExecuteReader();
+            int totalUsage = 0;
+            int maxUsage = 0;
+            while (subData.Read())
+            {
+                if (subData.GetInt32(0) > maxUsage)
+                {
+                    maxUsage = subData.GetInt32(0);
+                }
+                totalUsage += subData.GetInt32(0);
+            }
+            subData.Close();
+            cmd.Dispose();
+            sql = String.Format("select leadTime from product where productId = {0}", productId);
+            cmd = Program.ExecSQL(sql);
+            subData = cmd.ExecuteReader();
+            int leadTime = 0;
+            while (subData.Read())
+            {
+                leadTime = subData.GetInt32(0);
+            }
+            int dailyUsage = (int)(totalUsage / 30.0);
+            int safetyStock = (maxUsage * leadTime) - (dailyUsage * leadTime);
+            int reorderPoint = (dailyUsage * leadTime) + safetyStock;
+            subData.Close();
+            cmd.Dispose();
+            sql = String.Format("update product set safetyStock = {0}, reorderPoint = {1} where productId = {2}", safetyStock, reorderPoint, productId);
+            cmd = Program.ExecSQL(sql);
+            cmd.ExecuteNonQuery();
+            /*MessageBox.Show("productId: " + productId.ToString() + "\ndailyUsage: " + dailyUsage.ToString() + "\nmaxUsage: " + maxUsage
+                + "\nsafetyStock: " + safetyStock + "\nreorderPoint: " + reorderPoint);*/
+
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
