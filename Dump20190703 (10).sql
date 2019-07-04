@@ -279,7 +279,7 @@ CREATE TABLE `purchasingOrderProduct` (
   `qty` int(11) NOT NULL,
   KEY `purchasingOrderProduct_productId_fk_idx` (`productId`),
   KEY `purchasingOrderProduct_poId_fk_idx` (`poId`),
-  CONSTRAINT `purchasingOrderProduct_poId_fk` FOREIGN KEY (`poId`) REFERENCES `purchasingorder` (`poId`),
+  CONSTRAINT `purchasingOrderProduct_poId_fk` FOREIGN KEY (`poId`) REFERENCES `purchasingOrder` (`poId`),
   CONSTRAINT `purchasingOrderProduct_productId_fk` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;

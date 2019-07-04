@@ -159,12 +159,13 @@ namespace SDP
                 sql = String.Format("update product set safetyStock = {0}, reorderPoint = {1} where productId = {2}", safetyStock, reorderPoint, productId);
                 cmd = Program.ExecSQL(sql);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("productId: " + productId.ToString() + "\ndailyUsage: " + dailyUsage.ToString() + "\nmaxUsage: " + maxUsage
-                    + "\nsafetyStock: " + safetyStock + "\nreorderPoint: " + reorderPoint);
+                /*MessageBox.Show("productId: " + productId.ToString() + "\ndailyUsage: " + dailyUsage.ToString() + "\nmaxUsage: " + maxUsage
+                    + "\nsafetyStock: " + safetyStock + "\nreorderPoint: " + reorderPoint);*/
 
             }
             data.Close();
             cmd.Dispose();
+            FormROL_Load(sender, e);
             //
         }
     }
