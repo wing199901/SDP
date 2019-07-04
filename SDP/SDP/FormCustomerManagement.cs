@@ -125,6 +125,8 @@ namespace SDP
                         cmd = Program.ExecSQL(sql);
                         cmd.ExecuteReader();
                         MessageBox.Show("Add successfully!");
+
+                        Utilities.ResetAllControls(this);
                         FormCustomerManagement_Load(sender, e);
                     }
 
@@ -138,7 +140,7 @@ namespace SDP
                 }
                 else
                 {
-                    MessageBox.Show("Phone number cannot repeat :-)");
+                    MessageBox.Show("Phone number cannot repeat");
                 }
             }
         }
@@ -168,17 +170,20 @@ namespace SDP
             {
                 if (currentItem != null)
                 {
+
                     String CustomerID = currentItem.Text;
                     MySqlCommand cmd = null;
                     String check_Phone = String.Format("select * from customer where phone = '{0}'", txtPhone.Text);
                     cmd = Program.ExecSQL(check_Phone);
                     MySqlDataReader data = cmd.ExecuteReader();
                     int tmp = 0;
+                    String currentPhone = "";
                     while (data.Read())
                     {
+                        currentPhone = data.GetInt32(5).ToString();
                         tmp++;
                     }
-                    if (tmp == 0)
+                    if (tmp == 0 && currentPhone != txtPhone.Text)
                     {
                         try
                         {
@@ -187,6 +192,7 @@ namespace SDP
                             cmd.ExecuteReader();
                             MessageBox.Show("Update successfully!");
                             FormCustomerManagement_Load(sender, e);
+                            //Utilities.ResetAllControls(this);
                         }
                         catch (Exception ex)
                         {
@@ -198,13 +204,21 @@ namespace SDP
                     }
                     else
                     {
-                        MessageBox.Show("Phone number cannot repeat :-)");
+                        MessageBox.Show("Phone number cannot repeat");
                     }
                 }
             }
         }
 
-        private void BtnCancel_Click(object sender, EventArgs e)
+        private void TxtHide_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+            private void BtnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }

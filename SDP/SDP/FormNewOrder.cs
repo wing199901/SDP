@@ -207,7 +207,7 @@ namespace SDP
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.ToString());
             }
 
         }
@@ -323,6 +323,8 @@ namespace SDP
                 data.Close();
                 cmd.Dispose();
 
+                String poId = null;
+
                 for (int i = 0; i < lvResult.Items.Count; i++)
                 {
                     String productId = lvResult.Items[i].Text;
@@ -331,10 +333,55 @@ namespace SDP
                         "values ('{0}', '{1}', {2})", orderId, productId, qty);
                     cmd = Program.ExecSQL(sql);
                     cmd.ExecuteNonQuery();
-                    cmd.Dispose();
+
+                    int onHand = 0;
+                    int leadTime = 0;
+                    sql = String.Format("SELECT onHand, leadTime FROM product WHERE productId = '{0}'", productId);
+                    cmd = Program.ExecSQL(sql);
+                    data = cmd.ExecuteReader();
+
+                    while (data.Read())
+                    {
+                        onHand = data.GetInt32(0);
+                        leadTime = data.GetInt32(1);
+                    }
+
+                    if (qty > onHand)
+                    {
+                        if (poId == null)
+                        {
+                            sql = String.Format("INSERT INTO purchasingOrder(`staffId`, status, `date`, `deliveryDate`, `address`, `totalAmount`) " +
+                            "VALUES('99999', 'Pending', '{0}', '{1}', 'LWL', 0)", DateTime.Now.ToString("yyyy-MM-dd"),
+                            DateTime.Now.AddDays(leadTime).ToString("yyyy-MM-dd"));
+                            cmd = Program.ExecSQL(sql);
+                            cmd.ExecuteNonQuery();
+
+                            sql = String.Format("SELECT poId FROM purchasingOrder WHERE staffId = '99999' AND address = 'LWL' AND totalAmount = '0'");
+                            cmd = Program.ExecSQL(sql);
+                            data = cmd.ExecuteReader();
+
+                            while (data.Read())
+                            {
+                                poId = data.GetString(0);
+                            }
+
+                        }
+                        sql = String.Format("INSERT INTO purchasingOrderProduct VALUES('{0}','{1}','{2}')", poId, productId, qty);
+                        cmd = Program.ExecSQL(sql);
+                        cmd.ExecuteNonQuery();
+
+                        sql = String.Format("UPDATE product SET atHand = atHand + {0} WHERE productId = {1}", qty, productId);
+                        cmd = Program.ExecSQL(sql);
+                        cmd.ExecuteNonQuery();
+
+                        cmd.Dispose();
+
+                    }
+
                     sql = String.Format("update product set onHand = onHand - {0}, inHand = inHand + {0} where productId = {1}", qty, productId);
                     cmd = Program.ExecSQL(sql);
                     cmd.ExecuteNonQuery();
+
                     cmd.Dispose();
                 }
 

@@ -85,10 +85,11 @@ namespace SDP
                         cmd.ExecuteReader();
                         cmd.Dispose();
                         MessageBox.Show("Add successfully!");
+                        Utilities.ResetAllControls(this);
                     }
                     else
                     {
-                        MessageBox.Show("Product Name cannot repeat :=)");
+                        MessageBox.Show("Product Name cannot repeat");
                     }
                 }
                 catch (Exception ex)
