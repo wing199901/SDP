@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtConfirmNew = new System.Windows.Forms.TextBox();
+            this.txtConfirmation = new System.Windows.Forms.TextBox();
             this.txtNew = new System.Windows.Forms.TextBox();
             this.txtOld = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -38,12 +38,12 @@
             this.btnSubmit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // txtConfirmNew
+            // txtConfirmation
             // 
-            this.txtConfirmNew.Location = new System.Drawing.Point(345, 180);
-            this.txtConfirmNew.Name = "txtConfirmNew";
-            this.txtConfirmNew.Size = new System.Drawing.Size(200, 22);
-            this.txtConfirmNew.TabIndex = 150;
+            this.txtConfirmation.Location = new System.Drawing.Point(345, 180);
+            this.txtConfirmation.Name = "txtConfirmation";
+            this.txtConfirmation.Size = new System.Drawing.Size(200, 22);
+            this.txtConfirmation.TabIndex = 150;
             // 
             // txtNew
             // 
@@ -113,7 +113,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSubmit);
-            this.Controls.Add(this.txtConfirmNew);
+            this.Controls.Add(this.txtConfirmation);
             this.Controls.Add(this.txtNew);
             this.Controls.Add(this.txtOld);
             this.Controls.Add(this.label4);
@@ -128,7 +128,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtConfirmNew;
+        private System.Windows.Forms.TextBox txtConfirmation;
         private System.Windows.Forms.TextBox txtNew;
         private System.Windows.Forms.TextBox txtOld;
         private System.Windows.Forms.Label label4;
