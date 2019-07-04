@@ -50,6 +50,7 @@ namespace SDP
 
         private void FormEditOrder_Load(object sender, EventArgs e)
         {
+
             dtpDelivery.Format = DateTimePickerFormat.Custom;
             dtpDelivery.CustomFormat = "dd/MM/yyyy";
 
@@ -122,6 +123,19 @@ namespace SDP
             cmd.Dispose();
             txtShipAddr.ReadOnly = (txtShipAddr.Text == txtAddr.Text);
             choShipAddr.Checked = (txtShipAddr.Text == txtAddr.Text);
+            if (cboStatus.Text == "Delection"||cboStatus.Text=="Finish")
+            {
+                txtShipAddr.ReadOnly = true;
+                txtEmail.ReadOnly = true;
+                txtPhone.ReadOnly = true;
+                txtStaffId.ReadOnly = true;
+                dtpDelivery.Enabled = false;
+                txtHide.ReadOnly = true;
+                txtRemark.ReadOnly = true;
+                choShipAddr.Hide();
+                cboStatus.Enabled = false;
+
+            }
         }
 
         private void LvResult_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -346,14 +360,6 @@ namespace SDP
                                 cmd.ExecuteNonQuery();
                                 cmd.Dispose();
                             }
-                            /*else
-                            {
-                                String sql = String.Format("update orderProduct set qty = {0}, despatched = {1} where  orderId = {2} and productId={3}",
-                                    qty, currentDespatched, OrderId, productId);
-                                MySqlCommand cmd = Program.ExecSQL(sql);
-                                cmd.ExecuteNonQuery();
-                                cmd.Dispose();
-                            }*/
 
                             break;
                         case "Reservation":
@@ -421,7 +427,7 @@ namespace SDP
                                     cmd.Dispose();
                                 }
                                 sql = String.Format("update orderProduct set qty = {0} where  orderId = {1} and productId={2}",
-                                    qty, OrderId, productId);
+                                    currentQty, OrderId, productId);
                                 cmd = Program.ExecSQL(sql);
                                 cmd.ExecuteNonQuery();
                                 cmd.Dispose();
@@ -540,10 +546,13 @@ namespace SDP
                                     cmd.ExecuteNonQuery();
                                     cmd.Dispose();
                                 }
-                                break;
                             }
                             break;
-
+                        case "Delection":
+                        case "Finish":
+                            submitStatus = false;
+                            MessageBox.Show("This order cannot be changed.");
+                            break;
                     }
                     if (submitStatus)
                     {
