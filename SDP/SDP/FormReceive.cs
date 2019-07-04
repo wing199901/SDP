@@ -22,12 +22,18 @@ namespace SDP
 
         private void FormReceive_Load(object sender, EventArgs e)
         {
+            dtpDay.MinDate = DateTime.Today;
+
             // ListView Header
             lvResult.GridLines = true;
             lvResult.View = View.Details;
             lvResult.FullRowSelect = true;
             lvResult.Columns.Add("Purchasing Order ID", 100);
             lvResult.Columns.Add("Product ID", 100);
+            lvResult.Columns.Add("Type", 50);
+            lvResult.Columns.Add("Brand", 50);
+            lvResult.Columns.Add("Product Name", 100);
+            lvResult.Columns.Add("Description", 150);
             lvResult.Columns.Add("Quantity", 100);
 
         }
@@ -42,17 +48,17 @@ namespace SDP
                     MySqlCommand cmd = Program.ExecSQL(sql);
                     MySqlDataReader data = cmd.ExecuteReader();
 
-                    String orderID="";
+                    String orderID = "";
 
                     while (data.Read())
                     {
-                         orderID=data.GetString("poId");
+                        orderID = data.GetString("poId");
                         MessageBox.Show(orderID);
                     }
 
                     if (orderID != "")
                     {
-                        sql = String.Format("select * from purchasingOrderProduct WHERE poId = '{0}'", orderID);
+                        sql = String.Format("select * from purchasingOrderProduct, product WHERE poId = '{0}' AND purchasingOrderProduct.productId = product.productId", orderID);
                         cmd = Program.ExecSQL(sql);
                         data = cmd.ExecuteReader();
 
@@ -60,9 +66,13 @@ namespace SDP
 
                         while (data.Read())
                         {
-                            ListViewItem lv = new ListViewItem(data.GetString(0).ToString());
-                            lv.SubItems.Add(data.GetString(1).ToString());
-                            lv.SubItems.Add(data.GetString(2).ToString());
+                            ListViewItem lv = new ListViewItem(data.GetString("poId").ToString());
+                            lv.SubItems.Add(data.GetString("productId").ToString());
+                            lv.SubItems.Add(data.GetString("type").ToString());
+                            lv.SubItems.Add(data.GetString("brand").ToString());
+                            lv.SubItems.Add(data.GetString("productName").ToString());
+                            lv.SubItems.Add(data.GetString("description").ToString());
+                            lv.SubItems.Add(data.GetString("qty").ToString());
                             lvResult.Items.Add(lv);
                         }
                     }
@@ -74,8 +84,9 @@ namespace SDP
                     data.Close();
                     cmd.Dispose();
                 }
-                catch
+                catch(Exception ex)
                 {
+                    MessageBox.Show(ex.ToString());
                     MessageBox.Show("No this order!");
                 }
             }
@@ -110,7 +121,7 @@ namespace SDP
                 String sql = String.Format("select * from purchasingOrderProduct WHERE poId = '{0}'", txtOrderID.Text);
                 MySqlCommand cmd = Program.ExecSQL(sql);
                 MySqlDataReader data = cmd.ExecuteReader();
-                                
+
                 while (data.Read())
                 {
                     sql = String.Format("UPDATE product SET onHand = onHand + {0}, atHand = atHand - {0} WHERE productId = '{1}'", data.GetString(2), data.GetString(1));
@@ -135,6 +146,12 @@ namespace SDP
             lvResult.Items.Clear();
             txtOrderID.Clear();
             dtpDay.Value = DateTime.Now;
+        }
+
+        private void DtpDay_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.Handled = true;
+            e.SuppressKeyPress = true;
         }
     }
 }

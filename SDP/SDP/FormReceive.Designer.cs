@@ -111,6 +111,7 @@
             this.dtpDay.Name = "dtpDay";
             this.dtpDay.Size = new System.Drawing.Size(200, 22);
             this.dtpDay.TabIndex = 234;
+            this.dtpDay.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DtpDay_KeyDown);
             // 
             // btnReceived
             // 
