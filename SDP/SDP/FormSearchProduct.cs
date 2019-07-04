@@ -14,6 +14,8 @@ namespace SDP
     public partial class FormSearchProduct : Form
     {
         private String keyword;
+        private ListViewItem currentItem;
+        private ListViewItem.ListViewSubItem currentItemSub;
 
         public String Keyword
         {
@@ -21,7 +23,7 @@ namespace SDP
             set { keyword = value; }
         }
 
-        private String productId="";
+        private String productId = "";
 
         public String ProductId
         {
@@ -54,7 +56,7 @@ namespace SDP
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            Keyword=txtKeyword.Text  ;
+            Keyword = txtKeyword.Text;
             if (txtKeyword.Text != "")
             {
                 String sql = String.Format("select * from product where productId like '%{0}%' or type like '%{0}%' or brand like '%{0}%' or productName like '%{0}%' or Description like '%{0}%' or atHand like '%{0}%' or onHand like '%{0}%' or inHand like '%{0}%' or price like '%{0}%'", Keyword);
@@ -97,13 +99,29 @@ namespace SDP
 
         private void LvResult_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-                MessageBox.Show(lvResult.SelectedItems[0].ToString());
-    
+            //MessageBox.Show(lvResult.SelectedItems[0].ToString());
+            currentItem = lvResult.GetItemAt(e.X, e.Y);
+            String productId = currentItem.Text;
+            String sql = String.Format("select onHand from product where productId = {0}", productId);
+            MySqlCommand cmd = Program.ExecSQL(sql);
+            MySqlDataReader data = cmd.ExecuteReader();
+            int onHand = 0;
+            while (data.Read())
+            {
+                onHand = data.GetInt32(0);  
+            }
+            if (onHand > 0)
+            {
                 this.DialogResult = DialogResult.OK;
                 ProductId = lvResult.SelectedItems[0].ToString();
                 ProductId = System.Text.RegularExpressions.Regex.Replace(ProductId, "[a-zA-Z{}: ]", "");
+            }
+            else
+            {
+                MessageBox.Show("This product is out of stock.");
+            }
 
-            
+
         }
     }
 }
