@@ -367,7 +367,7 @@ namespace SDP
                             }
 
                         }
-                        sql = String.Format("INSERT INTO purchasingOrderProduct VALUES('{0}','{1}','{2}')", poId, productId, qty);
+                        sql = String.Format("INSERT INTO purchasingOrderProduct VALUES('{0}','{1}','{2}')", poId, productId, qty-onHand);
                         cmd = Program.ExecSQL(sql);
                         cmd.ExecuteNonQuery();
 
@@ -375,7 +375,7 @@ namespace SDP
                         cmd = Program.ExecSQL(sql);
                         cmd.ExecuteNonQuery();
 
-                        sql = String.Format("UPDATE purchasingOrder SET totalAmount = totalAmount + {0} WHERE poId = {1}",amount, poId);
+                        sql = String.Format("UPDATE purchasingOrder SET totalAmount = totalAmount + {0} WHERE poId = {1}",amount*qty-onHand, poId);
                         cmd = Program.ExecSQL(sql);
                         cmd.ExecuteNonQuery();
 
