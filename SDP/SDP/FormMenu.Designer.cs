@@ -44,6 +44,7 @@
             this.btnJPos = new System.Windows.Forms.Button();
             this.btnNewPO = new System.Windows.Forms.Button();
             this.btnNProduct = new System.Windows.Forms.Button();
+            this.btnPassword = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnROL
@@ -88,7 +89,7 @@
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(662, 20);
+            this.btnLogout.Location = new System.Drawing.Point(703, 12);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(123, 23);
             this.btnLogout.TabIndex = 13;
@@ -195,11 +196,22 @@
             this.btnNProduct.UseVisualStyleBackColor = true;
             this.btnNProduct.Click += new System.EventHandler(this.BtnNProduct_Click);
             // 
+            // btnPassword
+            // 
+            this.btnPassword.Location = new System.Drawing.Point(574, 12);
+            this.btnPassword.Name = "btnPassword";
+            this.btnPassword.Size = new System.Drawing.Size(123, 23);
+            this.btnPassword.TabIndex = 155;
+            this.btnPassword.Text = "Change Password";
+            this.btnPassword.UseVisualStyleBackColor = true;
+            this.btnPassword.Click += new System.EventHandler(this.BtnPassword_Click);
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
+            this.Controls.Add(this.btnPassword);
             this.Controls.Add(this.btnNProduct);
             this.Controls.Add(this.btnNewPO);
             this.Controls.Add(this.btnJPos);
@@ -242,5 +254,6 @@
         private System.Windows.Forms.Button btnJPos;
         private System.Windows.Forms.Button btnNewPO;
         private System.Windows.Forms.Button btnNProduct;
+        private System.Windows.Forms.Button btnPassword;
     }
 }
