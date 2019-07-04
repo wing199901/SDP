@@ -173,38 +173,48 @@ namespace SDP
 
                     String CustomerID = currentItem.Text;
                     MySqlCommand cmd = null;
-                    String check_Phone = String.Format("select * from customer where phone = '{0}'", txtPhone.Text);
+                    String check_Phone = String.Format("select * from customer where phone = '{0}' and custId = {1}", txtPhone.Text,CustomerID);
                     cmd = Program.ExecSQL(check_Phone);
                     MySqlDataReader data = cmd.ExecuteReader();
-                    int tmp = 0;
                     String currentPhone = "";
                     while (data.Read())
                     {
                         currentPhone = data.GetInt32(5).ToString();
-                        tmp++;
                     }
-                    if (tmp == 0 && currentPhone != txtPhone.Text)
+                    data.Close();
+                    cmd.Dispose();
+                    String sql = String.Format("select * from customer where phone = '{0}'", txtPhone.Text);
+                    cmd = Program.ExecSQL(sql);
+                     data = cmd.ExecuteReader();
+                    int resultCOunt = 0;
+                    while (data.Read())
                     {
-                        try
-                        {
-                            String sql = String.Format("UPDATE customer SET custName = '{0}', address = '{1}', companyName = '{2}', email = '{3}', phone = '{4}' WHERE custID = '{5}'", txtName.Text, txtAddress.Text, txtComName.Text, txtEmail.Text, txtPhone.Text, CustomerID);
-                            cmd = Program.ExecSQL(sql);
-                            cmd.ExecuteReader();
-                            MessageBox.Show("Update successfully!");
-                            FormCustomerManagement_Load(sender, e);
-                            //Utilities.ResetAllControls(this);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.ToString());
-                        }
+                        resultCOunt++;
+                    }
 
-                        cmd.Dispose();
+                    //MessageBox.Show("current phone: " + currentPhone + "change phone: " + txtPhone.Text);
+                    if (currentPhone == "" && resultCOunt==0)
+                    {
+                        sql = String.Format("UPDATE customer SET custName = '{0}', address = '{1}', companyName = '{2}', email = '{3}', phone = '{4}' WHERE custID = '{5}'", txtName.Text, txtAddress.Text, txtComName.Text, txtEmail.Text, txtPhone.Text, CustomerID);
+                        cmd = Program.ExecSQL(sql);
+                        cmd.ExecuteReader();
+                        MessageBox.Show("Update successfully!1");
+                        FormCustomerManagement_Load(sender, e);
+                    }
+                    else if (currentPhone == txtPhone.Text&& currentPhone=="")
+                    {
 
+                         sql = String.Format("UPDATE customer SET custName = '{0}', address = '{1}', companyName = '{2}', email = '{3}', phone = '{4}' WHERE custID = '{5}'", txtName.Text, txtAddress.Text, txtComName.Text, txtEmail.Text, txtPhone.Text, CustomerID);
+                        cmd = Program.ExecSQL(sql);
+                        cmd.ExecuteReader();
+                        MessageBox.Show("Update successfully!2");
+                        FormCustomerManagement_Load(sender, e);
                     }
                     else
                     {
                         MessageBox.Show("Phone number cannot repeat");
+                        Utilities.ResetAllControls(this);
+                        FormCustomerManagement_Load(sender, e);
                     }
                 }
             }
