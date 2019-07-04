@@ -50,6 +50,7 @@ namespace SDP
 
         private void FormEditOrder_Load(object sender, EventArgs e)
         {
+
             dtpDelivery.Format = DateTimePickerFormat.Custom;
             dtpDelivery.CustomFormat = "dd/MM/yyyy";
 
@@ -113,7 +114,7 @@ namespace SDP
                 lv.SubItems.Add(data.GetString(7).ToString());
                 double price = data.GetDouble(5);
                 double qty = data.GetDouble(6);
-                
+
                 total += price * qty;
                 lvResult.Items.Add(lv);
             }
@@ -122,6 +123,19 @@ namespace SDP
             cmd.Dispose();
             txtShipAddr.ReadOnly = (txtShipAddr.Text == txtAddr.Text);
             choShipAddr.Checked = (txtShipAddr.Text == txtAddr.Text);
+            if (cboStatus.Text == "Delection"||cboStatus.Text=="Finish")
+            {
+                txtShipAddr.ReadOnly = true;
+                txtEmail.ReadOnly = true;
+                txtPhone.ReadOnly = true;
+                txtStaffId.ReadOnly = true;
+                dtpDelivery.Enabled = false;
+                txtHide.ReadOnly = true;
+                txtRemark.ReadOnly = true;
+                choShipAddr.Hide();
+                cboStatus.Enabled = false;
+
+            }
         }
 
         private void LvResult_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -287,10 +301,11 @@ namespace SDP
                             if (cboStatus.SelectedItem == "Finish")
                             {
                                 MessageBox.Show("The 'Creation' status cannot change to 'Finish' status.");
-                                FormEditOrder_Load( sender, e);
+                                FormEditOrder_Load(sender, e);
                                 submitStatus = false;
                                 break;
-                            }else if (cboStatus.SelectedItem == "Delection")
+                            }
+                            else if (cboStatus.SelectedItem == "Delection")
                             {
                                 submit();
                                 updateProductTable("onHand", "inHand");
@@ -309,15 +324,43 @@ namespace SDP
                                     submitStatus = false;
                                     break;
                                 }
-                                else
+                            }
+                            for (int i = 0; i < lvResult.Items.Count; i++)
+                            {
+                                String productId = lvResult.Items[i].Text;
+                                int currentQty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
+                                int currentDespatched = Convert.ToInt32(lvResult.Items[i].SubItems[7].Text);
+                                String sql = String.Format("select qty from orderProduct where orderId = {0} and productId = {1}", OrderId, productId);
+                                MySqlCommand cmd = Program.ExecSQL(sql);
+                                MySqlDataReader data = cmd.ExecuteReader();
+                                int qty = 0;
+                                if (data.Read())
                                 {
-                                    String sql = String.Format("update orderProduct set qty = {0}, despatched = {1} where  orderId = {2} and productId={3}",
-                                        qty, currentDespatched, OrderId, productId);
-                                    MySqlCommand cmd = Program.ExecSQL(sql);
+                                    qty = data.GetInt32(0);
+                                }
+                                if (currentQty != qty)
+                                {
+                                    int different = (currentQty > qty) ? currentQty - qty : qty - currentQty;
+                                    if (currentQty > qty)
+                                    {
+                                        sql = String.Format("update product set onHand = onHand - {0}, inHand = inHand + {0} where productId = {1}", different, productId);
+                                    }
+                                    else
+                                    {
+                                        sql = String.Format("update product set onHand = onHand + {0}, inHand = inHand - {0} where productId = {1}", different, productId);
+                                    }
+
+                                    cmd = Program.ExecSQL(sql);
                                     cmd.ExecuteNonQuery();
                                     cmd.Dispose();
                                 }
+                                sql = String.Format("update orderProduct set qty = {0} where  orderId = {1} and productId={2}",
+                                    currentQty,OrderId, productId);
+                                cmd = Program.ExecSQL(sql);
+                                cmd.ExecuteNonQuery();
+                                cmd.Dispose();
                             }
+
                             break;
                         case "Reservation":
                             if (cboStatus.SelectedItem == "Finish")
@@ -332,7 +375,8 @@ namespace SDP
                                 submit();
                                 updateProductTable("onHand", "inHand");
                                 break;
-                            }else if (cboStatus.SelectedItem == "Shipping")
+                            }
+                            else if (cboStatus.SelectedItem == "Shipping")
                             {
                                 MessageBox.Show("The status'Reservation' cannot change to status'Shipping'.");
                                 FormEditOrder_Load(sender, e);
@@ -347,22 +391,49 @@ namespace SDP
                                 int currentDespatched = Convert.ToInt32(lvResult.Items[i].SubItems[7].Text);
                                 if (currentDespatched > 0)
                                 {
-                                    MessageBox.Show("Please change the order status to 'Creation' first.");
+                                    MessageBox.Show("Please change the order status to 'shipping' first.");
                                     FormEditOrder_Load(sender, e);
                                     submitStatus = false;
                                     break;
                                 }
-                                else
+                            }
+                            for (int i = 0; i < lvResult.Items.Count; i++)
+                            {
+                                String productId = lvResult.Items[i].Text;
+                                int currentQty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
+                                int currentDespatched = Convert.ToInt32(lvResult.Items[i].SubItems[7].Text);
+                                String sql = String.Format("select qty from orderProduct where orderId = {0} and productId = {1}", OrderId, productId);
+                                MySqlCommand cmd = Program.ExecSQL(sql);
+                                MySqlDataReader data = cmd.ExecuteReader();
+                                int qty = 0;
+                                if (data.Read())
                                 {
-                                    String sql = String.Format("update orderProduct set qty = {0}, despatched = {1} where  orderId = {2} and productId={3}",
-                                        qty, currentDespatched, OrderId, productId);
-                                    MySqlCommand cmd = Program.ExecSQL(sql);
+                                    qty = data.GetInt32(0);
+                                }
+                                if (currentQty != qty)
+                                {
+                                    int different = (currentQty > qty) ? currentQty - qty : qty - currentQty;
+                                    if (currentQty > qty)
+                                    {
+                                        sql = String.Format("update product set onHand = onHand - {0}, inHand = inHand + {0} where productId = {1}", different, productId);
+                                    }
+                                    else
+                                    {
+                                        sql = String.Format("update product set onHand = onHand + {0}, inHand = inHand - {0} where productId = {1}", different, productId);
+                                    }
+
+                                    cmd = Program.ExecSQL(sql);
                                     cmd.ExecuteNonQuery();
                                     cmd.Dispose();
                                 }
+                                sql = String.Format("update orderProduct set qty = {0} where  orderId = {1} and productId={2}",
+                                    currentQty, OrderId, productId);
+                                cmd = Program.ExecSQL(sql);
+                                cmd.ExecuteNonQuery();
+                                cmd.Dispose();
                             }
                             break;
-                        case "Shipping":////////////////////////////here
+                        case "Shipping":
 
                             if (cboStatus.SelectedItem == "Creation")
                             {
@@ -373,21 +444,115 @@ namespace SDP
                             }
                             else if (cboStatus.SelectedItem == "Reservation")
                             {
-                                MessageBox.Show("The status 'Shipping' cannot change to status 'Creation'.");
+                                MessageBox.Show("The status 'Shipping' cannot change to status 'Reservation'.");
                                 FormEditOrder_Load(sender, e);
                                 submitStatus = false;
                                 break;
                             }
                             else if (cboStatus.SelectedItem == "Shipping")
                             {
-                                MessageBox.Show("The status'Reservation' cannot change to status'Shipping'.");
+                                submit();
+                                for (int i = 0; i < lvResult.Items.Count; i++)
+                                {
+                                    String productId = lvResult.Items[i].Text;
+                                    int currentQty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
+                                    int currentDespatched = Convert.ToInt32(lvResult.Items[i].SubItems[7].Text);
+                                    String sql = String.Format("select qty from orderProduct where orderId = {0} and productId = {1}", OrderId, productId);
+                                    MySqlCommand cmd = Program.ExecSQL(sql);
+                                    MySqlDataReader data = cmd.ExecuteReader();
+                                    int qty = 0;
+                                    if (data.Read())
+                                    {
+                                        qty = data.GetInt32(0);
+                                    }
+                                    if (currentQty != qty)
+                                    {
+                                        MessageBox.Show("The qty cannot be changed.");
+                                        FormEditOrder_Load(sender, e);
+                                        submitStatus = false;
+                                        break;
+                                    }
+
+                                    sql = String.Format("update orderProduct set despatched = {0} where  orderId = {1} and productId={2}",
+                                       currentDespatched, OrderId, productId);
+                                    cmd = Program.ExecSQL(sql);
+                                    cmd.ExecuteNonQuery();
+                                    cmd.Dispose();
+                                }
+                            }
+                            else if (cboStatus.SelectedItem == "Delection")
+                            {
+                                MessageBox.Show("This order has been shipped. It cannot be delected.");
                                 FormEditOrder_Load(sender, e);
                                 submitStatus = false;
                                 break;
                             }
-                            submit();
-                            break;
+                            else if (cboStatus.SelectedItem == "Finish")
+                            {
+                                String sql;
+                                MySqlCommand cmd = new MySqlCommand();
+                                for (int i = 0; i < lvResult.Items.Count; i++)
+                                {
+                                    String productId = lvResult.Items[i].Text;
+                                    sql = String.Format("select qty,despatched from orderProduct where orderId = {0} and productId = {1}", OrderId, productId);
+                                    cmd = Program.ExecSQL(sql);
+                                    MySqlDataReader data = cmd.ExecuteReader();
+                                    int qty = 0;
+                                    int despatched = 0;
+                                    while (data.Read())
+                                    {
+                                        qty = data.GetInt32(0);
+                                        despatched = data.GetInt32(1);
+                                    }
+                                    if (qty != despatched)
+                                    {
+                                        data.Close();
+                                        cmd.ExecuteNonQuery();
+                                        cmd.Dispose();
+                                        MessageBox.Show("All product must be despatched.");
+                                        FormEditOrder_Load(sender, e);
+                                        submitStatus = false;
+                                        break;
+                                    }
+                                    data.Close();
+                                    cmd.ExecuteNonQuery();
+                                    cmd.Dispose();
 
+                                }
+                                sql = String.Format("update dbOPSRS.order set status='{1}', remark='{2}' where orderId= '{0}'",
+   OrderId, cboStatus.Text, txtRemark.Text);
+                                cmd = Program.ExecSQL(sql);
+                                cmd.ExecuteNonQuery();
+                                cmd.Dispose();
+                                for (int i = 0; i < lvResult.Items.Count; i++)
+                                {
+                                    String productId = lvResult.Items[i].Text;
+                                    sql = String.Format("select qty,despatched from orderProduct where orderId = {0} and productId = {1}", OrderId, productId);
+                                    cmd = Program.ExecSQL(sql);
+                                    MySqlDataReader data = cmd.ExecuteReader();
+                                    int qty = 0;
+                                    int despatched = 0;
+                                    while (data.Read())
+                                    {
+                                        qty = data.GetInt32(0);
+                                        despatched = data.GetInt32(1);
+                                    }
+                                    MessageBox.Show(qty + "        " + despatched);
+                                    data.Close();
+                                    cmd.ExecuteNonQuery();
+                                    cmd.Dispose();
+                                    sql = String.Format("update product set inHand = inHand - {0} where productId = {1}", qty, productId);
+                                    cmd = Program.ExecSQL(sql);
+                                    cmd.ExecuteNonQuery();
+                                    cmd.Dispose();
+                                }
+                            }
+                            break;
+                        case "Delection":
+                        case "Finish":
+                            submitStatus = false;
+                            MessageBox.Show("This order cannot be changed.");
+                            break;
                     }
                     if (submitStatus)
                     {
@@ -448,13 +613,13 @@ namespace SDP
                 int despatched = 0;
                 while (data.Read())
                 {
-                     qty = data.GetInt32(0);
-                     despatched = data.GetInt32(1);
+                    qty = data.GetInt32(0);
+                    despatched = data.GetInt32(1);
                 }
                 data.Close();
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
-                sql = String.Format("update product set {2} = {2} - {0}, {3} = {3} + {0} where productId = {1}", qty, productId,minus,add);
+                sql = String.Format("update product set {2} = {2} - {0}, {3} = {3} + {0} where productId = {1}", qty, productId, minus, add);
                 cmd = Program.ExecSQL(sql);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();

@@ -155,5 +155,11 @@ namespace SDP
             Form newPurchaseOrder = new FormNewPurchaseOrder(UserName);
             newPurchaseOrder.ShowDialog();
         }
+
+        private void BtnPassword_Click(object sender, EventArgs e)
+        {
+            Form changePassword = new FormChangePassword(UserName);
+            changePassword.ShowDialog();
+        }
     }
 }

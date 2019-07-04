@@ -29,8 +29,6 @@ namespace SDP
             lvResult.Columns.Add("Staff Name", 100);
             lvResult.Columns.Add("Available", 100);
 
-            lvResult.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            lvResult.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         private void FormStaff_Load(object sender, EventArgs e)
@@ -110,7 +108,7 @@ namespace SDP
                         Boolean available = cbAvailable.Checked;
                         String sql = String.Format("UPDATE staff SET roleId = {0}, staffName = '{1}', available = {2} WHERE staffId = {3}", txtRID.Text, txtName.Text, available, StaffID);
                         cmd = Program.ExecSQL(sql);
-                        cmd.ExecuteReader();
+                        cmd.ExecuteNonQuery();
                         MessageBox.Show("Update successfully!");
                         FormStaff_Load(sender, e);
                     }
