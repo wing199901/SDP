@@ -303,6 +303,7 @@ namespace SDP
                 data.Close();
                 cmd.Dispose();
 
+                MessageBox.Show(custId);
                 sql = String.Format("insert into dbOPSRS.order (staffId, custId, status, date, deliveryDate, shippingAddress, totalAmount, remark) " +
                     "values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', {6}, '{7}')",
                     txtStaffId.Text, custId, cboStatus.Text, submitTime, dtpDelivery.Value.ToString("yyyy-MM-dd"), txtShipAddr.Text, total, txtRemark.Text);
@@ -371,11 +372,11 @@ namespace SDP
                         cmd = Program.ExecSQL(sql);
                         cmd.ExecuteNonQuery();
 
-                        sql = String.Format("UPDATE product SET atHand = atHand + {0} WHERE productId = {1}", qty, productId);
+                        sql = String.Format("UPDATE product SET atHand = atHand + {0} WHERE productId = {1}", qty-onHand, productId);
                         cmd = Program.ExecSQL(sql);
                         cmd.ExecuteNonQuery();
 
-                        sql = String.Format("UPDATE purchasingOrder SET totalAmount = totalAmount + {0} WHERE poId = {1}",amount*qty-onHand, poId);
+                        sql = String.Format("UPDATE purchasingOrder SET totalAmount = totalAmount + {0} WHERE poId = {1}",amount*(qty-onHand), poId);
                         cmd = Program.ExecSQL(sql);
                         cmd.ExecuteNonQuery();
 
