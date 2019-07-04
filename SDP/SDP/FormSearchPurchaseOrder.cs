@@ -23,7 +23,7 @@ namespace SDP
             lvOrder.GridLines = true;
             lvOrder.View = View.Details;
             lvOrder.FullRowSelect = true;
-            lvOrder.Columns.Add("Purchasing Order ID", 150);
+            lvOrder.Columns.Add("Purchasing Order ID", 120);
             lvOrder.Columns.Add("Staff ID", 70);
             lvOrder.Columns.Add("Status", 70);
             lvOrder.Columns.Add("Start Date", 100);
@@ -166,6 +166,40 @@ namespace SDP
                 BtnSearch_Click(sender, e);
 
                 txtOrderID.Focus();
+            }
+        }
+
+        private void BtnConfirm_Click(object sender, EventArgs e)
+        {
+            if (currentItem != null)
+            {
+                String OrderID = currentItem.Text;
+                String Status = null;
+                String sql = String.Format("SELECT status FROM purchasingOrder WHERE poId = '{0}'", OrderID);
+                MySqlCommand cmd = Program.ExecSQL(sql);
+                MySqlDataReader data = cmd.ExecuteReader();
+
+                while (data.Read())
+                {
+                    Status = data.GetString(0);
+                }
+
+                if (Status.Equals("Pending"))
+                {
+                    sql = String.Format("UPDATE purchasingOrder SET status = 'Creation' WHERE poId = '{0}'", OrderID);
+                    cmd = Program.ExecSQL(sql);
+                    cmd.ExecuteNonQuery();
+                }
+                else
+                {
+                    MessageBox.Show("This order is not Pending.");
+                    Utilities.ResetAllControls(this);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a order to confirm.");
+                Utilities.ResetAllControls(this);
             }
         }
     }
