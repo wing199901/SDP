@@ -119,4 +119,61 @@ namespace SDP
             }
         }
     }
+    public class control
+    {
+        private static int[] permission;
+        public static void setPermission(String staffId)
+        {
+            String sql = String.Format("SELECT controlId, disabled from controlRole,  staff  where staffId = {0} AND staff.roleId = controlRole.roleId", staffId);
+            MySqlCommand cmd = Program.ExecSQL(sql);
+            MySqlDataReader data = cmd.ExecuteReader();
+            int controlIdCount = 0;
+            while (data.Read())
+            {
+                if (data.GetInt32(1) == 0)
+                {
+                    controlIdCount++;
+                }
+            }
+            permission = new int[controlIdCount];
+            cmd.Dispose();
+            sql = String.Format("SELECT controlId, disabled from controlRole,  staff  where staffId = {0} AND staff.roleId = controlRole.roleId", staffId);
+            cmd = Program.ExecSQL(sql);
+            data = cmd.ExecuteReader();
+            int num = 0;
+            while (data.Read())
+            {
+                if (data.GetInt32(1) == 0)
+                {
+                    permission[num++] = data.GetInt32(0);
+                }
+            }
+            Array.Sort(permission);
+           /* String save = "";
+            for(int  i = 0; i < permission.Count(); i++)
+            {
+                save += permission[i].ToString() + "             ";
+            }
+            MessageBox.Show(save);*/
+        }
+        public static int[] getPermission()
+        {
+            return permission;
+        }
+
+        public  static Boolean hasPermission(int pid)
+        {
+            Boolean hasPermission = false;
+            for(int i  = 0; i < permission.Length; i++)
+            {
+                if (permission[i] == pid)
+                {
+                    hasPermission = true;
+                  //  MessageBox.Show("pid: "+pid.ToString()+"\nhasPermission");
+                    return hasPermission;
+                }
+            }
+            return hasPermission;
+        }
+    }
 }
