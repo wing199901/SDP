@@ -131,6 +131,12 @@
     <Compile Include="FormGenerate.Designer.cs">
       <DependentUpon>FormGenerate.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPermissionControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPermissionControl.Designer.cs">
+      <DependentUpon>FormPermissionControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormReorderPoint.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormGenerate.resx">
       <DependentUpon>FormGenerate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPermissionControl.resx">
+      <DependentUpon>FormPermissionControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormReorderPoint.resx">
       <DependentUpon>FormReorderPoint.cs</DependentUpon>

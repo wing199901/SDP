@@ -41,49 +41,56 @@
             // lvResult
             // 
             this.lvResult.HideSelection = false;
-            this.lvResult.Location = new System.Drawing.Point(18, 77);
+            this.lvResult.Location = new System.Drawing.Point(36, 160);
+            this.lvResult.Margin = new System.Windows.Forms.Padding(6);
             this.lvResult.Name = "lvResult";
-            this.lvResult.Size = new System.Drawing.Size(806, 132);
+            this.lvResult.Size = new System.Drawing.Size(1608, 271);
             this.lvResult.TabIndex = 0;
             this.lvResult.UseCompatibleStateImageBehavior = false;
+            this.lvResult.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LvResult_MouseDoubleClick);
             // 
             // lblRID
             // 
             this.lblRID.AutoSize = true;
-            this.lblRID.Location = new System.Drawing.Point(100, 237);
+            this.lblRID.Location = new System.Drawing.Point(200, 494);
+            this.lblRID.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblRID.Name = "lblRID";
-            this.lblRID.Size = new System.Drawing.Size(45, 12);
+            this.lblRID.Size = new System.Drawing.Size(88, 25);
             this.lblRID.TabIndex = 1;
             this.lblRID.Text = "Role ID:";
             // 
             // lblRName
             // 
             this.lblRName.AutoSize = true;
-            this.lblRName.Location = new System.Drawing.Point(100, 273);
+            this.lblRName.Location = new System.Drawing.Point(200, 569);
+            this.lblRName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblRName.Name = "lblRName";
-            this.lblRName.Size = new System.Drawing.Size(60, 12);
+            this.lblRName.Size = new System.Drawing.Size(124, 25);
             this.lblRName.TabIndex = 2;
             this.lblRName.Text = "Role Name:";
             // 
             // txtRID
             // 
-            this.txtRID.Location = new System.Drawing.Point(200, 234);
+            this.txtRID.Location = new System.Drawing.Point(400, 487);
+            this.txtRID.Margin = new System.Windows.Forms.Padding(6);
             this.txtRID.Name = "txtRID";
-            this.txtRID.Size = new System.Drawing.Size(200, 22);
+            this.txtRID.Size = new System.Drawing.Size(396, 31);
             this.txtRID.TabIndex = 0;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(200, 273);
+            this.txtName.Location = new System.Drawing.Point(400, 569);
+            this.txtName.Margin = new System.Windows.Forms.Padding(6);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(200, 22);
+            this.txtName.Size = new System.Drawing.Size(396, 31);
             this.txtName.TabIndex = 1;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(102, 309);
+            this.btnAdd.Location = new System.Drawing.Point(204, 644);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(6);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(150, 48);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -91,9 +98,10 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(183, 309);
+            this.btnCancel.Location = new System.Drawing.Point(366, 644);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(6);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(150, 48);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -102,18 +110,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("新細明體", 18F);
-            this.label1.Location = new System.Drawing.Point(414, 396);
+            this.label1.Font = new System.Drawing.Font("PMingLiU", 18F);
+            this.label1.Location = new System.Drawing.Point(828, 825);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(399, 24);
+            this.label1.Size = new System.Drawing.Size(800, 48);
             this.label1.TabIndex = 5;
             this.label1.Text = "Smart && Luxury Motor Company (Spares)";
             // 
             // FormRoleControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(838, 441);
+            this.ClientSize = new System.Drawing.Size(1676, 919);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAdd);
@@ -122,6 +131,7 @@
             this.Controls.Add(this.lblRName);
             this.Controls.Add(this.lblRID);
             this.Controls.Add(this.lvResult);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormRoleControl";
             this.Text = "Role Control";
             this.Load += new System.EventHandler(this.FormRoleControl_Load);
