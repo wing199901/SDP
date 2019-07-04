@@ -142,32 +142,46 @@ namespace SDP
             {
                 if (txtQty.Text != "")
                 {
-                    String sql = String.Format("select productId, type, brand, productName, Description, price from product where productId like '%{0}%'", txtProductID.Text);
+                    String sql = String.Format("select onHand from product where productId = {0}",txtProductID.Text.ToString());
                     MySqlCommand cmd = Program.ExecSQL(sql);
                     MySqlDataReader data = cmd.ExecuteReader();
-
+                    int onHand = 0;
                     while (data.Read())
                     {
-                        ListViewItem lv = new ListViewItem(data.GetString(0).ToString());
-                        lv.SubItems.Add(data.GetString(1).ToString());
-                        lv.SubItems.Add(data.GetString(2).ToString());
-                        lv.SubItems.Add(data.GetString(3).ToString());
-                        lv.SubItems.Add(data.GetString(4).ToString());
-                        priceTxt = data.GetDouble(5).ToString();
-                        lv.SubItems.Add("$" + priceTxt);
-                        lv.SubItems.Add(txtQty.Text);
-                        lvResult.Items.Add(lv);
-                        double price = Convert.ToDouble(priceTxt);
-                        quantity = Convert.ToDouble(txtQty.Text);
-                        price *= quantity;
-                        total += price;
-                        txtAmount.Text = "$" + total.ToString();
+                        onHand = data.GetInt32(0);
                     }
+                    if (onHand > 0)
+                    {
+                        sql = String.Format("select productId, type, brand, productName, Description, price from product where productId like '%{0}%'", txtProductID.Text);
+                        cmd = Program.ExecSQL(sql);
+                        data = cmd.ExecuteReader();
 
-                    data.Close();
-                    cmd.Dispose();
-                    txtProductID.Text = "";
-                    txtQty.Text = "";
+                        while (data.Read())
+                        {
+                            ListViewItem lv = new ListViewItem(data.GetString(0).ToString());
+                            lv.SubItems.Add(data.GetString(1).ToString());
+                            lv.SubItems.Add(data.GetString(2).ToString());
+                            lv.SubItems.Add(data.GetString(3).ToString());
+                            lv.SubItems.Add(data.GetString(4).ToString());
+                            priceTxt = data.GetDouble(5).ToString();
+                            lv.SubItems.Add("$" + priceTxt);
+                            lv.SubItems.Add(txtQty.Text);
+                            lvResult.Items.Add(lv);
+                            double price = Convert.ToDouble(priceTxt);
+                            quantity = Convert.ToDouble(txtQty.Text);
+                            price *= quantity;
+                            total += price;
+                            txtAmount.Text = "$" + total.ToString();
+                        }
+
+                        data.Close();
+                        cmd.Dispose();
+                        txtProductID.Text = "";
+                        txtQty.Text = "";
+                    }else
+                    {
+                        MessageBox.Show("This product is out of stock.");
+                    }
                 }
                 else
                 {
