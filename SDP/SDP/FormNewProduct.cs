@@ -35,30 +35,55 @@ namespace SDP
             {
                 MessageBox.Show("Brand can not be empty");
             }
-            else if (txtLeadTime.Text == null)
-            {
-                
-            }
             else if (string.IsNullOrWhiteSpace(txtDes.Text))
             {
                 MessageBox.Show("Description can not be empty");
             }
+
             else
             {
-                MySqlCommand cmd = null;
+                if (cbType.SelectedIndex == 0)
+                {
+                    type = "A";
+                }
+
+                if (cbType.SelectedIndex == 1)
+                {
+                    type = "B";
+                }
+                if (cbType.SelectedIndex == 2)
+                {
+                    type = "C";
+                }
+                if (cbType.SelectedIndex == 3)
+                {
+                    type = "D";
+                }
                 try
                 {
-                    String sql = String.Format("INSERT INTO product(productName, type, price, brand, leadTime, description) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}') ", txtName.Text, type, txtPrice.Text, txtBrand.Text, txtLeadTime.Text, txtDes.Text);
+                    MySqlCommand cmd = null;
+                    String sql;
+                    if (txtLeadTime.Text == "")
+                    {
+                        sql = String.Format("INSERT INTO product(type, brand,productName,description, price) VALUES('{0}','{1}','{2}','{3}','{4}')", type, txtBrand.Text, txtName.Text, txtDes.Text, txtPrice.Text);
+                    }
+                    else
+                    {
+                        sql = String.Format("INSERT INTO product(type, brand,productName,description, price, leadTime) VALUES('{0}','{1}','{2}','{3}','{4}','{5}')", type, txtBrand.Text, txtName.Text, txtDes.Text, txtPrice.Text, txtLeadTime.Text);
+                    }
                     cmd = Program.ExecSQL(sql);
                     cmd.ExecuteReader();
+                    cmd.Dispose();
                     MessageBox.Show("Add successfully!");
+
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
                 }
 
-                cmd.Dispose();
+
+                
 
 
             }
@@ -76,23 +101,7 @@ namespace SDP
 
         private void CbType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cbType.SelectedIndex == 0)
-            {
-                type = "A";
-            }
-
-            if (cbType.SelectedIndex == 1)
-            {
-                type = "B";
-            }
-            if (cbType.SelectedIndex == 2)
-            {
-                type = "C";
-            }
-            if (cbType.SelectedIndex == 3)
-            {
-                type = "D";
-            }
+            
         }
     }
 }
