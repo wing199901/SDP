@@ -1,9 +1,12 @@
-﻿using MySql.Data.MySqlClient;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -93,7 +96,7 @@ namespace SDP
                 Console.WriteLine(custId);
                 reference += " custId='" + custId + "'";
             }
-            if (cboOrderStatus.SelectedItem != null&& cboOrderStatus.SelectedIndex!=0)
+            if (cboOrderStatus.SelectedItem != null && cboOrderStatus.SelectedIndex != 0)
             {
                 if (reference != "")
                 {
@@ -158,7 +161,8 @@ namespace SDP
 
         private void LvResult_order_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (control.hasPermission(210)) {
+            if (control.hasPermission(210))
+            {
                 currentItem = lvResult_order.GetItemAt(e.X, e.Y);
 
                 if (currentItem != null)
@@ -180,5 +184,105 @@ namespace SDP
             this.Close();
         }
 
+        private void BtnGenIN_Click(object sender, EventArgs e)
+        {
+            if (currentItem != null)
+            {
+                String orderId = currentItem.Text;
+
+                String sql = String.Format("SELECT * FROM dbOPSRS.order WHERE orderId = '{0}'", orderId);
+                MySqlCommand cmd = Program.ExecSQL(sql);
+                MySqlDataReader dataOrder = cmd.ExecuteReader();
+                while (dataOrder.Read())
+                {
+                    Document invoice = new Document(PageSize.A4, 36, 72, 108, 180);
+                    try
+                    {
+                        FileStream fs = new FileStream(@"Z:\OneDrive - Vocational Training Council\SDP\Invoice_" + dataOrder.GetString("orderId") + ".pdf", FileMode.Create);
+                        PdfWriter.GetInstance(invoice, fs);
+                        Paragraph p = new Paragraph("Smart & Luxury Motor Company (Spares)", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.COURIER, 20f));
+                        invoice.Open();
+                        invoice.Add(p);
+                        invoice.Add(new Paragraph("3 King Ling Road Tseung Kwan O, New Territories Tel: 3928 2000 Fax: 3928 2024 Email: cs-dilwl@vtc.edu.hk"));
+                        invoice.AddTitle("Invoice: [Order ID:" + dataOrder.GetString("orderId") + "]");    //文件標題
+                        invoice.AddAuthor(dataOrder.GetString("staffId"));   //文件作者
+
+                        PdfPTable address = new PdfPTable(1);
+                        sql = String.Format("SELECT * FROM customer WHERE custId = '{0}'", dataOrder.GetString("custId"));
+                        cmd = Program.ExecSQL(sql);
+                        MySqlDataReader data = cmd.ExecuteReader();
+                        while (data.Read())
+                        {
+                            float[] columnDefinitionSize = { 260F };
+                            address.SetTotalWidth(columnDefinitionSize);
+                            address.HorizontalAlignment = 0;
+                            address.DefaultCell.BorderColor = BaseColor.WHITE;
+                            address.LockedWidth = true;
+                            address.AddCell(new Phrase("Bill To:"));
+                            address.AddCell(new Phrase(data.GetString("custName")));
+                            address.AddCell(new Phrase(data.GetString("companyName")));
+                            address.AddCell(new Phrase(data.GetString("address")));
+                            address.AddCell(new Phrase(data.GetString("phone")));
+                            address.AddCell(new Phrase(data.GetString("custName")));
+                            address.AddCell(new Phrase(data.GetString("email")));
+                        }
+
+                        invoice.Add(address);
+
+                        PdfPTable table = new PdfPTable(4);
+                        table.HorizontalAlignment = 0; //0=Left, 1=Centre, 2=Right
+                        PdfPCell header = new PdfPCell(new Phrase("Details"));
+                        header.Colspan = 4;
+                        table.AddCell(header);
+                        table.AddCell("Product Name");
+                        table.AddCell("Quantity");
+                        table.AddCell("Unit Price");
+                        table.AddCell("Amount");
+
+                        PdfPTable totalTable = new PdfPTable(1);
+
+                        sql = String.Format("SELECT * FROM `orderProduct`, product WHERE orderId= {0} AND orderProduct.productId = product.productId", orderId);
+                        cmd = Program.ExecSQL(sql);
+                        MySqlDataReader dataProduct = cmd.ExecuteReader();
+                        while (dataProduct.Read())
+                        {
+                            table.AddCell(dataProduct.GetString("productName"));
+                            table.AddCell(dataProduct.GetString("qty"));
+                            table.AddCell(dataProduct.GetString("price"));
+                            double total = (dataProduct.GetDouble("qty") * dataProduct.GetDouble("price"));
+                            totalTable.AddCell(new Phrase(total.ToString()));
+                        }
+                        totalTable.AddCell(dataOrder.GetString("totalAmount"));
+                        table.AddCell(totalTable);
+                        PdfPCell bottom = new PdfPCell(new Phrase("g"));
+                        bottom.Colspan = 2;
+                        table.AddCell(bottom);
+                        table.AddCell("Total Amount:");
+                        invoice.Add(table);
+
+                        MessageBox.Show("Invoice output successfully.");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                    finally
+                    {
+                        if (invoice.IsOpen()) invoice.Close();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a order.");
+            }
+
+
+        }
+
+        private void LvResult_order_MouseClick(object sender, MouseEventArgs e)
+        {
+            currentItem = lvResult_order.GetItemAt(e.X, e.Y);
+        }
     }
 }
