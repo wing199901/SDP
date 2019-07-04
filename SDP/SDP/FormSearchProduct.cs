@@ -97,9 +97,13 @@ namespace SDP
 
         private void LvResult_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
-            ProductId = lvResult.SelectedItems[0].ToString();
-            ProductId = System.Text.RegularExpressions.Regex.Replace(ProductId, "[a-zA-Z{}: ]", "");
+                MessageBox.Show(lvResult.SelectedItems[0].ToString());
+    
+                this.DialogResult = DialogResult.OK;
+                ProductId = lvResult.SelectedItems[0].ToString();
+                ProductId = System.Text.RegularExpressions.Regex.Replace(ProductId, "[a-zA-Z{}: ]", "");
+
+            
         }
     }
 }
