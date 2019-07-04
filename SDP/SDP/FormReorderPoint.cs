@@ -113,6 +113,11 @@ namespace SDP
 
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void BtnUpdateAll_Click(object sender, EventArgs e)
+        {
             //Safety stock = (Maximum daily usage * Maximum lead time in days) – (Average daily usage * Average lead time in days)last month
             // string lMonth = DateTime.Now.ToString("MM");
             //lMonth = lMonth.Replace("0", "");
@@ -123,7 +128,7 @@ namespace SDP
             {
 
                 String productId = data.GetString("productId");
-                sql = String.Format("SELECT qty FROM dbOPSRS.order,orderProduct WHERE YEAR(date) = YEAR(CURRENT_DATE - INTERVAL 1 MONTH) AND MONTH(date) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH) AND dbOPSRS.order.orderId = orderProduct.orderId AND status = 'Finish' and productId = {0}",productId);
+                sql = String.Format("SELECT qty FROM dbOPSRS.order,orderProduct WHERE YEAR(date) = YEAR(CURRENT_DATE - INTERVAL 1 MONTH) AND MONTH(date) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH) AND dbOPSRS.order.orderId = orderProduct.orderId AND status = 'Finish' and productId = {0}", productId);
                 cmd = Program.ExecSQL(sql);
                 MySqlDataReader subData = cmd.ExecuteReader();
                 int totalUsage = 0;
@@ -154,14 +159,13 @@ namespace SDP
                 sql = String.Format("update product set safetyStock = {0}, reorderPoint = {1} where productId = {2}", safetyStock, reorderPoint, productId);
                 cmd = Program.ExecSQL(sql);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("productId: "+productId.ToString()+"\ndailyUsage: "+dailyUsage.ToString()+"\nmaxUsage: " + maxUsage
-                    +"\nsafetyStock: "+safetyStock+"\nreorderPoint: "+reorderPoint);
+                MessageBox.Show("productId: " + productId.ToString() + "\ndailyUsage: " + dailyUsage.ToString() + "\nmaxUsage: " + maxUsage
+                    + "\nsafetyStock: " + safetyStock + "\nreorderPoint: " + reorderPoint);
 
             }
             data.Close();
             cmd.Dispose();
             //
-
         }
     }
 }
