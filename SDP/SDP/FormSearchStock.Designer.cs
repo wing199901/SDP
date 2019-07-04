@@ -92,7 +92,7 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btnSearch);
             this.Name = "FormSearchStock";
-            this.Text = "FormSearchStock";
+            this.Text = "Search Product";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -57,6 +57,8 @@ namespace SDP
                         MySqlCommand cmd = Program.ExecSQL(DG);
                         MySqlDataReader data = cmd.ExecuteReader();
 
+                        lvReport.Items.Clear();
+
                         while (data.Read())
                         {
                             ListViewItem lv = new ListViewItem(data.GetInt32(0).ToString());
@@ -69,15 +71,16 @@ namespace SDP
                             lv.SubItems.Add(data.GetInt32(7).ToString());
                             lv.SubItems.Add(data.GetDouble(8).ToString());
                             lvReport.Items.Add(lv);
+
                         }
 
                         data.Close();
                         cmd.Dispose();
                         break;
 
-                    case 1: // Inward
+                        //case 1: // Inward
                         //ListView Header
-                        lvReport.GridLines = true;
+                        /*lvReport.GridLines = true;
                         lvReport.View = View.Details;
                         lvReport.FullRowSelect = true;
                         lvReport.Columns.Add("Defective ID", 100);
@@ -112,6 +115,7 @@ namespace SDP
                         break;
                     case 3: // Turnover
                         break;
+                }*/
                 }
             }
         }
