@@ -30,6 +30,9 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.lvResult = new System.Windows.Forms.ListView();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -49,16 +52,52 @@
             this.lvResult.Location = new System.Drawing.Point(34, 103);
             this.lvResult.Margin = new System.Windows.Forms.Padding(6);
             this.lvResult.Name = "lvResult";
-            this.lvResult.Size = new System.Drawing.Size(1608, 271);
+            this.lvResult.Size = new System.Drawing.Size(1608, 416);
             this.lvResult.TabIndex = 6;
             this.lvResult.UseCompatibleStateImageBehavior = false;
             this.lvResult.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LvResult_MouseDoubleClick);
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.Location = new System.Drawing.Point(117, 609);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(6);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(150, 48);
+            this.btnSubmit.TabIndex = 8;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.BtnSubmit_Click);
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(308, 609);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(6);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(150, 48);
+            this.btnReset.TabIndex = 9;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.BtnReset_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(500, 609);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(6);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(150, 48);
+            this.btnCancel.TabIndex = 10;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // FormPermissionControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1676, 919);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnReset);
+            this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lvResult);
             this.Name = "FormPermissionControl";
@@ -73,5 +112,8 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListView lvResult;
+        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

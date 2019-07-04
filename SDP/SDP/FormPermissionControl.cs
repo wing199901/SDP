@@ -37,7 +37,7 @@ namespace SDP
         }
         private void FormPermissionControl_Load(object sender, EventArgs e)
         {
-            String sql = String.Format("SELECT controlRole.controlId, controlRole.page, description, disabled from controlRole, control where roleId = {0} and controlRole.controlId = control.controlId order by controlRole.controlId ASC",roleId);
+            String sql = String.Format("SELECT controlRole.controlId, controlRole.page, description, disabled from controlRole, control where roleId = {0} and controlRole.controlId = control.controlId order by controlRole.controlId ASC", roleId);
             MySqlCommand cmd = Program.ExecSQL(sql);
             MySqlDataReader data = cmd.ExecuteReader();
 
@@ -54,11 +54,40 @@ namespace SDP
         private void LvResult_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             currentItem = lvResult.GetItemAt(e.X, e.Y);
-            String productId = currentItem.Text;
-            String sql = String.Format("select onHand from product where productId = {0}", productId);
-            MySqlCommand cmd = Program.ExecSQL(sql);
-            MySqlDataReader data = cmd.ExecuteReader();
+            String controlId = currentItem.Text;
+            lvResult.SelectedItems[0].SubItems[3].Text = (lvResult.SelectedItems[0].SubItems[3].Text == "True") ? "False" : "True";
 
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnReset_Click(object sender, EventArgs e)
+        {
+            Utilities.ResetAllControls(this);
+            FormPermissionControl_Load(sender, e);
+        }
+
+        private void BtnSubmit_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < lvResult.Items.Count; i++)
+            {
+                String controlId = lvResult.Items[i].Text;
+                String disabled = lvResult.Items[i].SubItems[3].Text;
+                String sql = String.Format("update controlRole set disabled = {0} where controlId = {1}",disabled,controlId);
+                MySqlCommand cmd = Program.ExecSQL(sql);
+                cmd.ExecuteNonQuery();
+
+                /*   double amount = Convert.ToDouble(Regex.Replace(lvResult.Items[i].SubItems[5].Text, "[$]", ""));
+                   int qty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
+                   sql = String.Format("insert into orderProduct (orderId, productId, qty) " +
+                       "values ('{0}', '{1}', {2})", orderId, productId, qty);
+                   cmd = Program.ExecSQL(sql);
+                   cmd.ExecuteNonQuery();*/
+            }
+            MessageBox.Show("Update Sussesed!");
         }
     }
 }
