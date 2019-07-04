@@ -610,7 +610,6 @@ namespace SDP
                                         qty = data.GetInt32(0);
                                         despatched = data.GetInt32(1);
                                     }
-                                    MessageBox.Show(qty + "        " + despatched);
                                     data.Close();
                                     cmd.ExecuteNonQuery();
                                     cmd.Dispose();
