@@ -50,7 +50,7 @@ namespace SDP
 
         private void FormEditOrder_Load(object sender, EventArgs e)
         {
-
+            cboStatus.Enabled = control.hasPermission(212) ? true : false;
             dtpDelivery.Format = DateTimePickerFormat.Custom;
             dtpDelivery.CustomFormat = "dd/MM/yyyy";
 
@@ -213,49 +213,56 @@ namespace SDP
             }
             else if (subIndex == 7)
             {
-                String sql = String.Format("select qty, despatched from orderProduct where orderId={0} and productId={1}", OrderId, currentItem.SubItems[0].Text);
-                MySqlCommand cmd = Program.ExecSQL(sql);
-                MySqlDataReader data = cmd.ExecuteReader();
-                data.Close();
-                data = cmd.ExecuteReader();
-                int despatched = 0;
-                int qty = 0;
-                while (data.Read())
+                if (control.hasPermission(211))
                 {
-                    qty = data.GetInt32("qty");
-                    despatched = data.GetInt32("despatched");
+                    String sql = String.Format("select qty, despatched from orderProduct where orderId={0} and productId={1}", OrderId, currentItem.SubItems[0].Text);
+                    MySqlCommand cmd = Program.ExecSQL(sql);
+                    MySqlDataReader data = cmd.ExecuteReader();
+                    data.Close();
+                    data = cmd.ExecuteReader();
+                    int despatched = 0;
+                    int qty = 0;
+                    while (data.Read())
+                    {
+                        qty = data.GetInt32("qty");
+                        despatched = data.GetInt32("despatched");
+                    }
+
+                    switch (e.KeyChar)
+                    {
+                        case (char)13:  //Enter
+                                        // despatched = Convert.ToInt32(txtHide.Text);
+                            if (txtHide.Text != "")
+                            {
+                                if (Convert.ToInt32(txtHide.Text) < despatched)
+                                {
+                                    currentItemSub.Text = despatched.ToString();
+                                }
+                                else if ((Convert.ToInt32(txtHide.Text) > qty))
+                                {
+                                    currentItemSub.Text = qty.ToString();
+                                }
+                                else
+                                {
+                                    currentItemSub.Text = txtHide.Text;
+                                }
+                            }
+                            e.Handled = true;
+                            txtHide.Hide();
+                            break;
+
+                        case (char)27:  //Escape
+                            txtHide.Text = "";
+                            e.Handled = true;
+                            txtHide.Hide();
+                            break;
+                        default:
+                            break;
+                    }
                 }
-
-                switch (e.KeyChar)
+                else
                 {
-                    case (char)13:  //Enter
-                                    // despatched = Convert.ToInt32(txtHide.Text);
-                        if (txtHide.Text != "")
-                        {
-                            if (Convert.ToInt32(txtHide.Text) < despatched)
-                            {
-                                currentItemSub.Text = despatched.ToString();
-                            }
-                            else if ((Convert.ToInt32(txtHide.Text) > qty))
-                            {
-                                currentItemSub.Text = qty.ToString();
-                            }
-                            else
-                            {
-                                currentItemSub.Text = txtHide.Text;
-                            }
-                        }
-                        e.Handled = true;
-                        txtHide.Hide();
-                        break;
-
-                    case (char)27:  //Escape
-                        txtHide.Text = "";
-                        e.Handled = true;
-                        txtHide.Hide();
-                        break;
-                    default:
-                        break;
+                    MessageBox.Show("You do not have permission to input the actual quantity of despatched");
                 }
             }
         }

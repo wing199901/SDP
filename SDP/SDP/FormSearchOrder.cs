@@ -158,14 +158,20 @@ namespace SDP
 
         private void LvResult_order_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            currentItem = lvResult_order.GetItemAt(e.X, e.Y);
+            if (control.hasPermission(210)) {
+                currentItem = lvResult_order.GetItemAt(e.X, e.Y);
 
-            if (currentItem != null)
+                if (currentItem != null)
+                {
+                    String orderId = currentItem.Text;
+                    FormEditOrder editOrder = new FormEditOrder(orderId);
+                    editOrder.ShowDialog();
+                    BtnSearch_Click(sender, e);
+                }
+            }
+            else
             {
-                String orderId = currentItem.Text;
-                FormEditOrder editOrder = new FormEditOrder(orderId);
-                editOrder.ShowDialog();
-                BtnSearch_Click(sender, e);
+                MessageBox.Show("You do not have permission to edit order.");
             }
         }
 
