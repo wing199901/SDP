@@ -31,7 +31,6 @@
             this.lblDid = new System.Windows.Forms.Label();
             this.txtDid = new System.Windows.Forms.TextBox();
             this.lblDate = new System.Windows.Forms.Label();
-            this.txtDate = new System.Windows.Forms.TextBox();
             this.lblSid = new System.Windows.Forms.Label();
             this.txtSid = new System.Windows.Forms.TextBox();
             this.lblPID = new System.Windows.Forms.Label();
@@ -44,6 +43,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.dtpDefective = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // lblDid
@@ -65,23 +65,16 @@
             // lblDate
             // 
             this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(114, 80);
+            this.lblDate.Location = new System.Drawing.Point(114, 86);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(29, 12);
             this.lblDate.TabIndex = 2;
             this.lblDate.Text = "Date:";
             // 
-            // txtDate
-            // 
-            this.txtDate.Location = new System.Drawing.Point(204, 77);
-            this.txtDate.Name = "txtDate";
-            this.txtDate.Size = new System.Drawing.Size(200, 22);
-            this.txtDate.TabIndex = 1;
-            // 
             // lblSid
             // 
             this.lblSid.AutoSize = true;
-            this.lblSid.Location = new System.Drawing.Point(114, 121);
+            this.lblSid.Location = new System.Drawing.Point(114, 123);
             this.lblSid.Name = "lblSid";
             this.lblSid.Size = new System.Drawing.Size(45, 12);
             this.lblSid.TabIndex = 4;
@@ -89,7 +82,7 @@
             // 
             // txtSid
             // 
-            this.txtSid.Location = new System.Drawing.Point(204, 118);
+            this.txtSid.Location = new System.Drawing.Point(204, 120);
             this.txtSid.Name = "txtSid";
             this.txtSid.Size = new System.Drawing.Size(200, 22);
             this.txtSid.TabIndex = 2;
@@ -97,7 +90,7 @@
             // lblPID
             // 
             this.lblPID.AutoSize = true;
-            this.lblPID.Location = new System.Drawing.Point(114, 166);
+            this.lblPID.Location = new System.Drawing.Point(114, 164);
             this.lblPID.Name = "lblPID";
             this.lblPID.Size = new System.Drawing.Size(59, 12);
             this.lblPID.TabIndex = 6;
@@ -105,7 +98,7 @@
             // 
             // txtSKU
             // 
-            this.txtSKU.Location = new System.Drawing.Point(204, 163);
+            this.txtSKU.Location = new System.Drawing.Point(204, 161);
             this.txtSKU.Name = "txtSKU";
             this.txtSKU.Size = new System.Drawing.Size(200, 22);
             this.txtSKU.TabIndex = 3;
@@ -113,7 +106,7 @@
             // lblQTY
             // 
             this.lblQTY.AutoSize = true;
-            this.lblQTY.Location = new System.Drawing.Point(114, 210);
+            this.lblQTY.Location = new System.Drawing.Point(114, 205);
             this.lblQTY.Name = "lblQTY";
             this.lblQTY.Size = new System.Drawing.Size(31, 12);
             this.lblQTY.TabIndex = 8;
@@ -121,7 +114,7 @@
             // 
             // txtQTY
             // 
-            this.txtQTY.Location = new System.Drawing.Point(204, 207);
+            this.txtQTY.Location = new System.Drawing.Point(204, 202);
             this.txtQTY.Name = "txtQTY";
             this.txtQTY.Size = new System.Drawing.Size(200, 22);
             this.txtQTY.TabIndex = 4;
@@ -129,7 +122,7 @@
             // lblReason
             // 
             this.lblReason.AutoSize = true;
-            this.lblReason.Location = new System.Drawing.Point(114, 249);
+            this.lblReason.Location = new System.Drawing.Point(114, 246);
             this.lblReason.Name = "lblReason";
             this.lblReason.Size = new System.Drawing.Size(54, 12);
             this.lblReason.TabIndex = 10;
@@ -137,7 +130,7 @@
             // 
             // txtReason
             // 
-            this.txtReason.Location = new System.Drawing.Point(204, 246);
+            this.txtReason.Location = new System.Drawing.Point(204, 243);
             this.txtReason.Multiline = true;
             this.txtReason.Name = "txtReason";
             this.txtReason.Size = new System.Drawing.Size(200, 22);
@@ -146,7 +139,7 @@
             // lblRemark
             // 
             this.lblRemark.AutoSize = true;
-            this.lblRemark.Location = new System.Drawing.Point(116, 290);
+            this.lblRemark.Location = new System.Drawing.Point(114, 287);
             this.lblRemark.Name = "lblRemark";
             this.lblRemark.Size = new System.Drawing.Size(45, 12);
             this.lblRemark.TabIndex = 12;
@@ -154,7 +147,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(204, 287);
+            this.textBox1.Location = new System.Drawing.Point(204, 284);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(200, 67);
@@ -162,7 +155,7 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(116, 388);
+            this.btnSubmit.Location = new System.Drawing.Point(116, 377);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnSubmit.TabIndex = 7;
@@ -171,18 +164,27 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(276, 388);
+            this.btnCancel.Location = new System.Drawing.Point(269, 377);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
+            // dtpDefective
+            // 
+            this.dtpDefective.Location = new System.Drawing.Point(204, 79);
+            this.dtpDefective.Name = "dtpDefective";
+            this.dtpDefective.Size = new System.Drawing.Size(200, 22);
+            this.dtpDefective.TabIndex = 13;
+            this.dtpDefective.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DtpDefective_KeyDown);
+            // 
             // FormDefective
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
+            this.Controls.Add(this.dtpDefective);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.textBox1);
@@ -195,12 +197,12 @@
             this.Controls.Add(this.lblPID);
             this.Controls.Add(this.txtSid);
             this.Controls.Add(this.lblSid);
-            this.Controls.Add(this.txtDate);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.txtDid);
             this.Controls.Add(this.lblDid);
             this.Name = "FormDefective";
             this.Text = "FormDefective";
+            this.Load += new System.EventHandler(this.FormDefective_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,7 +213,6 @@
         private System.Windows.Forms.Label lblDid;
         private System.Windows.Forms.TextBox txtDid;
         private System.Windows.Forms.Label lblDate;
-        private System.Windows.Forms.TextBox txtDate;
         private System.Windows.Forms.Label lblSid;
         private System.Windows.Forms.TextBox txtSid;
         private System.Windows.Forms.Label lblPID;
@@ -224,5 +225,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.DateTimePicker dtpDefective;
     }
 }
