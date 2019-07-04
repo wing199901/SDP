@@ -14,6 +14,8 @@ namespace SDP
     public partial class FormRoleControl : Form
     {
         //private ListViewItem currentItem;
+        private ListViewItem currentItem;
+        private ListViewItem.ListViewSubItem currentItemSub;
         public FormRoleControl()
         {
             InitializeComponent();
@@ -78,6 +80,17 @@ namespace SDP
 
                 cmd.Dispose();
 
+            }
+        }
+
+        private void LvResult_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            currentItem = lvResult.GetItemAt(e.X, e.Y);
+            if (currentItem != null)
+            {
+                String roleId = currentItem.Text.ToString();
+                FormPermissionControl permissionControl = new FormPermissionControl(roleId);
+                permissionControl.ShowDialog();
             }
         }
     }
