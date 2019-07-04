@@ -88,6 +88,8 @@ namespace SDP
             lblWelcome.Text += name;
 
             btnLogoutWasClicked = false;
+
+
         }
 
 
