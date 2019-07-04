@@ -23,6 +23,7 @@ namespace SDP
             lvCustomer.GridLines = true;
             lvCustomer.View = View.Details;
             lvCustomer.FullRowSelect = true;
+            lvCustomer.Columns.Add("Customer ID", 100);
             lvCustomer.Columns.Add("Customer Name", 100);
             lvCustomer.Columns.Add("Address", 100);
             lvCustomer.Columns.Add("Company Name", 100);
@@ -110,12 +111,24 @@ namespace SDP
                 MySqlCommand cmd = null;
                 try
                 {
-                    String sql = String.Format("INSERT INTO customer VALUES ('{1}', '{2}', '{3}', '{4}', '{5}') ", txtName.Text, txtAddress.Text, txtComName.Text, txtEmail.Text, txtPhone.Text);
-                    cmd = Program.ExecSQL(sql);
-                    cmd.ExecuteReader();
-                    MessageBox.Show("Add successfully!");
-                    FormCustomerManagement_Load(sender, e);
+                    String check_Phone = String.Format("select count * from customer where phone = '{0}'", txtPhone.Text);
+                    cmd = Program.ExecSQL(check_Phone);
+                    //cmd.ExecuteReader();
+                    if(check_Phone == null)
+                    {
+                        String sql = String.Format("INSERT INTO customer (custName, address, companyName, email, phone) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}') ", txtName.Text, txtAddress.Text, txtComName.Text, txtEmail.Text, txtPhone.Text);
+                        cmd = Program.ExecSQL(sql);
+                        cmd.ExecuteReader();
+                        MessageBox.Show("Add successfully!");
+                        FormCustomerManagement_Load(sender, e);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Record exists!");
+                    }
+                    
                 }
+
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
@@ -156,7 +169,7 @@ namespace SDP
                     MySqlCommand cmd = null;
                     try
                     {
-                        String sql = String.Format("UPDATE customer SET custID = {0}, custName = '{1}', address = '{2}', companyName = '{3}', email = '{4}', phone = '{5}' WHERE custID = {6}", CustomerID, txtName.Text, txtAddress.Text, txtComName.Text, txtEmail.Text, txtPhone.Text, txtCID.Text);
+                        String sql = String.Format("UPDATE customer SET custName = '{0}', address = '{1}', companyName = '{2}', email = '{3}', phone = '{4}' WHERE custID = '{5}'", txtName.Text, txtAddress.Text, txtComName.Text, txtEmail.Text, txtPhone.Text, CustomerID);
                         cmd = Program.ExecSQL(sql);
                         cmd.ExecuteReader();
                         MessageBox.Show("Update successfully!");
