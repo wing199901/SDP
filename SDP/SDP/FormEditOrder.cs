@@ -123,7 +123,7 @@ namespace SDP
             cmd.Dispose();
             txtShipAddr.ReadOnly = (txtShipAddr.Text == txtAddr.Text);
             choShipAddr.Checked = (txtShipAddr.Text == txtAddr.Text);
-            if (cboStatus.Text == "Delection"||cboStatus.Text=="Finish")
+            if (cboStatus.Text == "Delection" || cboStatus.Text == "Finish")
             {
                 txtShipAddr.ReadOnly = true;
                 txtEmail.ReadOnly = true;
@@ -314,8 +314,9 @@ namespace SDP
                             submit();
                             for (int i = 0; i < lvResult.Items.Count; i++)
                             {
+
                                 String productId = lvResult.Items[i].Text;
-                                int qty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
+                                int currentQty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
                                 int currentDespatched = Convert.ToInt32(lvResult.Items[i].SubItems[7].Text);
                                 if (currentDespatched > 0)
                                 {
@@ -324,6 +325,42 @@ namespace SDP
                                     submitStatus = false;
                                     break;
                                 }
+                                String sql = String.Format("select onHand from product where productId = {0}", productId);
+                                MySqlCommand cmd = Program.ExecSQL(sql);
+                                MySqlDataReader data = cmd.ExecuteReader();
+                                int onHand = 0;
+                                while (data.Read())
+                                {
+                                    onHand = data.GetInt32(0);
+                                }
+                                cmd = Program.ExecSQL(sql);
+                                cmd.ExecuteNonQuery();
+                                cmd.Dispose();
+                                sql = String.Format("select qty from orderProduct where orderId = {0} and productId = {1}", OrderId, productId);
+                                cmd = Program.ExecSQL(sql);
+                                data = cmd.ExecuteReader();
+                                int qty = 0;
+                                if (data.Read())
+                                {
+                                    qty = data.GetInt32(0);
+                                }
+                                int different = currentQty - qty;
+                                if (different > 0)
+                                {
+                                    if (onHand < different)
+                                    {
+                                        MessageBox.Show("This product is out of stock.");
+                                        cmd = Program.ExecSQL(sql);
+                                        cmd.ExecuteNonQuery();
+                                        cmd.Dispose();
+                                        submitStatus = false;
+                                        break;
+                                    }
+
+                                }
+                                cmd = Program.ExecSQL(sql);
+                                cmd.ExecuteNonQuery();
+                                cmd.Dispose();
                             }
                             for (int i = 0; i < lvResult.Items.Count; i++)
                             {
@@ -355,7 +392,7 @@ namespace SDP
                                     cmd.Dispose();
                                 }
                                 sql = String.Format("update orderProduct set qty = {0} where  orderId = {1} and productId={2}",
-                                    currentQty,OrderId, productId);
+                                    currentQty, OrderId, productId);
                                 cmd = Program.ExecSQL(sql);
                                 cmd.ExecuteNonQuery();
                                 cmd.Dispose();
@@ -387,7 +424,7 @@ namespace SDP
                             for (int i = 0; i < lvResult.Items.Count; i++)
                             {
                                 String productId = lvResult.Items[i].Text;
-                                int qty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
+                                int currentQty = Convert.ToInt32(lvResult.Items[i].SubItems[6].Text);
                                 int currentDespatched = Convert.ToInt32(lvResult.Items[i].SubItems[7].Text);
                                 if (currentDespatched > 0)
                                 {
@@ -396,6 +433,42 @@ namespace SDP
                                     submitStatus = false;
                                     break;
                                 }
+                                String sql = String.Format("select onHand from product where productId = {0}", productId);
+                                MySqlCommand cmd = Program.ExecSQL(sql);
+                                MySqlDataReader data = cmd.ExecuteReader();
+                                int onHand = 0;
+                                while (data.Read())
+                                {
+                                    onHand = data.GetInt32(0);
+                                }
+                                cmd = Program.ExecSQL(sql);
+                                cmd.ExecuteNonQuery();
+                                cmd.Dispose();
+                                sql = String.Format("select qty from orderProduct where orderId = {0} and productId = {1}", OrderId, productId);
+                                cmd = Program.ExecSQL(sql);
+                                data = cmd.ExecuteReader();
+                                int qty = 0;
+                                if (data.Read())
+                                {
+                                    qty = data.GetInt32(0);
+                                }
+                                int different = currentQty - qty;
+                                if (different > 0)
+                                {
+                                    if (onHand < different)
+                                    {
+                                        MessageBox.Show("This product is out of stock.");
+                                        cmd = Program.ExecSQL(sql);
+                                        cmd.ExecuteNonQuery();
+                                        cmd.Dispose();
+                                        submitStatus = false;
+                                        break;
+                                    }
+
+                                }
+                                cmd = Program.ExecSQL(sql);
+                                cmd.ExecuteNonQuery();
+                                cmd.Dispose();
                             }
                             for (int i = 0; i < lvResult.Items.Count; i++)
                             {
