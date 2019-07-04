@@ -45,7 +45,7 @@
             this.btnNewPO = new System.Windows.Forms.Button();
             this.btnNProduct = new System.Windows.Forms.Button();
             this.btnPassword = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSearchPO = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnROL
@@ -207,21 +207,22 @@
             this.btnPassword.UseVisualStyleBackColor = true;
             this.btnPassword.Click += new System.EventHandler(this.BtnPassword_Click);
             // 
-            // button1
+            // btnSearchPO
             // 
-            this.button1.Location = new System.Drawing.Point(360, 210);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 23);
-            this.button1.TabIndex = 156;
-            this.button1.Text = "Search Purchase Order";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSearchPO.Location = new System.Drawing.Point(360, 210);
+            this.btnSearchPO.Name = "btnSearchPO";
+            this.btnSearchPO.Size = new System.Drawing.Size(123, 23);
+            this.btnSearchPO.TabIndex = 156;
+            this.btnSearchPO.Text = "Search Purchase Order";
+            this.btnSearchPO.UseVisualStyleBackColor = true;
+            this.btnSearchPO.Click += new System.EventHandler(this.Button1_Click);
             // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 441);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSearchPO);
             this.Controls.Add(this.btnPassword);
             this.Controls.Add(this.btnNProduct);
             this.Controls.Add(this.btnNewPO);
@@ -266,6 +267,6 @@
         private System.Windows.Forms.Button btnNewPO;
         private System.Windows.Forms.Button btnNProduct;
         private System.Windows.Forms.Button btnPassword;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSearchPO;
     }
 }

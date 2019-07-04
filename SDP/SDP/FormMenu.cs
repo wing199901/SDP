@@ -161,5 +161,11 @@ namespace SDP
             Form changePassword = new FormChangePassword(UserName);
             changePassword.ShowDialog();
         }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            Form searchPO = new FormSearchPurchaseOrder();
+            searchPO.ShowDialog();
+        }
     }
 }
