@@ -207,7 +207,7 @@ namespace SDP
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.ToString());
             }
 
         }
@@ -365,10 +365,14 @@ namespace SDP
                                 poId = data.GetString(0);
                             }
 
-                            sql = String.Format("INSERT INTO purchasingOrderProduct VALUES('{0}','{1}','{2}')");
-                            cmd = Program.ExecSQL(sql);
-                            cmd.ExecuteNonQuery();
                         }
+                        sql = String.Format("INSERT INTO purchasingOrderProduct VALUES('{0}','{1}','{2}')", poId, productId, qty);
+                        cmd = Program.ExecSQL(sql);
+                        cmd.ExecuteNonQuery();
+
+                        sql = String.Format("UPDATE product SET atHand = atHand + {0} WHERE productId = {1}", qty, productId);
+                        cmd = Program.ExecSQL(sql);
+                        cmd.ExecuteNonQuery();
 
                         cmd.Dispose();
 

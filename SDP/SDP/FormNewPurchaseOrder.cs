@@ -265,7 +265,8 @@ namespace SDP
             {
                 try
                 {
-                    String sql = String.Format("INSERT INTO purchasingOrder(`staffId`, status, `date`, `deliveryDate`, `address`, `totalAmount`, `remark`) VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", txtStaffId.Text, cboStatus.Text, dtpDay.Value.ToString("yyyy-MM-dd"), dtpDelivery.Value.ToString("yyyy-MM-dd"), txtAddr.Text, total, txtRemark.Text);
+                    String sql = String.Format("INSERT INTO purchasingOrder(`staffId`, status, `date`, `deliveryDate`, `address`, `totalAmount`, `remark`) " +
+                        "VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", txtStaffId.Text, cboStatus.Text, dtpDay.Value.ToString("yyyy-MM-dd"), dtpDelivery.Value.ToString("yyyy-MM-dd"), txtAddr.Text, total, txtRemark.Text);
                     MySqlCommand cmd = Program.ExecSQL(sql);
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
