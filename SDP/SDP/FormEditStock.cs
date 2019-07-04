@@ -83,6 +83,7 @@ namespace SDP
                     , txtType.Text, txtBrand.Text, txtProductName.Text, txtPrice.Text, txtDescription.Text, txtProductId.Text);
                 MySqlCommand cmd = Program.ExecSQL(sql);
                 cmd.ExecuteNonQuery();
+                MessageBox.Show("Update successfully.");
             }
         }
 
