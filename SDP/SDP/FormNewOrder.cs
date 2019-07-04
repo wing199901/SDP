@@ -374,6 +374,10 @@ namespace SDP
                         cmd = Program.ExecSQL(sql);
                         cmd.ExecuteNonQuery();
 
+                        sql = String.Format("UPDATE purchasingOrder SET totalAmount = totalAmount +  WHERE productId = {0}", productId);
+                        cmd = Program.ExecSQL(sql);
+                        cmd.ExecuteNonQuery();
+
                         cmd.Dispose();
 
                     }
