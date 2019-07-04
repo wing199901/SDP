@@ -50,7 +50,6 @@ namespace SDP
             }
             return cmd;
         }
-
     }
 
     public class Utilities

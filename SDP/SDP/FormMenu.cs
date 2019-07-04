@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -89,7 +90,7 @@ namespace SDP
 
             btnLogoutWasClicked = false;
 
-
+            SetUpTimer(new TimeSpan(12, 00, 00));
         }
 
 
@@ -168,6 +169,89 @@ namespace SDP
         {
             Form searchPO = new FormSearchPurchaseOrder();
             searchPO.ShowDialog();
+        }
+
+        private System.Threading.Timer timer;
+
+        private void SetUpTimer(TimeSpan alertTime)
+        {
+            DateTime current = DateTime.Now;
+            TimeSpan timeToGo = alertTime - current.TimeOfDay;
+            if (timeToGo < TimeSpan.Zero)
+            {
+                return;//time already passed
+            }
+            this.timer = new System.Threading.Timer(x =>
+            {
+                this.Reorder("");
+            }, null, timeToGo, Timeout.InfiniteTimeSpan);
+        }
+
+        private void Reorder(String productID)
+        {
+            if (productID == "")
+            {
+                String poId = null;
+                DateTime dDay = new DateTime();
+
+                try
+                {
+                    String sql = "SELECT productId, atHand, onHand, price, leadTime, reorderPoint FROM product WHERE reorderPoint > (atHand + onHand)";
+                    MySqlCommand cmd = Program.ExecSQL(sql);
+                    MySqlDataReader data = cmd.ExecuteReader();
+
+                    while (data.Read())
+                    {
+                        if (poId == null)
+                        {
+                            sql = String.Format("INSERT INTO purchasingOrder(`staffId`, status, `date`, `deliveryDate`, `address`, `totalAmount`) " +
+                                "VALUES('99999', 'Pending', '{0}', '{1}', 'LWL', 0)", DateTime.Now.ToString("yyyy-MM-dd"),
+                                DateTime.Now.ToString("yyyy-MM-dd"));
+                            cmd = Program.ExecSQL(sql);
+                            cmd.ExecuteNonQuery();
+
+                            sql = String.Format("SELECT poId ,deliveryDay FROM purchasingOrder WHERE staffId = '99999' AND address = 'LWL' AND totalAmount = '0'");
+                            cmd = Program.ExecSQL(sql);
+                            data = cmd.ExecuteReader();
+
+                            while (data.Read())
+                            {
+                                poId = data.GetString(0);
+                                dDay = data.GetDateTime(1);
+                            }
+                        }
+                        sql = String.Format("INSERT INTO purchasingOrderProduct VALUES('{0}','{1}','{2}')"
+                            , poId, data.GetString("productId"), data.GetInt32("reorderPoint"));
+                        cmd = Program.ExecSQL(sql);
+                        cmd.ExecuteNonQuery();
+
+                        sql = String.Format("UPDATE product SET atHand = atHand + {0} WHERE productId = {1}"
+                            , data.GetInt32("reorderPoint"), data.GetString("productId"));
+                        cmd = Program.ExecSQL(sql);
+                        cmd.ExecuteNonQuery();
+
+                        sql = String.Format("UPDATE purchasingOrder SET totalAmount = totalAmount + {0} WHERE poId = {1}"
+                            , data.GetDouble("price") * data.GetDouble("reorderPoint"), poId);
+                        cmd = Program.ExecSQL(sql);
+                        cmd.ExecuteNonQuery();
+
+                        sql = String.Format("UPDATE purchasingOrder SET deliveryDate = GEATEST(deliveryDate, '{0}') WHERE poId = {1}"
+                            , dDay.AddDays(data.GetInt32("leadTime")), poId);
+                        cmd = Program.ExecSQL(sql);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                    MessageBox.Show("No product need to reorder.");
+                }
+            }
+            else
+            {
+
+            }
         }
     }
 }

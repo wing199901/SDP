@@ -286,7 +286,7 @@ namespace SDP
             else
             {
                 String sql = String.Format("insert into customer (custName, address, companyName, email, phone) select '{0}', '{1}', '{2}', '{3}', '{4}' from dual where not exists (select phone from customer where phone='{4}')",
-                 txtName.Text, txtAddr.Text, txtCompany.Text, txtEmail.Text, txtPhone.Text);
+                    txtName.Text, txtAddr.Text, txtCompany.Text, txtEmail.Text, txtPhone.Text);
                 MySqlCommand cmd = Program.ExecSQL(sql);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -303,7 +303,6 @@ namespace SDP
                 data.Close();
                 cmd.Dispose();
 
-                MessageBox.Show(custId);
                 sql = String.Format("insert into dbOPSRS.order (staffId, custId, status, date, deliveryDate, shippingAddress, totalAmount, remark) " +
                     "values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', {6}, '{7}')",
                     txtStaffId.Text, custId, cboStatus.Text, submitTime, dtpDelivery.Value.ToString("yyyy-MM-dd"), txtShipAddr.Text, total, txtRemark.Text);
@@ -353,8 +352,8 @@ namespace SDP
                         if (poId == null)
                         {
                             sql = String.Format("INSERT INTO purchasingOrder(`staffId`, status, `date`, `deliveryDate`, `address`, `totalAmount`) " +
-                            "VALUES('99999', 'Pending', '{0}', '{1}', 'LWL', 0)", DateTime.Now.ToString("yyyy-MM-dd"),
-                            DateTime.Now.AddDays(leadTime).ToString("yyyy-MM-dd"));
+                                "VALUES('99999', 'Pending', '{0}', '{1}', 'LWL', 0)", DateTime.Now.ToString("yyyy-MM-dd"),
+                                DateTime.Now.AddDays(leadTime).ToString("yyyy-MM-dd"));
                             cmd = Program.ExecSQL(sql);
                             cmd.ExecuteNonQuery();
 
@@ -368,15 +367,15 @@ namespace SDP
                             }
 
                         }
-                        sql = String.Format("INSERT INTO purchasingOrderProduct VALUES('{0}','{1}','{2}')", poId, productId, qty-onHand);
+                        sql = String.Format("INSERT INTO purchasingOrderProduct VALUES('{0}','{1}','{2}')", poId, productId, qty - onHand);
                         cmd = Program.ExecSQL(sql);
                         cmd.ExecuteNonQuery();
 
-                        sql = String.Format("UPDATE product SET atHand = atHand + {0} WHERE productId = {1}", qty-onHand, productId);
+                        sql = String.Format("UPDATE product SET atHand = atHand + {0} WHERE productId = {1}", qty - onHand, productId);
                         cmd = Program.ExecSQL(sql);
                         cmd.ExecuteNonQuery();
 
-                        sql = String.Format("UPDATE purchasingOrder SET totalAmount = totalAmount + {0} WHERE poId = {1}",amount*(qty-onHand), poId);
+                        sql = String.Format("UPDATE purchasingOrder SET totalAmount = totalAmount + {0} WHERE poId = {1}", amount * (qty - onHand), poId);
                         cmd = Program.ExecSQL(sql);
                         cmd.ExecuteNonQuery();
 
