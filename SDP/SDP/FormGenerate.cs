@@ -50,6 +50,7 @@ namespace SDP
 
                 lvReport.Columns.Add("Cycle",100);
                 lvReport.Columns.Add("qty", 100);
+                lvReport.Columns.Add("Sum of defective items", 150);
                 int different = (endYear - starYear > 0) ? endYear - starYear : 0;
                 for(int i = starYear; i <= endYear; i++)
                 {
@@ -72,6 +73,23 @@ namespace SDP
                             count++;
                         }
                         lv.SubItems.Add(count.ToString());
+                        cmd.Dispose();
+
+                        sql = String.Format("select sum(qty) from defective where date > '{0}' and date < '{1}'", i + "-" + j + "-01", i + "-" + j + "-31");
+                        cmd = Program.ExecSQL(sql);
+                        data = cmd.ExecuteReader();
+                        int sum = 0;
+                        while (data.Read())
+                        {
+                            try
+                            {
+                                sum = data.GetInt32(0);
+                            }catch(Exception ex)
+                            {
+                                break;
+                            }
+                        }
+                        lv.SubItems.Add(sum.ToString());
                         lvReport.Items.Add(lv);
 
                         if (i == endYear && j == endMonth)
