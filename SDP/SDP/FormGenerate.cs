@@ -44,7 +44,7 @@ namespace SDP
                 int starMonth = Convert.ToInt32(dtpStartDate.Value.ToString("MM"));
                 String endMonth = dtpEndDate.Value.ToString("MM");
 
-                lvReport.Columns.Add("")
+                lvReport.Columns.Add("");
                 //MessageBox.Show(starMonth);
                 /*
                 ListViewItem lv = new ListViewItem();
