@@ -56,7 +56,7 @@
             // lblCompany
             // 
             this.lblCompany.AutoSize = true;
-            this.lblCompany.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblCompany.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblCompany.Location = new System.Drawing.Point(414, 396);
             this.lblCompany.Name = "lblCompany";
             this.lblCompany.Size = new System.Drawing.Size(399, 24);
@@ -250,6 +250,7 @@
             this.btnGenDIS.TabIndex = 8;
             this.btnGenDIS.Text = "Gen. DIS";
             this.btnGenDIS.UseVisualStyleBackColor = true;
+            this.btnGenDIS.Click += new System.EventHandler(this.BtnGenDIS_Click);
             // 
             // btnGenIN
             // 
