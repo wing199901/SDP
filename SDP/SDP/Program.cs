@@ -23,7 +23,7 @@ namespace SDP
 
         public static MySqlCommand ExecSQL(String sql)
         {
-            string dbHost = "192.168.64.2";
+            string dbHost = "192.168.65.2";
             string dbUser = "user";
             string dbPass = "user";
             string dbName = "dbOPSRS";
@@ -149,12 +149,13 @@ namespace SDP
                 }
             }
             Array.Sort(permission);
-           /* String save = "";
-            for(int  i = 0; i < permission.Count(); i++)
-            {
-                save += permission[i].ToString() + "             ";
-            }
-            MessageBox.Show(save);*/
+            /* String save = "";
+             for(int  i = 0; i < permission.Count(); i++)
+             {
+                 save += permission[i].ToString() + "             ";
+             }
+             MessageBox.Show(save);*/
+          //  MessageBox.Show(permission.Length.ToString());
         }
         public static int[] getPermission()
         {

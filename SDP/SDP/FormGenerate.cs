@@ -17,7 +17,9 @@ namespace SDP
         public FormGenerate()
         {
             InitializeComponent();
-
+            lvReport.GridLines = true;
+            lvReport.View = View.Details;
+            lvReport.FullRowSelect = true;
         }
 
         private void FormGenerate_Load(object sender, EventArgs e)
@@ -42,9 +44,36 @@ namespace SDP
             else
             {
                 int starMonth = Convert.ToInt32(dtpStartDate.Value.ToString("MM"));
-                String endMonth = dtpEndDate.Value.ToString("MM");
+                int starYear = Convert.ToInt32(dtpStartDate.Value.ToString("yyyy"));
+                int endMonth = Convert.ToInt32(dtpEndDate.Value.ToString("MM"));
+                int endYear = Convert.ToInt32(dtpEndDate.Value.ToString("yyyy"));
 
-                lvReport.Columns.Add("")
+                lvReport.Columns.Add("Cycle",100);
+                lvReport.Columns.Add("qty", 100);
+                int different = (endYear - starYear > 0) ? endYear - starYear : 0;
+                for(int i = starYear; i <= endYear; i++)
+                {
+                    
+                    for(int j = starMonth; (endYear-starYear==0)?j <= endMonth:j<=12; j++)
+                    {
+
+                        if (endYear - starYear != 0&&i!=starYear&&different-->0)
+                    {
+                        j = 1;
+                    }
+                        //lvReport.Items[0].SubItems
+                        ListViewItem lv = new ListViewItem(j.ToString()+"/"+i.ToString());//Cycle
+                        String sql = String.Format("select count(*) from defective where date > '{0}' and date < '{1}'");
+
+                        //lv.SubItems.Add();
+                        lvReport.Items.Add(lv);
+                        if (i == endYear && j == endMonth)
+                        {
+                            break;
+                        }
+                    }
+
+                }
                 //MessageBox.Show(starMonth);
                 /*
                 ListViewItem lv = new ListViewItem();

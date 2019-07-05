@@ -208,38 +208,45 @@ namespace SDP
                         invoice.AddAuthor(dataOrder.GetString("staffId"));   //文件作者
 
                         PdfPTable address = new PdfPTable(1);
+                        float[] columnDefinitionSize = { 260F };
+                        address.SetTotalWidth(columnDefinitionSize);
+                        address.HorizontalAlignment = 0;
+                        address.DefaultCell.BorderColor = BaseColor.WHITE;
+                        address.LockedWidth = true;
+
                         sql = String.Format("SELECT * FROM customer WHERE custId = '{0}'", dataOrder.GetString("custId"));
                         cmd = Program.ExecSQL(sql);
                         MySqlDataReader data = cmd.ExecuteReader();
                         while (data.Read())
                         {
-                            float[] columnDefinitionSize = { 260F };
-                            address.SetTotalWidth(columnDefinitionSize);
-                            address.HorizontalAlignment = 0;
-                            address.DefaultCell.BorderColor = BaseColor.WHITE;
-                            address.LockedWidth = true;
                             address.AddCell(new Phrase("Bill To:"));
                             address.AddCell(new Phrase(data.GetString("custName")));
                             address.AddCell(new Phrase(data.GetString("companyName")));
                             address.AddCell(new Phrase(data.GetString("address")));
                             address.AddCell(new Phrase(data.GetString("phone")));
-                            address.AddCell(new Phrase(data.GetString("custName")));
                             address.AddCell(new Phrase(data.GetString("email")));
                         }
 
                         invoice.Add(address);
 
+                        PdfPTable info = new PdfPTable(1);
+                        info.SetTotalWidth(columnDefinitionSize);
+                        info.HorizontalAlignment = 2;
+                        info.DefaultCell.BorderColor = BaseColor.WHITE;
+                        info.LockedWidth = true;
+                        info.AddCell(new Phrase("Order Date: " + dataOrder.GetDateTime("date").ToString("dd/MM/yyyy")));
+                        info.AddCell(new Phrase("Invoice number: " + orderId));
+                        info.AddCell(new Phrase("Invoice Date: " + DateTime.Now.ToString("dd/MM/yyyy")));
+                        info.AddCell(new Phrase("Due Date: " + DateTime.Now.AddDays(14).ToString("dd/MM/yyyy")));
+
+                        invoice.Add(info);
+
                         PdfPTable table = new PdfPTable(4);
-                        table.HorizontalAlignment = 0; //0=Left, 1=Centre, 2=Right
-                        PdfPCell header = new PdfPCell(new Phrase("Details"));
-                        header.Colspan = 4;
-                        table.AddCell(header);
-                        table.AddCell("Product Name");
+                        table.HorizontalAlignment = 1;      //0=Left, 1=Centre, 2=Right
+                        table.AddCell("Description");
                         table.AddCell("Quantity");
                         table.AddCell("Unit Price");
                         table.AddCell("Amount");
-
-                        PdfPTable totalTable = new PdfPTable(1);
 
                         sql = String.Format("SELECT * FROM `orderProduct`, product WHERE orderId= {0} AND orderProduct.productId = product.productId", orderId);
                         cmd = Program.ExecSQL(sql);
@@ -248,27 +255,48 @@ namespace SDP
                         {
                             table.AddCell(dataProduct.GetString("productName"));
                             table.AddCell(dataProduct.GetString("qty"));
-                            table.AddCell(dataProduct.GetString("price"));
+                            table.AddCell("$" + dataProduct.GetString("price"));
                             double total = (dataProduct.GetDouble("qty") * dataProduct.GetDouble("price"));
-                            totalTable.AddCell(new Phrase(total.ToString()));
+                            table.AddCell(new Phrase("$" + total.ToString()));
                         }
-                        totalTable.AddCell(dataOrder.GetString("totalAmount"));
-                        table.AddCell(totalTable);
-                        PdfPCell bottom = new PdfPCell(new Phrase("g"));
+                        PdfPCell bottom = new PdfPCell(new Phrase(""));
                         bottom.Colspan = 2;
                         table.AddCell(bottom);
                         table.AddCell("Total Amount:");
+                        table.AddCell("$" + dataOrder.GetString("totalAmount"));
+
                         invoice.Add(table);
 
+                        PdfPTable remark = new PdfPTable(1);
+                        remark.HorizontalAlignment = 1;
+                        remark.AddCell("Remark: ");
+                        try
+                        {
+                            remark.AddCell(dataOrder.GetString("remark"));
+                        }
+                        catch
+                        {
+                            remark.AddCell(" ");
+                        }
+
+                        invoice.Add(remark);
+
+                        Paragraph end1 = new Paragraph("If you have any questions about this invoice, Please feel free to contact us.");
+                        Paragraph end2 = new Paragraph("Thank you for Your Business!");
+                        end1.Alignment = 1;
+                        end2.Alignment = 1;
+
+                        invoice.Add(end1);
+                        invoice.Add(end2);
+
                         MessageBox.Show("Invoice output successfully.");
+                        invoice.Close();
                     }
                     catch (Exception ex)
                     {
                         Console.WriteLine(ex.Message);
-                    }
-                    finally
-                    {
-                        if (invoice.IsOpen()) invoice.Close();
+
+                        MessageBox.Show("Please try again.");
                     }
                 }
             }
