@@ -149,12 +149,12 @@ namespace SDP
                 }
             }
             Array.Sort(permission);
-            /* String save = "";
+             String save = "";
              for(int  i = 0; i < permission.Count(); i++)
              {
                  save += permission[i].ToString() + "             ";
              }
-             MessageBox.Show(save);*/
+             MessageBox.Show(save);
           //  MessageBox.Show(permission.Length.ToString());
         }
         public static int[] getPermission()

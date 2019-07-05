@@ -92,6 +92,7 @@ namespace SDP
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Update successfully!");
+
             }
         }
 

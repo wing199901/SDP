@@ -48,7 +48,7 @@ namespace SDP
             lvResult.Columns.Add("Safety Stock", 70);
             lvResult.Columns.Add("Reorder Point", 70);
 
-            txtSafetyStock.Focus();
+            //txtSafetyStock.Focus();
         }
         
         private void FormROL_Load(object sender, EventArgs e)
