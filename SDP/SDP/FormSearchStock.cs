@@ -98,14 +98,21 @@ namespace SDP
 
         private void LvResult_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            currentItem = lvResult.GetItemAt(e.X, e.Y);
-
-            if (currentItem != null)
+            if (control.hasPermission(510))
             {
-                String productId = currentItem.Text;
-                FormEditStock formEditStock = new FormEditStock(productId);
-                formEditStock.ShowDialog();
-                BtnSearch_Click(sender, e);
+                currentItem = lvResult.GetItemAt(e.X, e.Y);
+
+                if (currentItem != null)
+                {
+                    String productId = currentItem.Text;
+                    FormEditStock formEditStock = new FormEditStock(productId);
+                    formEditStock.ShowDialog();
+                    BtnSearch_Click(sender, e);
+                }
+            }
+            else
+            {
+                MessageBox.Show("You do not have permission to edit product record.");
             }
         }
     }
