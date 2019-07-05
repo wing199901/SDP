@@ -56,7 +56,7 @@
             // lblCompany
             // 
             this.lblCompany.AutoSize = true;
-            this.lblCompany.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblCompany.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblCompany.Location = new System.Drawing.Point(414, 396);
             this.lblCompany.Name = "lblCompany";
             this.lblCompany.Size = new System.Drawing.Size(399, 24);
@@ -66,7 +66,7 @@
             // lblOrderId
             // 
             this.lblOrderId.AutoSize = true;
-            this.lblOrderId.Location = new System.Drawing.Point(114, 237);
+            this.lblOrderId.Location = new System.Drawing.Point(114, 231);
             this.lblOrderId.Name = "lblOrderId";
             this.lblOrderId.Size = new System.Drawing.Size(50, 12);
             this.lblOrderId.TabIndex = 148;
@@ -74,7 +74,7 @@
             // 
             // txtOrderId
             // 
-            this.txtOrderId.Location = new System.Drawing.Point(197, 235);
+            this.txtOrderId.Location = new System.Drawing.Point(197, 228);
             this.txtOrderId.Name = "txtOrderId";
             this.txtOrderId.Size = new System.Drawing.Size(200, 22);
             this.txtOrderId.TabIndex = 0;
@@ -82,7 +82,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(197, 328);
+            this.btnSearch.Location = new System.Drawing.Point(194, 342);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 7;
@@ -92,7 +92,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(522, 328);
+            this.btnCancel.Location = new System.Drawing.Point(519, 342);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 11;
@@ -123,7 +123,7 @@
             // lblOrderDate
             // 
             this.lblOrderDate.AutoSize = true;
-            this.lblOrderDate.Location = new System.Drawing.Point(114, 303);
+            this.lblOrderDate.Location = new System.Drawing.Point(114, 314);
             this.lblOrderDate.Name = "lblOrderDate";
             this.lblOrderDate.Size = new System.Drawing.Size(59, 12);
             this.lblOrderDate.TabIndex = 158;
@@ -157,7 +157,7 @@
             // 
             // dtpStartDate
             // 
-            this.dtpStartDate.Location = new System.Drawing.Point(197, 300);
+            this.dtpStartDate.Location = new System.Drawing.Point(197, 307);
             this.dtpStartDate.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.Size = new System.Drawing.Size(200, 22);
@@ -165,7 +165,7 @@
             // 
             // dtpEndDate
             // 
-            this.dtpEndDate.Location = new System.Drawing.Point(418, 301);
+            this.dtpEndDate.Location = new System.Drawing.Point(505, 304);
             this.dtpEndDate.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.Size = new System.Drawing.Size(200, 22);
@@ -175,7 +175,7 @@
             // lblTo
             // 
             this.lblTo.AutoSize = true;
-            this.lblTo.Location = new System.Drawing.Point(399, 303);
+            this.lblTo.Location = new System.Drawing.Point(432, 314);
             this.lblTo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTo.Name = "lblTo";
             this.lblTo.Size = new System.Drawing.Size(14, 12);
@@ -193,7 +193,7 @@
             "Shipping",
             "Deletion",
             "Finish"});
-            this.cboOrderStatus.Location = new System.Drawing.Point(197, 275);
+            this.cboOrderStatus.Location = new System.Drawing.Point(197, 282);
             this.cboOrderStatus.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.cboOrderStatus.Name = "cboOrderStatus";
             this.cboOrderStatus.Size = new System.Drawing.Size(200, 20);
@@ -201,7 +201,7 @@
             // 
             // txtCustId
             // 
-            this.txtCustId.Location = new System.Drawing.Point(505, 256);
+            this.txtCustId.Location = new System.Drawing.Point(505, 254);
             this.txtCustId.Name = "txtCustId";
             this.txtCustId.Size = new System.Drawing.Size(200, 22);
             this.txtCustId.TabIndex = 3;
@@ -210,7 +210,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(422, 257);
+            this.label2.Location = new System.Drawing.Point(416, 257);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 12);
             this.label2.TabIndex = 170;
@@ -218,7 +218,7 @@
             // 
             // txtCustPhone
             // 
-            this.txtCustPhone.Location = new System.Drawing.Point(505, 275);
+            this.txtCustPhone.Location = new System.Drawing.Point(505, 282);
             this.txtCustPhone.Name = "txtCustPhone";
             this.txtCustPhone.Size = new System.Drawing.Size(200, 22);
             this.txtCustPhone.TabIndex = 4;
@@ -226,7 +226,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(422, 276);
+            this.label3.Location = new System.Drawing.Point(422, 285);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 12);
             this.label3.TabIndex = 172;
@@ -234,7 +234,7 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(441, 328);
+            this.btnReset.Location = new System.Drawing.Point(438, 342);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 10;
@@ -244,7 +244,7 @@
             // 
             // btnGenDIS
             // 
-            this.btnGenDIS.Location = new System.Drawing.Point(278, 328);
+            this.btnGenDIS.Location = new System.Drawing.Point(275, 342);
             this.btnGenDIS.Name = "btnGenDIS";
             this.btnGenDIS.Size = new System.Drawing.Size(75, 23);
             this.btnGenDIS.TabIndex = 8;
@@ -253,7 +253,7 @@
             // 
             // btnGenIN
             // 
-            this.btnGenIN.Location = new System.Drawing.Point(360, 328);
+            this.btnGenIN.Location = new System.Drawing.Point(357, 342);
             this.btnGenIN.Name = "btnGenIN";
             this.btnGenIN.Size = new System.Drawing.Size(75, 23);
             this.btnGenIN.TabIndex = 9;

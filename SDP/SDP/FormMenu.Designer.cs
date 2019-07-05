@@ -53,7 +53,7 @@
             this.btnROL.Location = new System.Drawing.Point(133, 262);
             this.btnROL.Name = "btnROL";
             this.btnROL.Size = new System.Drawing.Size(123, 23);
-            this.btnROL.TabIndex = 9;
+            this.btnROL.TabIndex = 7;
             this.btnROL.Text = "Correct ROL";
             this.btnROL.UseVisualStyleBackColor = true;
             this.btnROL.Click += new System.EventHandler(this.BtnROL_Click);
@@ -63,7 +63,7 @@
             this.btnGoods.Location = new System.Drawing.Point(587, 210);
             this.btnGoods.Name = "btnGoods";
             this.btnGoods.Size = new System.Drawing.Size(123, 23);
-            this.btnGoods.TabIndex = 7;
+            this.btnGoods.TabIndex = 6;
             this.btnGoods.Text = "Receive Goods";
             this.btnGoods.UseVisualStyleBackColor = true;
             this.btnGoods.Click += new System.EventHandler(this.BtnGoods_Click);
@@ -73,7 +73,7 @@
             this.btnGenReport.Location = new System.Drawing.Point(587, 262);
             this.btnGenReport.Name = "btnGenReport";
             this.btnGenReport.Size = new System.Drawing.Size(123, 23);
-            this.btnGenReport.TabIndex = 6;
+            this.btnGenReport.TabIndex = 9;
             this.btnGenReport.Text = "Generate Report";
             this.btnGenReport.UseVisualStyleBackColor = true;
             this.btnGenReport.Click += new System.EventHandler(this.BtnGenReport_Click);
@@ -93,7 +93,7 @@
             this.btnLogout.Location = new System.Drawing.Point(703, 12);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(123, 23);
-            this.btnLogout.TabIndex = 13;
+            this.btnLogout.TabIndex = 14;
             this.btnLogout.Text = "Log Out";
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.BtnLogout_Click);
@@ -103,7 +103,7 @@
             this.btnStock.Location = new System.Drawing.Point(360, 158);
             this.btnStock.Name = "btnStock";
             this.btnStock.Size = new System.Drawing.Size(123, 23);
-            this.btnStock.TabIndex = 5;
+            this.btnStock.TabIndex = 3;
             this.btnStock.Text = "Search Product";
             this.btnStock.UseVisualStyleBackColor = true;
             this.btnStock.Click += new System.EventHandler(this.BtnStock_Click);
@@ -113,7 +113,7 @@
             this.btnSearchOrder.Location = new System.Drawing.Point(360, 106);
             this.btnSearchOrder.Name = "btnSearchOrder";
             this.btnSearchOrder.Size = new System.Drawing.Size(123, 23);
-            this.btnSearchOrder.TabIndex = 2;
+            this.btnSearchOrder.TabIndex = 1;
             this.btnSearchOrder.Text = "Search Order";
             this.btnSearchOrder.UseVisualStyleBackColor = true;
             this.btnSearchOrder.Click += new System.EventHandler(this.BtnSearchOrder_Click);
@@ -123,7 +123,7 @@
             this.btnNewOrder.Location = new System.Drawing.Point(133, 106);
             this.btnNewOrder.Name = "btnNewOrder";
             this.btnNewOrder.Size = new System.Drawing.Size(123, 23);
-            this.btnNewOrder.TabIndex = 1;
+            this.btnNewOrder.TabIndex = 0;
             this.btnNewOrder.Text = "New Order";
             this.btnNewOrder.UseVisualStyleBackColor = true;
             this.btnNewOrder.Click += new System.EventHandler(this.BtnNewOrder_Click);
@@ -131,7 +131,7 @@
             // lblCompany
             // 
             this.lblCompany.AutoSize = true;
-            this.lblCompany.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblCompany.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblCompany.Location = new System.Drawing.Point(414, 396);
             this.lblCompany.Name = "lblCompany";
             this.lblCompany.Size = new System.Drawing.Size(399, 24);
@@ -140,7 +140,7 @@
             // 
             // lblWelcome
             // 
-            this.lblWelcome.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblWelcome.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblWelcome.Location = new System.Drawing.Point(205, 36);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Size = new System.Drawing.Size(399, 24);
@@ -182,7 +182,7 @@
             this.btnNewPO.Location = new System.Drawing.Point(133, 210);
             this.btnNewPO.Name = "btnNewPO";
             this.btnNewPO.Size = new System.Drawing.Size(123, 23);
-            this.btnNewPO.TabIndex = 0;
+            this.btnNewPO.TabIndex = 4;
             this.btnNewPO.Text = "New Purchase Order";
             this.btnNewPO.UseVisualStyleBackColor = true;
             this.btnNewPO.Click += new System.EventHandler(this.BtnNewPO_Click);
@@ -192,7 +192,7 @@
             this.btnNProduct.Location = new System.Drawing.Point(133, 158);
             this.btnNProduct.Name = "btnNProduct";
             this.btnNProduct.Size = new System.Drawing.Size(123, 23);
-            this.btnNProduct.TabIndex = 3;
+            this.btnNProduct.TabIndex = 2;
             this.btnNProduct.Text = "New Product";
             this.btnNProduct.UseVisualStyleBackColor = true;
             this.btnNProduct.Click += new System.EventHandler(this.BtnNProduct_Click);
@@ -202,7 +202,7 @@
             this.btnPassword.Location = new System.Drawing.Point(574, 12);
             this.btnPassword.Name = "btnPassword";
             this.btnPassword.Size = new System.Drawing.Size(123, 23);
-            this.btnPassword.TabIndex = 155;
+            this.btnPassword.TabIndex = 13;
             this.btnPassword.Text = "Change Password";
             this.btnPassword.UseVisualStyleBackColor = true;
             this.btnPassword.Click += new System.EventHandler(this.BtnPassword_Click);
@@ -212,7 +212,7 @@
             this.btnSearchPO.Location = new System.Drawing.Point(360, 210);
             this.btnSearchPO.Name = "btnSearchPO";
             this.btnSearchPO.Size = new System.Drawing.Size(123, 23);
-            this.btnSearchPO.TabIndex = 156;
+            this.btnSearchPO.TabIndex = 5;
             this.btnSearchPO.Text = "Search Purchase Order";
             this.btnSearchPO.UseVisualStyleBackColor = true;
             this.btnSearchPO.Click += new System.EventHandler(this.Button1_Click);

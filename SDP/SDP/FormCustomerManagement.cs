@@ -198,7 +198,7 @@ namespace SDP
                         sql = String.Format("UPDATE customer SET custName = '{0}', address = '{1}', companyName = '{2}', email = '{3}', phone = '{4}' WHERE custID = '{5}'", txtName.Text, txtAddress.Text, txtComName.Text, txtEmail.Text, txtPhone.Text, CustomerID);
                         cmd = Program.ExecSQL(sql);
                         cmd.ExecuteReader();
-                        MessageBox.Show("Update successfully!1");
+                        MessageBox.Show("Update successfully!");
                         FormCustomerManagement_Load(sender, e);
                     }
                     else if (currentPhone == txtPhone.Text&& currentPhone=="")
@@ -207,7 +207,7 @@ namespace SDP
                          sql = String.Format("UPDATE customer SET custName = '{0}', address = '{1}', companyName = '{2}', email = '{3}', phone = '{4}' WHERE custID = '{5}'", txtName.Text, txtAddress.Text, txtComName.Text, txtEmail.Text, txtPhone.Text, CustomerID);
                         cmd = Program.ExecSQL(sql);
                         cmd.ExecuteReader();
-                        MessageBox.Show("Update successfully!2");
+                        MessageBox.Show("Update successfully!");
                         FormCustomerManagement_Load(sender, e);
                     }
                     else
