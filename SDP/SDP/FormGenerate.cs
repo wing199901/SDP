@@ -41,6 +41,13 @@ namespace SDP
             }
             else
             {
+                int starMonth = Convert.ToInt32(dtpStartDate.Value.ToString("MM"));
+                String endMonth = dtpEndDate.Value.ToString("MM");
+
+                lvReport.Columns.Add("")
+                //MessageBox.Show(starMonth);
+                /*
+                ListViewItem lv = new ListViewItem();
                 switch (cboType.SelectedIndex)
                 {
                     case 0: // Defective Report
@@ -52,24 +59,45 @@ namespace SDP
                         lvReport.Columns.Add("Date (Period)", 100);
                         lvReport.Columns.Add("QTY (Affected Purchasing Order)", 100);
                         lvReport.Columns.Add("QTY (Total Affected Purchasing Order", 100);
-                        //lvReport.Columns.Add("Cost (Lost)", 100);
+                        lvReport.Columns.Add("Cost", 100);
 
-                        String period = String.Format("select date from defective where date = Month(date)");
+                        //String period = String.Format("SELECT date FROM defective WHERE MONTH(date) = MONTH(%m) AND Year(date) = YEAR(%Y)");
+                        String period = String.Format("SELECT DATE_FORMAT(date, '%m/%Y') FROM defective");
                         MySqlCommand p = Program.ExecSQL(period);
                         MySqlDataReader P = p.ExecuteReader();
 
-                        int month = 0;
+                        long d = 0;
+                        while (P.Read())
+                        {
+                            d += long.Parse(DateTime.ToString(P));
+                        }
+                        lv.SubItems.Add(d.ToString());
+                        /*int month = 0;
+                        int year = 0;
                         String M;
                         while (P.Read())
                         {
                             month++;
-                        }
-                        if (month > 0)
-                        {
-                            M = Convert.ToString(month);
-                        }
+                            year++;
+                             M = Convert.ToString(month, year);
+                            if (month > 0 && year > 0)
+                            {
+                               
+                                lv.SubItems.Add(M.GetDateTime(0).ToString(");
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("No defective report!");
+                            }
+                        }*/
+                        
+                  /*
+                        //ListViewItem lv = new ListViewItem(M);*/
 
                         //QTY (Affected Purchasing Order)
+
+                /*
                         String DG = String.Format("select * from defective");
                         MySqlCommand cmd = Program.ExecSQL(DG);
                         MySqlDataReader data = cmd.ExecuteReader();
@@ -80,25 +108,44 @@ namespace SDP
                         {
                             tmp++;
                         }
-                        ListViewItem lv = new ListViewItem(data.GetString(0).ToString());
+
                         if (tmp > 0)
                         {
                             Tmp = Convert.ToString(tmp);
 
                             lv.SubItems.Add(Tmp);
                         }
-                        /* while (data.Read())
-                         {
-                             ListViewItem lv = new ListViewItem(data.GetDateTime(0).ToString("dd/MM/yyyy"));
-                             lv.SubItems.Add(data.GetInt32(1).ToString());
-                             lv.SubItems.Add(data.GetInt32(2).ToString());
-                             lv.SubItems.Add(data.GetDateTime(3).ToString("dd/MM/yyyy"));
-                             lv.SubItems.Add(data.GetString(4).ToString());
-                             lv.SubItems.Add(data.GetString(5).ToString());*/
-                             lvReport.Items.Add(lv);
 
-                         //}
 
+                        // QTY (Total A.P.O)
+                        String tapo = String.Format("select qty from defective ");
+                        MySqlCommand t = Program.ExecSQL(tapo);
+                        MySqlDataReader T = t.ExecuteReader();
+
+                        int totalQTY=0;
+                        while (T.Read())
+                        {
+                            totalQTY += T.GetInt32(0);
+                        }
+                        lv.SubItems.Add(totalQTY.ToString());
+
+
+                        // Cost
+                        String c = String.Format("select price from product");
+                        MySqlCommand msc = Program.ExecSQL(c);
+                        MySqlDataReader msdrT = msc.ExecuteReader();
+
+                        int price = 0;
+                        String totalCost;
+                        while (msdrT.Read())
+                        {
+                            price++;
+                        }
+                        totalCost = Convert.ToString(price * totalQTY);
+                        lv.SubItems.Add(totalCost);
+                        
+
+                        lvReport.Items.Add(lv);
                         data.Close();
                         cmd.Dispose();
                         break;
@@ -141,8 +188,8 @@ namespace SDP
                     case 3: // Turnover
                         break;
                 }*/
-
-                }
+               // }
+                
                 //lvReport.Items.Clear();
             }
         }
