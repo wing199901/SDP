@@ -63,10 +63,17 @@ namespace SDP
                     }
                         //lvReport.Items[0].SubItems
                         ListViewItem lv = new ListViewItem(j.ToString()+"/"+i.ToString());//Cycle
-                        String sql = String.Format("select count(*) from defective where date > '{0}' and date < '{1}'");
-
-                        //lv.SubItems.Add();
+                        String sql = String.Format("select * from defective where date > '{0}' and date < '{1}'",i+"-"+j+"-01", i + "-" + j + "-31");//qty
+                        MySqlCommand cmd = Program.ExecSQL(sql);
+                        MySqlDataReader data = cmd.ExecuteReader();
+                        int count = 0;
+                        while (data.Read())
+                        {
+                            count++;
+                        }
+                        lv.SubItems.Add(count.ToString());
                         lvReport.Items.Add(lv);
+
                         if (i == endYear && j == endMonth)
                         {
                             break;
