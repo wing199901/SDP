@@ -98,7 +98,7 @@ namespace SDP
             }
         }
 
-        private void BtnUpdateAll_Click(object sender, EventArgs e)
+        public void BtnUpdateAll_Click(object sender, EventArgs e)
         {
             //Safety stock = (Maximum daily usage * Maximum lead time in days) – (Average daily usage * Average lead time in days)last month
             // string lMonth = DateTime.Now.ToString("MM");
@@ -114,7 +114,7 @@ namespace SDP
             cmd.Dispose();
             MessageBox.Show("All reorder points and safety stock have been updated.");
             FormROL_Load(sender, e);
-            //
+            
         }
         private void updateROP(String productId)
         {
