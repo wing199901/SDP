@@ -343,7 +343,6 @@ namespace SDP
 
                 if (status == "Shipping")
                 {
-
                     String sql = String.Format("SELECT * FROM dbOPSRS.order WHERE orderId = '{0}'", orderId);
                     MySqlCommand cmd = Program.ExecSQL(sql);
                     MySqlDataReader dataOrder = cmd.ExecuteReader();
@@ -436,22 +435,6 @@ namespace SDP
                             }
 
                             DIS.Add(remark);
-
-                            Paragraph end1 = new Paragraph("If you have any questions about this DIS, Please feel free to contact us.");
-                            Paragraph end2 = new Paragraph("Thank you for Your Business!");
-                            end1.Alignment = 1;
-                            end2.Alignment = 1;
-
-                            DIS.Add(end1);
-                            DIS.Add(end2);
-
-                            Paragraph sign1 = new Paragraph("Sign: \n\n\n", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.COURIER, 20f));
-                            Paragraph sign2 = new Paragraph("_____________________________________________");
-                            sign1.Alignment = 0;
-                            sign2.Alignment = 0;
-
-                            DIS.Add(sign1);
-                            DIS.Add(sign2);
 
                             MessageBox.Show("DIS output successfully.");
                             DIS.Close();
