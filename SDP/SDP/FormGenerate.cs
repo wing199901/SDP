@@ -62,11 +62,10 @@ namespace SDP
                         j = 1;
                     }
                         //lvReport.Items[0].SubItems
-                        ListViewItem lv = new ListViewItem(j.ToString()+"/"+i.ToString());
+                        ListViewItem lv = new ListViewItem(j.ToString()+"/"+i.ToString());//Cycle
+                        String sql = String.Format("select count(*) from defective where date > '{0}' and date < '{1}'");
 
-                       // lv.SubItems.Add(data.GetString(1));
-                        //lv.SubItems.Add(data.GetString(2));
-                        //lv.SubItems.Add(data.GetString(3));
+                        //lv.SubItems.Add();
                         lvReport.Items.Add(lv);
                         if (i == endYear && j == endMonth)
                         {

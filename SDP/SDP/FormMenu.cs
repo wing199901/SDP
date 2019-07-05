@@ -32,6 +32,7 @@ namespace SDP
             firstDay = firstDay.AddDays(-(firstDay.Day - 1));
             if (DateTime.Now.Day.Equals(firstDay.Day))
             {
+                this.Reorder("");
                 FormReorderPoint formReorderPoint = new FormReorderPoint();
                 formReorderPoint.BtnUpdateAll_Click(null,null);
             }
@@ -82,18 +83,37 @@ namespace SDP
         private void FormMenu_Load(object sender, EventArgs e)
         {
 
-            String sql = String.Format("select staffName from staff where staffId ={0}", UserName);
+            String sql = String.Format("select staffName,staffId from staff where staffId ={0}", UserName);
             MySqlCommand cmd = Program.ExecSQL(sql);
             MySqlDataReader data = cmd.ExecuteReader();
             String name = "";
 
+            String staffId = "";
             while (data.Read())
             {
                 name = data[0].ToString();
+                staffId = data[1].ToString();
             }
 
             data.Close();
             cmd.Dispose();
+
+
+            control.setPermission(staffId);
+            //  int[] permission = control.getPermission();
+            //MessageBox.Show(permission[0].ToString());
+            btnNewOrder.Enabled = control.hasPermission(100) ? true : false;
+            btnSearchOrder.Enabled = control.hasPermission(200) ? true : false;
+            btnDefective.Enabled = control.hasPermission(300) ? true : false;
+            btnNProduct.Enabled = control.hasPermission(400) ? true : false;
+            btnStock.Enabled = control.hasPermission(500) ? true : false;
+            btnNewPO.Enabled = control.hasPermission(600) ? true : false;
+            btnGoods.Enabled = control.hasPermission(700) ? true : false;
+            btnGenReport.Enabled = control.hasPermission(800) ? true : false;
+            btnROL.Enabled = control.hasPermission(900) ? true : false;
+            btnStaff.Visible = control.hasPermission(1000) ? true : false;
+            btnCust.Visible = control.hasPermission(1100) ? true : false;
+            btnJPos.Visible = control.hasPermission(1200) ? true : false;
 
             lblWelcome.Text += name;
 

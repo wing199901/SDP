@@ -163,13 +163,14 @@
             this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // dtpDefective
             // 
             this.dtpDefective.Location = new System.Drawing.Point(204, 79);
             this.dtpDefective.Name = "dtpDefective";
             this.dtpDefective.Size = new System.Drawing.Size(200, 22);
-            this.dtpDefective.TabIndex = 13;
+            this.dtpDefective.TabIndex = 1;
             this.dtpDefective.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DtpDefective_KeyDown);
             // 
             // txtReason
@@ -178,7 +179,7 @@
             this.txtReason.Multiline = true;
             this.txtReason.Name = "txtReason";
             this.txtReason.Size = new System.Drawing.Size(200, 67);
-            this.txtReason.TabIndex = 14;
+            this.txtReason.TabIndex = 5;
             // 
             // FormDefective
             // 
