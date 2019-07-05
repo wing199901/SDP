@@ -67,11 +67,40 @@ namespace SDP
                 MySqlCommand cmd = null;
                 try
                 {
-                    String sql = String.Format("INSERT INTO role VALUES({0},'{1}')", txtRID.Text, txtName.Text);
+                    String sql = String.Format("select * from role where roleId = {0}", txtRID.Text);
                     cmd = Program.ExecSQL(sql);
-                    cmd.ExecuteReader();
-                    MessageBox.Show("Update successfully!");
+                    MySqlDataReader data = cmd.ExecuteReader();
+                    int count = 0;
+                    while (data.Read())
+                    {
+                        count++;
+                    }
+                    if (count == 0)
+                    {
+                        cmd.Dispose();
+                        sql = String.Format("INSERT INTO role VALUES({0},'{1}')", txtRID.Text, txtName.Text);
+                        cmd = Program.ExecSQL(sql);
+                        cmd.ExecuteReader();
+                        cmd.Dispose();
+                        sql = "SELECT page,controlId from control";
+                        cmd = Program.ExecSQL(sql);
+                        data = cmd.ExecuteReader();
+                        while (data.Read())
+                        {//insert into controlRole VALUES (10,'Correct ROL',900,true)
+                            sql = String.Format("insert into controlRole values ({0},'{1}',{2},{3})", txtRID.Text, data.GetString(0), data.GetString(1), "true");
+                            cmd = Program.ExecSQL(sql);
+                            cmd.ExecuteReader();
+                        }
+                        MessageBox.Show("Update successfully!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("This role Id alreadly exist.");
+                    }
+                    cmd.Dispose();
+                    Utilities.ResetAllControls(this);
                     FormRoleControl_Load(sender, e);
+
                 }
                 catch (Exception ex)
                 {
