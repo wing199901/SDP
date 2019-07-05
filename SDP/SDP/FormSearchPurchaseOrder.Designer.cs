@@ -130,7 +130,7 @@
             this.Controls.Add(this.lvProduct);
             this.Controls.Add(this.lvOrder);
             this.Name = "FormSearchPurchaseOrder";
-            this.Text = "FormSearchPurchaseOrder";
+            this.Text = "Search Purchasing Order";
             this.Load += new System.EventHandler(this.FormSearchPurchaseOrder_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

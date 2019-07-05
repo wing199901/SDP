@@ -53,7 +53,7 @@ namespace SDP
                     while (data.Read())
                     {
                         orderID = data.GetString("poId");
-                        MessageBox.Show(orderID);
+                        //MessageBox.Show(orderID);
                     }
 
                     if (orderID != "")
@@ -78,7 +78,7 @@ namespace SDP
                     }
                     else
                     {
-                        MessageBox.Show("This order is Finished!");
+                        MessageBox.Show("No this order!");
                     }
 
                     data.Close();
@@ -87,7 +87,7 @@ namespace SDP
                 catch(Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
-                    MessageBox.Show("No this order!");
+                    MessageBox.Show("This order is Finished!");
                 }
             }
         }

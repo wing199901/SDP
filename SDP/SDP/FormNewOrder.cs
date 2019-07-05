@@ -142,7 +142,7 @@ namespace SDP
             {
                 if (txtQty.Text != "")
                 {
-                    String sql = String.Format("select onHand from product where productId = {0}",txtProductID.Text.ToString());
+                    String sql = String.Format("select onHand from product where productId = {0}", txtProductID.Text.ToString());
                     MySqlCommand cmd = Program.ExecSQL(sql);
                     MySqlDataReader data = cmd.ExecuteReader();
                     int onHand = 0;
@@ -178,7 +178,8 @@ namespace SDP
                         cmd.Dispose();
                         txtProductID.Text = "";
                         txtQty.Text = "";
-                    }else
+                    }
+                    else
                     {
                         MessageBox.Show("This product is out of stock.");
                     }
@@ -221,7 +222,6 @@ namespace SDP
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
             }
 
         }
